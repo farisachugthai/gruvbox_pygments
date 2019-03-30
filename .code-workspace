@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"telemetry.enableTelemetry": false,
+		"telemetry.enableCrashReporter": false,
+		"python.analysis.logLevel": "Warning",
+		"python.analysis.openFilesOnly": false,
+		"python.autoComplete.addBrackets": true,
+		"python.formatting.provider": "yapf",
+		"python.linting.flake8Enabled": true,
+		"python.linting.pydocstyleEnabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.terminal.executeInFileDir": true,
+		"restructuredtext.experimental": true,
+		"workbench.commandPalette.preserveInput": true
+	}
+}
