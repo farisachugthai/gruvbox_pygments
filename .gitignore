@@ -3,6 +3,9 @@
 # Repo specific
 .vscode
 
+# Sphinx specific
+docs/_build/html/*
+
 # Python
 # mypy
 .mypy_cache/

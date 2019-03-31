@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/faris/miniconda3/envs/flask/bin/python"
+    "python.pythonPath": "/home/faris/miniconda3/envs/utilities/bin/python",
+    "restructuredtext.confPath": "${workspaceFolder}/docs/source"
 }

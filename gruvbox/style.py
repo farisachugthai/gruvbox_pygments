@@ -7,6 +7,9 @@ A retro groove color scheme for Vim.
 `<https://github.com/morhetz/gruvbox>`_
 
 
+Definitely could consider creating a base class that inherits from Style.
+Then come up with subclasses that implement the varying contrasts.
+
 """
 from pygments.style import Style
 from pygments.token import Token, Comment, Name, Keyword, Generic, Number, Operator, String
