@@ -5,6 +5,10 @@
 
 # Sphinx specific
 docs/_build/html/*
+.doctree*
+.*doctree
+*.html
+!docs/source/_templates/*.html
 
 # Python
 # mypy
@@ -108,3 +112,4 @@ Thumbs.db
 *yarn.lock
 .ntvs_analysis.dat
 *node_modules/*
+docs/.doctrees/index.doctree
