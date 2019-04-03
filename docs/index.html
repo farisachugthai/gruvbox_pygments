@@ -1,0 +1,366 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Gruvbox IPython’s documentation! &#8212; Gruvbox IPython 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-gruvbox-ipython-s-documentation">
+<h1>Welcome to Gruvbox IPython’s documentation!<a class="headerlink" href="#welcome-to-gruvbox-ipython-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
+<h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h2>
+<p><cite>Gruvbox &lt;https://github.com/morhetz/gruvbox</cite> is a phenomenal colorscheme for
+Vim, and gives a fantastic base for any terminal based application.</p>
+<p>According to it’s author:</p>
+<blockquote>
+<div>Designed as a bright theme with pastel ‘retro groove’ colors and light/dark
+mode switching in the way of solarized. The main focus when developing
+gruvbox is to keep colors easily distinguishable, contrast enough and still
+pleasant for the eyes.</div></blockquote>
+<p>To an impressive extent Gruvbox achieves this.</p>
+<p>So why this repository?</p>
+<p>Despite it’s popularity as Vim colorscheme, I have yet to find a faithful
+port of Gruvbox to <span class="xref std std-ref">Pygments</span>.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following in your terminal of choice.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build <span class="o">&amp;&amp;</span> python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>To use this colorscheme in <code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
+create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-bloody-gorey-details">
+<h1>The bloody gorey details<a class="headerlink" href="#the-bloody-gorey-details" title="Permalink to this headline">¶</a></h1>
+<p>For reference:</p>
+<p>dark0_hard       #1d2021   [   ]  [   ]   234 [h0][  ]    29- 32- 33    22- 24- 25   #161819
+dark0            #282828   [bg0]  [fg0]   235 [ 0][  ]    40- 40- 40    30- 30- 30   #1e1e1e
+dark0_soft       #32302f   [   ]  [   ]   236 [s0][  ]    50- 48- 47    38- 36- 35   #262423
+dark1            #3c3836   [bg1]  [fg1]   237 [  ][15]    60- 56- 54    46- 42- 41   #2e2a29
+dark2            #504945   [bg2]  [fg2]   239 [  ][  ]    80- 73- 69    63- 57- 53   #3f3935
+dark3            #665c54   [bg3]  [fg3]   241 [  ][  ]   102- 92- 84    83- 74- 66   #534a42
+dark4            #7c6f64   [bg4]  [fg4]   243 [  ][ 7]   124-111-100   104- 92- 81   #685c51
+gray_245         #928374   [gray] [   ]   245 [ 8][  ]   146-131-116   127-112- 97   #7f7061
+gray_244         #928374   [   ] [gray]   244 [  ][ 8]   146-131-116   127-112- 97   #7f7061
+light0_hard      #f9f5d7   [   ]  [   ]   230 [  ][h0]   249-245-215   248-244-205   #f8f4cd
+light0           #fbf1c7   [fg0]  [bg0]   229 [  ][ 0]   251-241-199   250-238-187   #faeebb
+light0_soft      #f2e5bc   [   ]  [   ]   228 [  ][s0]   242-229-188   239-223-174   #efdfae
+light1           #ebdbb2   [fg1]  [bg1]   223 [15][  ]   235-219-178   230-212-163   #e6d4a3
+light2           #d5c4a1   [fg2]  [bg2]   250 [  ][  ]   213-196-161   203-184-144   #cbb890
+light3           #bdae93   [fg3]  [bg3]   248 [  ][  ]   189-174-147   175-159-129   #af9f81
+light4           #a89984   [fg4]  [bg4]   246 [ 7][  ]   168-153-132   151-135-113   #978771
+bright_red       #fb4934   [red]   [  ]   167 [ 9][  ]   251- 73- 52   247- 48- 40   #f73028
+bright_green     #b8bb26   [green] [  ]   142 [10][  ]   184-187- 38   170-176- 30   #aab01e
+bright_yellow    #fabd2f   [yellow][  ]   214 [11][  ]   250-189- 47   247-177- 37   #f7b125
+bright_blue      #83a598   [blue]  [  ]   109 [12][  ]   131-165-152   113-149-134   #719586
+bright_purple    #d3869b   [purple][  ]   175 [13][  ]   211-134-155   199-112-137   #c77089
+bright_aqua      #8ec07c   [aqua]  [  ]   108 [14][  ]   142-192-124   125-182-105   #7db669
+bright_orange    #fe8019   [orange][  ]   208 [  ][  ]   254-128- 25   251-106- 22   #fb6a16
+neutral_red      #cc241d   [   ]  [   ]   124 [ 1][ 1]   204- 36- 29   190- 15- 23   #be0f17
+neutral_green    #98971a   [   ]  [   ]   106 [ 2][ 2]   152-151- 26   134-135- 21   #868715
+neutral_yellow   #d79921   [   ]  [   ]   172 [ 3][ 3]   215-153- 33   204-136- 26   #cc881a
+neutral_blue     #458588   [   ]  [   ]    66 [ 4][ 4]    69-133-136    55-115-117   #377375
+neutral_purple   #b16286   [   ]  [   ]   132 [ 5][ 5]   177- 98-134   160- 75-115   #a04b73
+neutral_aqua     #689d6a   [   ]  [   ]    72 [ 6][ 6]   104-157-106    87-142- 87   #578e57
+neutral_orange   #d65d0e   [   ]  [   ]   166 [  ][  ]   214- 93- 14   202- 72- 14   #ca480e
+faded_red        #9d0006   [   ]   [red]   88 [  ][ 9]   157-  0-  6   137-  0-  9   #890009
+faded_green      #79740e   [   ] [green]  100 [  ][10]   121-116- 14   102- 98- 13   #66620d
+faded_yellow     #b57614   [   ][yellow]  136 [  ][11]   181-118- 20   165- 99- 17   #a56311
+faded_blue       #076678   [   ]  [blue]   24 [  ][12]     7-102-120    14- 83-101   #0e5365
+faded_purple     #8f3f71   [   ][purple]   96 [  ][13]   143- 63-113   123- 43- 94   #7b2b5e
+faded_aqua       #427b58   [   ]  [aqua]   66 [  ][14]    66-123- 88    53-106- 70   #356a46
+faded_orange     #af3a03   [   ][orange]  130 [  ][  ]   175- 58-  3   157- 40-  7   #9d2807
+——————————————————————————————–</p>
+<p># Pygments Standard Types: {{{1</p>
+<p>Here’s the src from pygments/token.py</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map standard token types to short names, used in CSS class naming.</span>
+<span class="c1"># If you add a new item, please be sure to run this file to perform</span>
+<span class="c1"># a consistency check for duplicate values.</span>
+<span class="n">STANDARD_TYPES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Token</span><span class="p">:</span>                         <span class="s1">&#39;&#39;</span><span class="p">,</span>
+
+    <span class="n">Text</span><span class="p">:</span>                          <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">Whitespace</span><span class="p">:</span>                    <span class="s1">&#39;w&#39;</span><span class="p">,</span>
+    <span class="n">Escape</span><span class="p">:</span>                        <span class="s1">&#39;esc&#39;</span><span class="p">,</span>
+    <span class="n">Error</span><span class="p">:</span>                         <span class="s1">&#39;err&#39;</span><span class="p">,</span>
+    <span class="n">Other</span><span class="p">:</span>                         <span class="s1">&#39;x&#39;</span><span class="p">,</span>
+
+    <span class="n">Keyword</span><span class="p">:</span>                       <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>              <span class="s1">&#39;kc&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Declaration</span><span class="p">:</span>           <span class="s1">&#39;kd&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>             <span class="s1">&#39;kn&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">:</span>                <span class="s1">&#39;kp&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Reserved</span><span class="p">:</span>              <span class="s1">&#39;kr&#39;</span><span class="p">,</span>
+    <span class="n">Keyword</span><span class="o">.</span><span class="n">Type</span><span class="p">:</span>                  <span class="s1">&#39;kt&#39;</span><span class="p">,</span>
+
+    <span class="n">Name</span><span class="p">:</span>                          <span class="s1">&#39;n&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">:</span>                <span class="s1">&#39;na&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">:</span>                  <span class="s1">&#39;nb&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">:</span>           <span class="s1">&#39;bp&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>                    <span class="s1">&#39;nc&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>                 <span class="s1">&#39;no&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">:</span>                <span class="s1">&#39;nd&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">:</span>                   <span class="s1">&#39;ni&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span>                <span class="s1">&#39;ne&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>                 <span class="s1">&#39;nf&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>           <span class="s1">&#39;fm&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span>                 <span class="s1">&#39;py&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span>                    <span class="s1">&#39;nl&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>                <span class="s1">&#39;nn&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Other</span><span class="p">:</span>                    <span class="s1">&#39;nx&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">:</span>                      <span class="s1">&#39;nt&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span>                 <span class="s1">&#39;nv&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>           <span class="s1">&#39;vc&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span>          <span class="s1">&#39;vg&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Instance</span><span class="p">:</span>        <span class="s1">&#39;vi&#39;</span><span class="p">,</span>
+    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>           <span class="s1">&#39;vm&#39;</span><span class="p">,</span>
+
+    <span class="n">Literal</span><span class="p">:</span>                       <span class="s1">&#39;l&#39;</span><span class="p">,</span>
+    <span class="n">Literal</span><span class="o">.</span><span class="n">Date</span><span class="p">:</span>                  <span class="s1">&#39;ld&#39;</span><span class="p">,</span>
+
+    <span class="n">String</span><span class="p">:</span>                        <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Affix</span><span class="p">:</span>                  <span class="s1">&#39;sa&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Backtick</span><span class="p">:</span>               <span class="s1">&#39;sb&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Char</span><span class="p">:</span>                   <span class="s1">&#39;sc&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Delimiter</span><span class="p">:</span>              <span class="s1">&#39;dl&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Doc</span><span class="p">:</span>                    <span class="s1">&#39;sd&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Double</span><span class="p">:</span>                 <span class="s1">&#39;s2&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">:</span>                 <span class="s1">&#39;se&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Heredoc</span><span class="p">:</span>                <span class="s1">&#39;sh&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">:</span>               <span class="s1">&#39;si&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Other</span><span class="p">:</span>                  <span class="s1">&#39;sx&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Regex</span><span class="p">:</span>                  <span class="s1">&#39;sr&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Single</span><span class="p">:</span>                 <span class="s1">&#39;s1&#39;</span><span class="p">,</span>
+    <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span>                 <span class="s1">&#39;ss&#39;</span><span class="p">,</span>
+
+    <span class="n">Number</span><span class="p">:</span>                        <span class="s1">&#39;m&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Bin</span><span class="p">:</span>                    <span class="s1">&#39;mb&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">:</span>                  <span class="s1">&#39;mf&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Hex</span><span class="p">:</span>                    <span class="s1">&#39;mh&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="p">:</span>                <span class="s1">&#39;mi&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="o">.</span><span class="n">Long</span><span class="p">:</span>           <span class="s1">&#39;il&#39;</span><span class="p">,</span>
+    <span class="n">Number</span><span class="o">.</span><span class="n">Oct</span><span class="p">:</span>                    <span class="s1">&#39;mo&#39;</span><span class="p">,</span>
+
+    <span class="n">Operator</span><span class="p">:</span>                      <span class="s1">&#39;o&#39;</span><span class="p">,</span>
+    <span class="n">Operator</span><span class="o">.</span><span class="n">Word</span><span class="p">:</span>                 <span class="s1">&#39;ow&#39;</span><span class="p">,</span>
+
+    <span class="n">Punctuation</span><span class="p">:</span>                   <span class="s1">&#39;p&#39;</span><span class="p">,</span>
+
+    <span class="n">Comment</span><span class="p">:</span>                       <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">Hashbang</span><span class="p">:</span>              <span class="s1">&#39;ch&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">:</span>             <span class="s1">&#39;cm&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">Preproc</span><span class="p">:</span>               <span class="s1">&#39;cp&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">PreprocFile</span><span class="p">:</span>           <span class="s1">&#39;cpf&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">Single</span><span class="p">:</span>                <span class="s1">&#39;c1&#39;</span><span class="p">,</span>
+    <span class="n">Comment</span><span class="o">.</span><span class="n">Special</span><span class="p">:</span>               <span class="s1">&#39;cs&#39;</span><span class="p">,</span>
+
+    <span class="n">Generic</span><span class="p">:</span>                       <span class="s1">&#39;g&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">:</span>               <span class="s1">&#39;gd&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">:</span>                  <span class="s1">&#39;ge&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>                 <span class="s1">&#39;gr&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">:</span>               <span class="s1">&#39;gh&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">:</span>              <span class="s1">&#39;gi&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Output</span><span class="p">:</span>                <span class="s1">&#39;go&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span>                <span class="s1">&#39;gp&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">:</span>                <span class="s1">&#39;gs&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">:</span>            <span class="s1">&#39;gu&#39;</span><span class="p">,</span>
+    <span class="n">Generic</span><span class="o">.</span><span class="n">Traceback</span><span class="p">:</span>             <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>}}}</p>
+<p>The only <span class="xref std std-ref">Pygments</span> port I could find frequently uses hex colors not found
+in the original Gruvbox, and does not link colors in even a slightly similar
+manner to the original.</p>
+<p>Here’s the relevant source code from the original gruvbox.</p>
+<p># Source Code Blob: {{{1</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">hi</span><span class="p">!</span> link pythonBuiltin GruvboxOrange
+<span class="k">hi</span><span class="p">!</span> link pythonBuiltinObj GruvboxOrange
+<span class="k">hi</span><span class="p">!</span> link pythonBuiltinFunc GruvboxOrange
+<span class="k">hi</span><span class="p">!</span> link pythonFunction GruvboxAqua
+<span class="k">hi</span><span class="p">!</span> link pythonDecorator GruvboxRed
+<span class="k">hi</span><span class="p">!</span> link pythonInclude GruvboxBlue
+<span class="k">hi</span><span class="p">!</span> link pythonImport GruvboxBlue
+<span class="k">hi</span><span class="p">!</span> link pythonRun GruvboxBlue
+<span class="k">hi</span><span class="p">!</span> link pythonCoding GruvboxBlue
+<span class="k">hi</span><span class="p">!</span> link pythonOperator GruvboxRed
+<span class="k">hi</span><span class="p">!</span> link pythonException GruvboxRed
+<span class="k">hi</span><span class="p">!</span> link pythonExceptions GruvboxPurple
+<span class="k">hi</span><span class="p">!</span> link pythonBoolean GruvboxPurple
+<span class="k">hi</span><span class="p">!</span> link pythonDot GruvboxFg3
+<span class="k">hi</span><span class="p">!</span> link pythonConditional GruvboxRed
+<span class="k">hi</span><span class="p">!</span> link pythonRepeat GruvboxRed
+<span class="k">hi</span><span class="p">!</span> link pythonDottedName GruvboxGreenBold
+</pre></div>
+</div>
+<p>” }}}</p>
+<p>And the definitions for what those keywords mean.</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; Palette: {{{2</span>
+
+<span class="c">&quot; setup palette dictionary</span>
+<span class="k">let</span> s:gb <span class="p">=</span> {}
+
+<span class="c">&quot; fill it with absolute colors</span>
+<span class="k">let</span> s:gb.dark0_hard  <span class="p">=</span> [<span class="s1">&#39;#1d2021&#39;</span><span class="p">,</span> <span class="m">234</span>]     <span class="c">&quot; 29-32-33</span>
+<span class="k">let</span> s:gb.dark0       <span class="p">=</span> [<span class="s1">&#39;#282828&#39;</span><span class="p">,</span> <span class="m">235</span>]     <span class="c">&quot; 40-40-40</span>
+<span class="k">let</span> s:gb.dark0_soft  <span class="p">=</span> [<span class="s1">&#39;#32302f&#39;</span><span class="p">,</span> <span class="m">236</span>]     <span class="c">&quot; 50-48-47</span>
+<span class="k">let</span> s:gb.dark1       <span class="p">=</span> [<span class="s1">&#39;#3c3836&#39;</span><span class="p">,</span> <span class="m">237</span>]     <span class="c">&quot; 60-56-54</span>
+<span class="k">let</span> s:gb.dark2       <span class="p">=</span> [<span class="s1">&#39;#504945&#39;</span><span class="p">,</span> <span class="m">239</span>]     <span class="c">&quot; 80-73-69</span>
+<span class="k">let</span> s:gb.dark3       <span class="p">=</span> [<span class="s1">&#39;#665c54&#39;</span><span class="p">,</span> <span class="m">241</span>]     <span class="c">&quot; 102-92-84</span>
+<span class="k">let</span> s:gb.dark4       <span class="p">=</span> [<span class="s1">&#39;#7c6f64&#39;</span><span class="p">,</span> <span class="m">243</span>]     <span class="c">&quot; 124-111-100</span>
+<span class="k">let</span> s:gb.dark4_256   <span class="p">=</span> [<span class="s1">&#39;#7c6f64&#39;</span><span class="p">,</span> <span class="m">243</span>]     <span class="c">&quot; 124-111-100</span>
+
+<span class="k">let</span> s:gb.gray_245    <span class="p">=</span> [<span class="s1">&#39;#928374&#39;</span><span class="p">,</span> <span class="m">245</span>]     <span class="c">&quot; 146-131-116</span>
+<span class="k">let</span> s:gb.gray_244    <span class="p">=</span> [<span class="s1">&#39;#928374&#39;</span><span class="p">,</span> <span class="m">244</span>]     <span class="c">&quot; 146-131-116</span>
+
+<span class="k">let</span> s:gb.light0_hard <span class="p">=</span> [<span class="s1">&#39;#f9f5d7&#39;</span><span class="p">,</span> <span class="m">230</span>]     <span class="c">&quot; 249-245-215</span>
+<span class="k">let</span> s:gb.light0      <span class="p">=</span> [<span class="s1">&#39;#fbf1c7&#39;</span><span class="p">,</span> <span class="m">229</span>]     <span class="c">&quot; 253-244-193</span>
+<span class="k">let</span> s:gb.light0_soft <span class="p">=</span> [<span class="s1">&#39;#f2e5bc&#39;</span><span class="p">,</span> <span class="m">228</span>]     <span class="c">&quot; 242-229-188</span>
+<span class="k">let</span> s:gb.light1      <span class="p">=</span> [<span class="s1">&#39;#ebdbb2&#39;</span><span class="p">,</span> <span class="m">223</span>]     <span class="c">&quot; 235-219-178</span>
+<span class="k">let</span> s:gb.light2      <span class="p">=</span> [<span class="s1">&#39;#d5c4a1&#39;</span><span class="p">,</span> <span class="m">250</span>]     <span class="c">&quot; 213-196-161</span>
+<span class="k">let</span> s:gb.light3      <span class="p">=</span> [<span class="s1">&#39;#bdae93&#39;</span><span class="p">,</span> <span class="m">248</span>]     <span class="c">&quot; 189-174-147</span>
+<span class="k">let</span> s:gb.light4      <span class="p">=</span> [<span class="s1">&#39;#a89984&#39;</span><span class="p">,</span> <span class="m">246</span>]     <span class="c">&quot; 168-153-132</span>
+<span class="k">let</span> s:gb.light4_256  <span class="p">=</span> [<span class="s1">&#39;#a89984&#39;</span><span class="p">,</span> <span class="m">246</span>]     <span class="c">&quot; 168-153-132</span>
+
+<span class="k">let</span> s:gb.bright_red     <span class="p">=</span> [<span class="s1">&#39;#fb4934&#39;</span><span class="p">,</span> <span class="m">167</span>]     <span class="c">&quot; 251-73-52</span>
+<span class="k">let</span> s:gb.bright_green   <span class="p">=</span> [<span class="s1">&#39;#b8bb26&#39;</span><span class="p">,</span> <span class="m">142</span>]     <span class="c">&quot; 184-187-38</span>
+<span class="k">let</span> s:gb.bright_yellow  <span class="p">=</span> [<span class="s1">&#39;#fabd2f&#39;</span><span class="p">,</span> <span class="m">214</span>]     <span class="c">&quot; 250-189-47</span>
+<span class="k">let</span> s:gb.bright_blue    <span class="p">=</span> [<span class="s1">&#39;#83a598&#39;</span><span class="p">,</span> <span class="m">109</span>]     <span class="c">&quot; 131-165-152</span>
+<span class="k">let</span> s:gb.bright_purple  <span class="p">=</span> [<span class="s1">&#39;#d3869b&#39;</span><span class="p">,</span> <span class="m">175</span>]     <span class="c">&quot; 211-134-155</span>
+<span class="k">let</span> s:gb.bright_aqua    <span class="p">=</span> [<span class="s1">&#39;#8ec07c&#39;</span><span class="p">,</span> <span class="m">108</span>]     <span class="c">&quot; 142-192-124</span>
+<span class="k">let</span> s:gb.bright_orange  <span class="p">=</span> [<span class="s1">&#39;#fe8019&#39;</span><span class="p">,</span> <span class="m">208</span>]     <span class="c">&quot; 254-128-25</span>
+
+<span class="k">let</span> s:gb.neutral_red    <span class="p">=</span> [<span class="s1">&#39;#cc241d&#39;</span><span class="p">,</span> <span class="m">124</span>]     <span class="c">&quot; 204-36-29</span>
+<span class="k">let</span> s:gb.neutral_green  <span class="p">=</span> [<span class="s1">&#39;#98971a&#39;</span><span class="p">,</span> <span class="m">106</span>]     <span class="c">&quot; 152-151-26</span>
+<span class="k">let</span> s:gb.neutral_yellow <span class="p">=</span> [<span class="s1">&#39;#d79921&#39;</span><span class="p">,</span> <span class="m">172</span>]     <span class="c">&quot; 215-153-33</span>
+<span class="k">let</span> s:gb.neutral_blue   <span class="p">=</span> [<span class="s1">&#39;#458588&#39;</span><span class="p">,</span> <span class="m">66</span>]      <span class="c">&quot; 69-133-136</span>
+<span class="k">let</span> s:gb.neutral_purple <span class="p">=</span> [<span class="s1">&#39;#b16286&#39;</span><span class="p">,</span> <span class="m">132</span>]     <span class="c">&quot; 177-98-134</span>
+<span class="k">let</span> s:gb.neutral_aqua   <span class="p">=</span> [<span class="s1">&#39;#689d6a&#39;</span><span class="p">,</span> <span class="m">72</span>]      <span class="c">&quot; 104-157-106</span>
+<span class="k">let</span> s:gb.neutral_orange <span class="p">=</span> [<span class="s1">&#39;#d65d0e&#39;</span><span class="p">,</span> <span class="m">166</span>]     <span class="c">&quot; 214-93-14</span>
+
+<span class="k">let</span> s:gb.faded_red      <span class="p">=</span> [<span class="s1">&#39;#9d0006&#39;</span><span class="p">,</span> <span class="m">88</span>]      <span class="c">&quot; 157-0-6</span>
+<span class="k">let</span> s:gb.faded_green    <span class="p">=</span> [<span class="s1">&#39;#79740e&#39;</span><span class="p">,</span> <span class="m">100</span>]     <span class="c">&quot; 121-116-14</span>
+<span class="k">let</span> s:gb.faded_yellow   <span class="p">=</span> [<span class="s1">&#39;#b57614&#39;</span><span class="p">,</span> <span class="m">136</span>]     <span class="c">&quot; 181-118-20</span>
+<span class="k">let</span> s:gb.faded_blue     <span class="p">=</span> [<span class="s1">&#39;#076678&#39;</span><span class="p">,</span> <span class="m">24</span>]      <span class="c">&quot; 7-102-120</span>
+<span class="k">let</span> s:gb.faded_purple   <span class="p">=</span> [<span class="s1">&#39;#8f3f71&#39;</span><span class="p">,</span> <span class="m">96</span>]      <span class="c">&quot; 143-63-113</span>
+<span class="k">let</span> s:gb.faded_aqua     <span class="p">=</span> [<span class="s1">&#39;#427b58&#39;</span><span class="p">,</span> <span class="m">66</span>]      <span class="c">&quot; 66-123-88</span>
+<span class="k">let</span> s:gb.faded_orange   <span class="p">=</span> [<span class="s1">&#39;#af3a03&#39;</span><span class="p">,</span> <span class="m">130</span>]     <span class="c">&quot; 175-58-3</span>
+
+<span class="c">&quot; }}}</span>
+</pre></div>
+</div>
+<p>Straightforward enough.</p>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Gruvbox IPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Faris A Chugthai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -4,10 +4,8 @@
 .vscode
 
 # Sphinx specific
-docs/_build/html/*
 .doctree*
 .*doctree
-*.html
 !docs/source/_templates/*.html
 
 # Python
