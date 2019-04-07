@@ -2,6 +2,7 @@
 
 # Repo specific
 .vscode
+.idea/workspace.xml
 
 # Sphinx specific
 .doctree*
