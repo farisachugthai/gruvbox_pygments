@@ -2,6 +2,13 @@
 Gruvbox IPython --- A Pygments Style Designed for IPython
 =========================================================
 
+.. module:: readme
+    :synopsis: A Pygments Style Designed for IPython
+
+
+.. _Gruvbox: https://github.com/morhetz/gruvbox
+
+
 `Gruvbox <https://github.com/morhetz/gruvbox>`_ is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.
 
@@ -12,12 +19,12 @@ According to it's author:
     gruvbox is to keep colors easily distinguishable, contrast enough and still
     pleasant for the eyes.
 
-To an impressive extent Gruvbox achieves this.
+To an impressive extent :ref:`Gruvbox` achieves this.
 
 So why this repository?
 
 Despite it's popularity as Vim colorscheme, I have yet to find a faithful
-port of Gruvbox to :mod:`Pygments`.
+port of :ref:`Gruvbox` to :mod:`Pygments`.
 
 Installation
 ------------
@@ -25,7 +32,7 @@ To install simply ``git clone`` this repository and run the following in your
 terminal of choice.
 
 
-.. code-block:: bash
+.. code-block:: shell-session
 
     python setup.py build && python setup.py install
 
@@ -47,10 +54,9 @@ Pygments Tokens
 
 .. Pygments Standard Types {{{1
 
-Here's the src from pygments/token.py
+Here's the src from :mod:`pygments/token`
 
 .. code-block:: python3
-
 
     # Map standard token types to short names, used in CSS class naming.
     # If you add a new item, please be sure to run this file to perform
@@ -145,37 +151,37 @@ Here's the src from pygments/token.py
         Generic.Subheading:            'gu',
         Generic.Traceback:             'gt',
 
-}}}
+.. }}}
 
 Original VimScript
 ------------------
 The only :mod:`Pygments` port I could find frequently uses hex colors not found
-in the original Gruvbox, and does not link colors in even a slightly similar
+in the original :ref:`Gruvbox`, and does not link colors in even a slightly similar
 manner to the original.
 
-Here's the relevant source code from the original gruvbox.
+Here's the relevant source code from the original :ref:`Gruvbox`.
 
 .. Source Code Blob {{{1
 
 .. code-block:: vim
 
-    hi! link pythonBuiltin GruvboxOrange
-    hi! link pythonBuiltinObj GruvboxOrange
-    hi! link pythonBuiltinFunc GruvboxOrange
-    hi! link pythonFunction GruvboxAqua
-    hi! link pythonDecorator GruvboxRed
-    hi! link pythonInclude GruvboxBlue
-    hi! link pythonImport GruvboxBlue
-    hi! link pythonRun GruvboxBlue
-    hi! link pythonCoding GruvboxBlue
-    hi! link pythonOperator GruvboxRed
-    hi! link pythonException GruvboxRed
-    hi! link pythonExceptions GruvboxPurple
-    hi! link pythonBoolean GruvboxPurple
-    hi! link pythonDot GruvboxFg3
-    hi! link pythonConditional GruvboxRed
-    hi! link pythonRepeat GruvboxRed
-    hi! link pythonDottedName GruvboxGreenBold
+   hi! link pythonBuiltin GruvboxOrange
+   hi! link pythonBuiltinObj GruvboxOrange
+   hi! link pythonBuiltinFunc GruvboxOrange
+   hi! link pythonFunction GruvboxAqua
+   hi! link pythonDecorator GruvboxRed
+   hi! link pythonInclude GruvboxBlue
+   hi! link pythonImport GruvboxBlue
+   hi! link pythonRun GruvboxBlue
+   hi! link pythonCoding GruvboxBlue
+   hi! link pythonOperator GruvboxRed
+   hi! link pythonException GruvboxRed
+   hi! link pythonExceptions GruvboxPurple
+   hi! link pythonBoolean GruvboxPurple
+   hi! link pythonDot GruvboxFg3
+   hi! link pythonConditional GruvboxRed
+   hi! link pythonRepeat GruvboxRed
+   hi! link pythonDottedName GruvboxGreenBold
 
 .. }}}
 
@@ -188,7 +194,7 @@ And the definitions for what those keywords mean.
     " setup palette dictionary
     let s:gb = {}
 
-    " fill it with absolute colors
+     " fill it with absolute colors
     let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
     let s:gb.dark0       = ['#282828', 235]     " 40-40-40
     let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
@@ -197,10 +203,8 @@ And the definitions for what those keywords mean.
     let s:gb.dark3       = ['#665c54', 241]     " 102-92-84
     let s:gb.dark4       = ['#7c6f64', 243]     " 124-111-100
     let s:gb.dark4_256   = ['#7c6f64', 243]     " 124-111-100
-
     let s:gb.gray_245    = ['#928374', 245]     " 146-131-116
     let s:gb.gray_244    = ['#928374', 244]     " 146-131-116
-
     let s:gb.light0_hard = ['#f9f5d7', 230]     " 249-245-215
     let s:gb.light0      = ['#fbf1c7', 229]     " 253-244-193
     let s:gb.light0_soft = ['#f2e5bc', 228]     " 242-229-188
@@ -209,7 +213,6 @@ And the definitions for what those keywords mean.
     let s:gb.light3      = ['#bdae93', 248]     " 189-174-147
     let s:gb.light4      = ['#a89984', 246]     " 168-153-132
     let s:gb.light4_256  = ['#a89984', 246]     " 168-153-132
-
     let s:gb.bright_red     = ['#fb4934', 167]     " 251-73-52
     let s:gb.bright_green   = ['#b8bb26', 142]     " 184-187-38
     let s:gb.bright_yellow  = ['#fabd2f', 214]     " 250-189-47
@@ -217,7 +220,6 @@ And the definitions for what those keywords mean.
     let s:gb.bright_purple  = ['#d3869b', 175]     " 211-134-155
     let s:gb.bright_aqua    = ['#8ec07c', 108]     " 142-192-124
     let s:gb.bright_orange  = ['#fe8019', 208]     " 254-128-25
-
     let s:gb.neutral_red    = ['#cc241d', 124]     " 204-36-29
     let s:gb.neutral_green  = ['#98971a', 106]     " 152-151-26
     let s:gb.neutral_yellow = ['#d79921', 172]     " 215-153-33
@@ -225,7 +227,6 @@ And the definitions for what those keywords mean.
     let s:gb.neutral_purple = ['#b16286', 132]     " 177-98-134
     let s:gb.neutral_aqua   = ['#689d6a', 72]      " 104-157-106
     let s:gb.neutral_orange = ['#d65d0e', 166]     " 214-93-14
-
     let s:gb.faded_red      = ['#9d0006', 88]      " 157-0-6
     let s:gb.faded_green    = ['#79740e', 100]     " 121-116-14
     let s:gb.faded_yellow   = ['#b57614', 136]     " 181-118-20

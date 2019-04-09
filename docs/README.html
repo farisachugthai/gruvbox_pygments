@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Welcome to Gruvbox IPython’s documentation! &#8212; Gruvbox IPython 2019 documentation</title>
+    <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,12 +30,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-gruvbox-ipython-s-documentation">
-<h1>Welcome to Gruvbox IPython’s documentation!<a class="headerlink" href="#welcome-to-gruvbox-ipython-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
-<div class="section" id="module-readme">
-<span id="gruvbox-ipython-a-pygments-style-designed-for-ipython"></span><h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#module-readme" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="module-readme">
+<span id="gruvbox-ipython-a-pygments-style-designed-for-ipython"></span><h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#module-readme" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.</p>
 <p>According to it’s author:</p>
@@ -50,7 +46,7 @@ pleasant for the eyes.</p>
 <p>Despite it’s popularity as Vim colorscheme, I have yet to find a faithful
 port of <span class="xref std std-ref">Gruvbox</span> to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
 <div class="section" id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following in your
 terminal of choice.</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build &amp;&amp; python setup.py install</span>
@@ -58,7 +54,7 @@ terminal of choice.</p>
 </div>
 </div>
 <div class="section" id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>To use this colorscheme in <code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
 create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
@@ -68,7 +64,7 @@ create/edit your <code class="docutils literal notranslate"><span class="pre">ip
 </div>
 </div>
 <div class="section" id="pygments-tokens">
-<h3>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h3>
+<h2>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h2>
 <p>Here’s the src from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments/token</span></code></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map standard token types to short names, used in CSS class naming.</span>
 <span class="c1"># If you add a new item, please be sure to run this file to perform</span>
@@ -166,7 +162,7 @@ create/edit your <code class="docutils literal notranslate"><span class="pre">ip
 </div>
 </div>
 <div class="section" id="original-vimscript">
-<h3>Original VimScript<a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h3>
+<h2>Original VimScript<a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h2>
 <p>The only <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code> port I could find frequently uses hex colors not found
 in the original <span class="xref std std-ref">Gruvbox</span>, and does not link colors in even a slightly similar
 manner to the original.</p>
@@ -241,15 +237,6 @@ manner to the original.</p>
 <p>Straightforward enough.</p>
 </div>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
-</div>
 
 
           </div>
@@ -258,7 +245,7 @@ manner to the original.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">Gruvbox IPython</a></h1>
+<h1 class="logo"><a href="index.html">Gruvbox IPython</a></h1>
 
 
 
@@ -272,7 +259,7 @@ manner to the original.</p>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
+  <li><a href="index.html">Documentation overview</a><ul>
   </ul></li>
 </ul>
 </div>
@@ -306,7 +293,7 @@ manner to the original.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/index.rst.txt"
+      <a href="_sources/README.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
