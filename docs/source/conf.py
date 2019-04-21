@@ -15,24 +15,23 @@
 import os
 import sys
 
-import logging
+# Apr 21, 2019: This is neat
+from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
 sys.path.insert(0, os.path.abspath('.'))
 
-
-
 # -- Project information -----------------------------------------------------
 
-project = 'Gruvbox IPython'
-copyright = '2019, Faris A Chugthai'
-author = 'Faris A Chugthai'
+project = u'Gruvbox IPython'
+copyright = u'2019, Faris A Chugthai'
+author = u'Faris A Chugthai'
 
 # The short X.Y version
-version = ''
+version = '2019'
 # The full version, including alpha/beta/rc tags
-release = '2019'
+release = version
 
 
 # -- General configuration ---------------------------------------------------

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>gruvbox.style &#8212; Gruvbox IPython 2019 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for gruvbox.style</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Gruvbox for IPython.</span>
+
+<span class="sd">Gruvbox Colorscheme</span>
+<span class="sd">===================</span>
+<span class="sd">A retro groove color scheme for Vim.</span>
+<span class="sd">`&lt;https://github.com/morhetz/gruvbox&gt;`_</span>
+
+<span class="sd">Definitely could consider creating a base class that inherits from Style.</span>
+<span class="sd">Then come up with subclasses that implement the varying contrasts.</span>
+
+<span class="sd">Define __repr__ and __str__?</span>
+
+<span class="sd">Because the ``print(GruvboxStyle)`` thing doesn&#39;t give you a memory address which</span>
+<span class="sd">is nice but it may as well.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">pygments.style</span> <span class="k">import</span> <span class="n">Style</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="k">import</span> <span class="p">(</span><span class="n">Token</span><span class="p">,</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Keyword</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Number</span><span class="p">,</span>
+                            <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Error</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span>
+                            <span class="n">Other</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)</span>
+
+<span class="c1"># Palette: {{{1</span>
+<span class="n">BG0_HARD</span> <span class="o">=</span> <span class="s2">&quot;1d2021&quot;</span>
+<span class="n">FG0</span> <span class="o">=</span> <span class="s2">&quot;#ebdbb2&quot;</span>
+
+<span class="n">dark1</span> <span class="o">=</span> <span class="s1">&#39;#3c3836&#39;</span>  <span class="c1"># 60-56-54</span>
+<span class="n">DARK2</span> <span class="o">=</span> <span class="s1">&#39;#504945&#39;</span>  <span class="c1"># 80-73-69</span>
+<span class="n">dark3</span> <span class="o">=</span> <span class="s1">&#39;#665c54&#39;</span>  <span class="c1"># 102-92-84</span>
+<span class="n">dark4</span> <span class="o">=</span> <span class="s1">&#39;#7c6f64&#39;</span>  <span class="c1"># 124-111-100</span>
+
+<span class="n">GRAY_245</span> <span class="o">=</span> <span class="s1">&#39;#928374&#39;</span>  <span class="c1"># 146-131-116</span>
+<span class="n">gray_244</span> <span class="o">=</span> <span class="s1">&#39;#928374&#39;</span>  <span class="c1"># 146-131-116</span>
+
+<span class="n">LIGHT0_HARD</span> <span class="o">=</span> <span class="s1">&#39;#f9f5d7&#39;</span>  <span class="c1"># 249-245-215</span>
+<span class="n">light0</span> <span class="o">=</span> <span class="s1">&#39;#fbf1c7&#39;</span>  <span class="c1"># 253-244-193</span>
+<span class="n">light0_soft</span> <span class="o">=</span> <span class="s1">&#39;#f2e5bc&#39;</span>  <span class="c1"># 242-229-188</span>
+<span class="n">light1</span> <span class="o">=</span> <span class="s1">&#39;#ebdbb2&#39;</span>  <span class="c1"># 235-219-178</span>
+<span class="n">light2</span> <span class="o">=</span> <span class="s1">&#39;#d5c4a1&#39;</span>  <span class="c1"># 213-196-161</span>
+<span class="n">light3</span> <span class="o">=</span> <span class="s1">&#39;#bdae93&#39;</span>  <span class="c1"># 189-174-147</span>
+<span class="n">light4</span> <span class="o">=</span> <span class="s1">&#39;#a89984&#39;</span>  <span class="c1"># 168-153-132</span>
+<span class="n">light4_256</span> <span class="o">=</span> <span class="s1">&#39;#a89984&#39;</span>  <span class="c1"># 168-153-132</span>
+
+<span class="n">BRIGHT_RED</span> <span class="o">=</span> <span class="s1">&#39;#fb4934&#39;</span>  <span class="c1"># 251-73-52</span>
+<span class="n">BRIGHT_GREEN</span> <span class="o">=</span> <span class="s1">&#39;#b8bb26&#39;</span>  <span class="c1"># 184-187-38</span>
+<span class="n">BRIGHT_YELLOW</span> <span class="o">=</span> <span class="s1">&#39;#fabd2f&#39;</span>  <span class="c1"># 250-189-47</span>
+<span class="n">BRIGHT_BLUE</span> <span class="o">=</span> <span class="s1">&#39;#83a598&#39;</span>  <span class="c1"># 131-165-152</span>
+<span class="n">BRIGHT_PURPLE</span> <span class="o">=</span> <span class="s1">&#39;#d3869b&#39;</span>  <span class="c1"># 211-134-155</span>
+<span class="n">bright_aqua</span> <span class="o">=</span> <span class="s1">&#39;#8ec07c&#39;</span>  <span class="c1"># 142-192-124</span>
+<span class="n">BRIGHT_ORANGE</span> <span class="o">=</span> <span class="s1">&#39;#fe8019&#39;</span>  <span class="c1"># 254-128-25</span>
+
+<span class="n">NEUTRAL_RED</span> <span class="o">=</span> <span class="s1">&#39;#cc241d&#39;</span>  <span class="c1"># 204-36-29</span>
+<span class="n">neutral_green</span> <span class="o">=</span> <span class="s1">&#39;#98971a&#39;</span>  <span class="c1"># 152-151-26</span>
+<span class="n">neutral_yellow</span> <span class="o">=</span> <span class="s1">&#39;#d79921&#39;</span>  <span class="c1"># 215-153-33</span>
+<span class="n">neutral_blue</span> <span class="o">=</span> <span class="s1">&#39;#458588&#39;</span>  <span class="c1"># 69-133-136</span>
+<span class="n">neutral_purple</span> <span class="o">=</span> <span class="s1">&#39;#b16286&#39;</span>  <span class="c1"># 177-98-134</span>
+<span class="n">neutral_aqua</span> <span class="o">=</span> <span class="s1">&#39;#689d6a&#39;</span>  <span class="c1"># 104-157-106</span>
+<span class="n">NEUTRAL_ORANGE</span> <span class="o">=</span> <span class="s1">&#39;#d65d0e&#39;</span>  <span class="c1"># 214-93-14</span>
+
+<span class="n">faded_red</span> <span class="o">=</span> <span class="s1">&#39;#9d0006&#39;</span>  <span class="c1"># 157-0-6</span>
+<span class="n">faded_green</span> <span class="o">=</span> <span class="s1">&#39;#79740e&#39;</span>  <span class="c1"># 121-116-14</span>
+<span class="n">FADED_YELLOW</span> <span class="o">=</span> <span class="s1">&#39;#b57614&#39;</span>  <span class="c1"># 181-118-20</span>
+<span class="n">faded_blue</span> <span class="o">=</span> <span class="s1">&#39;#076678&#39;</span>  <span class="c1"># 7-102-120</span>
+<span class="n">faded_purple</span> <span class="o">=</span> <span class="s1">&#39;#8f3f71&#39;</span>  <span class="c1"># 143-63-113</span>
+<span class="n">faded_aqua</span> <span class="o">=</span> <span class="s1">&#39;#427b58&#39;</span>  <span class="c1"># 66-123-88</span>
+<span class="n">faded_orange</span> <span class="o">=</span> <span class="s1">&#39;#af3a03&#39;</span>  <span class="c1"># 175-58-3</span>
+
+<span class="c1"># }}}</span>
+
+
+<div class="viewcode-block" id="GruvboxStyle"><a class="viewcode-back" href="../../api.html#gruvbox.style.GruvboxStyle">[docs]</a><span class="k">class</span> <span class="nc">GruvboxStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retro groove color scheme for Vim by Github: @morhetz.&quot;&quot;&quot;</span>
+
+    <span class="n">default_style</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="n">background_color</span> <span class="o">=</span> <span class="n">BG0_HARD</span>
+    <span class="c1"># highlight_color = SELECTION</span>
+
+    <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">:</span> <span class="s1">&#39;italic #B5B5B5&#39;</span><span class="p">,</span>  <span class="c1"># not gruvbox</span>
+        <span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;italic &#39;</span> <span class="o">+</span> <span class="n">GRAY_245</span><span class="p">,</span>
+        <span class="n">Error</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">:</span> <span class="n">LIGHT0_HARD</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">:</span> <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">:</span> <span class="n">LIGHT0_HARD</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Output</span><span class="p">:</span> <span class="n">DARK2</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">:</span> <span class="n">FG0</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
+        <span class="n">Generic</span><span class="p">:</span> <span class="n">FG0</span><span class="p">,</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Type</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>
+        <span class="n">Keyword</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span> <span class="s1">&#39;#af3a03&#39;</span><span class="p">,</span>  <span class="c1"># let&#39;s see some faded orange</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Declaration</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>
+        <span class="n">Literal</span><span class="p">:</span> <span class="n">NEUTRAL_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;l&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span> <span class="s1">&#39;bold &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span> <span class="n">FG0</span><span class="p">,</span>
+        <span class="n">Name</span><span class="p">:</span> <span class="n">FG0</span><span class="p">,</span>
+        <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="n">Number</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="n">Operator</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>
+        <span class="n">Operator</span><span class="o">.</span><span class="n">Word</span><span class="p">:</span> <span class="n">NEUTRAL_RED</span><span class="p">,</span>
+        <span class="n">Punctuation</span><span class="p">:</span> <span class="n">FG0</span><span class="p">,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
+        <span class="n">String</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
+        <span class="n">Token</span><span class="p">:</span> <span class="n">FG0</span><span class="p">,</span>
+        <span class="n">Whitespace</span><span class="p">:</span> <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">FADED_YELLOW</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="o">.</span><span class="n">values</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Gruvbox IPython</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Faris A. Chugthai&repo=Gruvbox-IPython&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Faris A Chugthai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/Faris A. Chugthai/Gruvbox-IPython" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

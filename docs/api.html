@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gruvbox &#8212; Gruvbox IPython 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gruvbox">
+<h1>Gruvbox<a class="headerlink" href="#gruvbox" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-gruvbox.style">
+<span id="style"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code><a class="headerlink" href="#module-gruvbox.style" title="Permalink to this headline">¶</a></h2>
+<p>Gruvbox for IPython.</p>
+<div class="section" id="gruvbox-colorscheme">
+<h3>Gruvbox Colorscheme<a class="headerlink" href="#gruvbox-colorscheme" title="Permalink to this headline">¶</a></h3>
+<p>A retro groove color scheme for Vim.
+<a class="reference external" href="https://github.com/morhetz/gruvbox">https://github.com/morhetz/gruvbox</a></p>
+<p>Definitely could consider creating a base class that inherits from Style.
+Then come up with subclasses that implement the varying contrasts.</p>
+<p>Define __repr__ and __str__?</p>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">print(GruvboxStyle)</span></code> thing doesn’t give you a memory address which
+is nice but it may as well.</p>
+<dl class="class">
+<dt id="gruvbox.style.GruvboxStyle">
+<em class="property">class </em><code class="descclassname">gruvbox.style.</code><code class="descname">GruvboxStyle</code><a class="reference internal" href="_modules/gruvbox/style.html#GruvboxStyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gruvbox.style.GruvboxStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<p>Retro groove color scheme for Vim by Github: &#64;morhetz.</p>
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.background_color">
+<code class="descname">background_color</code><em class="property"> = '1d2021'</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.background_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.default_style">
+<code class="descname">default_style</code><em class="property"> = ''</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.styles">
+<code class="descname">styles</code><em class="property"> = {Token: '#ebdbb2', Token.Comment: 'italic #928374', Token.Comment.Hashbang: '', Token.Comment.Multiline: 'italic #B5B5B5', Token.Comment.Preproc: '', Token.Comment.PreprocFile: '', Token.Comment.Single: '', Token.Comment.Special: '', Token.Error: '#fb4934', Token.Escape: '', Token.Generic: '#ebdbb2', Token.Generic.Deleted: '#f9f5d7', Token.Generic.Emph: 'underline #83a598', Token.Generic.Error: '', Token.Generic.Heading: '#b8bb26 bold', Token.Generic.Inserted: '#f9f5d7', Token.Generic.Output: '#504945', Token.Generic.Prompt: '#83a598', Token.Generic.Strong: '#ebdbb2 bold', Token.Generic.Subheading: '#b8bb26 bold', Token.Generic.Traceback: '', Token.Keyword: '#fe8019', Token.Keyword.Constant: '#af3a03', Token.Keyword.Declaration: '#fe8019', Token.Keyword.Namespace: '', Token.Keyword.Pseudo: '', Token.Keyword.Reserved: '', Token.Keyword.Type: '#fabd2f', Token.Literal: '#d65d0e', Token.Literal.Date: '', Token.Literal.Number: '#d3869b', Token.Literal.Number.Bin: '', Token.Literal.Number.Float: '#d3869b', Token.Literal.Number.Hex: '', Token.Literal.Number.Integer: '', Token.Literal.Number.Integer.Long: '', Token.Literal.Number.Oct: '', Token.Literal.String: '#b8bb26', Token.Literal.String.Affix: '', Token.Literal.String.Backtick: '', Token.Literal.String.Char: '', Token.Literal.String.Delimiter: '', Token.Literal.String.Doc: '', Token.Literal.String.Double: '', Token.Literal.String.Escape: '', Token.Literal.String.Heredoc: '', Token.Literal.String.Interpol: '', Token.Literal.String.Other: '', Token.Literal.String.Regex: '', Token.Literal.String.Single: '', Token.Literal.String.Symbol: '#83a598', Token.Name: '#ebdbb2', Token.Name.Attribute: '#b8bb26', Token.Name.Builtin: '#fabd2f', Token.Name.Builtin.Pseudo: '', Token.Name.Class: '', Token.Name.Constant: '#d3869b', Token.Name.Decorator: '', Token.Name.Entity: '#fabd2f', Token.Name.Exception: 'bold #fb4934', Token.Name.Function: '#fabd2f', Token.Name.Function.Magic: '', Token.Name.Label: '#fb4934', Token.Name.Namespace: '', Token.Name.Other: '', Token.Name.Property: '', Token.Name.Tag: '#fb4934', Token.Name.Variable: '#ebdbb2', Token.Name.Variable.Class: '', Token.Name.Variable.Global: '', Token.Name.Variable.Instance: '', Token.Name.Variable.Magic: '', Token.Operator: '#fe8019', Token.Operator.Word: '#cc241d', Token.Other: '', Token.Punctuation: '#ebdbb2', Token.Text: '', Token.Text.Whitespace: 'underline #b57614'}</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.styles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="gruvboxstyle">
+<h2><a class="reference internal" href="#gruvbox.style.GruvboxStyle" title="gruvbox.style.GruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a><a class="headerlink" href="#gruvboxstyle" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">gruvbox.style.</code><code class="descname">GruvboxStyle</code><a class="reference internal" href="_modules/gruvbox/style.html#GruvboxStyle"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<p>Retro groove color scheme for Vim by Github: &#64;morhetz.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Gruvbox IPython</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Faris A. Chugthai&repo=Gruvbox-IPython&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gruvbox</a><ul>
+<li><a class="reference internal" href="#module-gruvbox.style"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a><ul>
+<li><a class="reference internal" href="#gruvbox-colorscheme">Gruvbox Colorscheme</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gruvboxstyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Faris A Chugthai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Faris A. Chugthai/Gruvbox-IPython" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
