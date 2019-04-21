@@ -23,7 +23,7 @@ To an impressive extent :ref:`Gruvbox` achieves this.
 
 So why this repository?
 
-Despite it's popularity as Vim colorscheme, I have yet to find a faithful
+Despite it's popularity as a Vim colorscheme, I have yet to find a faithful
 port of :ref:`Gruvbox` to :mod:`Pygments`.
 
 Installation
