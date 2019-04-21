@@ -5,10 +5,6 @@ Gruvbox IPython --- A Pygments Style Designed for IPython
 .. module:: readme
     :synopsis: A Pygments Style Designed for IPython
 
-
-.. _Gruvbox: https://github.com/morhetz/gruvbox
-
-
 `Gruvbox <https://github.com/morhetz/gruvbox>`_ is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.
 
@@ -19,12 +15,12 @@ According to it's author:
     gruvbox is to keep colors easily distinguishable, contrast enough and still
     pleasant for the eyes.
 
-To an impressive extent :ref:`Gruvbox` achieves this.
+To an impressive extent `Gruvbox <https://github.com/morhetz/gruvbox>`_ achieves this.
 
 So why this repository?
 
 Despite it's popularity as a Vim colorscheme, I have yet to find a faithful
-port of :ref:`Gruvbox` to :mod:`Pygments`.
+port of `Gruvbox <https://github.com/morhetz/gruvbox>`_ to :mod:`Pygments`.
 
 Installation
 ------------
@@ -156,10 +152,10 @@ Here's the src from :mod:`pygments/token`
 Original VimScript
 ------------------
 The only :mod:`Pygments` port I could find frequently uses hex colors not found
-in the original :ref:`Gruvbox`, and does not link colors in even a slightly similar
+in the original `Gruvbox <https://github.com/morhetz/gruvbox>`_, and does not link colors in even a slightly similar
 manner to the original.
 
-Here's the relevant source code from the original :ref:`Gruvbox`.
+Here's the relevant source code from the original `Gruvbox <https://github.com/morhetz/gruvbox>`_.
 
 .. Source Code Blob {{{1
 

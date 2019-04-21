@@ -12,9 +12,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+sys.path.insert(0, os.path.abspath('.'))
+
 
 
 # -- Project information -----------------------------------------------------
@@ -72,7 +78,7 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -85,9 +91,11 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#
-# html_theme_options = {}
-
+html_theme_options = {
+    "github_user": "Faris A. Chugthai",
+    "github_repo": "Gruvbox-IPython",
+    "github_banner": True,
+}
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -100,8 +108,18 @@ html_static_path = ['_static']
 # defined by theme itself.  Builtin themes are using these templates by
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
-#
-# html_sidebars = {}
+html_sidebars = {
+    '**': [
+        'about.html',
+        'relations.html',
+        'localtoc.html',
+        'searchbox.html',
+        'sourcelink.html',
+    ]
+}
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+html_show_sphinx = False
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
@@ -184,4 +202,7 @@ epub_exclude_files = ['search.html']
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3/', None),
+    'ipython': ('https://ipython.readthedocs.io/en/stable/', None)
+}

@@ -9,9 +9,8 @@ Welcome to Gruvbox IPython's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   :hidden:
 
-.. include:: ../../README.rst
+.. include:: README.rst
 
 
 
