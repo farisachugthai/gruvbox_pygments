@@ -12,6 +12,7 @@ Welcome to Gruvbox IPython's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   pygments_tokens
    api
 
 

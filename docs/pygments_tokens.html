@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pygments Tokens &#8212; Gruvbox IPython 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gruvbox" href="api.html" />
+    <link rel="prev" title="Welcome to Gruvbox IPython’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pygments-tokens">
+<h1>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h1>
+<p>The full list of pygments tokens.</p>
+<div class="section" id="keyword-tokens">
+<h2>Keyword Tokens<a class="headerlink" href="#keyword-tokens" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Keyword</dt><dd><p>For any kind of keyword (especially if it doesn’t match any of the subtypes of course).</p>
+</dd>
+<dt>Keyword.Constant</dt><dd><p>For keywords that are constants (e.g. None in future Python versions).</p>
+</dd>
+<dt>Keyword.Declaration</dt><dd><p>For keywords used for variable declaration (e.g. var in some programming languages like JavaScript).</p>
+</dd>
+<dt>Keyword.Namespace</dt><dd><p>For keywords used for namespace declarations (e.g. import in Python and Java and package in Java).</p>
+</dd>
+<dt>Keyword.Pseudo</dt><dd><p>For keywords that aren’t really keywords (e.g. None in old Python versions).</p>
+</dd>
+<dt>Keyword.Reserved</dt><dd><p>For reserved keywords.</p>
+</dd>
+<dt>Keyword.Type</dt><dd><p>For builtin types that can’t be used as identifiers (e.g. int, char etc. in C).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="name-tokens">
+<h2>Name Tokens<a class="headerlink" href="#name-tokens" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Name</dt><dd><p>For any name (variable names, function names, classes).</p>
+</dd>
+<dt>Name.Attribute</dt><dd><p>For all attributes (e.g. in HTML tags).</p>
+</dd>
+<dt>Name.Builtin</dt><dd><p>Builtin names; names that are available in the global namespace.</p>
+</dd>
+<dt>Name.Builtin.Pseudo</dt><dd><p>Builtin names that are implicit (e.g. self in Ruby, this in Java).</p>
+</dd>
+<dt>Name.Class</dt><dd><p>Class names. Because no lexer can know if a name is a class or a function or something else this token is meant for class declarations.</p>
+</dd>
+<dt>Name.Constant</dt><dd><p>Token type for constants. In some languages you can recognise a token by the way it’s defined (the value after a const keyword for example). In other languages constants are uppercase by definition (Ruby).</p>
+</dd>
+<dt>Name.Decorator</dt><dd><p>Token type for decorators. Decorators are syntactic elements in the Python language. Similar syntax elements exist in C# and Java.</p>
+</dd>
+<dt>Name.Entity</dt><dd><p>Token type for special entities. (e.g. &amp;nbsp; in HTML).</p>
+</dd>
+<dt>Name.Exception</dt><dd><p>Token type for exception names (e.g. RuntimeError in Python). Some languages define exceptions in the function signature (Java). You can highlight the name of that exception using this token then.</p>
+</dd>
+<dt>Name.Function</dt><dd><p>Token type for function names.</p>
+</dd>
+<dt>Name.Function.Magic</dt><dd><p>same as Name.Function but for special function names that have an implicit use in a language (e.g. __init__ method in Python).</p>
+</dd>
+<dt>Name.Label</dt><dd><p>Token type for label names (e.g. in languages that support goto).</p>
+</dd>
+<dt>Name.Namespace</dt><dd><p>Token type for namespaces. (e.g. import paths in Java/Python), names following the module/namespace keyword in other languages.</p>
+</dd>
+<dt>Name.Other</dt><dd><p>Other names. Normally unused.</p>
+</dd>
+<dt>Name.Tag</dt><dd><p>Tag names (in HTML/XML markup or configuration files).</p>
+</dd>
+<dt>Name.Variable</dt><dd><p>Token type for variables. Some languages have prefixes for variable names (PHP, Ruby, Perl). You can highlight them using this token.</p>
+</dd>
+<dt>Name.Variable.Class</dt><dd><p>same as Name.Variable but for class variables (also static variables).</p>
+</dd>
+<dt>Name.Variable.Global</dt><dd><p>same as Name.Variable but for global variables (used in Ruby, for example).</p>
+</dd>
+<dt>Name.Variable.Instance</dt><dd><p>same as Name.Variable but for instance variables.</p>
+</dd>
+<dt>Name.Variable.Magic</dt><dd><p>same as Name.Variable but for special variable names that have an implicit use in a language (e.g. __doc__ in Python).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="literals">
+<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Literal</dt><dd><p>For any literal (if not further defined).</p>
+</dd>
+<dt>Literal.Date</dt><dd><p>for date literals (e.g. 42d in Boo).</p>
+</dd>
+<dt>String</dt><dd><p>For any string literal.</p>
+</dd>
+<dt>String.Affix</dt><dd><p>Token type for affixes that further specify the type of the string they’re attached to (e.g. the prefixes r and u8 in r”foo” and u8”foo”).</p>
+</dd>
+<dt>String.Backtick</dt><dd><p>Token type for strings enclosed in backticks.</p>
+</dd>
+<dt>String.Char</dt><dd><p>Token type for single characters (e.g. Java, C).</p>
+</dd>
+<dt>String.Delimiter</dt><dd><p>Token type for delimiting identifiers in “heredoc”, raw and other similar strings (e.g. the word END in Perl code print &lt;&lt;’END’;).</p>
+</dd>
+<dt>String.Doc</dt><dd><p>Token type for documentation strings (for example Python).</p>
+</dd>
+<dt>String.Double</dt><dd><p>Double quoted strings.</p>
+</dd>
+<dt>String.Escape</dt><dd><p>Token type for escape sequences in strings.</p>
+</dd>
+<dt>String.Heredoc</dt><dd><p>Token type for “heredoc” strings (e.g. in Ruby or Perl).</p>
+</dd>
+<dt>String.Interpol</dt><dd><p>Token type for interpolated parts in strings (e.g. #{foo} in Ruby).</p>
+</dd>
+<dt>String.Other</dt><dd><p>Token type for any other strings (for example %q{foo} string constructs in Ruby).</p>
+</dd>
+<dt>String.Regex</dt><dd><p>Token type for regular expression literals (e.g. /foo/ in JavaScript).</p>
+</dd>
+<dt>String.Single</dt><dd><p>Token type for single quoted strings.</p>
+</dd>
+<dt>String.Symbol</dt><dd><p>Token type for symbols (e.g. :foo in LISP or Ruby).</p>
+</dd>
+<dt>Number</dt><dd><p>Token type for any number literal.</p>
+</dd>
+<dt>Number.Bin</dt><dd><p>Token type for binary literals (e.g. 0b101010).</p>
+</dd>
+<dt>Number.Float</dt><dd><p>Token type for float literals (e.g. 42.0).</p>
+</dd>
+<dt>Number.Hex</dt><dd><p>Token type for hexadecimal number literals (e.g. 0xdeadbeef).</p>
+</dd>
+<dt>Number.Integer</dt><dd><p>Token type for integer literals (e.g. 42).</p>
+</dd>
+<dt>Number.Integer.Long</dt><dd><p>Token type for long integer literals (e.g. 42L in Python).</p>
+</dd>
+<dt>Number.Oct</dt><dd><p>Token type for octal literals.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Operator</dt><dd><p>For any punctuation operator (e.g. +, -).</p>
+</dd>
+<dt>Operator.Word</dt><dd><p>For any operator that is a word (e.g. not).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="punctuation">
+<h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h2>
+<p>New in version 0.7.</p>
+<dl class="simple">
+<dt>Punctuation</dt><dd><p>For any punctuation which is not an operator (e.g. [, (…)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Comment</dt><dd><p>Token type for any comment.</p>
+</dd>
+</dl>
+<p>Comment.Hashbang</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Token type for hashbang comments (i.e. first lines of files that start with</dt><dd><p>#!).</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Comment.Multiline</dt><dd><p>Token type for multiline comments.</p>
+</dd>
+<dt>Comment.Preproc</dt><dd><p>Token type for preprocessor comments (also &lt;?php/&lt;% constructs).</p>
+</dd>
+<dt>Comment.Single</dt><dd><p>Token type for comments that end at the end of a line (e.g. # foo).</p>
+</dd>
+<dt>Comment.Special</dt><dd><p>Special data in comments. For example code tags, author and license information, etc.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="generic-tokens">
+<h2>Generic Tokens<a class="headerlink" href="#generic-tokens" title="Permalink to this headline">¶</a></h2>
+<p>Generic tokens are for special lexers like the DiffLexer that doesn’t really
+highlight a programming language but a patch file.</p>
+<dl class="simple">
+<dt>Generic</dt><dd><p>A generic, unstyled token. Normally you don’t use this token type.</p>
+</dd>
+<dt>Generic.Deleted</dt><dd><p>Marks the token value as deleted.</p>
+</dd>
+<dt>Generic.Emph</dt><dd><p>Marks the token value as emphasized.</p>
+</dd>
+<dt>Generic.Error</dt><dd><p>Marks the token value as an error message.</p>
+</dd>
+<dt>Generic.Heading</dt><dd><p>Marks the token value as headline.</p>
+</dd>
+<dt>Generic.Inserted</dt><dd><p>Marks the token value as inserted.</p>
+</dd>
+<dt>Generic.Output</dt><dd><p>Marks the token value as program output (e.g. for python cli lexer).</p>
+</dd>
+<dt>Generic.Prompt</dt><dd><p>Marks the token value as command prompt (e.g. bash lexer).</p>
+</dd>
+<dt>Generic.Strong</dt><dd><p>Marks the token value as bold (e.g. for rst lexer).</p>
+</dd>
+<dt>Generic.Subheading</dt><dd><p>Marks the token value as subheadline.</p>
+</dd>
+<dt>Generic.Traceback</dt><dd><p>Marks the token value as a part of an error traceback.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Gruvbox IPython</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Faris A. Chugthai&repo=Gruvbox-IPython&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Gruvbox IPython’s documentation!</a></li>
+      <li>Next: <a href="api.html" title="next chapter">Gruvbox</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pygments Tokens</a><ul>
+<li><a class="reference internal" href="#keyword-tokens">Keyword Tokens</a></li>
+<li><a class="reference internal" href="#name-tokens">Name Tokens</a></li>
+<li><a class="reference internal" href="#literals">Literals</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#punctuation">Punctuation</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+<li><a class="reference internal" href="#generic-tokens">Generic Tokens</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pygments_tokens.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Faris A Chugthai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/pygments_tokens.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Faris A. Chugthai/Gruvbox-IPython" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

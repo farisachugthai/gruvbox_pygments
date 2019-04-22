@@ -63,7 +63,7 @@ FADED_YELLOW = '#b57614'  # 181-118-20
 faded_blue = '#076678'  # 7-102-120
 faded_purple = '#8f3f71'  # 143-63-113
 faded_aqua = '#427b58'  # 66-123-88
-faded_orange = '#af3a03'  # 175-58-3
+FADED_ORANGE = '#af3a03'  # 175-58-3
 
 # }}}
 
@@ -91,7 +91,7 @@ class GruvboxStyle(Style):
         Generic: FG0,
         Keyword.Type: BRIGHT_YELLOW,
         Keyword: BRIGHT_ORANGE,
-        Keyword.Constant: '#af3a03',  # let's see some faded orange
+        Keyword.Constant: FADED_ORANGE,
         Keyword.Declaration: BRIGHT_ORANGE,
         Literal: NEUTRAL_ORANGE,  # class: 'l'
         Name.Attribute: BRIGHT_GREEN,
