@@ -16,10 +16,15 @@ import os
 import sys
 
 # Apr 21, 2019: This is neat
+# Apr 22, 2019. Holy hell. I don't know enough about logging to utilize this.
 from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
+logger.setLevel(level=logging.LEVEL_NAMES['WARNING'])
+# Or you can go logger.setLevel(level=logging.VERBOSE) where VERBOSE==15
+# Regardless level is required and the levels are anonymized through a lambda into
+# :class:`defaultdict`
 sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
@@ -33,7 +38,6 @@ version = '2019'
 # The full version, including alpha/beta/rc tags
 release = version
 
-
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -45,6 +49,7 @@ release = version
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.ifconfig',
@@ -78,7 +83,6 @@ exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -120,12 +124,10 @@ html_sidebars = {
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False
 
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'GruvboxIPythondoc'
-
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -155,16 +157,13 @@ latex_documents = [
      'Faris A Chugthai', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'gruvboxipython', 'Gruvbox IPython Documentation',
-     [author], 1)
-]
-
+man_pages = [(master_doc, 'gruvboxipython', 'Gruvbox IPython Documentation', [
+    author
+], 1)]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -172,11 +171,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GruvboxIPython', 'Gruvbox IPython Documentation',
-     author, 'GruvboxIPython', 'One line description of project.',
-     'Miscellaneous'),
+    (master_doc, 'GruvboxIPython', 'Gruvbox IPython Documentation', author,
+     'GruvboxIPython', 'One line description of project.', 'Miscellaneous'),
 ]
-
 
 # -- Options for Epub output -------------------------------------------------
 
@@ -195,7 +192,6 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-
 # -- Extension configuration -------------------------------------------------
 
 # -- Options for intersphinx extension ---------------------------------------
@@ -205,3 +201,4 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'ipython': ('https://ipython.readthedocs.io/en/stable/', None)
 }
+

@@ -5,14 +5,17 @@ Gruvbox
 :mod:`style`
 ------------------
 
-.. automodule:: gruvbox.style
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. autosummary::
+    :template: module.rst
+
+    gruvbox.style
+
 
 
 :class:`GruvboxStyle`
 ----------------------
 
-.. autoclass:: gruvbox.style.GruvboxStyle
-    :show-inheritance:
+.. autosummary::
+    :template: class.rst
+
+    gruvbox.style.GruvboxStyle
