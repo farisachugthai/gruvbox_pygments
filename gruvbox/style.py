@@ -9,10 +9,102 @@ A retro groove color scheme for Vim.
 Definitely could consider creating a base class that inherits from Style.
 Then come up with subclasses that implement the varying contrasts.
 
+<<<<<<< Updated upstream
 Define __repr__ and __str__?
 
 Because the ``print(GruvboxStyle)`` thing doesn't give you a memory address which
 is nice but it may as well.
+
+04/14/2019:
+
+In case you were wondering how to find all the pygment tokens in a more
+consistent way, literally just viewing the ``styles`` attributes for the
+:ref:`~gruvbox/style/GruvboxStyle` should be plenty.
+
+.. source-code:: python
+
+    >>> print(GruvboxStyle.styles)
+    {Token.Comment.Preproc: 'noinherit #8ec07c',
+    Token.Comment: '#928374 italic',
+    Token.Generic.Deleted: 'noinherit #282828 bg:#fb4934',
+    Token.Generic.Emph: '#83a598 underline',
+    Token.Generic.Error: 'bg:#fb4934 bold',
+    Token.Generic.Heading: '#b8bb26 bold',
+    Token.Generic.Inserted: 'noinherit #282828 bg:#b8bb26',
+    Token.Generic.Output: 'noinherit #504945',
+    Token.Generic.Prompt: '#ebdbb2',
+    Token.Generic.Strong: '#ebdbb2',
+    Token.Generic.Subheading: '#b8bb26 bold',
+    Token.Generic.Traceback: 'bg:#fb4934 bold',
+    Token.Generic: '#ebdbb2',
+    Token.Keyword.Type: 'noinherit #fabd2f',
+    Token.Keyword: 'noinherit #fe8019',
+    Token.Name.Attribute: '#b8bb26 bold',
+    Token.Name.Builtin: '#fabd2f',
+    Token.Name.Constant: 'noinherit #d3869b',
+    Token.Name.Entity: 'noinherit #fabd2f',
+    Token.Name.Exception: 'noinherit #fb4934',
+    Token.Name.Function: '#fabd2f',
+    Token.Name.Label: 'noinherit #fb4934',
+    Token.Name.Tag: 'noinherit #fb4934',
+    Token.Name.Variable: 'noinherit #ebdbb2',
+    Token.Name: '#ebdbb2',
+    Token.Literal.Number.Float: 'noinherit #d3869b',
+    Token.Literal.Number: 'noinherit #d3869b',
+    Token.Operator: '#fe8019',
+    Token.Literal.String.Symbol: '#83a598',
+    Token.Literal.String: 'noinherit #b8bb26',
+    Token: 'noinherit #ebdbb2 bg:#282828',
+    Token.Text: '',
+    Token.Text.Whitespace: '',
+    Token.Escape: '',
+    Token.Error: '',
+    Token.Other: '',
+    Token.Keyword.Constant: '',
+    Token.Keyword.Declaration: '',
+    Token.Keyword.Namespace: '',
+    Token.Keyword.Pseudo: '',
+    Token.Keyword.Reserved: '',
+    Token.Name.Builtin.Pseudo: '',
+    Token.Name.Class: '',
+    Token.Name.Decorator: '',
+    Token.Name.Function.Magic: '',
+    Token.Name.Property: '',
+    Token.Name.Namespace: '',
+    Token.Name.Other: '',
+    Token.Name.Variable.Class: '',
+    Token.Name.Variable.Global: '',
+    Token.Name.Variable.Instance: '',
+    Token.Name.Variable.Magic: '',
+    Token.Literal: '',
+    Token.Literal.Date: '',
+    Token.Literal.String.Affix: '',
+    Token.Literal.String.Backtick: '',
+    Token.Literal.String.Char: '',
+    Token.Literal.String.Delimiter: '',
+    Token.Literal.String.Doc: '',
+    Token.Literal.String.Double: '',
+    Token.Literal.String.Escape: '',
+    Token.Literal.String.Heredoc: '',
+    Token.Literal.String.Interpol: '',
+    Token.Literal.String.Other: '',
+    Token.Literal.String.Regex: '',
+    Token.Literal.String.Single: '',
+    Token.Literal.Number.Bin: '',
+    Token.Literal.Number.Hex: '',
+    Token.Literal.Number.Integer: '',
+    Token.Literal.Number.Integer.Long: '',
+    Token.Literal.Number.Oct: '',
+    Token.Operator.Word: '',
+    Token.Punctuation: '',
+    Token.Comment.Hashbang: '',
+    Token.Comment.Multiline: '',
+    Token.Comment.PreprocFile: '',
+    Token.Comment.Single: '',
+    Token.Comment.Special: ''}
+
+
+
 
 """
 from pygments.style import Style
@@ -69,7 +161,12 @@ FADED_ORANGE = '#af3a03'  # 175-58-3
 
 
 class GruvboxStyle(Style):
-    """Retro groove color scheme for Vim by Github: @morhetz."""
+    """Retro groove color scheme for Vim by Github: @morhetz.
+
+    Using this as an easy and clearly visible way to experiment with classes.
+    Could I set the styles dict inside of a method then decorate that with
+    ``@property`` to make accessing it easier?
+    """
 
     default_style = ''
 
