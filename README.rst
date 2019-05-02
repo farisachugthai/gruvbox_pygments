@@ -149,6 +149,10 @@ Here's the src from :mod:`pygments/token`
 
 .. }}}
 
+One can programatically produce CSS from a pygments class
+
+
+
 Original VimScript
 ------------------
 The only :mod:`Pygments` port I could find frequently uses hex colors not found
