@@ -2,7 +2,7 @@
 """Gruvbox for IPython.
 
 Gruvbox Colorscheme
-=====================
+
 A retro groove color scheme for Vim.
 `<https://github.com/morhetz/gruvbox>`_
 
@@ -20,7 +20,7 @@ In case you were wondering how to find all the pygment tokens in a more
 consistent way, literally just viewing the ``styles`` attributes for the
 :ref:`~gruvbox/style/GruvboxStyle` should be plenty.
 
-.. source-code:: python
+.. source-code:: python3
 
     >>> print(GruvboxStyle.styles)
     {Token.Comment.Preproc: 'noinherit #8ec07c',

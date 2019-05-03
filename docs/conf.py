@@ -178,6 +178,8 @@ man_pages = [(master_doc, 'gruvboxipython', 'Gruvbox IPython Documentation', [
     author
 ], 1)]
 
+manpages_url = "https://linux.die.net/man"
+
 # -- Options for Texinfo output ----------------------------------------------
 
 # Grouping the document tree into Texinfo files. List of tuples
@@ -218,6 +220,10 @@ intersphinx_mapping = {
 
 # numpydoc configuration
 
-numpydoc_show_class_members = False # Otherwise Sphinx emits thousands of warnings
+numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warnings
 numpydoc_class_members_toctree = False
 warning_is_error = True
+
+def setup(app):
+    """Add flask css."""
+    app.add_stylesheet(os.path.join('_static', '', 'flask.css_t'))
