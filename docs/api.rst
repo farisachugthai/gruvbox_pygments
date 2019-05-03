@@ -2,6 +2,17 @@
 Gruvbox
 ==============
 
+This documentation was automatically generated and may not accurately represent
+the API at time of writing.
+
+|today|
+
+
+.. contents:: Table of Contents
+    :local:
+    :depth: 3
+
+
 :mod:`style`
 ------------------
 

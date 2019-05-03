@@ -40,6 +40,16 @@ release = version
 
 # -- General configuration ---------------------------------------------------
 
+# here are a bunch of useful options i just stumbled upon!
+# There are two options for replacing |today|: either, you set today to some
+# non-false value, then it is used:
+# today = ''
+# Else, today_fmt is used as the format for a strftime call.
+today_fmt = '%B %d, %Y'
+
+# Set the default role so we can use `foo` instead of ``foo``
+default_role = 'literal'
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
@@ -55,6 +65,9 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'IPython.sphinxext.ipython_console_highlighting',
+    'IPython.sphinxext.ipython_directive',
+    'numpydoc.numpydoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -79,7 +92,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['.*ipynb_checkpoints**']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -127,7 +140,7 @@ html_show_sphinx = False
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GruvboxIPythondoc'
+htmlhelp_basename = 'GruvboxIPython'
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -202,3 +215,9 @@ intersphinx_mapping = {
     'ipython': ('https://ipython.readthedocs.io/en/stable/', None)
 }
 
+
+# numpydoc configuration
+
+numpydoc_show_class_members = False # Otherwise Sphinx emits thousands of warnings
+numpydoc_class_members_toctree = False
+warning_is_error = True

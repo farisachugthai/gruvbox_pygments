@@ -2,14 +2,13 @@
 """Gruvbox for IPython.
 
 Gruvbox Colorscheme
-===================
+=====================
 A retro groove color scheme for Vim.
 `<https://github.com/morhetz/gruvbox>`_
 
 Definitely could consider creating a base class that inherits from Style.
 Then come up with subclasses that implement the varying contrasts.
 
-<<<<<<< Updated upstream
 Define __repr__ and __str__?
 
 Because the ``print(GruvboxStyle)`` thing doesn't give you a memory address which
@@ -103,7 +102,10 @@ consistent way, literally just viewing the ``styles`` attributes for the
     Token.Comment.Single: '',
     Token.Comment.Special: ''}
 
+Also pygments styles have a method {or a property that looks like a method}
+:ref:`pygments.styles.Style._styles`.
 
+It's hard not to hate a namespace like that but it's worth looking at.
 
 
 """
@@ -111,6 +113,8 @@ from pygments.style import Style
 from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
                             Whitespace, Error, Punctuation, Operator, String,
                             Other, Literal)
+
+__all__ = ['GruvboxStyle']
 
 # Palette: {{{1
 BG0_HARD = "1d2021"
@@ -212,5 +216,20 @@ class GruvboxStyle(Style):
         Whitespace: 'underline ' + FADED_YELLOW,
     }
 
+    def __init__(self, **kwargs):
+        """Create the Version object."""
+        self.__dict__.update(kwargs)
+
+    def __repr__(self):
+        """Return str representation of the Version."""
+        keys = sorted(self.__dict__)
+        items = ("{}={!r}".format(k, self.__dict__[k]) for k in keys)
+        return "{}({})".format(type(self).__name__, ", ".join(items))
+
+    def __eq__(self, other):
+        """Check if version is same as other."""
+        return self.__dict__ == other.__dict__
+
     def __str__(self):
+        """About to get commented out because it returns a TypeError :/ ."""
         return self.styles.values()
