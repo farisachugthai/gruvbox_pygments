@@ -95,14 +95,14 @@ language = None
 exclude_patterns = ['.*ipynb_checkpoints**']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'Gruvbox'
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+# html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -224,6 +224,16 @@ numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warni
 numpydoc_class_members_toctree = False
 warning_is_error = True
 
+
 def setup(app):
-    """Add flask css."""
-    app.add_stylesheet(os.path.join('_static', '', 'flask.css_t'))
+    """Add flask css.
+
+     Use the method ``add_css_file`` method as ``add_stylesheet`` was deprecated.
+
+     Also note that the ``app.add_css_file`` method refers to the parameter
+     ``html_static_path`` and therefore doesn't need {and shouldn't be} specified
+     as a pathname relative to this file.
+     """
+    # app.add_stylesheet(os.path.join('_static', '', 'flask.css_t'))
+    app.add_css_file('gruvbox.css')
+    logger.debug('gruvbox.css added.')
