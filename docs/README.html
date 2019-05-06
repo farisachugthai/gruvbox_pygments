@@ -7,6 +7,7 @@
     <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gruvbox.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -52,6 +53,13 @@ terminal of choice.</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build &amp;&amp; python setup.py install</span>
 </pre></div>
 </div>
+<p>If you prefer to use the Conda environment manager from Continuum Analytics,
+one can alternatively run:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
+<span class="go">conda develop .</span>
+</pre></div>
+</div>
+<p>while in the root of the repository.</p>
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
@@ -62,9 +70,16 @@ create/edit your <code class="docutils literal notranslate"><span class="pre">ip
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
 </pre></div>
 </div>
+<p>Pygments colorschemes can be used for a wide variety of applications; however,
+and limiting it’s use to only IPython is not necessary. For example, the Sphinx
+documentation project also uses Pygments when highlighting blocks of code!</p>
 </div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>The following are notes for anyone developing with Pygments and for those
+who want to customize this colorscheme further.</p>
 <div class="section" id="pygments-tokens">
-<h2>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h2>
+<h3>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h3>
 <p>Here’s the src from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments/token</span></code></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map standard token types to short names, used in CSS class naming.</span>
 <span class="c1"># If you add a new item, please be sure to run this file to perform</span>
@@ -160,13 +175,14 @@ create/edit your <code class="docutils literal notranslate"><span class="pre">ip
     <span class="n">Generic</span><span class="o">.</span><span class="n">Traceback</span><span class="p">:</span>             <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
-<p>One can programatically produce CSS from a pygments class</p>
+<p>One can programatically produce CSS from a pygments class.</p>
+<p>Pygments also exports methods to create a CSS file directly from a colorscheme.</p>
 </div>
 <div class="section" id="original-vimscript">
-<h2>Original VimScript<a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h2>
+<h3>Original VimScript<a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h3>
 <p>The only <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code> port I could find frequently uses hex colors not found
-in the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>, and does not link colors in even a slightly similar
-manner to the original.</p>
+in the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>, and does not
+link colors in even a slightly similar manner to the original.</p>
 <p>Here’s the relevant source code from the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>.</p>
 <div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">hi</span><span class="p">!</span> link pythonBuiltin GruvboxOrange
 <span class="k">hi</span><span class="p">!</span> link pythonBuiltinObj GruvboxOrange
@@ -238,6 +254,16 @@ manner to the original.</p>
 <p>Straightforward enough.</p>
 </div>
 </div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Please open a pull request or an issue with any problems you see or any changes
+you’d recommend to the source code!</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>MIT</p>
+</div>
+</div>
 
 
           </div>
@@ -274,8 +300,13 @@ manner to the original.</p>
 <li><a class="reference internal" href="#">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#development">Development</a><ul>
 <li><a class="reference internal" href="#pygments-tokens">Pygments Tokens</a></li>
 <li><a class="reference internal" href="#original-vimscript">Original VimScript</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
 </ul>
 </li>
 </ul>

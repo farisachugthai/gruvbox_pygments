@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Gruvbox for IPython.
 
@@ -5,6 +6,25 @@ Gruvbox Colorscheme
 
 A retro groove color scheme for Vim.
 `<https://github.com/morhetz/gruvbox>`_
+
+    © 2012-2015 Pavel Pertsev
+    Adapted for Pygments by Dave Yarwood
+
+Installation
+-------------
+To install this colorscheme, run the following in the root of the repository::
+
+.. code-block:: python3
+
+    sudo python setup.py develop
+
+
+This will hook in this style into pygments without editing the source
+directories of pygments iteself. Do not delete this directory as this where
+python will be looking for this style file.
+
+Notes
+------
 
 Definitely could consider creating a base class that inherits from Style.
 Then come up with subclasses that implement the varying contrasts.
@@ -107,6 +127,170 @@ Also pygments styles have a method {or a property that looks like a method}
 
 It's hard not to hate a namespace like that but it's worth looking at.
 
+Mar 06, 2019:
+
+Let's take a class that subclasses another class.
+
+... ipython::
+
+    In [1]: from pygments.style import Style
+
+    In [2]: class TestStyle(Style):
+             ...:     pass
+             ...:
+
+    In [3]: type(TestStyle)
+    Out[3]: pygments.style.StyleMeta
+
+    In [4]: from pygments.style import StyleMeta
+
+    In [5]: dir2(StyleMeta)
+    Out[5]:
+    ['__abstractmethods__',
+    ...
+     'list_styles',
+     'mro',
+     'style_for_token',
+     'styles_token']
+
+So shouldn't the subclass implement these methods?? GruvboxStyle doesnt.
+
+Let's learn what they are and implement them appropriately.
+
+It may be as simple as just calling super() in the init method.
+
+Mar 16, 2019:
+
+    Tbf though why does that class in particular matter at all???
+    The class below is the important one.
+
+.. ipython::
+
+    In [44]: type(_ip.style)
+    Out[44]: prompt_toolkit.styles.base.DynamicStyle
+
+    In [45]: from prompt_toolkit.styles.base import DynamicStyle
+
+    In [46]: from prompt_toolkit.styles.base import BaseStyle
+
+Help on class DynamicStyle in prompt_toolkit.styles.base:
+
+prompt_toolkit.styles.base.DynamicStyle = class DynamicStyle(BaseStyle)
+ |  prompt_toolkit.styles.base.DynamicStyle(get_style)
+ |
+ |  Style class that can dynamically returns an other Style.
+ |
+ |  :param get_style: Callable that returns a :class:`.Style` instance.
+ |
+ |  Method resolution order:
+ |      DynamicStyle
+ |      BaseStyle
+ |      builtins.object
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, get_style)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  get_attrs_for_style_str(self,
+                            style_str,
+                            default=Attrs(
+                            color='',
+                            bgcolor='',
+                            bold=False,
+                            underline=False,
+                            italic=False,
+                            blink=False,
+                            reverse=False,
+                            hidden=False
+                            )
+                        )
+ |      Return :class:`.Attrs` for the given style string.
+ |
+ |      :param style_str: The style string. This can contain inline styling as
+ |          well as classnames (e.g. "class:title").
+ |      :param default: `Attrs` to be used if no styling was defined.
+ |
+ |  invalidation_hash(self)
+ |      Invalidation hash for the style. When this changes over time, the
+ |      renderer knows that something in the style changed, and that everything
+ |      has to be redrawn.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  style_rules
+ |      The list of style rules, used to create this style.
+ |      (Required for `DynamicStyle` and `_MergedStyle` to work.)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |
+ |  __abstractmethods__ = frozenset()
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from BaseStyle:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Xresources for Gruvbox Dark Hard Contrast
+-----------------------------------------
+background             : #1d2021
+foreground             : #ebdbb2
+Black + DarkGrey
+color0                 : #282828
+color8                 : #928374
+DarkRed + Red
+color1                 : #cc241d
+color9                 : #fb4934
+DarkGreen + Green
+color2                 : #98971a
+color10                : #b8bb26
+DarkYellow + Yellow
+color3                 : #d79921
+color11                : #fabd2f
+DarkBlue + Blue
+color4                 : #458588
+color12                : #83a598
+DarkMagenta + Magenta
+color5                 : #b16286
+color13                : #d3869b
+DarkCyan + Cyan
+color6                 : #689d6a
+color14                : #8ec07c
+LightGrey + White
+color7                 : #a89984
+color15                 : #ebdbb2
+
+special
+foreground:   #e8dfd6
+background:   #021b21
+cursorColor:  #e8dfd6
+
+black
+color0:       #032c36
+color8:       #065f73
+
+red
+color1:       #c2454e
+color9:       #ef5847
+
+green
+color2:       #7cbf9e
+color10:      #a2d9b1
+
+yellow
+color3:       #8a7a63
+color11:      #beb090
+
+blue
+color4:       #2e3340
+color12:      #61778d
 
 """
 from pygments.style import Style
@@ -147,10 +331,10 @@ BRIGHT_ORANGE = '#fe8019'  # 254-128-25
 
 NEUTRAL_RED = '#cc241d'  # 204-36-29
 neutral_green = '#98971a'  # 152-151-26
-neutral_yellow = '#d79921'  # 215-153-33
+NEUTRAL_YELLOW = '#d79921'  # 215-153-33
 neutral_blue = '#458588'  # 69-133-136
 neutral_purple = '#b16286'  # 177-98-134
-neutral_aqua = '#689d6a'  # 104-157-106
+NEUTRAL_AQUA = '#689d6a'  # 104-157-106
 NEUTRAL_ORANGE = '#d65d0e'  # 214-93-14
 
 faded_red = '#9d0006'  # 157-0-6
@@ -178,8 +362,9 @@ class GruvboxStyle(Style):
     # highlight_color = SELECTION
 
     styles = {
-        Comment.Multiline: 'italic #B5B5B5',  # not gruvbox
         Comment: 'italic ' + GRAY_245,
+        Comment.Multiline: 'italic #B5B5B5',  # not gruvbox
+        Comment.Preproc: NEUTRAL_AQUA,
         Error: BRIGHT_RED,
         Generic.Deleted: LIGHT0_HARD,
         Generic.Emph: 'underline ' + BRIGHT_BLUE,
@@ -194,7 +379,8 @@ class GruvboxStyle(Style):
         Keyword: BRIGHT_ORANGE,
         Keyword.Constant: FADED_ORANGE,
         Keyword.Declaration: BRIGHT_ORANGE,
-        Literal: NEUTRAL_ORANGE,  # class: 'l'
+        Literal: NEUTRAL_ORANGE,                    # class: 'l'
+        Literal.Date: NEUTRAL_YELLOW,               # class: 'ld'
         Name.Attribute: BRIGHT_GREEN,
         Name.Builtin: BRIGHT_YELLOW,
         Name.Constant: BRIGHT_PURPLE,

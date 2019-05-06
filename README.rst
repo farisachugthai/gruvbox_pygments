@@ -30,7 +30,19 @@ terminal of choice.
 
 .. code-block:: shell-session
 
-    python setup.py build && python setup.py install
+    python setup.py build && python -m pip install -U -e .
+
+
+If you prefer to use the Conda environment manager from Continuum Analytics,
+one can alternatively run:
+
+.. code-block:: shell-session
+
+   python setup.py build
+   python setup.py install
+   conda develop .
+
+while in the root of the repository.
 
 
 Setup
@@ -44,9 +56,19 @@ create/edit your ``ipython_config.py`` file like so:
     c = get_config()
     c.TerminalInteractiveShell.highlighting_style = 'Gruvbox'
 
+Pygments colorschemes can be used for a wide variety of applications; however,
+and limiting it's use to only IPython is not necessary. For example, the Sphinx
+documentation project also uses Pygments when highlighting blocks of code!
+
+Development
+------------
+
+The following are notes for anyone developing with Pygments and for those
+who want to customize this colorscheme further.
+
 
 Pygments Tokens
----------------
+^^^^^^^^^^^^^^^
 
 .. Pygments Standard Types {{{1
 
@@ -149,15 +171,17 @@ Here's the src from :mod:`pygments/token`
 
 .. }}}
 
-One can programatically produce CSS from a pygments class
+One can programatically produce CSS from a pygments class.
 
+Pygments also exports methods to create a CSS file directly from a colorscheme.
 
 
 Original VimScript
-------------------
+^^^^^^^^^^^^^^^^^^
+
 The only :mod:`Pygments` port I could find frequently uses hex colors not found
-in the original `Gruvbox <https://github.com/morhetz/gruvbox>`_, and does not link colors in even a slightly similar
-manner to the original.
+in the original `Gruvbox <https://github.com/morhetz/gruvbox>`_, and does not
+link colors in even a slightly similar manner to the original.
 
 Here's the relevant source code from the original `Gruvbox <https://github.com/morhetz/gruvbox>`_.
 
@@ -238,3 +262,12 @@ And the definitions for what those keywords mean.
 .. }}}
 
 Straightforward enough.
+
+Contributing
+------------
+Please open a pull request or an issue with any problems you see or any changes
+you'd recommend to the source code!
+
+License
+--------
+MIT

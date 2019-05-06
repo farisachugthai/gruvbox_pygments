@@ -214,11 +214,13 @@ epub_exclude_files = ['search.html']
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
-    'ipython': ('https://ipython.readthedocs.io/en/stable/', None)
+    'ipython': ('https://ipython.readthedocs.io/en/stable/', None),
+    'pygments': ('http://pygments.org/', None),
+    'neovim': ('https://pynvim.readthedocs.io/en/latest/', None),
+    'sphinx': ('http://www.sphinx-doc.org/', None),
 }
 
-
-# numpydoc configuration
+#  -- numpydoc configuration --------------------------------------------------
 
 numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warnings
 numpydoc_class_members_toctree = False

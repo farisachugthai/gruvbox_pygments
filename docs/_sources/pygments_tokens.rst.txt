@@ -1,10 +1,10 @@
 Pygments Tokens
-===============
+===================
 The full list of pygments tokens.
 
 
 Keyword Tokens
----------------
+-----------------
 
 Keyword
     For any kind of keyword (especially if it doesn’t match any of the subtypes of course).
@@ -32,29 +32,38 @@ Name.Builtin
 Name.Builtin.Pseudo
     Builtin names that are implicit (e.g. self in Ruby, this in Java).
 Name.Class
-    Class names. Because no lexer can know if a name is a class or a function or something else this token is meant for class declarations.
+    Class names. Because no lexer can know if a name is a class or a 
+    function or something else this token is meant for class declarations.
 Name.Constant
-    Token type for constants. In some languages you can recognise a token by the way it’s defined (the value after a const keyword for example). In other languages constants are uppercase by definition (Ruby).
+    Token type for constants. In some languages you can recognise a token 
+    by the way it’s defined (the value after a const keyword for example). 
+    In other languages constants are uppercase by definition (Ruby).
 Name.Decorator
-    Token type for decorators. Decorators are syntactic elements in the Python language. Similar syntax elements exist in C# and Java.
+    Token type for decorators. Decorators are syntactic elements in the 
+    Python language. Similar syntax elements exist in C# and Java.
 Name.Entity
     Token type for special entities. (e.g. &nbsp; in HTML).
 Name.Exception
-    Token type for exception names (e.g. RuntimeError in Python). Some languages define exceptions in the function signature (Java). You can highlight the name of that exception using this token then.
+    Token type for exception names (e.g. RuntimeError in Python). Some 
+    languages define exceptions in the function signature (Java). You can 
+    highlight the name of that exception using this token then.
 Name.Function
     Token type for function names.
 Name.Function.Magic
-    same as Name.Function but for special function names that have an implicit use in a language (e.g. __init__ method in Python).
+    Same as ``Name.Function`` but for special function names that have an 
+    implicit use in a language (e.g. ``__init__`` method in Python).
 Name.Label
     Token type for label names (e.g. in languages that support goto).
 Name.Namespace
-    Token type for namespaces. (e.g. import paths in Java/Python), names following the module/namespace keyword in other languages.
+    Token type for namespaces. (e.g. import paths in Java/Python), names 
+    following the module/namespace keyword in other languages.
 Name.Other
     Other names. Normally unused.
 Name.Tag
     Tag names (in HTML/XML markup or configuration files).
 Name.Variable
-    Token type for variables. Some languages have prefixes for variable names (PHP, Ruby, Perl). You can highlight them using this token.
+    Token type for variables. Some languages have prefixes for variable 
+    names (PHP, Ruby, Perl). You can highlight them using this token.
 Name.Variable.Class
     same as Name.Variable but for class variables (also static variables).
 Name.Variable.Global
@@ -132,8 +141,7 @@ Comments
 Comment
     Token type for any comment.
 Comment.Hashbang
-    Token type for hashbang comments (i.e. first lines of files that start with 
-    ``#!``).
+    Token type for hashbang comments (i.e. first lines of files that start with ``#!``).
 Comment.Multiline
     Token type for multiline comments.
 Comment.Preproc
@@ -145,8 +153,8 @@ Comment.Special
 
 Generic Tokens
 ---------------
-Generic tokens are for special lexers like the DiffLexer that doesn’t really
-highlight a programming language but a patch file.
+Generic tokens are for special lexers like the DiffLexer that doesn’t 
+really highlight a programming language but a patch file.
 
 Generic
     A generic, unstyled token. Normally you don’t use this token type.
