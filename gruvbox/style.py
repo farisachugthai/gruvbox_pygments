@@ -436,7 +436,9 @@ Original source:
 
 In case you were wondering how to find all the pygment tokens in a more
 consistent way, literally just viewing the ``styles`` attributes for the
-:ref:`~gruvbox.style.GruvboxStyle` should be plenty.
+:class:`gruvbox.style.GruvboxStyle()` should be plenty.
+
+.. if that ref doesn't work how about :ref:`pygments.styles.Gruvbox`?
 
 .. code-block:: python3
 

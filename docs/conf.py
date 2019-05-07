@@ -48,7 +48,7 @@ release = version
 today_fmt = '%B %d, %Y'
 
 # Set the default role so we can use `foo` instead of ``foo``
-default_role = 'literal'
+default_role = 'py:obj'
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
@@ -212,10 +212,31 @@ epub_exclude_files = ['search.html']
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
+
+
+def pygments_traceback():
+    """Pygments got commented out because of this error.
+
+    May 07, 2019:
+
+    .. code-block:: python3-traceback
+
+        WARNING: failed to reach any of the inventories with the following issues:
+        intersphinx inventory 'http://pygments.org/objects.inv' not readable
+        due to ValueError: unknown or unsupported inventory version:
+        ValueError('invalid inventory header: <!DOCTYPE html PUBLIC "-//W3C//DTD
+        XHTML 1.0 Transitional//EN"')
+
+    ...?
+
+    """
+    pass
+
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'ipython': ('https://ipython.readthedocs.io/en/stable/', None),
-    'pygments': ('http://pygments.org/', None),
+    # 'pygments': ('http://pygments.org/', None),
     'neovim': ('https://pynvim.readthedocs.io/en/latest/', None),
     'sphinx': ('http://www.sphinx-doc.org/', None),
 }
