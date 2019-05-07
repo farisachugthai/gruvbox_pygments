@@ -36,12 +36,22 @@
 <h1>Gruvbox<a class="headerlink" href="#gruvbox" title="Permalink to this headline">¶</a></h1>
 <p>This documentation was automatically generated and may not accurately represent
 the API at time of writing.</p>
-<p>May 04, 2019</p>
+<p>May 07, 2019</p>
 <div class="contents local topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#style" id="id1"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a></p></li>
-<li><p><a class="reference internal" href="#gruvboxstyle" id="id2"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#gruvboxstyle" id="id2"><a class="reference internal" href="#gruvbox.style.GruvboxStyle" title="gruvbox.style.GruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></a></p></li>
+<li><p><a class="reference internal" href="#pt-styling" id="id3"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pt_styling</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#pygments-in-ipython" id="id4">Pygments in IPython</a></p>
+<ul>
+<li><p><a class="reference internal" href="#arguments" id="id5">Arguments</a></p></li>
+<li><p><a class="reference internal" href="#see-also" id="id6">See Also</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="style">
@@ -52,25 +62,225 @@ the API at time of writing.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gruvbox.style</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-gruvbox.style" title="gruvbox.style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gruvbox.style</span></code></a></p></td>
 <td><p>Gruvbox for IPython.</p></td>
 </tr>
 </tbody>
 </table>
+<span class="target" id="module-gruvbox.style"></span><p>Gruvbox for IPython.</p>
+<p>Gruvbox Colorscheme</p>
+<p>A retro groove color scheme for Vim.
+<a class="reference external" href="https://github.com/morhetz/gruvbox">https://github.com/morhetz/gruvbox</a></p>
+<p>Definitely could consider creating a base class that inherits from Style.
+Then come up with subclasses that implement the varying contrasts.</p>
+<p>Define __repr__ and __str__?</p>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">print(GruvboxStyle)</span></code> thing doesn’t give you a memory address which
+is nice but it may as well.</p>
+<p>04/14/2019:</p>
+<p>In case you were wondering how to find all the pygment tokens in a more
+consistent way, literally just viewing the <code class="docutils literal notranslate"><span class="pre">styles</span></code> attributes for the
+<span class="xref std std-ref">~gruvbox/style/GruvboxStyle</span> should be plenty.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">GruvboxStyle</span><span class="o">.</span><span class="n">styles</span><span class="p">)</span>
+<span class="go">{Token.Comment.Preproc: &#39;noinherit #8ec07c&#39;,</span>
+<span class="go">Token.Comment: &#39;#928374 italic&#39;,</span>
+<span class="go">Token.Generic.Deleted: &#39;noinherit #282828 bg:#fb4934&#39;,</span>
+<span class="go">Token.Generic.Emph: &#39;#83a598 underline&#39;,</span>
+<span class="go">Token.Generic.Error: &#39;bg:#fb4934 bold&#39;,</span>
+<span class="go">Token.Generic.Heading: &#39;#b8bb26 bold&#39;,</span>
+<span class="go">Token.Generic.Inserted: &#39;noinherit #282828 bg:#b8bb26&#39;,</span>
+<span class="go">Token.Generic.Output: &#39;noinherit #504945&#39;,</span>
+<span class="go">Token.Generic.Prompt: &#39;#ebdbb2&#39;,</span>
+<span class="go">Token.Generic.Strong: &#39;#ebdbb2&#39;,</span>
+<span class="go">Token.Generic.Subheading: &#39;#b8bb26 bold&#39;,</span>
+<span class="go">Token.Generic.Traceback: &#39;bg:#fb4934 bold&#39;,</span>
+<span class="go">Token.Generic: &#39;#ebdbb2&#39;,</span>
+<span class="go">Token.Keyword.Type: &#39;noinherit #fabd2f&#39;,</span>
+<span class="go">Token.Keyword: &#39;noinherit #fe8019&#39;,</span>
+<span class="go">Token.Name.Attribute: &#39;#b8bb26 bold&#39;,</span>
+<span class="go">Token.Name.Builtin: &#39;#fabd2f&#39;,</span>
+<span class="go">Token.Name.Constant: &#39;noinherit #d3869b&#39;,</span>
+<span class="go">Token.Name.Entity: &#39;noinherit #fabd2f&#39;,</span>
+<span class="go">Token.Name.Exception: &#39;noinherit #fb4934&#39;,</span>
+<span class="go">Token.Name.Function: &#39;#fabd2f&#39;,</span>
+<span class="go">Token.Name.Label: &#39;noinherit #fb4934&#39;,</span>
+<span class="go">Token.Name.Tag: &#39;noinherit #fb4934&#39;,</span>
+<span class="go">Token.Name.Variable: &#39;noinherit #ebdbb2&#39;,</span>
+<span class="go">Token.Name: &#39;#ebdbb2&#39;,</span>
+<span class="go">Token.Literal.Number.Float: &#39;noinherit #d3869b&#39;,</span>
+<span class="go">Token.Literal.Number: &#39;noinherit #d3869b&#39;,</span>
+<span class="go">Token.Operator: &#39;#fe8019&#39;,</span>
+<span class="go">Token.Literal.String.Symbol: &#39;#83a598&#39;,</span>
+<span class="go">Token.Literal.String: &#39;noinherit #b8bb26&#39;,</span>
+<span class="go">Token: &#39;noinherit #ebdbb2 bg:#282828&#39;,</span>
+<span class="go">Token.Text: &#39;&#39;,</span>
+<span class="go">Token.Text.Whitespace: &#39;&#39;,</span>
+<span class="go">Token.Escape: &#39;&#39;,</span>
+<span class="go">Token.Error: &#39;&#39;,</span>
+<span class="go">Token.Other: &#39;&#39;,</span>
+<span class="go">Token.Keyword.Constant: &#39;&#39;,</span>
+<span class="go">Token.Keyword.Declaration: &#39;&#39;,</span>
+<span class="go">Token.Keyword.Namespace: &#39;&#39;,</span>
+<span class="go">Token.Keyword.Pseudo: &#39;&#39;,</span>
+<span class="go">Token.Keyword.Reserved: &#39;&#39;,</span>
+<span class="go">Token.Name.Builtin.Pseudo: &#39;&#39;,</span>
+<span class="go">Token.Name.Class: &#39;&#39;,</span>
+<span class="go">Token.Name.Decorator: &#39;&#39;,</span>
+<span class="go">Token.Name.Function.Magic: &#39;&#39;,</span>
+<span class="go">Token.Name.Property: &#39;&#39;,</span>
+<span class="go">Token.Name.Namespace: &#39;&#39;,</span>
+<span class="go">Token.Name.Other: &#39;&#39;,</span>
+<span class="go">Token.Name.Variable.Class: &#39;&#39;,</span>
+<span class="go">Token.Name.Variable.Global: &#39;&#39;,</span>
+<span class="go">Token.Name.Variable.Instance: &#39;&#39;,</span>
+<span class="go">Token.Name.Variable.Magic: &#39;&#39;,</span>
+<span class="go">Token.Literal: &#39;&#39;,</span>
+<span class="go">Token.Literal.Date: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Affix: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Backtick: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Char: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Delimiter: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Doc: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Double: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Escape: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Heredoc: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Interpol: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Other: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Regex: &#39;&#39;,</span>
+<span class="go">Token.Literal.String.Single: &#39;&#39;,</span>
+<span class="go">Token.Literal.Number.Bin: &#39;&#39;,</span>
+<span class="go">Token.Literal.Number.Hex: &#39;&#39;,</span>
+<span class="go">Token.Literal.Number.Integer: &#39;&#39;,</span>
+<span class="go">Token.Literal.Number.Integer.Long: &#39;&#39;,</span>
+<span class="go">Token.Literal.Number.Oct: &#39;&#39;,</span>
+<span class="go">Token.Operator.Word: &#39;&#39;,</span>
+<span class="go">Token.Punctuation: &#39;&#39;,</span>
+<span class="go">Token.Comment.Hashbang: &#39;&#39;,</span>
+<span class="go">Token.Comment.Multiline: &#39;&#39;,</span>
+<span class="go">Token.Comment.PreprocFile: &#39;&#39;,</span>
+<span class="go">Token.Comment.Single: &#39;&#39;,</span>
+<span class="go">Token.Comment.Special: &#39;&#39;}</span>
+</pre></div>
+</div>
+<p>Also pygments styles have a method {or a property that looks like a method}
+<span class="xref std std-ref">pygments.styles.Style._styles</span>.</p>
+<p>It’s hard not to hate a namespace like that but it’s worth looking at.</p>
+<dl class="class">
+<dt id="gruvbox.style.GruvboxStyle">
+<em class="property">class </em><code class="descclassname">gruvbox.style.</code><code class="descname">GruvboxStyle</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gruvbox/style.html#GruvboxStyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gruvbox.style.GruvboxStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<p>Retro groove color scheme for Vim by Github: &#64;morhetz.</p>
+<p>Using this as an easy and clearly visible way to experiment with classes.
+Could I set the styles dict inside of a method then decorate that with
+<code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> to make accessing it easier?</p>
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.background_color">
+<code class="descname">background_color</code><em class="property"> = '1d2021'</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.background_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.default_style">
+<code class="descname">default_style</code><em class="property"> = ''</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.GruvboxStyle.styles">
+<code class="descname">styles</code><em class="property"> = {Token: '#ebdbb2', Token.Comment: 'italic #928374', Token.Comment.Hashbang: '', Token.Comment.Multiline: 'italic #B5B5B5', Token.Comment.Preproc: '', Token.Comment.PreprocFile: '', Token.Comment.Single: '', Token.Comment.Special: '', Token.Error: '#fb4934', Token.Escape: '', Token.Generic: '#ebdbb2', Token.Generic.Deleted: '#f9f5d7', Token.Generic.Emph: 'underline #83a598', Token.Generic.Error: '', Token.Generic.Heading: '#b8bb26 bold', Token.Generic.Inserted: '#f9f5d7', Token.Generic.Output: '#504945', Token.Generic.Prompt: '#83a598', Token.Generic.Strong: '#ebdbb2 bold', Token.Generic.Subheading: '#b8bb26 bold', Token.Generic.Traceback: '', Token.Keyword: '#fe8019', Token.Keyword.Constant: '#af3a03', Token.Keyword.Declaration: '#fe8019', Token.Keyword.Namespace: '', Token.Keyword.Pseudo: '', Token.Keyword.Reserved: '', Token.Keyword.Type: '#fabd2f', Token.Literal: '#d65d0e', Token.Literal.Date: '', Token.Literal.Number: '#d3869b', Token.Literal.Number.Bin: '', Token.Literal.Number.Float: '#d3869b', Token.Literal.Number.Hex: '', Token.Literal.Number.Integer: '', Token.Literal.Number.Integer.Long: '', Token.Literal.Number.Oct: '', Token.Literal.String: '#b8bb26', Token.Literal.String.Affix: '', Token.Literal.String.Backtick: '', Token.Literal.String.Char: '', Token.Literal.String.Delimiter: '', Token.Literal.String.Doc: '', Token.Literal.String.Double: '', Token.Literal.String.Escape: '', Token.Literal.String.Heredoc: '', Token.Literal.String.Interpol: '', Token.Literal.String.Other: '', Token.Literal.String.Regex: '', Token.Literal.String.Single: '', Token.Literal.String.Symbol: '#83a598', Token.Name: '#ebdbb2', Token.Name.Attribute: '#b8bb26', Token.Name.Builtin: '#fabd2f', Token.Name.Builtin.Pseudo: '', Token.Name.Class: '', Token.Name.Constant: '#d3869b', Token.Name.Decorator: '', Token.Name.Entity: '#fabd2f', Token.Name.Exception: 'bold #fb4934', Token.Name.Function: '#fabd2f', Token.Name.Function.Magic: '', Token.Name.Label: '#fb4934', Token.Name.Namespace: '', Token.Name.Other: '', Token.Name.Property: '', Token.Name.Tag: '#fb4934', Token.Name.Variable: '#ebdbb2', Token.Name.Variable.Class: '', Token.Name.Variable.Global: '', Token.Name.Variable.Instance: '', Token.Name.Variable.Magic: '', Token.Operator: '#fe8019', Token.Operator.Word: '#cc241d', Token.Other: '', Token.Punctuation: '#ebdbb2', Token.Text: '', Token.Text.Whitespace: 'underline #b57614'}</em><a class="headerlink" href="#gruvbox.style.GruvboxStyle.styles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="gruvboxstyle">
-<h2><a class="toc-backref" href="#id2"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a><a class="headerlink" href="#gruvboxstyle" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><a class="reference internal" href="#gruvbox.style.GruvboxStyle" title="gruvbox.style.GruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></a><a class="headerlink" href="#gruvboxstyle" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gruvbox.style.GruvboxStyle</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gruvbox.style.GruvboxStyle" title="gruvbox.style.GruvboxStyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gruvbox.style.GruvboxStyle</span></code></a>(**kwargs)</p></td>
 <td><p>Retro groove color scheme for Vim by Github: &#64;morhetz.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">gruvbox.style.</code><code class="descname">GruvboxStyle</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gruvbox/style.html#GruvboxStyle"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<p>Retro groove color scheme for Vim by Github: &#64;morhetz.</p>
+<p>Using this as an easy and clearly visible way to experiment with classes.
+Could I set the styles dict inside of a method then decorate that with
+<code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> to make accessing it easier?</p>
+<dl class="attribute">
+<dt>
+<code class="descname">background_color</code><em class="property"> = '1d2021'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">default_style</code><em class="property"> = ''</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">styles</code><em class="property"> = {Token: '#ebdbb2', Token.Comment: 'italic #928374', Token.Comment.Hashbang: '', Token.Comment.Multiline: 'italic #B5B5B5', Token.Comment.Preproc: '', Token.Comment.PreprocFile: '', Token.Comment.Single: '', Token.Comment.Special: '', Token.Error: '#fb4934', Token.Escape: '', Token.Generic: '#ebdbb2', Token.Generic.Deleted: '#f9f5d7', Token.Generic.Emph: 'underline #83a598', Token.Generic.Error: '', Token.Generic.Heading: '#b8bb26 bold', Token.Generic.Inserted: '#f9f5d7', Token.Generic.Output: '#504945', Token.Generic.Prompt: '#83a598', Token.Generic.Strong: '#ebdbb2 bold', Token.Generic.Subheading: '#b8bb26 bold', Token.Generic.Traceback: '', Token.Keyword: '#fe8019', Token.Keyword.Constant: '#af3a03', Token.Keyword.Declaration: '#fe8019', Token.Keyword.Namespace: '', Token.Keyword.Pseudo: '', Token.Keyword.Reserved: '', Token.Keyword.Type: '#fabd2f', Token.Literal: '#d65d0e', Token.Literal.Date: '', Token.Literal.Number: '#d3869b', Token.Literal.Number.Bin: '', Token.Literal.Number.Float: '#d3869b', Token.Literal.Number.Hex: '', Token.Literal.Number.Integer: '', Token.Literal.Number.Integer.Long: '', Token.Literal.Number.Oct: '', Token.Literal.String: '#b8bb26', Token.Literal.String.Affix: '', Token.Literal.String.Backtick: '', Token.Literal.String.Char: '', Token.Literal.String.Delimiter: '', Token.Literal.String.Doc: '', Token.Literal.String.Double: '', Token.Literal.String.Escape: '', Token.Literal.String.Heredoc: '', Token.Literal.String.Interpol: '', Token.Literal.String.Other: '', Token.Literal.String.Regex: '', Token.Literal.String.Single: '', Token.Literal.String.Symbol: '#83a598', Token.Name: '#ebdbb2', Token.Name.Attribute: '#b8bb26', Token.Name.Builtin: '#fabd2f', Token.Name.Builtin.Pseudo: '', Token.Name.Class: '', Token.Name.Constant: '#d3869b', Token.Name.Decorator: '', Token.Name.Entity: '#fabd2f', Token.Name.Exception: 'bold #fb4934', Token.Name.Function: '#fabd2f', Token.Name.Function.Magic: '', Token.Name.Label: '#fb4934', Token.Name.Namespace: '', Token.Name.Other: '', Token.Name.Property: '', Token.Name.Tag: '#fb4934', Token.Name.Variable: '#ebdbb2', Token.Name.Variable.Class: '', Token.Name.Variable.Global: '', Token.Name.Variable.Instance: '', Token.Name.Variable.Magic: '', Token.Operator: '#fe8019', Token.Operator.Word: '#cc241d', Token.Other: '', Token.Punctuation: '#ebdbb2', Token.Text: '', Token.Text.Whitespace: 'underline #b57614'}</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>In addition, here’s a useful implementation from Prompt Toolkit.</p>
+</div>
+<div class="section" id="pt-styling">
+<h2><a class="toc-backref" href="#id3"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pt_styling</span></code></a><a class="headerlink" href="#pt-styling" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-gruvbox.pt_styling" title="gruvbox.pt_styling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gruvbox.pt_styling</span></code></a></p></td>
+<td><p>Use the code from a ptpython help doc to stylize IPython.</p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-gruvbox.pt_styling"></span><p>Use the code from a ptpython help doc to stylize IPython.</p>
+<div class="section" id="pygments-in-ipython">
+<h3><a class="toc-backref" href="#id4">Pygments in IPython</a><a class="headerlink" href="#pygments-in-ipython" title="Permalink to this headline">¶</a></h3>
+<p>We still need to do a lot here but there’s the skeleton for you.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The help from ptpython actually lists the wrong import</p>
+</div>
+<div class="section" id="arguments">
+<h4><a class="toc-backref" href="#id5">Arguments</a><a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h4>
+<dl>
+<dt>style<span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.styles.Style</span></code></span></dt><dd><p>Dict with hex codes to colorize IPython with.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="see-also">
+<h4><a class="toc-backref" href="#id6">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h4>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">ptpython.styles</span></code></p>
+<dl class="function">
+<dt id="gruvbox.pt_styling.get_all_code_styles">
+<code class="descclassname">gruvbox.pt_styling.</code><code class="descname">get_all_code_styles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gruvbox/pt_styling.html#get_all_code_styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gruvbox.pt_styling.get_all_code_styles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mapping from style names to their classes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gruvbox.pt_styling.get_all_ui_styles">
+<code class="descclassname">gruvbox.pt_styling.</code><code class="descname">get_all_ui_styles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gruvbox/pt_styling.html#get_all_ui_styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gruvbox.pt_styling.get_all_ui_styles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dict mapping {ui_style_name -&gt; style_dict}.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gruvbox.pt_styling.generate_style">
+<code class="descclassname">gruvbox.pt_styling.</code><code class="descname">generate_style</code><span class="sig-paren">(</span><em>python_style</em>, <em>ui_style</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gruvbox/pt_styling.html#generate_style"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gruvbox.pt_styling.generate_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate Pygments Style class from two dictionaries containing style rules.</p>
+</dd></dl>
+
+</div>
+</div>
 </div>
 </div>
 
@@ -110,6 +320,14 @@ the API at time of writing.</p>
 <li><a class="reference internal" href="#">Gruvbox</a><ul>
 <li><a class="reference internal" href="#style"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a></li>
 <li><a class="reference internal" href="#gruvboxstyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></li>
+<li><a class="reference internal" href="#pt-styling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pt_styling</span></code></a><ul>
+<li><a class="reference internal" href="#pygments-in-ipython">Pygments in IPython</a><ul>
+<li><a class="reference internal" href="#arguments">Arguments</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

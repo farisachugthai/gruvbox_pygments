@@ -175,7 +175,6 @@ One can programatically produce CSS from a pygments class.
 
 Pygments also exports methods to create a CSS file directly from a colorscheme.
 
-
 Original VimScript
 ^^^^^^^^^^^^^^^^^^
 
@@ -262,6 +261,40 @@ And the definitions for what those keywords mean.
 .. }}}
 
 Straightforward enough.
+
+In addition, here's a mapping from Honza mapping Vim highlighting
+groups to Pygments tokens.
+
+.. code-block:: python
+
+    TOKENS = {
+        'normal':           '',
+        'string':           'String',
+        'number':           'Number',
+        'float':            'Number.Float',
+        'constant':         'Name.Constant',
+        'number':           'Number',
+        'statement':        ('Keyword', 'Name.Tag'),
+        'identifier':       'Name.Variable',
+        'operator':         'Operator.Word',
+        'label':            'Name.Label',
+        'exception':        'Name.Exception',
+        'function':         ('Name.Function', 'Name.Attribute'),
+        'preproc':          'Comment.Preproc',
+        'comment':          'Comment',
+        'type':             'Keyword.Type',
+        'diffadd':          'Generic.Inserted',
+        'diffdelete':       'Generic.Deleted',
+        'error':            'Generic.Error',
+        'errormsg':         'Generic.Traceback',
+        'title':            ('Generic.Heading', 'Generic.Subheading'),
+        'underlined':       'Generic.Emph',
+        'special':          'Name.Entity',
+        'nontext':          'Generic.Output'
+    }
+
+
+
 
 Contributing
 ------------
