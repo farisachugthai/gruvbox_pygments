@@ -1,19 +1,22 @@
-==============
-Gruvbox
-==============
+====================
+Gruvbox for Pygments
+====================
 
 This documentation was automatically generated and may not accurately represent
 the API at time of writing.
 
-|today|
+.. only:: html
+
+   :Release: |version|
+   :Date: |today|
 
 
-.. contents:: Table of Contents
-    :local:
-    :depth: 3
+Style Implementation
+--------------------
+Here follows the style module, which is the main entry-point for Pygments to
+hook into.
 
-:mod:`style`
-------------------
+
 .. autosummary::
     :template: module.rst
 
@@ -24,28 +27,17 @@ the API at time of writing.
     :undoc-members:
     :show-inheritance:
 
+
 :class:`GruvboxStyle`
 ----------------------
+Here is the Gruvbox class specifically.
+
 .. autosummary::
     :template: class.rst
 
     gruvbox.style.GruvboxStyle
 
 .. autoclass:: gruvbox.style.GruvboxStyle
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-In addition, here's a useful implementation from Prompt Toolkit.
-
-:mod:`pt_styling`
------------------
-.. autosummary::
-    :template: module.rst
-
-    gruvbox.pt_styling
-
-.. automodule:: gruvbox.pt_styling
     :members:
     :undoc-members:
     :show-inheritance:

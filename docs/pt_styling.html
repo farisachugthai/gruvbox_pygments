@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;no title&gt; &#8212; Gruvbox IPython 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gruvbox.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Use the code from a ptpython help doc to stylize IPython.</span>
+
+<span class="sd">Pygments in IPython</span>
+<span class="sd">====================</span>
+<span class="sd">We still need to do a lot here but there&#39;s the skeleton for you.</span>
+
+<span class="sd">.. note::</span>
+
+<span class="sd">    The help from ptpython actually lists the wrong import</span>
+
+<span class="sd">Arguments</span>
+<span class="sd">----------</span>
+<span class="sd">style : :class:`pygments.styles.Style`</span>
+<span class="sd">    Dict with hex codes to colorize IPython with.</span>
+
+
+<span class="sd">See Also</span>
+<span class="sd">----------</span>
+<span class="sd">:mod:`ptpython.styles`</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">prompt_toolkit.styles</span> <span class="k">import</span> <span class="n">Style</span><span class="p">,</span> <span class="n">merge_styles</span>
+<span class="kn">from</span> <span class="nn">prompt_toolkit.styles.pygments</span> <span class="k">import</span> <span class="n">style_from_pygments_cls</span>
+<span class="kn">from</span> <span class="nn">prompt_toolkit.utils</span> <span class="k">import</span> <span class="n">is_windows</span><span class="p">,</span> <span class="n">is_conemu_ansi</span><span class="p">,</span> <span class="n">is_windows_vt100_supported</span>
+<span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="k">import</span> <span class="n">get_style_by_name</span><span class="p">,</span> <span class="n">get_all_styles</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;get_all_code_styles&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_all_ui_styles&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;generate_style&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_all_code_styles</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a mapping from style names to their classes.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">style_from_pygments_cls</span><span class="p">(</span><span class="n">get_style_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+                  <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">get_all_styles</span><span class="p">())</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;win32&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Style</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">win32_code_style</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">get_all_ui_styles</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a dict mapping {ui_style_name -&gt; style_dict}.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="n">Style</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">default_ui_style</span><span class="p">),</span>
+        <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="n">Style</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">blue_ui_style</span><span class="p">),</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">generate_style</span><span class="p">(</span><span class="n">python_style</span><span class="p">,</span> <span class="n">ui_style</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate Pygments Style class from two dictionaries containing style rules.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">merge_styles</span><span class="p">([</span><span class="n">python_style</span><span class="p">,</span> <span class="n">ui_style</span><span class="p">])</span>
+
+
+<span class="c1"># Code style for Windows consoles. They support only 16 colors,</span>
+<span class="c1"># so we choose a combination that displays nicely.</span>
+<span class="n">win32_code_style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pygments.comment&#39;</span><span class="p">:</span> <span class="s2">&quot;#00ff00&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.keyword&#39;</span><span class="p">:</span> <span class="s1">&#39;#44ff44&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.number&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.operator&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.string&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff44ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.decorator&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff4444&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.class&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff4444&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.function&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff4444&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.builtin&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff4444&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.attribute&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.constant&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.entity&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.exception&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.label&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.tag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pygments.name.variable&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">default_ui_style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;control-character&#39;</span><span class="p">:</span> <span class="s1">&#39;ansiblue&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Classic prompt.</span>
+    <span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prompt.dots&#39;</span><span class="p">:</span> <span class="s1">&#39;noinherit&#39;</span><span class="p">,</span>
+
+    <span class="c1"># (IPython &lt;5.0) Prompt: &quot;In [1]:&quot;</span>
+    <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="s1">&#39;bold #008800&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;in.number&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Return value.</span>
+    <span class="s1">&#39;out&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff0000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;out.number&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff0000&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Separator between windows. (Used above docstring.)</span>
+    <span class="s1">&#39;separator&#39;</span><span class="p">:</span> <span class="s1">&#39;#bbbbbb&#39;</span><span class="p">,</span>
+
+    <span class="c1"># System toolbar</span>
+    <span class="s1">&#39;system-toolbar&#39;</span><span class="p">:</span> <span class="s1">&#39;#22aaaa noinherit&#39;</span><span class="p">,</span>
+
+    <span class="c1"># &quot;arg&quot; toolbar.</span>
+    <span class="s1">&#39;arg-toolbar&#39;</span><span class="p">:</span> <span class="s1">&#39;#22aaaa noinherit&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;arg-toolbar.text&#39;</span><span class="p">:</span> <span class="s1">&#39;noinherit&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Signature toolbar.</span>
+    <span class="s1">&#39;signature-toolbar&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#44bbbb #000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;signature-toolbar.currentname&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#008888 #ffffff bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;signature-toolbar.operator&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000 bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;docstring&#39;</span><span class="p">:</span> <span class="s1">&#39;#888888&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Validation toolbar.</span>
+    <span class="s1">&#39;validation-toolbar&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#440000 #aaaaaa&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Status toolbar.</span>
+    <span class="s1">&#39;status-toolbar&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#222222 #aaaaaa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.title&#39;</span><span class="p">:</span> <span class="s1">&#39;underline&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.inputmode&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#222222 #ffffaa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.key&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#000000 #888888&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.pastemodeon&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#aa4444 #ffffff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.pythonversion&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#222222 #ffffff bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar paste-mode-on&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#aa4444 #ffffff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;record&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#884444 white&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status-toolbar.input-mode&#39;</span><span class="p">:</span> <span class="s1">&#39;#ffff44&#39;</span><span class="p">,</span>
+
+    <span class="c1"># The options sidebar.</span>
+    <span class="s1">&#39;sidebar&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#bbbbbb #000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.title&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#668866 #ffffff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.label&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#bbbbbb #222222&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.status&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#dddddd #000011&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.label selected&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#222222 #eeeeee&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.status selected&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#444444 #ffffff bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.separator&#39;</span><span class="p">:</span> <span class="s1">&#39;underline&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.key&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#bbddbb #000000 bold&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.key.description&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#bbbbbb #000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sidebar.helptext&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#fdf6e3 #000011&#39;</span><span class="p">,</span>
+
+    <span class="c1">#        # Styling for the history layout.</span>
+    <span class="c1">#        history.line:                          &#39;&#39;,</span>
+    <span class="c1">#        history.line.selected:                 &#39;bg:#008800  #000000&#39;,</span>
+    <span class="c1">#        history.line.current:                  &#39;bg:#ffffff #000000&#39;,</span>
+    <span class="c1">#        history.line.selected.current:         &#39;bg:#88ff88 #000000&#39;,</span>
+    <span class="c1">#        history.existinginput:                  &#39;#888888&#39;,</span>
+
+    <span class="c1"># Help Window.</span>
+    <span class="s1">&#39;window-border&#39;</span><span class="p">:</span> <span class="s1">&#39;#aaaaaa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;window-title&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#bbbbbb #000000&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Meta-enter message.</span>
+    <span class="s1">&#39;accept-message&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#ffff88 #444444&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Exit confirmation.</span>
+    <span class="s1">&#39;exit-confirmation&#39;</span><span class="p">:</span> <span class="s1">&#39;bg:#884444 #ffffff&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Some changes to get a bit more contrast on Windows consoles.</span>
+<span class="c1"># (They only support 16 colors.)</span>
+
+<span class="k">if</span> <span class="n">is_windows</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_conemu_ansi</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_windows_vt100_supported</span><span class="p">():</span>
+    <span class="n">default_ui_style</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s1">&#39;sidebar.title&#39;</span><span class="p">:</span>
+        <span class="s1">&#39;bg:#00ff00 #ffffff&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;exitconfirmation&#39;</span><span class="p">:</span>
+        <span class="s1">&#39;bg:#ff4444 #ffffff&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;toolbar.validation&#39;</span><span class="p">:</span>
+        <span class="s1">&#39;bg:#ff4444 #ffffff&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;menu.completions.completion&#39;</span><span class="p">:</span>
+        <span class="s1">&#39;bg:#ffffff #000000&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;menu.completions.completion.current&#39;</span><span class="p">:</span>
+        <span class="s1">&#39;bg:#aaaaaa #000000&#39;</span><span class="p">,</span>
+    <span class="p">})</span>
+
+<span class="n">blue_ui_style</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">blue_ui_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">default_ui_style</span><span class="p">)</span>
+<span class="c1">#blue_ui_style.update({</span>
+<span class="c1">#        # Line numbers.</span>
+<span class="c1">#        Token.LineNumber:                             &#39;#aa6666&#39;,</span>
+<span class="c1">#</span>
+<span class="c1">#        # Highlighting of search matches in document.</span>
+<span class="c1">#        Token.SearchMatch:                            &#39;#ffffff bg:#4444aa&#39;,</span>
+<span class="c1">#        Token.SearchMatch.Current:                    &#39;#ffffff bg:#44aa44&#39;,</span>
+<span class="c1">#</span>
+<span class="c1">#        # Highlighting of select text in document.</span>
+<span class="c1">#        Token.SelectedText:                           &#39;#ffffff bg:#6666aa&#39;,</span>
+<span class="c1">#</span>
+<span class="c1">#        # Completer toolbar.</span>
+<span class="c1">#        Token.Toolbar.Completions:                    &#39;bg:#44bbbb #000000&#39;,</span>
+<span class="c1">#        Token.Toolbar.Completions.Arrow:              &#39;bg:#44bbbb #000000 bold&#39;,</span>
+<span class="c1">#        Token.Toolbar.Completions.Completion:         &#39;bg:#44bbbb #000000&#39;,</span>
+<span class="c1">#        Token.Toolbar.Completions.Completion.Current: &#39;bg:#008888 #ffffff&#39;,</span>
+<span class="c1">#</span>
+<span class="c1">#        # Completer menu.</span>
+<span class="c1">#        Token.Menu.Completions.Completion:            &#39;bg:#44bbbb #000000&#39;,</span>
+<span class="c1">#        Token.Menu.Completions.Completion.Current:    &#39;bg:#008888 #ffffff&#39;,</span>
+<span class="c1">#        Token.Menu.Completions.Meta:                  &#39;bg:#449999 #000000&#39;,</span>
+<span class="c1">#        Token.Menu.Completions.Meta.Current:          &#39;bg:#00aaaa #000000&#39;,</span>
+<span class="c1">#        Token.Menu.Completions.ProgressBar:           &#39;bg:#aaaaaa&#39;,</span>
+<span class="c1">#        Token.Menu.Completions.ProgressButton:        &#39;bg:#000000&#39;,</span>
+<span class="c1">#})</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">prompt_toolkit.styles.pygments</span> <span class="k">import</span> <span class="n">style_from_pygments_cls</span>  <span class="c1"># noqa F401</span>
+    <span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="k">import</span> <span class="n">get_style_by_name</span>  <span class="c1"># noqa F401</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">style_from_pygments_cls</span><span class="p">(</span><span class="n">get_style_by_name</span><span class="p">(</span><span class="s1">&#39;monokai&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Gruvbox IPython</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Faris A. Chugthai&repo=Gruvbox-IPython&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pt_styling.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Faris A Chugthai.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/pt_styling.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/Faris A. Chugthai/Gruvbox-IPython" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

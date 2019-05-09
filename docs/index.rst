@@ -7,11 +7,11 @@ Welcome to Gruvbox IPython's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
-   pygments_tokens
    api
+   pygments_tokens
 
 .. include:: README.rst
 

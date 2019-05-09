@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pygments Tokens" href="pygments_tokens.html" />
+    <link rel="next" title="Gruvbox for Pygments" href="api.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,6 +37,11 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Gruvbox for Pygments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#style-implementation">Style Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#gruvboxstyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pygments_tokens.html">Pygments Tokens</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#keyword-tokens">Keyword Tokens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#name-tokens">Name Tokens</a></li>
@@ -45,12 +50,11 @@
 <li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#punctuation">Punctuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#comments">Comments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#generic-tokens">Generic Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#development">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#standard-types-as-defined-by-pygments">Standard Types as Defined by Pygments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#original-vimscript">Original VimScript</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Gruvbox</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#style"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#gruvboxstyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#pt-styling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pt_styling</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -99,217 +103,12 @@ create/edit your <code class="docutils literal notranslate"><span class="pre">ip
 and limiting it’s use to only IPython is not necessary. For example, the Sphinx
 documentation project also uses Pygments when highlighting blocks of code!</p>
 </div>
-<div class="section" id="development">
-<h3>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h3>
-<p>The following are notes for anyone developing with Pygments and for those
-who want to customize this colorscheme further.</p>
-<div class="section" id="pygments-tokens">
-<h4>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h4>
-<p>Here’s the src from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments/token</span></code></p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map standard token types to short names, used in CSS class naming.</span>
-<span class="c1"># If you add a new item, please be sure to run this file to perform</span>
-<span class="c1"># a consistency check for duplicate values.</span>
-<span class="n">STANDARD_TYPES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">Token</span><span class="p">:</span>                         <span class="s1">&#39;&#39;</span><span class="p">,</span>
-
-    <span class="n">Text</span><span class="p">:</span>                          <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="n">Whitespace</span><span class="p">:</span>                    <span class="s1">&#39;w&#39;</span><span class="p">,</span>
-    <span class="n">Escape</span><span class="p">:</span>                        <span class="s1">&#39;esc&#39;</span><span class="p">,</span>
-    <span class="n">Error</span><span class="p">:</span>                         <span class="s1">&#39;err&#39;</span><span class="p">,</span>
-    <span class="n">Other</span><span class="p">:</span>                         <span class="s1">&#39;x&#39;</span><span class="p">,</span>
-
-    <span class="n">Keyword</span><span class="p">:</span>                       <span class="s1">&#39;k&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>              <span class="s1">&#39;kc&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Declaration</span><span class="p">:</span>           <span class="s1">&#39;kd&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>             <span class="s1">&#39;kn&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">:</span>                <span class="s1">&#39;kp&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Reserved</span><span class="p">:</span>              <span class="s1">&#39;kr&#39;</span><span class="p">,</span>
-    <span class="n">Keyword</span><span class="o">.</span><span class="n">Type</span><span class="p">:</span>                  <span class="s1">&#39;kt&#39;</span><span class="p">,</span>
-
-    <span class="n">Name</span><span class="p">:</span>                          <span class="s1">&#39;n&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">:</span>                <span class="s1">&#39;na&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">:</span>                  <span class="s1">&#39;nb&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">:</span>           <span class="s1">&#39;bp&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>                    <span class="s1">&#39;nc&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>                 <span class="s1">&#39;no&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">:</span>                <span class="s1">&#39;nd&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">:</span>                   <span class="s1">&#39;ni&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span>                <span class="s1">&#39;ne&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>                 <span class="s1">&#39;nf&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>           <span class="s1">&#39;fm&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span>                 <span class="s1">&#39;py&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span>                    <span class="s1">&#39;nl&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>                <span class="s1">&#39;nn&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Other</span><span class="p">:</span>                    <span class="s1">&#39;nx&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">:</span>                      <span class="s1">&#39;nt&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span>                 <span class="s1">&#39;nv&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>           <span class="s1">&#39;vc&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span>          <span class="s1">&#39;vg&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Instance</span><span class="p">:</span>        <span class="s1">&#39;vi&#39;</span><span class="p">,</span>
-    <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>           <span class="s1">&#39;vm&#39;</span><span class="p">,</span>
-
-    <span class="n">Literal</span><span class="p">:</span>                       <span class="s1">&#39;l&#39;</span><span class="p">,</span>
-    <span class="n">Literal</span><span class="o">.</span><span class="n">Date</span><span class="p">:</span>                  <span class="s1">&#39;ld&#39;</span><span class="p">,</span>
-
-    <span class="n">String</span><span class="p">:</span>                        <span class="s1">&#39;s&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Affix</span><span class="p">:</span>                  <span class="s1">&#39;sa&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Backtick</span><span class="p">:</span>               <span class="s1">&#39;sb&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Char</span><span class="p">:</span>                   <span class="s1">&#39;sc&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Delimiter</span><span class="p">:</span>              <span class="s1">&#39;dl&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Doc</span><span class="p">:</span>                    <span class="s1">&#39;sd&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Double</span><span class="p">:</span>                 <span class="s1">&#39;s2&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Escape</span><span class="p">:</span>                 <span class="s1">&#39;se&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Heredoc</span><span class="p">:</span>                <span class="s1">&#39;sh&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">:</span>               <span class="s1">&#39;si&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Other</span><span class="p">:</span>                  <span class="s1">&#39;sx&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Regex</span><span class="p">:</span>                  <span class="s1">&#39;sr&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Single</span><span class="p">:</span>                 <span class="s1">&#39;s1&#39;</span><span class="p">,</span>
-    <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span>                 <span class="s1">&#39;ss&#39;</span><span class="p">,</span>
-
-    <span class="n">Number</span><span class="p">:</span>                        <span class="s1">&#39;m&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Bin</span><span class="p">:</span>                    <span class="s1">&#39;mb&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">:</span>                  <span class="s1">&#39;mf&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Hex</span><span class="p">:</span>                    <span class="s1">&#39;mh&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="p">:</span>                <span class="s1">&#39;mi&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Integer</span><span class="o">.</span><span class="n">Long</span><span class="p">:</span>           <span class="s1">&#39;il&#39;</span><span class="p">,</span>
-    <span class="n">Number</span><span class="o">.</span><span class="n">Oct</span><span class="p">:</span>                    <span class="s1">&#39;mo&#39;</span><span class="p">,</span>
-
-    <span class="n">Operator</span><span class="p">:</span>                      <span class="s1">&#39;o&#39;</span><span class="p">,</span>
-    <span class="n">Operator</span><span class="o">.</span><span class="n">Word</span><span class="p">:</span>                 <span class="s1">&#39;ow&#39;</span><span class="p">,</span>
-
-    <span class="n">Punctuation</span><span class="p">:</span>                   <span class="s1">&#39;p&#39;</span><span class="p">,</span>
-
-    <span class="n">Comment</span><span class="p">:</span>                       <span class="s1">&#39;c&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">Hashbang</span><span class="p">:</span>              <span class="s1">&#39;ch&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">:</span>             <span class="s1">&#39;cm&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">Preproc</span><span class="p">:</span>               <span class="s1">&#39;cp&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">PreprocFile</span><span class="p">:</span>           <span class="s1">&#39;cpf&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">Single</span><span class="p">:</span>                <span class="s1">&#39;c1&#39;</span><span class="p">,</span>
-    <span class="n">Comment</span><span class="o">.</span><span class="n">Special</span><span class="p">:</span>               <span class="s1">&#39;cs&#39;</span><span class="p">,</span>
-
-    <span class="n">Generic</span><span class="p">:</span>                       <span class="s1">&#39;g&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">:</span>               <span class="s1">&#39;gd&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">:</span>                  <span class="s1">&#39;ge&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>                 <span class="s1">&#39;gr&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">:</span>               <span class="s1">&#39;gh&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">:</span>              <span class="s1">&#39;gi&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Output</span><span class="p">:</span>                <span class="s1">&#39;go&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span>                <span class="s1">&#39;gp&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">:</span>                <span class="s1">&#39;gs&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">:</span>            <span class="s1">&#39;gu&#39;</span><span class="p">,</span>
-    <span class="n">Generic</span><span class="o">.</span><span class="n">Traceback</span><span class="p">:</span>             <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
-</pre></div>
-</div>
-<p>One can programatically produce CSS from a pygments class.</p>
-<p>Pygments also exports methods to create a CSS file directly from a colorscheme.</p>
-</div>
-<div class="section" id="original-vimscript">
-<h4>Original VimScript<a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h4>
-<p>The only <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code> port I could find frequently uses hex colors not found
-in the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>, and does not
-link colors in even a slightly similar manner to the original.</p>
-<p>Here’s the relevant source code from the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>.</p>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">hi</span><span class="p">!</span> link pythonBuiltin GruvboxOrange
-<span class="k">hi</span><span class="p">!</span> link pythonBuiltinObj GruvboxOrange
-<span class="k">hi</span><span class="p">!</span> link pythonBuiltinFunc GruvboxOrange
-<span class="k">hi</span><span class="p">!</span> link pythonFunction GruvboxAqua
-<span class="k">hi</span><span class="p">!</span> link pythonDecorator GruvboxRed
-<span class="k">hi</span><span class="p">!</span> link pythonInclude GruvboxBlue
-<span class="k">hi</span><span class="p">!</span> link pythonImport GruvboxBlue
-<span class="k">hi</span><span class="p">!</span> link pythonRun GruvboxBlue
-<span class="k">hi</span><span class="p">!</span> link pythonCoding GruvboxBlue
-<span class="k">hi</span><span class="p">!</span> link pythonOperator GruvboxRed
-<span class="k">hi</span><span class="p">!</span> link pythonException GruvboxRed
-<span class="k">hi</span><span class="p">!</span> link pythonExceptions GruvboxPurple
-<span class="k">hi</span><span class="p">!</span> link pythonBoolean GruvboxPurple
-<span class="k">hi</span><span class="p">!</span> link pythonDot GruvboxFg3
-<span class="k">hi</span><span class="p">!</span> link pythonConditional GruvboxRed
-<span class="k">hi</span><span class="p">!</span> link pythonRepeat GruvboxRed
-<span class="k">hi</span><span class="p">!</span> link pythonDottedName GruvboxGreenBold
-</pre></div>
-</div>
-<p>And the definitions for what those keywords mean.</p>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; Palette: {{{2</span>
-
-<span class="c">&quot; setup palette dictionary</span>
-<span class="k">let</span> s:gb <span class="p">=</span> {}
-
-<span class="c"> &quot; fill it with absolute colors</span>
-<span class="k">let</span> s:gb.dark0_hard  <span class="p">=</span> [<span class="s1">&#39;#1d2021&#39;</span><span class="p">,</span> <span class="m">234</span>]     <span class="c">&quot; 29-32-33</span>
-<span class="k">let</span> s:gb.dark0       <span class="p">=</span> [<span class="s1">&#39;#282828&#39;</span><span class="p">,</span> <span class="m">235</span>]     <span class="c">&quot; 40-40-40</span>
-<span class="k">let</span> s:gb.dark0_soft  <span class="p">=</span> [<span class="s1">&#39;#32302f&#39;</span><span class="p">,</span> <span class="m">236</span>]     <span class="c">&quot; 50-48-47</span>
-<span class="k">let</span> s:gb.dark1       <span class="p">=</span> [<span class="s1">&#39;#3c3836&#39;</span><span class="p">,</span> <span class="m">237</span>]     <span class="c">&quot; 60-56-54</span>
-<span class="k">let</span> s:gb.dark2       <span class="p">=</span> [<span class="s1">&#39;#504945&#39;</span><span class="p">,</span> <span class="m">239</span>]     <span class="c">&quot; 80-73-69</span>
-<span class="k">let</span> s:gb.dark3       <span class="p">=</span> [<span class="s1">&#39;#665c54&#39;</span><span class="p">,</span> <span class="m">241</span>]     <span class="c">&quot; 102-92-84</span>
-<span class="k">let</span> s:gb.dark4       <span class="p">=</span> [<span class="s1">&#39;#7c6f64&#39;</span><span class="p">,</span> <span class="m">243</span>]     <span class="c">&quot; 124-111-100</span>
-<span class="k">let</span> s:gb.dark4_256   <span class="p">=</span> [<span class="s1">&#39;#7c6f64&#39;</span><span class="p">,</span> <span class="m">243</span>]     <span class="c">&quot; 124-111-100</span>
-<span class="k">let</span> s:gb.gray_245    <span class="p">=</span> [<span class="s1">&#39;#928374&#39;</span><span class="p">,</span> <span class="m">245</span>]     <span class="c">&quot; 146-131-116</span>
-<span class="k">let</span> s:gb.gray_244    <span class="p">=</span> [<span class="s1">&#39;#928374&#39;</span><span class="p">,</span> <span class="m">244</span>]     <span class="c">&quot; 146-131-116</span>
-<span class="k">let</span> s:gb.light0_hard <span class="p">=</span> [<span class="s1">&#39;#f9f5d7&#39;</span><span class="p">,</span> <span class="m">230</span>]     <span class="c">&quot; 249-245-215</span>
-<span class="k">let</span> s:gb.light0      <span class="p">=</span> [<span class="s1">&#39;#fbf1c7&#39;</span><span class="p">,</span> <span class="m">229</span>]     <span class="c">&quot; 253-244-193</span>
-<span class="k">let</span> s:gb.light0_soft <span class="p">=</span> [<span class="s1">&#39;#f2e5bc&#39;</span><span class="p">,</span> <span class="m">228</span>]     <span class="c">&quot; 242-229-188</span>
-<span class="k">let</span> s:gb.light1      <span class="p">=</span> [<span class="s1">&#39;#ebdbb2&#39;</span><span class="p">,</span> <span class="m">223</span>]     <span class="c">&quot; 235-219-178</span>
-<span class="k">let</span> s:gb.light2      <span class="p">=</span> [<span class="s1">&#39;#d5c4a1&#39;</span><span class="p">,</span> <span class="m">250</span>]     <span class="c">&quot; 213-196-161</span>
-<span class="k">let</span> s:gb.light3      <span class="p">=</span> [<span class="s1">&#39;#bdae93&#39;</span><span class="p">,</span> <span class="m">248</span>]     <span class="c">&quot; 189-174-147</span>
-<span class="k">let</span> s:gb.light4      <span class="p">=</span> [<span class="s1">&#39;#a89984&#39;</span><span class="p">,</span> <span class="m">246</span>]     <span class="c">&quot; 168-153-132</span>
-<span class="k">let</span> s:gb.light4_256  <span class="p">=</span> [<span class="s1">&#39;#a89984&#39;</span><span class="p">,</span> <span class="m">246</span>]     <span class="c">&quot; 168-153-132</span>
-<span class="k">let</span> s:gb.bright_red     <span class="p">=</span> [<span class="s1">&#39;#fb4934&#39;</span><span class="p">,</span> <span class="m">167</span>]     <span class="c">&quot; 251-73-52</span>
-<span class="k">let</span> s:gb.bright_green   <span class="p">=</span> [<span class="s1">&#39;#b8bb26&#39;</span><span class="p">,</span> <span class="m">142</span>]     <span class="c">&quot; 184-187-38</span>
-<span class="k">let</span> s:gb.bright_yellow  <span class="p">=</span> [<span class="s1">&#39;#fabd2f&#39;</span><span class="p">,</span> <span class="m">214</span>]     <span class="c">&quot; 250-189-47</span>
-<span class="k">let</span> s:gb.bright_blue    <span class="p">=</span> [<span class="s1">&#39;#83a598&#39;</span><span class="p">,</span> <span class="m">109</span>]     <span class="c">&quot; 131-165-152</span>
-<span class="k">let</span> s:gb.bright_purple  <span class="p">=</span> [<span class="s1">&#39;#d3869b&#39;</span><span class="p">,</span> <span class="m">175</span>]     <span class="c">&quot; 211-134-155</span>
-<span class="k">let</span> s:gb.bright_aqua    <span class="p">=</span> [<span class="s1">&#39;#8ec07c&#39;</span><span class="p">,</span> <span class="m">108</span>]     <span class="c">&quot; 142-192-124</span>
-<span class="k">let</span> s:gb.bright_orange  <span class="p">=</span> [<span class="s1">&#39;#fe8019&#39;</span><span class="p">,</span> <span class="m">208</span>]     <span class="c">&quot; 254-128-25</span>
-<span class="k">let</span> s:gb.neutral_red    <span class="p">=</span> [<span class="s1">&#39;#cc241d&#39;</span><span class="p">,</span> <span class="m">124</span>]     <span class="c">&quot; 204-36-29</span>
-<span class="k">let</span> s:gb.neutral_green  <span class="p">=</span> [<span class="s1">&#39;#98971a&#39;</span><span class="p">,</span> <span class="m">106</span>]     <span class="c">&quot; 152-151-26</span>
-<span class="k">let</span> s:gb.neutral_yellow <span class="p">=</span> [<span class="s1">&#39;#d79921&#39;</span><span class="p">,</span> <span class="m">172</span>]     <span class="c">&quot; 215-153-33</span>
-<span class="k">let</span> s:gb.neutral_blue   <span class="p">=</span> [<span class="s1">&#39;#458588&#39;</span><span class="p">,</span> <span class="m">66</span>]      <span class="c">&quot; 69-133-136</span>
-<span class="k">let</span> s:gb.neutral_purple <span class="p">=</span> [<span class="s1">&#39;#b16286&#39;</span><span class="p">,</span> <span class="m">132</span>]     <span class="c">&quot; 177-98-134</span>
-<span class="k">let</span> s:gb.neutral_aqua   <span class="p">=</span> [<span class="s1">&#39;#689d6a&#39;</span><span class="p">,</span> <span class="m">72</span>]      <span class="c">&quot; 104-157-106</span>
-<span class="k">let</span> s:gb.neutral_orange <span class="p">=</span> [<span class="s1">&#39;#d65d0e&#39;</span><span class="p">,</span> <span class="m">166</span>]     <span class="c">&quot; 214-93-14</span>
-<span class="k">let</span> s:gb.faded_red      <span class="p">=</span> [<span class="s1">&#39;#9d0006&#39;</span><span class="p">,</span> <span class="m">88</span>]      <span class="c">&quot; 157-0-6</span>
-<span class="k">let</span> s:gb.faded_green    <span class="p">=</span> [<span class="s1">&#39;#79740e&#39;</span><span class="p">,</span> <span class="m">100</span>]     <span class="c">&quot; 121-116-14</span>
-<span class="k">let</span> s:gb.faded_yellow   <span class="p">=</span> [<span class="s1">&#39;#b57614&#39;</span><span class="p">,</span> <span class="m">136</span>]     <span class="c">&quot; 181-118-20</span>
-<span class="k">let</span> s:gb.faded_blue     <span class="p">=</span> [<span class="s1">&#39;#076678&#39;</span><span class="p">,</span> <span class="m">24</span>]      <span class="c">&quot; 7-102-120</span>
-<span class="k">let</span> s:gb.faded_purple   <span class="p">=</span> [<span class="s1">&#39;#8f3f71&#39;</span><span class="p">,</span> <span class="m">96</span>]      <span class="c">&quot; 143-63-113</span>
-<span class="k">let</span> s:gb.faded_aqua     <span class="p">=</span> [<span class="s1">&#39;#427b58&#39;</span><span class="p">,</span> <span class="m">66</span>]      <span class="c">&quot; 66-123-88</span>
-<span class="k">let</span> s:gb.faded_orange   <span class="p">=</span> [<span class="s1">&#39;#af3a03&#39;</span><span class="p">,</span> <span class="m">130</span>]     <span class="c">&quot; 175-58-3</span>
-</pre></div>
-</div>
-<p>Straightforward enough.</p>
-<p>In addition, here’s a mapping from Honza mapping Vim highlighting
-groups to Pygments tokens.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TOKENS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;normal&#39;</span><span class="p">:</span>           <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;string&#39;</span><span class="p">:</span>           <span class="s1">&#39;String&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;number&#39;</span><span class="p">:</span>           <span class="s1">&#39;Number&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;float&#39;</span><span class="p">:</span>            <span class="s1">&#39;Number.Float&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;constant&#39;</span><span class="p">:</span>         <span class="s1">&#39;Name.Constant&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;number&#39;</span><span class="p">:</span>           <span class="s1">&#39;Number&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;statement&#39;</span><span class="p">:</span>        <span class="p">(</span><span class="s1">&#39;Keyword&#39;</span><span class="p">,</span> <span class="s1">&#39;Name.Tag&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;identifier&#39;</span><span class="p">:</span>       <span class="s1">&#39;Name.Variable&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;operator&#39;</span><span class="p">:</span>         <span class="s1">&#39;Operator.Word&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;label&#39;</span><span class="p">:</span>            <span class="s1">&#39;Name.Label&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;exception&#39;</span><span class="p">:</span>        <span class="s1">&#39;Name.Exception&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;function&#39;</span><span class="p">:</span>         <span class="p">(</span><span class="s1">&#39;Name.Function&#39;</span><span class="p">,</span> <span class="s1">&#39;Name.Attribute&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;preproc&#39;</span><span class="p">:</span>          <span class="s1">&#39;Comment.Preproc&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;comment&#39;</span><span class="p">:</span>          <span class="s1">&#39;Comment&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span>             <span class="s1">&#39;Keyword.Type&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;diffadd&#39;</span><span class="p">:</span>          <span class="s1">&#39;Generic.Inserted&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;diffdelete&#39;</span><span class="p">:</span>       <span class="s1">&#39;Generic.Deleted&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;error&#39;</span><span class="p">:</span>            <span class="s1">&#39;Generic.Error&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;errormsg&#39;</span><span class="p">:</span>         <span class="s1">&#39;Generic.Traceback&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span>            <span class="p">(</span><span class="s1">&#39;Generic.Heading&#39;</span><span class="p">,</span> <span class="s1">&#39;Generic.Subheading&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;underlined&#39;</span><span class="p">:</span>       <span class="s1">&#39;Generic.Emph&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;special&#39;</span><span class="p">:</span>          <span class="s1">&#39;Name.Entity&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;nontext&#39;</span><span class="p">:</span>          <span class="s1">&#39;Generic.Output&#39;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="contributing">
 <h3>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h3>
+<p>The official source code for this library exists at
+<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation that details
+<em>in gruesome detail</em> how this Pygments plugin was made can be found at
+<a class="reference external" href="https://farisachugthai.github.io/Gruvbox-IPython/">https://farisachugthai.github.io/Gruvbox-IPython/</a>.</p>
 <p>Please open a pull request or an issue with any problems you see or any changes
 you’d recommend to the source code!</p>
 </div>
@@ -355,7 +154,7 @@ you’d recommend to the source code!</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="pygments_tokens.html" title="next chapter">Pygments Tokens</a></li>
+      <li>Next: <a href="api.html" title="next chapter">Gruvbox for Pygments</a></li>
   </ul></li>
 </ul>
 </div>
@@ -365,11 +164,6 @@ you’d recommend to the source code!</p>
 <li><a class="reference internal" href="#module-readme">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#development">Development</a><ul>
-<li><a class="reference internal" href="#pygments-tokens">Pygments Tokens</a></li>
-<li><a class="reference internal" href="#original-vimscript">Original VimScript</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#contributing">Contributing</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
 </ul>

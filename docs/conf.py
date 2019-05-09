@@ -21,7 +21,7 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
-logger.setLevel(level=logging.LEVEL_NAMES['WARNING'])
+logger.setLevel(level=logging.LEVEL_NAMES['DEBUG'])
 # Or you can go logger.setLevel(level=logging.VERBOSE) where VERBOSE==15
 # Regardless level is required and the levels are anonymized through a lambda into
 # :class:`defaultdict`
@@ -238,10 +238,23 @@ intersphinx_mapping = {
     'ipython': ('https://ipython.readthedocs.io/en/stable/', None),
     # 'pygments': ('http://pygments.org/', None),
     'neovim': ('https://pynvim.readthedocs.io/en/latest/', None),
-    'sphinx': ('http://www.sphinx-doc.org/', None),
+    'sphinx': ('http://www.sphinx-doc.org/en/master', None),
 }
 
 #  -- numpydoc configuration --------------------------------------------------
+# All parameters:
+# cfg = {'use_plots': app.config.numpydoc_use_plots,
+#        'use_blockquotes': app.config.numpydoc_use_blockquotes,
+#        'show_class_members': app.config.numpydoc_show_class_members,
+#        'show_inherited_class_members':
+#        app.config.numpydoc_show_inherited_class_members,
+#        'class_members_toctree': app.config.numpydoc_class_members_toctree,
+#        'attributes_as_param_list':
+#        app.config.numpydoc_attributes_as_param_list,
+#        'xref_param_type': app.config.numpydoc_xref_param_type,
+#        'xref_aliases': app.config.numpydoc_xref_aliases,
+#        'xref_ignore': app.config.numpydoc_xref_ignore,
+#        }
 
 numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warnings
 numpydoc_class_members_toctree = False
