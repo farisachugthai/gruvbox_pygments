@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Pygments Tokens &#8212; Gruvbox IPython 2019 documentation</title>
+    <title>2. Pygments Tokens &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gruvbox.css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Gruvbox for Pygments" href="api.html" />
+    <link rel="prev" title="1. Gruvbox for Pygments" href="api.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,233 +33,450 @@
           <div class="body" role="main">
             
   <div class="section" id="pygments-tokens">
-<h1>Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h1>
+<h1>2. Pygments Tokens<a class="headerlink" href="#pygments-tokens" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#keyword-tokens" id="id2">Keyword Tokens</a></p></li>
-<li><p><a class="reference internal" href="#name-tokens" id="id3">Name Tokens</a></p></li>
-<li><p><a class="reference internal" href="#literals" id="id4">Literals</a></p></li>
-<li><p><a class="reference internal" href="#operators" id="id5">Operators</a></p></li>
-<li><p><a class="reference internal" href="#punctuation" id="id6">Punctuation</a></p></li>
-<li><p><a class="reference internal" href="#comments" id="id7">Comments</a></p></li>
-<li><p><a class="reference internal" href="#generic-tokens" id="id8">Generic Tokens</a></p></li>
-<li><p><a class="reference internal" href="#development" id="id9">Development</a></p>
+<li><p><a class="reference internal" href="#the-full-list-of-pygments-tokens" id="id2">The full list of pygments tokens.</a></p>
 <ul>
-<li><p><a class="reference internal" href="#standard-types-as-defined-by-pygments" id="id10">Standard Types as Defined by Pygments</a></p></li>
-<li><p><a class="reference internal" href="#original-vimscript" id="id11">Original VimScript</a></p>
-<ul>
-<li><p><a class="reference internal" href="#simplified-gruvbox" id="id12">Simplified Gruvbox</a></p></li>
-<li><p><a class="reference internal" href="#where-do-we-go-now" id="id13">Where do we go now?</a></p></li>
-<li><p><a class="reference internal" href="#prompt-toolkit" id="id14">Prompt Toolkit</a></p></li>
+<li><p><a class="reference internal" href="#keyword-tokens" id="id3">Keyword Tokens</a></p></li>
+<li><p><a class="reference internal" href="#name-tokens" id="id4">Name Tokens</a></p></li>
+<li><p><a class="reference internal" href="#literals" id="id5">Literals</a></p></li>
+<li><p><a class="reference internal" href="#operators" id="id6">Operators</a></p></li>
+<li><p><a class="reference internal" href="#punctuation" id="id7">Punctuation</a></p></li>
+<li><p><a class="reference internal" href="#comments" id="id8">Comments</a></p></li>
+<li><p><a class="reference internal" href="#generic-tokens" id="id9">Generic Tokens</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#development" id="id10">Development</a></p>
+<ul>
+<li><p><a class="reference internal" href="#standard-types-as-defined-by-pygments" id="id11">Standard Types as Defined by Pygments</a></p></li>
+<li><p><a class="reference internal" href="#original-vimscript" id="id12">Original VimScript</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#simplified-gruvbox" id="id13">Simplified Gruvbox</a></p></li>
+<li><p><a class="reference internal" href="#where-do-we-go-now" id="id14">Where do we go now?</a></p></li>
+<li><p><a class="reference internal" href="#prompt-toolkit" id="id15">Prompt Toolkit</a></p></li>
 </ul>
 </div>
 <p>The following are notes for anyone developing with Pygments and for those
 who want to customize this colorscheme further.</p>
-<p>First:
-The full list of pygments tokens.</p>
+<p>First:</p>
+<div class="section" id="the-full-list-of-pygments-tokens">
+<h2><a class="toc-backref" href="#id2">2.1. The full list of pygments tokens.</a><a class="headerlink" href="#the-full-list-of-pygments-tokens" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="keyword-tokens">
-<h2><a class="toc-backref" href="#id2">Keyword Tokens</a><a class="headerlink" href="#keyword-tokens" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id3">2.1.1. Keyword Tokens</a><a class="headerlink" href="#keyword-tokens" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Keyword</dt><dd><p>For any kind of keyword (especially if it doesn’t match any of the
 subtypes of course).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Keyword.Constant</dt><dd><p>For keywords that are constants (e.g. None in future Python versions).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Keyword.Declaration</dt><dd><p>For keywords used for variable declaration (e.g. var in some programming
 languages like JavaScript).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Keyword.Namespace</dt><dd><p>For keywords used for namespace declarations (e.g. import in Python and
 Java and package in Java).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Keyword.Pseudo</dt><dd><p>For keywords that aren’t really keywords (e.g. None in old Python versions).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Keyword.Reserved</dt><dd><p>For reserved keywords.</p>
 </dd>
-<dt>Keyword.Type</dt><dd><p>For builtin types that can’t be used as identifiers (e.g. int, char etc. in C).</p>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Keyword.Type</dt><dd><p>For builtin types that can’t be used as identifiers (e.g. int, char etc.
+in C).</p>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="name-tokens">
-<h2><a class="toc-backref" href="#id3">Name Tokens</a><a class="headerlink" href="#name-tokens" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id4">2.1.2. Name Tokens</a><a class="headerlink" href="#name-tokens" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Name</dt><dd><p>For any name (variable names, function names, classes).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Attribute</dt><dd><p>For all attributes (e.g. in HTML tags).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Builtin</dt><dd><p>Builtin names; names that are available in the global namespace.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Builtin.Pseudo</dt><dd><p>Builtin names that are implicit (e.g. self in Ruby, this in Java).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Class</dt><dd><p>Class names. Because no lexer can know if a name is a class or a
 function or something else this token is meant for class declarations.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Constant</dt><dd><p>Token type for constants. In some languages you can recognise a token
 by the way it’s defined (the value after a const keyword for example).
 In other languages constants are uppercase by definition (Ruby).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Decorator</dt><dd><p>Token type for decorators. Decorators are syntactic elements in the
 Python language. Similar syntax elements exist in C# and Java.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Entity</dt><dd><p>Token type for special entities. (e.g. &amp;nbsp; in HTML).</p>
 </dd>
-<dt>Name.Exception</dt><dd><p>Token type for exception names (e.g. RuntimeError in Python). Some
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Name.Exception</dt><dd><p>Token type for exception names (e.g. <code class="xref py py-const docutils literal notranslate"><span class="pre">RuntimeError</span></code> in Python). Some
 languages define exceptions in the function signature (Java). You can
 highlight the name of that exception using this token then.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Function</dt><dd><p>Token type for function names.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Function.Magic</dt><dd><p>Same as <code class="docutils literal notranslate"><span class="pre">Name.Function</span></code> but for special function names that have an
 implicit use in a language (e.g. <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method in Python).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Label</dt><dd><p>Token type for label names (e.g. in languages that support goto).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Namespace</dt><dd><p>Token type for namespaces. (e.g. import paths in Java/Python), names
 following the module/namespace keyword in other languages.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Other</dt><dd><p>Other names. Normally unused.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Tag</dt><dd><p>Tag names (in HTML/XML markup or configuration files).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Variable</dt><dd><p>Token type for variables. Some languages have prefixes for variable
 names (PHP, Ruby, Perl). You can highlight them using this token.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Variable.Class</dt><dd><p>Same as Name.Variable but for class variables (also static variables).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Variable.Global</dt><dd><p>Same as Name.Variable but for global variables (used in Ruby, for example).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Variable.Instance</dt><dd><p>Same as Name.Variable but for instance variables.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Name.Variable.Magic</dt><dd><p>same as Name.Variable but for special variable names that have an implicit
-use in a language (e.g. __doc__ in Python).</p>
+use in a language (e.g. <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> in Python).</p>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="literals">
-<h2><a class="toc-backref" href="#id4">Literals</a><a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id5">2.1.3. Literals</a><a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Literal</dt><dd><p>For any literal (if not further defined).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Literal.Date</dt><dd><p>for date literals (e.g. 42d in Boo).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String</dt><dd><p>For any string literal.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Affix</dt><dd><p>Token type for affixes that further specify the type of the string they’re
 attached to (e.g. the prefixes r and u8 in r”foo” and u8”foo”).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Backtick</dt><dd><p>Token type for strings enclosed in backticks.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Char</dt><dd><p>Token type for single characters (e.g. Java, C).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Delimiter</dt><dd><p>Token type for delimiting identifiers in “heredoc”, raw and other similar
 strings (e.g. the word END in Perl code print &lt;&lt;’END’;).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Doc</dt><dd><p>Token type for documentation strings (for example Python).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Double</dt><dd><p>Double quoted strings.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Escape</dt><dd><p>Token type for escape sequences in strings.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Heredoc</dt><dd><p>Token type for “heredoc” strings (e.g. in Ruby or Perl).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Interpol</dt><dd><p>Token type for interpolated parts in strings (e.g. #{foo} in Ruby).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Other</dt><dd><p>Token type for any other strings (for example %q{foo} string constructs in Ruby).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Regex</dt><dd><p>Token type for regular expression literals (e.g. /foo/ in JavaScript).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Single</dt><dd><p>Token type for single quoted strings.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>String.Symbol</dt><dd><p>Token type for symbols (e.g. :foo in LISP or Ruby).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number</dt><dd><p>Token type for any number literal.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Bin</dt><dd><p>Token type for binary literals (e.g. 0b101010).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Float</dt><dd><p>Token type for float literals (e.g. 42.0).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Hex</dt><dd><p>Token type for hexadecimal number literals (e.g. 0xdeadbeef).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Integer</dt><dd><p>Token type for integer literals (e.g. 42).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Integer.Long</dt><dd><p>Token type for long integer literals (e.g. 42L in Python).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Number.Oct</dt><dd><p>Token type for octal literals.</p>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="operators">
-<h2><a class="toc-backref" href="#id5">Operators</a><a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id6">2.1.4. Operators</a><a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Operator</dt><dd><p>For any punctuation operator (e.g. +, -).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Operator.Word</dt><dd><p>For any operator that is a word (e.g. not).</p>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="punctuation">
-<h2><a class="toc-backref" href="#id6">Punctuation</a><a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h2>
-<p>New in version 0.7.</p>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id7">2.1.5. Punctuation</a><a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h3>
+<p><strong>New in version 0.7.</strong></p>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Punctuation</dt><dd><p>For any punctuation which is not an operator (e.g. [, (…)</p>
 </dd>
 </dl>
+</li>
+</ul>
 </div>
 <div class="section" id="comments">
-<h2><a class="toc-backref" href="#id7">Comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id8">2.1.6. Comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Comment</dt><dd><p>Token type for any comment.</p>
 </dd>
-<dt>Comment.Hashbang</dt><dd><p>Token type for hashbang comments (i.e. first lines of files that start with <code class="docutils literal notranslate"><span class="pre">#!</span></code>).</p>
-</dd>
-<dt>Comment.Multiline</dt><dd><p>Token type for multiline comments.</p>
-</dd>
-<dt>Comment.Preproc</dt><dd><p>Token type for preprocessor comments (also &lt;?php/&lt;% constructs).</p>
-</dd>
-<dt>Comment.Single</dt><dd><p>Token type for comments that end at the end of a line (e.g. # foo).</p>
-</dd>
-<dt>Comment.Special</dt><dd><p>Special data in comments. For example code tags, author and license information, etc.</p>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Comment.Hashbang</dt><dd><p>Token type for hashbang comments (i.e. first lines of files that start
+with <code class="docutils literal notranslate"><span class="pre">#!</span></code>).</p>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt>Comment.Multiline</dt><dd><p>Token type for multiline comments.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Comment.Preproc</dt><dd><p>Token type for preprocessor comments (also &lt;?php/&lt;% constructs).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Comment.Single</dt><dd><p>Token type for comments that end at the end of a line (e.g. # foo).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Comment.Special</dt><dd><p>Special data in comments. For example code tags, author and license
+information, etc.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="generic-tokens">
-<h2><a class="toc-backref" href="#id8">Generic Tokens</a><a class="headerlink" href="#generic-tokens" title="Permalink to this headline">¶</a></h2>
-<p>Generic tokens are for special lexers like the DiffLexer that doesn’t
-really highlight a programming language but a patch file.</p>
-<dl class="simple">
+<h3><a class="toc-backref" href="#id9">2.1.7. Generic Tokens</a><a class="headerlink" href="#generic-tokens" title="Permalink to this headline">¶</a></h3>
+<p>Generic tokens are for special lexers like the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DiffLexer</span></code> that doesn’t really highlight a
+programming language but a patch file.</p>
+<ul class="simple">
+<li><dl class="simple">
 <dt>Generic</dt><dd><p>A generic, unstyled token. Normally you don’t use this token type.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Deleted</dt><dd><p>Marks the token value as deleted.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Emph</dt><dd><p>Marks the token value as emphasized.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Error</dt><dd><p>Marks the token value as an error message.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Heading</dt><dd><p>Marks the token value as headline.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Inserted</dt><dd><p>Marks the token value as inserted.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Output</dt><dd><p>Marks the token value as program output (e.g. for python cli lexer).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Prompt</dt><dd><p>Marks the token value as command prompt (e.g. bash lexer).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Strong</dt><dd><p>Marks the token value as bold (e.g. for rst lexer).</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Subheading</dt><dd><p>Marks the token value as subheadline.</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Generic.Traceback</dt><dd><p>Marks the token value as a part of an error traceback.</p>
 </dd>
 </dl>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="development">
-<h2><a class="toc-backref" href="#id9">Development</a><a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">2.2. Development</a><a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s map those tokens to CSS.</p>
 <div class="section" id="standard-types-as-defined-by-pygments">
-<h3><a class="toc-backref" href="#id10">Standard Types as Defined by Pygments</a><a class="headerlink" href="#standard-types-as-defined-by-pygments" title="Permalink to this headline">¶</a></h3>
-<p>Here’s the src from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments/token</span></code></p>
+<h3><a class="toc-backref" href="#id11">2.2.1. Standard Types as Defined by Pygments</a><a class="headerlink" href="#standard-types-as-defined-by-pygments" title="Permalink to this headline">¶</a></h3>
+<p>Here’s the src from <code class="xref py py-mod docutils literal notranslate"><span class="pre">pygments.token</span></code></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map standard token types to short names, used in CSS class naming.</span>
 <span class="c1"># If you add a new item, please be sure to run this file to perform</span>
 <span class="c1"># a consistency check for duplicate values.</span>
@@ -358,7 +575,7 @@ really highlight a programming language but a patch file.</p>
 <p>Pygments also exports methods to create a CSS file directly from a colorscheme.</p>
 </div>
 <div class="section" id="original-vimscript">
-<h3><a class="toc-backref" href="#id11">Original VimScript</a><a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">2.2.2. Original VimScript</a><a class="headerlink" href="#original-vimscript" title="Permalink to this headline">¶</a></h3>
 <p>The only <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code> port I could find frequently uses hex colors not found
 in the original <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>, and does not
 link colors in even a slightly similar manner to the original.</p>
@@ -434,16 +651,18 @@ link colors in even a slightly similar manner to the original.</p>
 <p>In addition, here’s a mapping from Honza mapping Vim highlighting
 groups to Pygments tokens.</p>
 <p>Also pygments styles have a method {or a property that looks like a method}
-<span class="xref std std-ref">pygments.styles.Style._styles</span>.</p>
+<span class="xref std std-ref">pygments.style.Style._styles</span>.</p>
 <p>It’s hard not to hate a namespace like that but it’s worth looking at.</p>
+</div>
+</div>
 <div class="section" id="simplified-gruvbox">
-<h4><a class="toc-backref" href="#id12">Simplified Gruvbox</a><a class="headerlink" href="#simplified-gruvbox" title="Permalink to this headline">¶</a></h4>
+<h2><a class="toc-backref" href="#id13">2.3. Simplified Gruvbox</a><a class="headerlink" href="#simplified-gruvbox" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/lifepillar/vim-gruvbox8">https://github.com/lifepillar/vim-gruvbox8</a></p>
 <p>A much more straightforward mapping of hex codes to Vim highlighting groups.
 Honza got us a mapping of the important groups.</p>
 </div>
 <div class="section" id="where-do-we-go-now">
-<h4><a class="toc-backref" href="#id13">Where do we go now?</a><a class="headerlink" href="#where-do-we-go-now" title="Permalink to this headline">¶</a></h4>
+<h2><a class="toc-backref" href="#id14">2.4. Where do we go now?</a><a class="headerlink" href="#where-do-we-go-now" title="Permalink to this headline">¶</a></h2>
 <p>We have a description of what the lexer is doing for the rest.</p>
 <p>If we define a Gruvbox base class that maps color names to tokens, then we
 can define a Boolean that chooses whether we use GruvboxDark or GruvboxLight.:</p>
@@ -467,12 +686,12 @@ can define a Boolean that chooses whether we use GruvboxDark or GruvboxLight.:</
         <span class="n">FADED_ORANGE</span> <span class="o">=</span> <span class="s1">&#39;#af3a03&#39;</span>  <span class="c1"># 175-58-3</span>
 </pre></div>
 </div>
-<p>Nah cant do that. The invariant of the user initializing the base class and
+<p>Nah can’t do that. The invariant of the user initializing the base class and
 not the child is problematic.</p>
 <p>Plus it should have a more clear switch that toggles light or dark.</p>
 </div>
 <div class="section" id="prompt-toolkit">
-<h4><a class="toc-backref" href="#id14">Prompt Toolkit</a><a class="headerlink" href="#prompt-toolkit" title="Permalink to this headline">¶</a></h4>
+<h2><a class="toc-backref" href="#id15">2.5. Prompt Toolkit</a><a class="headerlink" href="#prompt-toolkit" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;Use the code from a ptpython help doc to stylize IPython.</span>
@@ -686,8 +905,6 @@ not the child is problematic.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
 
 
           </div>
@@ -716,30 +933,31 @@ not the child is problematic.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="api.html" title="previous chapter">Gruvbox for Pygments</a></li>
+      <li>Previous: <a href="api.html" title="previous chapter">1. Gruvbox for Pygments</a></li>
   </ul></li>
 </ul>
 </div>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Pygments Tokens</a><ul>
-<li><a class="reference internal" href="#keyword-tokens">Keyword Tokens</a></li>
-<li><a class="reference internal" href="#name-tokens">Name Tokens</a></li>
-<li><a class="reference internal" href="#literals">Literals</a></li>
-<li><a class="reference internal" href="#operators">Operators</a></li>
-<li><a class="reference internal" href="#punctuation">Punctuation</a></li>
-<li><a class="reference internal" href="#comments">Comments</a></li>
-<li><a class="reference internal" href="#generic-tokens">Generic Tokens</a></li>
-<li><a class="reference internal" href="#development">Development</a><ul>
-<li><a class="reference internal" href="#standard-types-as-defined-by-pygments">Standard Types as Defined by Pygments</a></li>
-<li><a class="reference internal" href="#original-vimscript">Original VimScript</a><ul>
-<li><a class="reference internal" href="#simplified-gruvbox">Simplified Gruvbox</a></li>
-<li><a class="reference internal" href="#where-do-we-go-now">Where do we go now?</a></li>
-<li><a class="reference internal" href="#prompt-toolkit">Prompt Toolkit</a></li>
+<li><a class="reference internal" href="#">2. Pygments Tokens</a><ul>
+<li><a class="reference internal" href="#the-full-list-of-pygments-tokens">2.1. The full list of pygments tokens.</a><ul>
+<li><a class="reference internal" href="#keyword-tokens">2.1.1. Keyword Tokens</a></li>
+<li><a class="reference internal" href="#name-tokens">2.1.2. Name Tokens</a></li>
+<li><a class="reference internal" href="#literals">2.1.3. Literals</a></li>
+<li><a class="reference internal" href="#operators">2.1.4. Operators</a></li>
+<li><a class="reference internal" href="#punctuation">2.1.5. Punctuation</a></li>
+<li><a class="reference internal" href="#comments">2.1.6. Comments</a></li>
+<li><a class="reference internal" href="#generic-tokens">2.1.7. Generic Tokens</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#development">2.2. Development</a><ul>
+<li><a class="reference internal" href="#standard-types-as-defined-by-pygments">2.2.1. Standard Types as Defined by Pygments</a></li>
+<li><a class="reference internal" href="#original-vimscript">2.2.2. Original VimScript</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#simplified-gruvbox">2.3. Simplified Gruvbox</a></li>
+<li><a class="reference internal" href="#where-do-we-go-now">2.4. Where do we go now?</a></li>
+<li><a class="reference internal" href="#prompt-toolkit">2.5. Prompt Toolkit</a></li>
 </ul>
 </li>
 </ul>

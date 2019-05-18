@@ -5,7 +5,7 @@ also probably need to add the IPython doctest plugin somewhere.
 """
 import codecs
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 NAME = 'gruvbox_ipython'
 AUTHOR = "Faris Chugthai",

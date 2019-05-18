@@ -10,202 +10,208 @@ The following are notes for anyone developing with Pygments and for those
 who want to customize this colorscheme further.
 
 First:
+
 The full list of pygments tokens.
+=================================
 
 
 Keyword Tokens
 -----------------
 
-Keyword
+- Keyword
     For any kind of keyword (especially if it doesn’t match any of the
     subtypes of course).
-Keyword.Constant
+- Keyword.Constant
     For keywords that are constants (e.g. None in future Python versions).
-Keyword.Declaration
+- Keyword.Declaration
     For keywords used for variable declaration (e.g. var in some programming
     languages like JavaScript).
-Keyword.Namespace
+- Keyword.Namespace
     For keywords used for namespace declarations (e.g. import in Python and
     Java and package in Java).
-Keyword.Pseudo
+- Keyword.Pseudo
     For keywords that aren’t really keywords (e.g. None in old Python versions).
-Keyword.Reserved
+- Keyword.Reserved
     For reserved keywords.
-Keyword.Type
-    For builtin types that can’t be used as identifiers (e.g. int, char etc. in C).
+- Keyword.Type
+    For builtin types that can’t be used as identifiers (e.g. int, char etc.
+    in C).
 
 Name Tokens
 ------------
-Name
+- Name
     For any name (variable names, function names, classes).
-Name.Attribute
+- Name.Attribute
     For all attributes (e.g. in HTML tags).
-Name.Builtin
+- Name.Builtin
     Builtin names; names that are available in the global namespace.
-Name.Builtin.Pseudo
+- Name.Builtin.Pseudo
     Builtin names that are implicit (e.g. self in Ruby, this in Java).
-Name.Class
+- Name.Class
     Class names. Because no lexer can know if a name is a class or a
     function or something else this token is meant for class declarations.
-Name.Constant
+- Name.Constant
     Token type for constants. In some languages you can recognise a token
     by the way it’s defined (the value after a const keyword for example).
     In other languages constants are uppercase by definition (Ruby).
-Name.Decorator
+- Name.Decorator
     Token type for decorators. Decorators are syntactic elements in the
     Python language. Similar syntax elements exist in C# and Java.
-Name.Entity
+- Name.Entity
     Token type for special entities. (e.g. &nbsp; in HTML).
-Name.Exception
-    Token type for exception names (e.g. RuntimeError in Python). Some
+- Name.Exception
+    Token type for exception names (e.g. :const:`RuntimeError` in Python). Some
     languages define exceptions in the function signature (Java). You can
     highlight the name of that exception using this token then.
-Name.Function
+- Name.Function
     Token type for function names.
-Name.Function.Magic
+- Name.Function.Magic
     Same as ``Name.Function`` but for special function names that have an
     implicit use in a language (e.g. ``__init__`` method in Python).
-Name.Label
+- Name.Label
     Token type for label names (e.g. in languages that support goto).
-Name.Namespace
+- Name.Namespace
     Token type for namespaces. (e.g. import paths in Java/Python), names
     following the module/namespace keyword in other languages.
-Name.Other
+- Name.Other
     Other names. Normally unused.
-Name.Tag
+- Name.Tag
     Tag names (in HTML/XML markup or configuration files).
-Name.Variable
+- Name.Variable
     Token type for variables. Some languages have prefixes for variable
     names (PHP, Ruby, Perl). You can highlight them using this token.
-Name.Variable.Class
+- Name.Variable.Class
     Same as Name.Variable but for class variables (also static variables).
-Name.Variable.Global
+- Name.Variable.Global
     Same as Name.Variable but for global variables (used in Ruby, for example).
-Name.Variable.Instance
+- Name.Variable.Instance
     Same as Name.Variable but for instance variables.
-Name.Variable.Magic
+- Name.Variable.Magic
     same as Name.Variable but for special variable names that have an implicit
-    use in a language (e.g. __doc__ in Python).
+    use in a language (e.g. ``__doc__`` in Python).
 
 Literals
 ---------
-Literal
+- Literal
     For any literal (if not further defined).
-Literal.Date
+- Literal.Date
     for date literals (e.g. 42d in Boo).
-String
+- String
     For any string literal.
-String.Affix
+- String.Affix
     Token type for affixes that further specify the type of the string they’re
     attached to (e.g. the prefixes r and u8 in r"foo" and u8"foo").
-String.Backtick
+- String.Backtick
     Token type for strings enclosed in backticks.
-String.Char
+- String.Char
     Token type for single characters (e.g. Java, C).
-String.Delimiter
+- String.Delimiter
     Token type for delimiting identifiers in “heredoc”, raw and other similar
     strings (e.g. the word END in Perl code print <<'END';).
-String.Doc
+- String.Doc
     Token type for documentation strings (for example Python).
-String.Double
+- String.Double
     Double quoted strings.
-String.Escape
+- String.Escape
     Token type for escape sequences in strings.
-String.Heredoc
+- String.Heredoc
     Token type for “heredoc” strings (e.g. in Ruby or Perl).
-String.Interpol
+- String.Interpol
     Token type for interpolated parts in strings (e.g. #{foo} in Ruby).
-String.Other
+- String.Other
     Token type for any other strings (for example %q{foo} string constructs in Ruby).
-String.Regex
+- String.Regex
     Token type for regular expression literals (e.g. /foo/ in JavaScript).
-String.Single
+- String.Single
     Token type for single quoted strings.
-String.Symbol
+- String.Symbol
     Token type for symbols (e.g. :foo in LISP or Ruby).
-Number
+- Number
     Token type for any number literal.
-Number.Bin
+- Number.Bin
     Token type for binary literals (e.g. 0b101010).
-Number.Float
+- Number.Float
     Token type for float literals (e.g. 42.0).
-Number.Hex
+- Number.Hex
     Token type for hexadecimal number literals (e.g. 0xdeadbeef).
-Number.Integer
+- Number.Integer
     Token type for integer literals (e.g. 42).
-Number.Integer.Long
+- Number.Integer.Long
     Token type for long integer literals (e.g. 42L in Python).
-Number.Oct
+- Number.Oct
     Token type for octal literals.
 
 Operators
 -----------
-Operator
+- Operator
     For any punctuation operator (e.g. +, -).
-Operator.Word
+- Operator.Word
     For any operator that is a word (e.g. not).
 
 Punctuation
 -------------
-New in version 0.7.
+**New in version 0.7.**
 
-Punctuation
+- Punctuation
     For any punctuation which is not an operator (e.g. [, (...)
 
 Comments
 ---------
-Comment
+- Comment
     Token type for any comment.
-Comment.Hashbang
-    Token type for hashbang comments (i.e. first lines of files that start with ``#!``).
-Comment.Multiline
+- Comment.Hashbang
+    Token type for hashbang comments (i.e. first lines of files that start
+    with ``#!``).
+- Comment.Multiline
     Token type for multiline comments.
-Comment.Preproc
+- Comment.Preproc
     Token type for preprocessor comments (also <?php/<% constructs).
-Comment.Single
+- Comment.Single
     Token type for comments that end at the end of a line (e.g. # foo).
-Comment.Special
-    Special data in comments. For example code tags, author and license information, etc.
+- Comment.Special
+    Special data in comments. For example code tags, author and license
+    information, etc.
 
 Generic Tokens
 ---------------
-Generic tokens are for special lexers like the DiffLexer that doesn’t
-really highlight a programming language but a patch file.
+Generic tokens are for special lexers like the
+:class:`~pygments.lexers.diff.DiffLexer` that doesn’t really highlight a
+programming language but a patch file.
 
-Generic
+- Generic
     A generic, unstyled token. Normally you don’t use this token type.
-Generic.Deleted
+- Generic.Deleted
     Marks the token value as deleted.
-Generic.Emph
+- Generic.Emph
     Marks the token value as emphasized.
-Generic.Error
+- Generic.Error
     Marks the token value as an error message.
-Generic.Heading
+- Generic.Heading
     Marks the token value as headline.
-Generic.Inserted
+- Generic.Inserted
     Marks the token value as inserted.
-Generic.Output
+- Generic.Output
     Marks the token value as program output (e.g. for python cli lexer).
-Generic.Prompt
+- Generic.Prompt
     Marks the token value as command prompt (e.g. bash lexer).
-Generic.Strong
+- Generic.Strong
     Marks the token value as bold (e.g. for rst lexer).
-Generic.Subheading
+- Generic.Subheading
     Marks the token value as subheadline.
-Generic.Traceback
+- Generic.Traceback
     Marks the token value as a part of an error traceback.
 
 Development
-------------
+============
 
 Now let's map those tokens to CSS.
 
 Standard Types as Defined by Pygments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 .. Pygments Standard Types {{{1
 
-Here's the src from :mod:`pygments/token`
+Here's the src from :mod:`pygments.token`
 
 .. code-block:: python3
 
@@ -309,7 +315,7 @@ One can programmatically produce CSS from a pygments class.
 Pygments also exports methods to create a CSS file directly from a colorscheme.
 
 Original VimScript
-^^^^^^^^^^^^^^^^^^
+------------------
 
 The only :mod:`Pygments` port I could find frequently uses hex colors not found
 in the original `Gruvbox <https://github.com/morhetz/gruvbox>`_, and does not
@@ -399,7 +405,7 @@ In addition, here's a mapping from Honza mapping Vim highlighting
 groups to Pygments tokens.
 
 Also pygments styles have a method {or a property that looks like a method}
-:ref:`pygments.styles.Style._styles`.
+:ref:`pygments.style.Style._styles`.
 
 It's hard not to hate a namespace like that but it's worth looking at.
 
@@ -437,7 +443,7 @@ can define a Boolean that chooses whether we use GruvboxDark or GruvboxLight.::
             ...
             FADED_ORANGE = '#af3a03'  # 175-58-3
 
-Nah cant do that. The invariant of the user initializing the base class and
+Nah can't do that. The invariant of the user initializing the base class and
 not the child is problematic.
 
 Plus it should have a more clear switch that toggles light or dark.
@@ -446,7 +452,7 @@ Plus it should have a more clear switch that toggles light or dark.
 Prompt Toolkit
 ===============
 
-::
+.. sourcecode::
 
    #!/usr/bin/env python
    # -*- coding: utf-8 -*-
