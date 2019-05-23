@@ -63,11 +63,15 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'numpydoc.numpydoc',
+    'matplotlib.sphinxext.plot_directive',
+    'matplotlib.sphinxext.mathmpl',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -78,6 +82,9 @@ templates_path = ['_templates']
 #
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
+
+# The encoding of source files.
+source_encoding = 'utf-8'
 
 # The master toctree document.
 master_doc = 'index'
@@ -179,7 +186,6 @@ man_pages = [(master_doc, 'gruvboxipython', 'Gruvbox IPython Documentation', [
 ], 1)]
 
 manpages_url = "https://linux.die.net/man"
-
 # -- Options for Texinfo output ----------------------------------------------
 
 # Grouping the document tree into Texinfo files. List of tuples
@@ -258,7 +264,7 @@ intersphinx_mapping = {
 
 numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warnings
 numpydoc_class_members_toctree = False
-warning_is_error = True
+ipython_warning_is_error = True
 
 
 def setup(app):
