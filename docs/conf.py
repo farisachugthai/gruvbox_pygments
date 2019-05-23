@@ -276,6 +276,6 @@ def setup(app):
      ``html_static_path`` and therefore doesn't need {and shouldn't be} specified
      as a pathname relative to this file.
      """
-    app.add_css_file(os.path.join('_static', '', 'flask.css_t'))
+    # app.add_css_file(os.path.join('_static', '', 'flask.css_t'))
     app.add_css_file('gruvbox.css')
     logger.debug('gruvbox.css added.')
