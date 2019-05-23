@@ -3,10 +3,10 @@
 /* -- page layout ----------------------------------------------------------- */
 
 body {
-    font-family: Georgia, serif;
+    /*! font-family: Georgia, serif; */
     font-size: 17px;
     background-color: #fff;
-    color: #000;
+    /*! color: #000; */
     margin: 0;
     padding: 0;
 }
@@ -38,7 +38,7 @@ hr {
 
 div.body {
     background-color: #fff;
-    color: #3E4349;
+    /*! color: #3E4349; */
     padding: 0 30px 0 30px;
 }
 
@@ -222,12 +222,12 @@ div.body p, div.body dd, div.body li {
 div.admonition {
     margin: 20px 0px;
     padding: 10px 30px;
-    background-color: #EEE;
+    background-color: #282828;
     border: 1px solid #CCC;
 }
 
 div.admonition tt.xref, div.admonition code.xref, div.admonition a tt {
-    background-color: #FBFBFB;
+    background-color: #282828;
     border-bottom: 1px solid #fafafa;
 }
 
@@ -245,12 +245,12 @@ div.admonition p.last {
 }
 
 div.highlight {
-    background-color: #f8f8f8;
-    color: #ebdbb2
+    background-color: #282828;
+    color: #ebdbb2;
 }
 
 dt:target, .highlight {
-    background: #f8f8f8;
+    background: #282828;
 }
 
 div.warning {
@@ -323,12 +323,13 @@ p.admonition-title:after {
 
 pre, tt, code {
     font-family: 'Fira Mono', 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-    /* font-size: 0.9em; */
+    /*! font-size: 0.9em; */
+    background-color: #282828
 }
 
 .hll {
     /* background-color: #FFC; */
-    background-color: #ffffcc
+    background-color: #282828
     margin: 0 -12px;
     padding: 0 12px;
     display: block;
@@ -435,14 +436,14 @@ ul, ol {
 }
 
 pre {
-    background: #ffffcc;
+    background: #282828;
     padding: 7px 30px;
     margin: 15px 0px;
     line-height: 1.3em;
 }
 
 div.viewcode-block:target {
-    background: #ffffcc;
+    background: #282828;
 }
 
 dl pre, blockquote pre, li pre {
@@ -451,13 +452,13 @@ dl pre, blockquote pre, li pre {
 }
 
 tt, code {
-    background-color: #ecf0f3;
-    color: #222;
+    background-color: #282828;
+    color: #ebdbb2;
     /* padding: 1px 2px; */
 }
 
 tt.xref, code.xref, a tt {
-    background-color: #FBFBFB;
+    background-color: #282828;
     border-bottom: 1px solid #fff;
 }
 

@@ -1,4 +1,14 @@
 {
     "python.pythonPath": "/home/faris/miniconda3/envs/utilities/bin/python",
-    "restructuredtext.confPath": "${workspaceFolder}/docs/source"
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "css.lint.duplicateProperties": "warning",
+    "css.lint.unknownVendorSpecificProperties": "warning",
+    "css.lint.universalSelector": "warning",
+    "eslint.autoFixOnSave": true,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    "materialTheme.accent": "Orange",
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "restructuredtext.confPath": ""
 }
