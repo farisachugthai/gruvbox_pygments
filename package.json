@@ -1,0 +1,26 @@
+{
+  "name": "gruvbox-ipython",
+  "version": "1.0.0",
+  "description": "========================================================= Gruvbox IPython --- A Pygments Style Designed for IPython =========================================================",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farisachugthai/Gruvbox-IPython.git"
+  },
+  "author": "Faris Chugthai <farischugthai@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farisachugthai/Gruvbox-IPython/issues"
+  },
+  "homepage": "https://github.com/farisachugthai/Gruvbox-IPython#readme",
+  "dependencies": {
+    "jupyterlab": "^0.17.5",
+    "less": "^3.9.0"
+  }
+}

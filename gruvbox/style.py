@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""A retro groove color scheme for Pygments. [1]
+"""A retro groove color scheme for Pygments.
+
+A Vim Colorscheme ported to Pygments. Original source by Morhetz. [1]
 
 .. [1]https://github.com/morhetz/gruvbox
 
 This pygments colorscheme can be used with any API that allows for Pygments
 syntax highlighting. It has; however, been primarily tested with IPython.
-
-
 
 .. code-block:: python
 
@@ -49,7 +49,7 @@ from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
 __all__ = ['GruvboxStyle']
 
 # Palette: {{{1
-BG0_HARD = "1d2021"
+BG0_HARD = "#1d2021"
 
 dark1 = '#3c3836'  # 60-56-54
 DARK2 = '#504945'  # 80-73-69
