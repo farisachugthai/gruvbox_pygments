@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """A retro groove color scheme for Pygments.
 
-A Vim Colorscheme ported to Pygments. Original source by Morhetz. [1]
+As originally introduced as a Vim colorscheme. [1]
 
 .. [1]https://github.com/morhetz/gruvbox
 
@@ -46,6 +46,7 @@ from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
                             Whitespace, Error, Punctuation, Operator, String,
                             Literal)
 
+# We're still exporting ALL these globals. Let's not.
 __all__ = ['GruvboxStyle']
 
 # Palette: {{{1
@@ -123,7 +124,11 @@ class GruvboxStyle(Style):
         Generic.Subheading: BRIGHT_GREEN + ' bold',
         Generic: FG1,
         Keyword.Type: BRIGHT_YELLOW,
-        Keyword: NEUTRAL_RED,
+        # not gonna lie I'm not a huge fan of this one
+        # hi Keyword ctermfg=203 ctermbg=NONE guifg=#fb4934 guibg=NONE
+        # guisp=NONE cterm=NONE gui=NONE
+        # Keyword: NEUTRAL_RED,
+        Keyword: BRIGHT_RED,
         Keyword.Constant: FADED_ORANGE,
         Keyword.Declaration: BRIGHT_ORANGE,
         Literal: NEUTRAL_ORANGE,  # class: 'l'
