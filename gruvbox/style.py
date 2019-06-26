@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Vim: set fdm=marker:
 """A retro groove color scheme for Pygments.
 
 As originally introduced as a Vim colorscheme. [1]
@@ -9,42 +10,79 @@ As originally introduced as a Vim colorscheme. [1]
 This pygments colorscheme can be used with any API that allows for Pygments
 syntax highlighting. It has; however, been primarily tested with IPython.
 
-.. code-block:: python
+.. todo::
 
-    TOKENS = {
-        'normal':           '',
-        'string':           'String',
-        'number':           'Number',
-        'float':            'Number.Float',
-        'constant':         'Name.Constant',
-        'number':           'Number',
-        'statement':        ('Keyword', 'Name.Tag'),
-        'identifier':       'Name.Variable',
-        'operator':         'Operator.Word',
-        'label':            'Name.Label',
-        'exception':        'Name.Exception',
-        'function':         ('Name.Function', 'Name.Attribute'),
-        'preproc':          'Comment.Preproc',
-        'comment':          'Comment',
-        'type':             'Keyword.Type',
-        'diffadd':          'Generic.Inserted',
-        'diffdelete':       'Generic.Deleted',
-        'error':            'Generic.Error',
-        'errormsg':         'Generic.Traceback',
-        'title':            ('Generic.Heading', 'Generic.Subheading'),
-        'underlined':       'Generic.Emph',
-        'special':          'Name.Entity',
-        'nontext':          'Generic.Output'
-    }
+    Get the rest of them in here.
+    CSS names too please.
 
-.. [2]https://github.com/honza/vim2pygments/vim2pygments.py
-
+     Token.Text.Whitespace: 'w',
+     Token.Other: 'x',
+     Token.Keyword: 'k',
+     Token.Keyword.Constant: 'kc',
+     Token.Keyword.Declaration: 'kd',
+     Token.Keyword.Namespace: 'kn',
+     Token.Keyword.Pseudo: 'kp',
+     Token.Keyword.Reserved: 'kr',
+     Token.Keyword.Type: 'kt',
+     Token.Name: 'n',
+     Token.Name.Attribute: 'na',
+     Token.Name.Builtin: 'nb',
+     Token.Name.Builtin.Pseudo: 'bp',
+     Token.Name.Class: 'nc',
+     Token.Name.Constant: 'no',
+     Token.Name.Decorator: 'nd',
+     Token.Name.Entity: 'ni',
+     Token.Name.Exception: 'ne',
+     Token.Name.Function: 'nf',
+     Token.Name.Function.Magic: 'fm',
+     Token.Name.Property: 'py',
+     Token.Name.Label: 'nl',
+     Token.Name.Namespace: 'nn',
+     Token.Name.Other: 'nx',
+     Token.Name.Tag: 'nt',
+     Token.Name.Variable: 'nv',
+     Token.Name.Variable.Class: 'vc',
+     Token.Name.Variable.Global: 'vg',
+     Token.Name.Variable.Instance: 'vi',
+     Token.Name.Variable.Magic: 'vm',
+     Token.Literal: 'l',
+     Token.Literal.Date: 'ld',
+     Token.Literal.String: 's',
+     Token.Literal.String.Affix: 'sa',
+     Token.Literal.String.Backtick: 'sb',
+     Token.Literal.String.Char: 'sc',
+     Token.Literal.String.Delimiter: 'dl',
+     Token.Literal.String.Doc: 'sd',
+     Token.Literal.String.Double: 's2',
+     Token.Literal.String.Escape: 'se',
+     Token.Literal.String.Heredoc: 'sh',
+     Token.Literal.String.Interpol: 'si',
+     Token.Literal.String.Other: 'sx',
+     Token.Literal.String.Regex: 'sr',
+     Token.Literal.String.Single: 's1',
+     Token.Literal.String.Symbol: 'ss',
+     Token.Literal.Number: 'm',
+     Token.Literal.Number.Bin: 'mb',
+     Token.Literal.Number.Float: 'mf',
+     Token.Literal.Number.Hex: 'mh',
+     Token.Literal.Number.Integer: 'mi',
+     Token.Literal.Number.Integer.Long: 'il',
+     Token.Literal.Number.Oct: 'mo',
+     Token.Operator: 'o',
+     Token.Operator.Word: 'ow',
+     Token.Punctuation: 'p',
+     Token.Comment: 'c',
+     Token.Comment.Hashbang: 'ch',
+     Token.Comment.Multiline: 'cm',
+     Token.Comment.Preproc: 'cp',
+     Token.Comment.PreprocFile: 'cpf',
 
 """
 from pygments.style import Style
-from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
+from pygments.token import (Token, Comment, Name, Keyword, Generic,
+                            Number,
                             Whitespace, Error, Punctuation, Operator, String,
-                            Literal)
+                            Literal, Escape, Text)
 
 # We're still exporting ALL these globals. Let's not.
 __all__ = ['GruvboxStyle']
@@ -54,7 +92,7 @@ BG0_HARD = "#1d2021"
 
 dark1 = '#3c3836'  # 60-56-54
 DARK2 = '#504945'  # 80-73-69
-dark3 = '#665c54'  # 102-92-84
+DARK3 = '#665c54'  # 102-92-84
 dark4 = '#7c6f64'  # 124-111-100
 
 # GRAY_245 = '#928374'  # 146-131-116
@@ -88,7 +126,7 @@ faded_red = '#9d0006'  # 157-0-6
 faded_green = '#79740e'  # 121-116-14
 FADED_YELLOW = '#b57614'  # 181-118-20
 faded_blue = '#076678'  # 7-102-120
-faded_purple = '#8f3f71'  # 143-63-113
+FADED_PURPLE = '#8f3f71'  # 143-63-113
 faded_aqua = '#427b58'  # 66-123-88
 FADED_ORANGE = '#af3a03'  # 175-58-3
 
@@ -98,7 +136,7 @@ FADED_ORANGE = '#af3a03'  # 175-58-3
 class GruvboxStyle(Style):
     """Retro groove color scheme for Pygments.
 
-    Extends previous repositories that ahve ported Gruvbox to Pygments, and
+    Extends previous repositories that have ported Gruvbox to Pygments, and
     adds in new definitions for different tokens.
 
     """
@@ -109,11 +147,13 @@ class GruvboxStyle(Style):
     # highlight_color = SELECTION
 
     styles = {
-        Comment.Multiline: NEUTRAL_YELLOW + ' italic',
+        Comment: FG3,  # 'c'
+        # Comment.Hashbang  # ch
+        Comment.Multiline: NEUTRAL_YELLOW + ' italic',  # cm
         Comment.Preproc: BRIGHT_AQUA,
         Comment.Singleline: FG3 + ' italic',
-        Comment: FG3,
-        Error: BRIGHT_RED,
+        Escape: DARK3,  # esc
+        Error: BRIGHT_RED + ' bold',  # err
         Generic.Deleted: LIGHT0_HARD,
         Generic.Emph: 'underline ' + BRIGHT_BLUE,
         Generic.Heading: BRIGHT_GREEN + ' bold',
@@ -131,13 +171,18 @@ class GruvboxStyle(Style):
         Keyword: BRIGHT_RED,
         Keyword.Constant: FADED_ORANGE,
         Keyword.Declaration: BRIGHT_ORANGE,
-        Literal: NEUTRAL_ORANGE,  # class: 'l'
+        Literal: BRIGHT_GREEN,  # class: 'l'
+        Literal.String: BRIGHT_GREEN,  # class:
+        Literal.String.Other: BRIGHT_GREEN,  # sx
+        Literal.Number: FADED_PURPLE,
         Name.Attribute: BRIGHT_GREEN,
         Name.Builtin: BRIGHT_YELLOW,
         Name.Constant: BRIGHT_PURPLE,
+        Name.Decorator: BRIGHT_YELLOW,
         Name.Entity: BRIGHT_YELLOW,
         Name.Exception: 'bold ' + BRIGHT_RED,
-        Name.Function: BRIGHT_YELLOW,
+        Name.Function: BRIGHT_YELLOW,  # nf
+        # Name.Function.Magic:  # fm
         Name.Label: BRIGHT_RED,
         Name.Tag: BRIGHT_RED,
         Name.Variable: FG1,
@@ -146,10 +191,17 @@ class GruvboxStyle(Style):
         Number: BRIGHT_PURPLE,
         Operator: BRIGHT_ORANGE,
         Operator.Word: NEUTRAL_RED,
-        Punctuation: FG1,
+        Name.Property: BRIGHT_AQUA,
+        Punctuation: FG1,  # p
         String.Symbol: BRIGHT_BLUE,
         String: BRIGHT_GREEN,
-        Token: FG1,
+        Text: FG1,
+        Text.Whitespace: FG1,
+        # treating this key as Vim's Identifier token.
+        Name.Variable.Class: BRIGHT_BLUE,  # vc
+        Name.Variable.Global: BRIGHT_BLUE,  # vg
+        Name.Variable.Instance: BRIGHT_BLUE,  # vi
+        Name.Variable.Magic: BRIGHT_BLUE,  # vm
         Whitespace: 'underline ' + FADED_YELLOW,
     }
 

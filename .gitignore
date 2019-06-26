@@ -10,6 +10,8 @@
 !docs/source/_templates/*.html
 
 # Python
+# build artifacts
+dist/
 # mypy
 .mypy_cache/
 
