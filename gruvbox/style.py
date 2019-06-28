@@ -10,77 +10,9 @@ As originally introduced as a Vim colorscheme. [1]
 This pygments colorscheme can be used with any API that allows for Pygments
 syntax highlighting. It has; however, been primarily tested with IPython.
 
-.. todo::
-
-    Get the rest of them in here.
-    CSS names too please.
-
-     Token.Text.Whitespace: 'w',
-     Token.Other: 'x',
-     Token.Keyword: 'k',
-     Token.Keyword.Constant: 'kc',
-     Token.Keyword.Declaration: 'kd',
-     Token.Keyword.Namespace: 'kn',
-     Token.Keyword.Pseudo: 'kp',
-     Token.Keyword.Reserved: 'kr',
-     Token.Keyword.Type: 'kt',
-     Token.Name: 'n',
-     Token.Name.Attribute: 'na',
-     Token.Name.Builtin: 'nb',
-     Token.Name.Builtin.Pseudo: 'bp',
-     Token.Name.Class: 'nc',
-     Token.Name.Constant: 'no',
-     Token.Name.Decorator: 'nd',
-     Token.Name.Entity: 'ni',
-     Token.Name.Exception: 'ne',
-     Token.Name.Function: 'nf',
-     Token.Name.Function.Magic: 'fm',
-     Token.Name.Property: 'py',
-     Token.Name.Label: 'nl',
-     Token.Name.Namespace: 'nn',
-     Token.Name.Other: 'nx',
-     Token.Name.Tag: 'nt',
-     Token.Name.Variable: 'nv',
-     Token.Name.Variable.Class: 'vc',
-     Token.Name.Variable.Global: 'vg',
-     Token.Name.Variable.Instance: 'vi',
-     Token.Name.Variable.Magic: 'vm',
-     Token.Literal: 'l',
-     Token.Literal.Date: 'ld',
-     Token.Literal.String: 's',
-     Token.Literal.String.Affix: 'sa',
-     Token.Literal.String.Backtick: 'sb',
-     Token.Literal.String.Char: 'sc',
-     Token.Literal.String.Delimiter: 'dl',
-     Token.Literal.String.Doc: 'sd',
-     Token.Literal.String.Double: 's2',
-     Token.Literal.String.Escape: 'se',
-     Token.Literal.String.Heredoc: 'sh',
-     Token.Literal.String.Interpol: 'si',
-     Token.Literal.String.Other: 'sx',
-     Token.Literal.String.Regex: 'sr',
-     Token.Literal.String.Single: 's1',
-     Token.Literal.String.Symbol: 'ss',
-     Token.Literal.Number: 'm',
-     Token.Literal.Number.Bin: 'mb',
-     Token.Literal.Number.Float: 'mf',
-     Token.Literal.Number.Hex: 'mh',
-     Token.Literal.Number.Integer: 'mi',
-     Token.Literal.Number.Integer.Long: 'il',
-     Token.Literal.Number.Oct: 'mo',
-     Token.Operator: 'o',
-     Token.Operator.Word: 'ow',
-     Token.Punctuation: 'p',
-     Token.Comment: 'c',
-     Token.Comment.Hashbang: 'ch',
-     Token.Comment.Multiline: 'cm',
-     Token.Comment.Preproc: 'cp',
-     Token.Comment.PreprocFile: 'cpf',
-
 """
 from pygments.style import Style
-from pygments.token import (Token, Comment, Name, Keyword, Generic,
-                            Number,
+from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
                             Whitespace, Error, Punctuation, Operator, String,
                             Literal, Escape, Text)
 
@@ -147,13 +79,15 @@ class GruvboxStyle(Style):
     # highlight_color = SELECTION
 
     styles = {
-        Comment: FG3,  # 'c'
-        # Comment.Hashbang  # ch
-        Comment.Multiline: NEUTRAL_YELLOW + ' italic',  # cm
-        Comment.Preproc: BRIGHT_AQUA,
+        Comment: FG3,  # class:'c'
+        # Comment.Hashbang  # class: 'ch'
+        Comment.Multiline: NEUTRAL_YELLOW + ' italic',  # class: 'cm'
+        Comment.Preproc: BRIGHT_AQUA,  # class: 'cp'
+        # Comment.PreprocFile: 'cpf',
         Comment.Singleline: FG3 + ' italic',
-        Escape: DARK3,  # esc
-        Error: BRIGHT_RED + ' bold',  # err
+        Escape: DARK3,  # class: 'Esc'
+        Error: BRIGHT_RED + ' bold',  # class: 'Err'
+        Generic: FG1,
         Generic.Deleted: LIGHT0_HARD,
         Generic.Emph: 'underline ' + BRIGHT_BLUE,
         Generic.Heading: BRIGHT_GREEN + ' bold',
@@ -162,47 +96,69 @@ class GruvboxStyle(Style):
         Generic.Prompt: BRIGHT_BLUE,
         Generic.Strong: FG1 + ' bold',
         Generic.Subheading: BRIGHT_GREEN + ' bold',
-        Generic: FG1,
-        Keyword.Type: BRIGHT_YELLOW,
-        # not gonna lie I'm not a huge fan of this one
-        # hi Keyword ctermfg=203 ctermbg=NONE guifg=#fb4934 guibg=NONE
-        # guisp=NONE cterm=NONE gui=NONE
-        # Keyword: NEUTRAL_RED,
-        Keyword: BRIGHT_RED,
-        Keyword.Constant: FADED_ORANGE,
-        Keyword.Declaration: BRIGHT_ORANGE,
+        Keyword: BRIGHT_RED,  # class: 'k'
+        Keyword.Constant: FADED_ORANGE,  # class: 'kc'
+        Keyword.Declaration: BRIGHT_ORANGE,  # class: 'kd'
+        Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
+        # Keyword.Namespace: 'kn',
+        # Keyword.Pseudo: 'kp',
+        # Keyword.Reserved: 'kr',
         Literal: BRIGHT_GREEN,  # class: 'l'
-        Literal.String: BRIGHT_GREEN,  # class:
-        Literal.String.Other: BRIGHT_GREEN,  # sx
         Literal.Number: FADED_PURPLE,
-        Name.Attribute: BRIGHT_GREEN,
-        Name.Builtin: BRIGHT_YELLOW,
-        Name.Constant: BRIGHT_PURPLE,
-        Name.Decorator: BRIGHT_YELLOW,
-        Name.Entity: BRIGHT_YELLOW,
-        Name.Exception: 'bold ' + BRIGHT_RED,
-        Name.Function: BRIGHT_YELLOW,  # nf
-        # Name.Function.Magic:  # fm
-        Name.Label: BRIGHT_RED,
-        Name.Tag: BRIGHT_RED,
-        Name.Variable: FG1,
-        Name: FG1,
+        Literal.String: BRIGHT_GREEN,  # class: 's'
+        Literal.String.Other: BRIGHT_GREEN,  # class: 'sx'
+        # Literal.String.Affix: 'sa',
+        # Literal.String.Backtick: 'sb',
+        # Literal.String.Char: 'sc',
+        # Literal.String.Delimiter: 'dl',
+        # Literal.String.Doc: 'sd',
+        # Literal.String.Double: 's2',
+        # Literal.String.Escape: 'se',
+        # Literal.String.Heredoc: 'sh',
+        # Literal.String.Interpol: 'si',
+        # Literal.String.Regex: 'sr',
+        # Literal.String.Single: 's1',
+        # Literal.String.Symbol: 'ss',
+        # Literal.Date: 'ld',
+        # Literal.Number: 'm',
+        # Literal.Number.Bin: 'mb',
+        # Literal.Number.Float: 'mf',
+        # Literal.Number.Hex: 'mh',
+        # Literal.Number.Integer: 'mi',
+        # Literal.Number.Integer.Long: 'il',
+        # Literal.Number.Oct: 'mo',
+        Name: FG1,  # class: 'n'
+        Name.Attribute: BRIGHT_GREEN,  # class: 'na'
+        Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
+        # Name.Builtin.Pseudo: 'bp',
+        # Name.Class: 'nc',
+        Name.Constant: BRIGHT_PURPLE,  # class: 'no'
+        Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
+        Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
+        Name.Exception: 'bold ' + BRIGHT_RED,  # class: 'ne'
+        Name.Function: BRIGHT_YELLOW,  # class: 'nf'
+        # Name.Function.Magic:  # class: 'fm'
+        Name.Label: BRIGHT_RED,  # class: 'nl'
+        # Name.Namespace: 'nn',
+        # Name.Other: 'nx',
+        # Name.Property: 'py',
+        Name.Tag: BRIGHT_RED,  # class: 'nt'
+        # Name.Variable: FG1,  # class: 'nv'
+        Name.Variable.Class: BRIGHT_BLUE,  # class: 'vc'
+        Name.Variable.Global: BRIGHT_BLUE,  # class: 'vg'
+        Name.Variable.Instance: BRIGHT_BLUE,  # class:'vi'
+        Name.Variable.Magic: BRIGHT_BLUE,  # class: 'vm'
         Number.Float: BRIGHT_PURPLE,
         Number: BRIGHT_PURPLE,
-        Operator: BRIGHT_ORANGE,
-        Operator.Word: NEUTRAL_RED,
+        Operator: BRIGHT_RED,  # class: 'o'
+        Operator.Word: NEUTRAL_RED,  # class: 'ow'
         Name.Property: BRIGHT_AQUA,
-        Punctuation: FG1,  # p
+        Punctuation: FG1,  # class: 'p'
         String.Symbol: BRIGHT_BLUE,
         String: BRIGHT_GREEN,
-        Text: FG1,
-        Text.Whitespace: FG1,
+        Text: FG1,  # class: 't'
         # treating this key as Vim's Identifier token.
-        Name.Variable.Class: BRIGHT_BLUE,  # vc
-        Name.Variable.Global: BRIGHT_BLUE,  # vg
-        Name.Variable.Instance: BRIGHT_BLUE,  # vi
-        Name.Variable.Magic: BRIGHT_BLUE,  # vm
-        Whitespace: 'underline ' + FADED_YELLOW,
+        Text.Whitespace: 'underline ' + FADED_YELLOW,  # class: 'w'
     }
 
     def __init__(self, **kwargs):
@@ -213,7 +169,7 @@ class GruvboxStyle(Style):
         """Return repr representation."""
         keys = sorted(self.__dict__)
         items = ("{}={!r}".format(k, self.__dict__[k]) for k in keys)
-        return "{}({})".format(type(self).__name__, ", ".join(items))
+        return "{!r}: ({!r})".format(type(self).__name__, ", ".join(items))
 
     def __eq__(self, other):
         """Check if style is the same as the other."""
