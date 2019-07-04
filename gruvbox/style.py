@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Vim: set fdm=marker:
+# Vim: set fdm=marker:foldlevelstart=99:foldlevel=99:
 """A retro groove color scheme for Pygments.
 
 As originally introduced as a Vim colorscheme. [1]
@@ -27,7 +27,8 @@ DARK2 = '#504945'  # 80-73-69
 DARK3 = '#665c54'  # 102-92-84
 dark4 = '#7c6f64'  # 124-111-100
 
-# GRAY_245 = '#928374'  # 146-131-116
+# Comments
+GRAY_245 = '#928374'  # 146-131-116
 
 LIGHT0_HARD = '#f9f5d7'  # 249-245-215
 # light0 = '#fbf1c7'  # 253-244-193
@@ -35,8 +36,7 @@ LIGHT0_HARD = '#f9f5d7'  # 249-245-215
 FG1 = '#ebdbb2'  # 235-219-178
 FG2 = '#d5c4a1'  # 213-196-161
 FG3 = '#bdae93'  # 189-174-147
-light4 = '#a89984'  # 168-153-132
-light4_256 = '#a89984'  # 168-153-132
+LIGHT4 = '#a89984'  # 168-153-132
 
 BRIGHT_RED = '#fb4934'  # 251-73-52
 BRIGHT_GREEN = '#b8bb26'  # 184-187-38
@@ -50,14 +50,14 @@ NEUTRAL_RED = '#cc241d'  # 204-36-29
 neutral_green = '#98971a'  # 152-151-26
 NEUTRAL_YELLOW = '#d79921'  # 215-153-33
 neutral_blue = '#458588'  # 69-133-136
-neutral_purple = '#b16286'  # 177-98-134
-neutral_aqua = '#689d6a'  # 104-157-106
+NEUTRAL_PURPLE = '#b16286'  # 177-98-134
+NEUTRAL_AQUA = '#689d6a'  # 104-157-106
 NEUTRAL_ORANGE = '#d65d0e'  # 214-93-14
 
-faded_red = '#9d0006'  # 157-0-6
-faded_green = '#79740e'  # 121-116-14
+FADED_RED = '#9d0006'  # 157-0-6
+FADED_GREEN = '#79740e'  # 121-116-14
 FADED_YELLOW = '#b57614'  # 181-118-20
-faded_blue = '#076678'  # 7-102-120
+FADED_BLUE = '#076678'  # 7-102-120
 FADED_PURPLE = '#8f3f71'  # 143-63-113
 faded_aqua = '#427b58'  # 66-123-88
 FADED_ORANGE = '#af3a03'  # 175-58-3
@@ -79,12 +79,12 @@ class GruvboxStyle(Style):
     # highlight_color = SELECTION
 
     styles = {
-        Comment: FG3,  # class:'c'
-        # Comment.Hashbang  # class: 'ch'
+        Comment: GRAY_245,  # class:'c'
+        Comment.Hashbang: GRAY_245,  # class: 'ch'
         Comment.Multiline: NEUTRAL_YELLOW + ' italic',  # class: 'cm'
-        Comment.Preproc: BRIGHT_AQUA,  # class: 'cp'
+        # Comment.Preproc: BRIGHT_AQUA,  # class: 'cp'
         # Comment.PreprocFile: 'cpf',
-        Comment.Singleline: FG3 + ' italic',
+        Comment.Singleline: GRAY_245 + ' italic',
         Escape: DARK3,  # class: 'Esc'
         Error: BRIGHT_RED + ' bold',  # class: 'Err'
         Generic: FG1,
@@ -96,63 +96,69 @@ class GruvboxStyle(Style):
         Generic.Prompt: BRIGHT_BLUE,
         Generic.Strong: FG1 + ' bold',
         Generic.Subheading: BRIGHT_GREEN + ' bold',
-        Keyword: BRIGHT_RED,  # class: 'k'
+        Keyword: BRIGHT_ORANGE,  # class: 'k'
         Keyword.Constant: FADED_ORANGE,  # class: 'kc'
         Keyword.Declaration: BRIGHT_ORANGE,  # class: 'kd'
         Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
         # Keyword.Namespace: 'kn',
-        # Keyword.Pseudo: 'kp',
+        Keyword.Pseudo: NEUTRAL_PURPLE, # class: 'kp', the NumPy Lexer registers tokens as this class
         # Keyword.Reserved: 'kr',
-        Literal: BRIGHT_GREEN,  # class: 'l'
-        Literal.Number: FADED_PURPLE,
-        Literal.String: BRIGHT_GREEN,  # class: 's'
-        Literal.String.Other: BRIGHT_GREEN,  # class: 'sx'
-        # Literal.String.Affix: 'sa',
-        # Literal.String.Backtick: 'sb',
-        # Literal.String.Char: 'sc',
-        # Literal.String.Delimiter: 'dl',
-        # Literal.String.Doc: 'sd',
-        # Literal.String.Double: 's2',
-        # Literal.String.Escape: 'se',
-        # Literal.String.Heredoc: 'sh',
-        # Literal.String.Interpol: 'si',
-        # Literal.String.Regex: 'sr',
-        # Literal.String.Single: 's1',
-        # Literal.String.Symbol: 'ss',
+        # Literal: BRIGHT_GREEN,  # class: 'l'
         # Literal.Date: 'ld',
-        # Literal.Number: 'm',
+        Literal.Number: BRIGHT_PURPLE,  # class: 'm',
         # Literal.Number.Bin: 'mb',
         # Literal.Number.Float: 'mf',
         # Literal.Number.Hex: 'mh',
         # Literal.Number.Integer: 'mi',
         # Literal.Number.Integer.Long: 'il',
         # Literal.Number.Oct: 'mo',
+        Literal.String: BRIGHT_GREEN,  # class: 's'
+        Literal.String.Other: BRIGHT_GREEN,  # class: 'sx'
+        Literal.String.Affix: BRIGHT_ORANGE,  # class: 'sa',
+
+        # Literally matches `.* lol
+        Literal.String.Backtick: LIGHT4, # class: 'sb',
+        # Literal.String.Char: 'sc',
+        # Literal.String.Delimiter: 'dl',
+        Literal.String.Doc: FG1,  # class: 'sd',
+        # Literal.String.Double: 's2',
+        # Literal.String.Escape: 'se',
+        # Literal.String.Heredoc: 'sh',
+        # Interpolated strings!
+        Literal.String.Interpol: FADED_GREEN, # class 'si',
+        Literal.String.Regex: BRIGHT_YELLOW,  # class: 'sr',
+        # Literal.String.Single: 's1',
+        Literal.String.Symbol: FG2,  # class: 'ss',
         Name: FG1,  # class: 'n'
         Name.Attribute: BRIGHT_GREEN,  # class: 'na'
         Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
         # Name.Builtin.Pseudo: 'bp',
-        # Name.Class: 'nc',
+        Name.Class: NEUTRAL_ORANGE,  # class: 'nc',
         Name.Constant: BRIGHT_PURPLE,  # class: 'no'
         Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
         Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
         Name.Exception: 'bold ' + BRIGHT_RED,  # class: 'ne'
-        Name.Function: BRIGHT_YELLOW,  # class: 'nf'
-        # Name.Function.Magic:  # class: 'fm'
+
+        Name.Function: 'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
+        # dunder methods
+        Name.Function.Magic: 'noinherit ' + NEUTRAL_AQUA,  # class: 'fm'
         Name.Label: BRIGHT_RED,  # class: 'nl'
-        # Name.Namespace: 'nn',
+        # import statements
+        Name.Namespace: FADED_BLUE,  # class: 'nn',
         # Name.Other: 'nx',
-        # Name.Property: 'py',
+        Name.Property: BRIGHT_AQUA,  # class: 'py'
         Name.Tag: BRIGHT_RED,  # class: 'nt'
-        # Name.Variable: FG1,  # class: 'nv'
-        Name.Variable.Class: BRIGHT_BLUE,  # class: 'vc'
-        Name.Variable.Global: BRIGHT_BLUE,  # class: 'vg'
-        Name.Variable.Instance: BRIGHT_BLUE,  # class:'vi'
-        Name.Variable.Magic: BRIGHT_BLUE,  # class: 'vm'
+        Name.Variable: FG1,  # class: 'nv'
+        Name.Variable.Class: 'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
+        Name.Variable.Global: 'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
+        Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
+        Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
         Number.Float: BRIGHT_PURPLE,
         Number: BRIGHT_PURPLE,
         Operator: BRIGHT_RED,  # class: 'o'
-        Operator.Word: NEUTRAL_RED,  # class: 'ow'
-        Name.Property: BRIGHT_AQUA,
+        # Operator.Word: NEUTRAL_RED,  # class: 'ow'
+        # really hard to read
+        Operator.Word: 'noinherit ' + FADED_RED,
         Punctuation: FG1,  # class: 'p'
         String.Symbol: BRIGHT_BLUE,
         String: BRIGHT_GREEN,
