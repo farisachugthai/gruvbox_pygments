@@ -1,13 +1,14 @@
 # Gitignore
 
 # Repo specific
+.todo-cache   # wth is this?
 .vscode
 .idea/workspace.xml
 
 # Sphinx specific
 .doctree*
 .*doctree
-!docs/source/_templates/*.html
+!docs/_templates/*.html
 
 # Python
 # build artifacts
@@ -24,11 +25,12 @@ dist/
 # Rope
 .ropeproject/
 
-# Vim Backup Files
+# Vim
 *.un~
 *.swp
 *.swo
 *~
+.vim/coc-settings.json
 
 # Flask
 venv/

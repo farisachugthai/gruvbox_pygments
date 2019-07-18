@@ -7,8 +7,7 @@ Welcome to Gruvbox IPython's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 3
-   :numbered:
+   :maxdepth: 1
    :caption: Table of Contents:
 
    api

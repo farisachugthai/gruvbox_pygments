@@ -12,8 +12,8 @@ syntax highlighting. It has; however, been primarily tested with IPython.
 
 """
 from pygments.style import Style
-from pygments.token import (Token, Comment, Name, Keyword, Generic, Number,
-                            Whitespace, Error, Punctuation, Operator, String,
+from pygments.token import (Comment, Name, Keyword, Generic, Number,
+                            Error, Punctuation, Operator, String,
                             Literal, Escape, Text)
 
 # We're still exporting ALL these globals. Let's not.
@@ -101,7 +101,9 @@ class GruvboxStyle(Style):
         Keyword.Declaration: BRIGHT_ORANGE,  # class: 'kd'
         Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
         # Keyword.Namespace: 'kn',
-        Keyword.Pseudo: NEUTRAL_PURPLE, # class: 'kp', the NumPy Lexer registers tokens as this class
+
+        # class: 'kp', the NumPy Lexer registers tokens as this class
+        Keyword.Pseudo: NEUTRAL_PURPLE,
         # Keyword.Reserved: 'kr',
         # Literal: BRIGHT_GREEN,  # class: 'l'
         # Literal.Date: 'ld',
@@ -117,7 +119,7 @@ class GruvboxStyle(Style):
         Literal.String.Affix: BRIGHT_ORANGE,  # class: 'sa',
 
         # Literally matches `.* lol
-        Literal.String.Backtick: LIGHT4, # class: 'sb',
+        Literal.String.Backtick: LIGHT4,  # class: 'sb',
         # Literal.String.Char: 'sc',
         # Literal.String.Delimiter: 'dl',
         Literal.String.Doc: FG1,  # class: 'sd',
@@ -125,7 +127,7 @@ class GruvboxStyle(Style):
         # Literal.String.Escape: 'se',
         # Literal.String.Heredoc: 'sh',
         # Interpolated strings!
-        Literal.String.Interpol: FADED_GREEN, # class 'si',
+        Literal.String.Interpol: FADED_GREEN,  # class 'si',
         Literal.String.Regex: BRIGHT_YELLOW,  # class: 'sr',
         # Literal.String.Single: 's1',
         Literal.String.Symbol: FG2,  # class: 'ss',
@@ -169,7 +171,7 @@ class GruvboxStyle(Style):
 
     def __init__(self, **kwargs):
         """Create the colorscheme object."""
-        self.__dict__.update(kwargs)
+        self.__dict__.update(**kwargs)
 
     def __repr__(self):
         """Return repr representation."""

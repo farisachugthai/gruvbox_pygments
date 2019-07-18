@@ -2,9 +2,6 @@
 Gruvbox IPython --- A Pygments Style Designed for IPython
 =========================================================
 
-.. module:: readme
-    :synopsis: A Pygments Style Designed for IPython
-
 `Gruvbox <https://github.com/morhetz/gruvbox>`_ is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.
 
@@ -15,7 +12,8 @@ According to it's author:
     gruvbox is to keep colors easily distinguishable, contrast enough and still
     pleasant for the eyes.
 
-To an impressive extent `Gruvbox <https://github.com/morhetz/gruvbox>`_ achieves this.
+To an impressive extent `Gruvbox <https://github.com/morhetz/gruvbox>`_
+achieves this.
 
 So why this repository?
 
@@ -32,23 +30,32 @@ terminal of choice.
 
     python setup.py build && python -m pip install -U -e .
 
-
 If you prefer to use the Conda environment manager from Continuum Analytics,
 one can alternatively run:
 
 .. code-block:: shell-session
 
    python setup.py build
-   python setup.py install
    conda develop .
+   python setup.py install
 
-while in the root of the repository.
+while in the root of the repository. This assumes that ``conda`` has been
+properly installed and that the ``conda-build`` package has been added to your
+environment.
 
 
 Setup
 -----
 To use this colorscheme in :mod:`IPython`, navigate to ``$HOME/.ipython`` and
 create/edit your ``ipython_config.py`` file like so:
+
+.. code-block:: console
+
+   ipython profile create default
+
+This command will prepopulate a well commented default configuration file.
+
+At the top of the file add the following:
 
 .. code-block:: python3
 
@@ -57,17 +64,19 @@ create/edit your ``ipython_config.py`` file like so:
     c.TerminalInteractiveShell.highlighting_style = 'Gruvbox'
 
 Pygments colorschemes can be used for a wide variety of applications; however,
-and limiting it's use to only IPython is not necessary. For example, the Sphinx
-documentation project also uses Pygments when highlighting blocks of code!
+and limiting it's use to only IPython is not necessary.
+
+For example, the Sphinx documentation project also uses Pygments when
+highlighting blocks of code, and the documentation for this project is
+highlighted with the Gruvbox colorscheme.
+
 
 Contributing
 ------------
-
-The official source code for this library exists at 
-`<https://github.com/farisachugthai/Gruvbox-IPython>`_ and documentation that details
-*in gruesome detail* how this Pygments plugin was made can be found at
+The official source code for this library exists at
+`<https://github.com/farisachugthai/Gruvbox-IPython>`_ and documentation
+that details how this Pygments plugin was made can be found at
 `<https://farisachugthai.github.io/Gruvbox-IPython/>`_.
-
 
 Please open a pull request or an issue with any problems you see or any changes
 you'd recommend to the source code!
