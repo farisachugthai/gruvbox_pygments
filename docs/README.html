@@ -31,8 +31,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-readme">
-<span id="gruvbox-ipython-a-pygments-style-designed-for-ipython"></span><h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#module-readme" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
+<h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.</p>
 <p>According to it’s author:</p>
@@ -42,7 +42,8 @@ mode switching in the way of solarized. The main focus when developing
 gruvbox is to keep colors easily distinguishable, contrast enough and still
 pleasant for the eyes.</p>
 </div></blockquote>
-<p>To an impressive extent <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> achieves this.</p>
+<p>To an impressive extent <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
+achieves this.</p>
 <p>So why this repository?</p>
 <p>Despite it’s popularity as a Vim colorscheme, I have yet to find a faithful
 port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
@@ -56,30 +57,39 @@ terminal of choice.</p>
 <p>If you prefer to use the Conda environment manager from Continuum Analytics,
 one can alternatively run:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
-<span class="go">python setup.py install</span>
 <span class="go">conda develop .</span>
+<span class="go">python setup.py install</span>
 </pre></div>
 </div>
-<p>while in the root of the repository.</p>
+<p>while in the root of the repository. This assumes that <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been
+properly installed and that the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> package has been added to your
+environment.</p>
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.5.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.6.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
 create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ipython profile create default</span>
+</pre></div>
+</div>
+<p>This command will prepopulate a well commented default configuration file.</p>
+<p>At the top of the file add the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
 </pre></div>
 </div>
 <p>Pygments colorschemes can be used for a wide variety of applications; however,
-and limiting it’s use to only IPython is not necessary. For example, the Sphinx
-documentation project also uses Pygments when highlighting blocks of code!</p>
+and limiting it’s use to only IPython is not necessary.</p>
+<p>For example, the Sphinx documentation project also uses Pygments when
+highlighting blocks of code, and the documentation for this project is
+highlighted with the Gruvbox colorscheme.</p>
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>The official source code for this library exists at
-<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation that details
-<em>in gruesome detail</em> how this Pygments plugin was made can be found at
+<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation
+that details how this Pygments plugin was made can be found at
 <a class="reference external" href="https://farisachugthai.github.io/Gruvbox-IPython/">https://farisachugthai.github.io/Gruvbox-IPython/</a>.</p>
 <p>Please open a pull request or an issue with any problems you see or any changes
 you’d recommend to the source code!</p>
@@ -132,10 +142,10 @@ you’d recommend to the source code!</p>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -156,7 +166,7 @@ you’d recommend to the source code!</p>
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

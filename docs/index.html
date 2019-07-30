@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Gruvbox for Pygments" href="api.html" />
+    <link rel="next" title="gruvbox package" href="gruvbox.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,37 +37,13 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">1. Gruvbox for Pygments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#style-implementation">1.1. Style Implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#gruvboxstyle">1.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pygments_tokens.html">2. Pygments Tokens</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#the-full-list-of-pygments-tokens">2.1. The full list of pygments tokens.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#keyword-tokens">2.1.1. Keyword Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#name-tokens">2.1.2. Name Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#literals">2.1.3. Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#operators">2.1.4. Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#punctuation">2.1.5. Punctuation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#comments">2.1.6. Comments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#generic-tokens">2.1.7. Generic Tokens</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#development">2.2. Development</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#standard-types-as-defined-by-pygments">2.2.1. Standard Types as Defined by Pygments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pygments_tokens.html#original-vimscript">2.2.2. Original VimScript</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#simplified-gruvbox">2.3. Simplified Gruvbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#where-do-we-go-now">2.4. Where do we go now?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pygments_tokens.html#prompt-toolkit">2.5. Prompt Toolkit</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="gruvbox.html">gruvbox package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">gruvbox</a></li>
 </ul>
 </div>
 <hr class="docutils" />
-<div class="section" id="module-readme">
-<span id="gruvbox-ipython-a-pygments-style-designed-for-ipython"></span><h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#module-readme" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
+<h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal colorscheme for
 Vim, and gives a fantastic base for any terminal based application.</p>
 <p>According to it’s author:</p>
@@ -77,7 +53,8 @@ mode switching in the way of solarized. The main focus when developing
 gruvbox is to keep colors easily distinguishable, contrast enough and still
 pleasant for the eyes.</p>
 </div></blockquote>
-<p>To an impressive extent <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> achieves this.</p>
+<p>To an impressive extent <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
+achieves this.</p>
 <p>So why this repository?</p>
 <p>Despite it’s popularity as a Vim colorscheme, I have yet to find a faithful
 port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
@@ -91,30 +68,39 @@ terminal of choice.</p>
 <p>If you prefer to use the Conda environment manager from Continuum Analytics,
 one can alternatively run:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
-<span class="go">python setup.py install</span>
 <span class="go">conda develop .</span>
+<span class="go">python setup.py install</span>
 </pre></div>
 </div>
-<p>while in the root of the repository.</p>
+<p>while in the root of the repository. This assumes that <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been
+properly installed and that the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> package has been added to your
+environment.</p>
 </div>
 <div class="section" id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.5.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.6.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
 create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ipython profile create default</span>
+</pre></div>
+</div>
+<p>This command will prepopulate a well commented default configuration file.</p>
+<p>At the top of the file add the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
 </pre></div>
 </div>
 <p>Pygments colorschemes can be used for a wide variety of applications; however,
-and limiting it’s use to only IPython is not necessary. For example, the Sphinx
-documentation project also uses Pygments when highlighting blocks of code!</p>
+and limiting it’s use to only IPython is not necessary.</p>
+<p>For example, the Sphinx documentation project also uses Pygments when
+highlighting blocks of code, and the documentation for this project is
+highlighted with the Gruvbox colorscheme.</p>
 </div>
 <div class="section" id="contributing">
 <h3>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h3>
 <p>The official source code for this library exists at
-<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation that details
-<em>in gruesome detail</em> how this Pygments plugin was made can be found at
+<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation
+that details how this Pygments plugin was made can be found at
 <a class="reference external" href="https://farisachugthai.github.io/Gruvbox-IPython/">https://farisachugthai.github.io/Gruvbox-IPython/</a>.</p>
 <p>Please open a pull request or an issue with any problems you see or any changes
 you’d recommend to the source code!</p>
@@ -161,14 +147,14 @@ you’d recommend to the source code!</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="api.html" title="next chapter">1. Gruvbox for Pygments</a></li>
+      <li>Next: <a href="gruvbox.html" title="next chapter">gruvbox package</a></li>
   </ul></li>
 </ul>
 </div>
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to Gruvbox IPython’s documentation!</a><ul>
-<li><a class="reference internal" href="#module-readme">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
+<li><a class="reference internal" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#setup">Setup</a></li>
 <li><a class="reference internal" href="#contributing">Contributing</a></li>
@@ -181,10 +167,10 @@ you’d recommend to the source code!</p>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -205,7 +191,7 @@ you’d recommend to the source code!</p>
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

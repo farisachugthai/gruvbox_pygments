@@ -10,9 +10,9 @@ Welcome to Gruvbox IPython's documentation!
    :maxdepth: 1
    :caption: Table of Contents:
 
-   api
-   pygments_tokens
-
+   gruvbox
+   modules
+   
 
 ----------
 
