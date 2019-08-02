@@ -6,11 +6,12 @@ full list see the documentation:
 
 `<http://www.sphinx-doc.org/en/master/config>`_
 
-# -- Path setup --------------------------------------------------------------
+-- Path setup --------------------------------------------------------------
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
+If extensions (or modules to document with autodoc) are in another directory,
+add these directories to sys.path here. If the directory is relative to the
+documentation root, use os.path.abspath to make it absolute, like shown here.
+
 """
 import os
 import sys
@@ -70,9 +71,19 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'numpydoc.numpydoc',
-    'matplotlib.sphinxext.plot_directive',
-    'matplotlib.sphinxext.mathmpl',
 ]
+
+try:
+    import matplotlib as mpl
+except (ImportError, ModuleNotFoundError):
+    pass
+else:
+    extensions.extend(
+        [
+            'matplotlib.sphinxext.plot_directive',
+            'matplotlib.sphinxext.mathmpl',
+        ]
+    )
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -132,13 +143,14 @@ html_static_path = ['_static']
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 html_sidebars = {
-    '**': [
-        'about.html',
-        'relations.html',
-        'localtoc.html',
-        'searchbox.html',
-        'sourcelink.html',
-    ]
+    '**':
+        [
+            'about.html',
+            'relations.html',
+            'localtoc.html',
+            'searchbox.html',
+            'sourcelink.html',
+        ]
 }
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
@@ -173,27 +185,32 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GruvboxIPython.tex', 'Gruvbox IPython Documentation',
-     'Faris A Chugthai', 'manual'),
+    (
+        master_doc, 'GruvboxIPython.tex', 'Gruvbox IPython Documentation',
+        'Faris A Chugthai', 'manual'
+    ),
 ]
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'gruvbox', 'Gruvbox IPython Documentation', [
-    author
-], 1)]
+man_pages = [
+    (master_doc, 'gruvbox', 'Gruvbox IPython Documentation', [author], 1)
+]
 
 manpages_url = "https://linux.die.net/man"
+
 # -- Options for Texinfo output ----------------------------------------------
 
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GruvboxIPython', 'Gruvbox IPython Documentation', author,
-     'GruvboxIPython', 'One line description of project.', 'Miscellaneous'),
+    (
+        master_doc, 'GruvboxIPython', 'Gruvbox IPython Documentation', author,
+        'GruvboxIPython', 'One line description of project.', 'Miscellaneous'
+    ),
 ]
 
 # -- Options for Epub output -------------------------------------------------

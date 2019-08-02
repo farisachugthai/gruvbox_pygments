@@ -44,72 +44,77 @@
 <hr class="docutils" />
 <div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
 <h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal colorscheme for
-Vim, and gives a fantastic base for any terminal based application.</p>
+<p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal
+colorscheme for Vim, and gives a fantastic base for any terminal
+based application.</p>
 <p>According to it’s author:</p>
 <blockquote>
-<div><p>Designed as a bright theme with pastel ‘retro groove’ colors and light/dark
-mode switching in the way of solarized. The main focus when developing
-gruvbox is to keep colors easily distinguishable, contrast enough and still
-pleasant for the eyes.</p>
+<div><p>Designed as a bright theme with pastel ‘retro groove’ colors and
+light/dark mode switching in the way of solarized. The main focus
+when developing gruvbox is to keep colors easily distinguishable,
+contrast enough and still pleasant for the eyes.</p>
 </div></blockquote>
 <p>To an impressive extent <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
 achieves this.</p>
 <p>So why this repository?</p>
-<p>Despite it’s popularity as a Vim colorscheme, I have yet to find a faithful
-port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
+<p>Despite it’s popularity as a Vim colorscheme, I have yet to find a
+faithful port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
+to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
+</div>
+</div>
 <div class="section" id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
-<p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following in your
-terminal of choice.</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build &amp;&amp; python -m pip install -U -e .</span>
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following
+in your terminal of choice.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
+<span class="go">python -m pip install -U -e .</span>
 </pre></div>
 </div>
 <p>If you prefer to use the Conda environment manager from Continuum Analytics,
 one can alternatively run:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
-<span class="go">conda develop .</span>
-<span class="go">python setup.py install</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py build
+conda develop .
 </pre></div>
 </div>
 <p>while in the root of the repository. This assumes that <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been
-properly installed and that the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> package has been added to your
-environment.</p>
+properly installed and that the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> package has been added
+to your environment.</p>
+<p>This assumes one has <code class="docutils literal notranslate"><span class="pre">conda</span></code> properly installed and the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code>
+package added as well.</p>
 </div>
 <div class="section" id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.6.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code> and
-create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.7.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
+and create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ipython profile create default</span>
 </pre></div>
 </div>
-<p>This command will prepopulate a well commented default configuration file.</p>
+<p>This command will pre-populate a well commented default configuration
+file.</p>
 <p>At the top of the file add the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
 </pre></div>
 </div>
-<p>Pygments colorschemes can be used for a wide variety of applications; however,
-and limiting it’s use to only IPython is not necessary.</p>
+<p>Pygments colorschemes can be used for a wide variety of applications;
+however, and limiting it’s use to only IPython is not necessary.</p>
 <p>For example, the Sphinx documentation project also uses Pygments when
 highlighting blocks of code, and the documentation for this project is
-highlighted with the Gruvbox colorscheme.</p>
+highlighted with the <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> colorscheme.</p>
 </div>
 <div class="section" id="contributing">
-<h3>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h3>
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
 <p>The official source code for this library exists at
 <a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation
 that details how this Pygments plugin was made can be found at
 <a class="reference external" href="https://farisachugthai.github.io/Gruvbox-IPython/">https://farisachugthai.github.io/Gruvbox-IPython/</a>.</p>
-<p>Please open a pull request or an issue with any problems you see or any changes
-you’d recommend to the source code!</p>
+<p>Please open a pull request or an issue with any problems you see or any
+changes you’d recommend to the source code!</p>
 </div>
 <div class="section" id="license">
-<h3>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
 <p>MIT</p>
-</div>
-</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -154,15 +159,13 @@ you’d recommend to the source code!</p>
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to Gruvbox IPython’s documentation!</a><ul>
-<li><a class="reference internal" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
+<li><a class="reference internal" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython">Gruvbox IPython — A Pygments Style Designed for IPython</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#setup">Setup</a></li>
 <li><a class="reference internal" href="#contributing">Contributing</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
