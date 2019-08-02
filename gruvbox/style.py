@@ -7,8 +7,9 @@ As originally introduced as a Vim colorscheme. [1]
 
 .. [1]https://github.com/morhetz/gruvbox
 
-This pygments colorscheme can be used with any API that allows for Pygments
-syntax highlighting. It has; however, been primarily tested with IPython.
+This pygments colorscheme can be used with any API that allows for
+Pygments syntax highlighting. It has; however, been primarily tested
+with :mod:`IPython`.
 
 """
 from IPython import get_ipython
