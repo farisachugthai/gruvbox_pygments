@@ -11,7 +11,7 @@ EMAIL = "farischugthai@gmail.com",
 DESCRIPTION = "A Pygments style using the Gruvbox color scheme."
 LICENSE = "MIT",
 KEYWORDS = "pygments gruvbox ipython jupyter colorschemes",
-REQUIRED = ['pygments']
+REQUIRED = ['pygments>=2.4']
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = os.path.join(here, 'README.rst')
@@ -45,7 +45,8 @@ setup(
     py_modules=['gruvbox.style'],
     entry_points="""
         [pygments.styles]
-        Gruvbox = gruvbox.style:GruvboxStyle
+        GruvboxDarkHard = gruvbox.style:GruvboxDarkHard
+        GruvboxLight = gruvbox.style:GruvboxLightHard
         """,
     install_requires=REQUIRED,
     # is there a way i can do if extras_require inside of the function call?

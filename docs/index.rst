@@ -11,7 +11,6 @@ Welcome to Gruvbox IPython's documentation!
    :caption: Table of Contents:
 
    gruvbox
-   modules
    
 
 ----------

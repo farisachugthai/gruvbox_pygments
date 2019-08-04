@@ -113,7 +113,8 @@ language = None
 exclude_patterns = ['.*ipynb_checkpoints**']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'Gruvbox'
+from gruvbox.style import GruvboxDarkHard
+pygments_style = 'GruvboxDarkHard'  # emits error if you pass class not str
 
 # -- Options for HTML output -------------------------------------------------
 

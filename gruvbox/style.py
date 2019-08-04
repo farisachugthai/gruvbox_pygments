@@ -212,6 +212,7 @@ class GruvboxBase(Style):
             {
                 Token.Prompt: BRIGHT_GREEN,
                 Token.PromptNum: 'bold {}'.format(BRIGHT_GREEN),
+
                 Token.OutPrompt: BRIGHT_GREEN,
                 Token.OutPromptNum: BRIGHT_GREEN,
                 # TODO:
@@ -232,7 +233,6 @@ class GruvboxBase(Style):
         return self.__dict__ == other.__dict__
 
 
-
 class GruvboxDarkHard(GruvboxBase):
     """Retro groove color scheme for Pygments.
 
@@ -242,9 +242,11 @@ class GruvboxDarkHard(GruvboxBase):
     """
 
     def __init__(self):
+        """Call the super method."""
         super().__init__()
 
 class GruvboxLightHard:
 
     """Docstring for GruvboxLightHard."""
+
     pass

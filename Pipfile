@@ -5,6 +5,8 @@ verify_ssl = true
 
 [dev-packages]
 gruvbox-ipython = {editable = true,path = "."}
+ipython = "*"
+sphinx = "*"
 
 [packages]
 gruvbox-ipython = {editable = true,path = "."}
