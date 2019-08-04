@@ -20,7 +20,7 @@ from pygments.token import (
 )
 
 # We're still exporting ALL these globals. Let's not.
-__all__ = ['GruvboxStyle']
+__all__ = ['GruvboxDarkHard', 'GruvboxLightHard']
 
 # Palette: {{{1
 BG0_HARD = "#1d2021"
@@ -52,15 +52,8 @@ NEUTRAL_ORANGE = '#d65d0e'  # 214-93-14
 
 # }}}
 
-
-class GruvboxStyle(Style):
-    """Retro groove color scheme for Pygments.
-
-    Extends previous repositories that have ported Gruvbox to Pygments, and
-    adds in new definitions for different tokens.
-
-    """
-
+class GruvboxBase(Style):
+    """Do subclasses inherit class attributes?"""
     default_style = ''
 
     background_color = BG0_HARD
@@ -237,3 +230,21 @@ class GruvboxStyle(Style):
     def __eq__(self, other):
         """Check if style is the same as the other."""
         return self.__dict__ == other.__dict__
+
+
+
+class GruvboxDarkHard(GruvboxBase):
+    """Retro groove color scheme for Pygments.
+
+    Extends previous repositories that have ported Gruvbox to Pygments, and
+    adds in new definitions for different tokens.
+
+    """
+
+    def __init__(self):
+        super().__init__()
+
+class GruvboxLightHard:
+
+    """Docstring for GruvboxLightHard."""
+    pass
