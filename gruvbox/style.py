@@ -60,150 +60,94 @@ class GruvboxBase(Style):
     # highlight_color = SELECTION
 
     styles = {
-        Comment:
-            GRAY_245,  # class:'c'
-        Comment.Hashbang:
-            GRAY_245,  # class: 'ch'
-        Comment.Multiline:
-            BRIGHT_YELLOW + ' italic',  # class: 'cm'
+        Comment: GRAY_245,  # class:'c'
+        Comment.Hashbang: GRAY_245,  # class: 'ch'
+        Comment.Multiline: BRIGHT_YELLOW + ' italic',  # class: 'cm'
         # Comment.Preproc: BRIGHT_AQUA,  # class: 'cp'
         # Comment.PreprocFile: 'cpf',
-        Comment.Singleline:
-            GRAY_245 + ' italic',
-        Escape:
-            DARK3,  # class: 'Esc'
-        Error:
-            BRIGHT_RED + ' bold',  # class: 'Err'
-        Generic:
-            FG1,
-        Generic.Deleted:
-            LIGHT0_HARD,
-        Generic.Emph:
-            'underline ' + BRIGHT_BLUE,
-        Generic.Heading:
-            BRIGHT_GREEN + ' bold',
-        Generic.Inserted:
-            LIGHT0_HARD,
-        Generic.Output:
-            FG2,
-        Generic.Prompt:
-            BRIGHT_BLUE,
-        Generic.Strong:
-            FG1 + ' bold',
-        Generic.Subheading:
-            BRIGHT_GREEN + ' bold',
-        Keyword:
-            BRIGHT_ORANGE,  # class: 'k'
-        Keyword.Constant:
-            BRIGHT_ORANGE,  # class: 'kc'
-        Keyword.Declaration:
-            BRIGHT_ORANGE,  # class: 'kd'
-        Keyword.Type:
-            BRIGHT_YELLOW,  # class: 'kt'
+        Comment.Single: GRAY_245 + ' italic',  # class: 'c1'
+        # Comment.Special: ,  # class: 'cs'
+        Escape: DARK3,  # class: 'Esc'
+        Error: BRIGHT_RED + ' bold',  # class: 'Err'
+        Generic: FG1,  # class: 'g'
+        Generic.Deleted: LIGHT0_HARD,  # class: 'gd'
+        Generic.Emph: 'underline ' + BRIGHT_BLUE,  # class: 'ge'
+        Generic.Heading: BRIGHT_GREEN + ' bold',  # class: 'gh'
+        Generic.Inserted: LIGHT0_HARD,  # class: 'gi'
+        Generic.Output: FG2,  # class: 'go'
+        Generic.Prompt: BRIGHT_BLUE,  # class: 'gp'
+        Generic.Strong: FG1 + ' bold',  # class: 'gs'
+        Generic.Subheading: BRIGHT_GREEN + ' bold',  # class: 'gu'
+        # Generic.Traceback  # class: 'gt'
+        Keyword: BRIGHT_ORANGE,  # class: 'k'
+        Keyword.Constant: BRIGHT_ORANGE,  # class: 'kc'
+        Keyword.Declaration: BRIGHT_ORANGE,  # class: 'kd'
         # Keyword.Namespace: 'kn',
-
-        # class: 'kp', the NumPy Lexer registers tokens as this class
-        Keyword.Pseudo:
-            BRIGHT_PURPLE,
+        Keyword.
+        Pseudo: BRIGHT_PURPLE,  # class: 'kp', the NumPy Lexer registers tokens as this class
         # Keyword.Reserved: 'kr',
+        Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
+
         # Literal: BRIGHT_GREEN,  # class: 'l'
         # Literal.Date: 'ld',
-        Literal.Number:
-            BRIGHT_PURPLE,  # class: 'm',
-        # Literal.Number.Bin: 'mb',
-        # Literal.Number.Float: 'mf',
-        # Literal.Number.Hex: 'mh',
-        # Literal.Number.Integer: 'mi',
-        # Literal.Number.Integer.Long: 'il',
-        # Literal.Number.Oct: 'mo',
-        Literal.String:
-            BRIGHT_GREEN,  # class: 's'
-        Literal.String.Other:
-            BRIGHT_GREEN,  # class: 'sx'
-        Literal.String.Affix:
-            BRIGHT_ORANGE,  # class: 'sa',
-
+        Number.Float: BRIGHT_PURPLE,
+        Number: BRIGHT_PURPLE,
+        # Number: BRIGHT_PURPLE,  # class: 'm',
+        # Number.Bin: 'mb',
+        # Number.Float: 'mf',
+        # Number.Hex: 'mh',
+        # Number.Integer: 'mi',
+        # Number.Integer.Long: 'il',
+        # Number.Oct: 'mo',
+        String.Symbol: BRIGHT_BLUE,
+        String: BRIGHT_GREEN,
+        # String: BRIGHT_GREEN,  # class: 's'
+        # String.Other: BRIGHT_GREEN,  # class: 'sx'
+        # String.Affix: BRIGHT_ORANGE,  # class: 'sa',
         # Literally matches `.* lol
-        Literal.String.Backtick:
-            LIGHT4,  # class: 'sb',
-        # Literal.String.Char: 'sc',
-        # Literal.String.Delimiter: 'dl',
-        Literal.String.Doc:
-            FG1,  # class: 'sd',
-        # Literal.String.Double: 's2',
-        # Literal.String.Escape: 'se',
-        # Literal.String.Heredoc: 'sh',
+        String.Backtick: LIGHT4,  # class: 'sb',
+        # String.Char: 'sc',
+        # String.Delimiter: 'dl',
+        String.Doc: FG1,  # class: 'sd',
+        # String.Double: 's2',
+        # String.Escape: 'se',
+        # String.Heredoc: 'sh',
         # Interpolated strings!
-        Literal.String.Interpol:
-            BRIGHT_GREEN,  # class 'si',
-        Literal.String.Regex:
-            BRIGHT_YELLOW,  # class: 'sr',
-        # Literal.String.Single: 's1',
-        Literal.String.Symbol:
-            FG2,  # class: 'ss',
-        Name:
-            FG1,  # class: 'n'
-        Name.Attribute:
-            BRIGHT_GREEN,  # class: 'na'
-        Name.Builtin:
-            BRIGHT_YELLOW,  # class: 'nb'
+        String.Interpol: BRIGHT_GREEN,  # class 'si',
+        String.Regex: BRIGHT_YELLOW,  # class: 'sr',
+        # String.Single: 's1',
+        String.Symbol: FG2,  # class: 'ss',
+        Name: FG1,  # class: 'n'
+        Name.Attribute: BRIGHT_GREEN,  # class: 'na'
+        Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
         # Name.Builtin.Pseudo: 'bp',
-        Name.Class:
-            NEUTRAL_ORANGE,  # class: 'nc',
-        Name.Constant:
-            BRIGHT_PURPLE,  # class: 'no'
-        Name.Decorator:
-            BRIGHT_YELLOW,  # class: 'nd'
-        Name.Entity:
-            BRIGHT_YELLOW,  # class: 'ni'
-        Name.Exception:
-            'bold ' + BRIGHT_RED,  # class: 'ne'
-        Name.Function:
-            'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
+        Name.Class: NEUTRAL_ORANGE,  # class: 'nc',
+        Name.Constant: BRIGHT_PURPLE,  # class: 'no'
+        Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
+        Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
+        Name.Exception: 'bold ' + BRIGHT_RED,  # class: 'ne'
+        Name.Function: 'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
         # dunder methods
-        Name.Function.Magic:
-            'noinherit ' + BRIGHT_AQUA,  # class: 'fm'
-        Name.Label:
-            BRIGHT_RED,  # class: 'nl'
+        Name.Function.Magic: 'noinherit ' + BRIGHT_AQUA,  # class: 'fm'
+        Name.Label: BRIGHT_RED,  # class: 'nl'
         # import statements
-        Name.Namespace:
-            BRIGHT_BLUE,  # class: 'nn',
+        Name.Namespace: BRIGHT_BLUE,  # class: 'nn',
         # Name.Other: 'nx',
-        Name.Property:
-            BRIGHT_AQUA,  # class: 'py'
-        Name.Tag:
-            BRIGHT_RED,  # class: 'nt'
-        Name.Variable:
-            FG1,  # class: 'nv'
-        Name.Variable.Class:
-            'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
-        Name.Variable.Global:
-            'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
-        Name.Variable.Instance:
-            'noinherit ' + BRIGHT_BLUE,  # class:'vi'
-        Name.Variable.Magic:
-            'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
-        Number.Float:
-            BRIGHT_PURPLE,
-        Number:
-            BRIGHT_PURPLE,
-        Operator:
-            BRIGHT_RED,  # class: 'o'
+        Name.Property: BRIGHT_AQUA,  # class: 'py'
+        Name.Tag: BRIGHT_RED,  # class: 'nt'
+        Name.Variable: FG1,  # class: 'nv'
+        Name.Variable.Class: 'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
+        Name.Variable.Global: 'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
+        Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
+        Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
+        Operator: BRIGHT_RED,  # class: 'o'
         # Operator.Word: NEUTRAL_RED,  # class: 'ow'
         # really hard to read
-        Operator.Word:
-            'noinherit ' + BRIGHT_RED,
-        Punctuation:
-            FG1,  # class: 'p'
-        String.Symbol:
-            BRIGHT_BLUE,
-        String:
-            BRIGHT_GREEN,
-        Text:
-            FG1,  # class: 't'
+        Operator.Word: 'noinherit ' + BRIGHT_RED,
+        Punctuation: FG1,  # class: 'p'
+        Text: FG1,  # class: 't'
         # treating this key as Vim's Identifier token.
-        Text.Whitespace:
-            'underline ' + BRIGHT_YELLOW,  # class: 'w'
+        Text.Whitespace: 'underline ' + BRIGHT_YELLOW,  # class: 'w'
     }
 
     # I think this is a reasonable way of checking if we're in IPython or not
