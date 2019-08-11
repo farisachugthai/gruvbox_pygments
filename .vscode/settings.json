@@ -8,7 +8,6 @@
     "eslint.autoFixOnSave": true,
     "emmet.triggerExpansionOnTab": true,
     "emmet.showSuggestionsAsSnippets": true,
-    "materialTheme.accent": "Orange",
     "merge-conflict.autoNavigateNextConflict.enabled": true,
     "restructuredtext.confPath": ""
 }

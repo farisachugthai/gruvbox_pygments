@@ -150,7 +150,6 @@ class GruvboxBase(Style):
         Text.Whitespace: 'underline ' + BRIGHT_YELLOW,  # class: 'w'
     }
 
-    # I think this is a reasonable way of checking if we're in IPython or not
     if get_ipython() is not None:
         styles.update(
             {
@@ -166,11 +165,12 @@ class GruvboxBase(Style):
             }
         )
 
+    # I think this is a reasonable way of checking if we're in IPython or not
+
     def __repr__(self):
         """Return repr representation."""
         keys = sorted(self.__dict__)
-        items = ("{}={!r}".format(k, self.__dict__[k]) for k in keys)
-        return "{!r}: ({!r})".format(type(self).__name__, ", ".join(items))
+        return  ("{!r}={!r}".format(self.__class__.__name__, self.styles[k]) for k in keys)
 
     def __eq__(self, other):
         """Check if style is the same as the other."""
@@ -184,10 +184,11 @@ class GruvboxDarkHard(GruvboxBase):
     adds in new definitions for different tokens.
 
     """
-
     def __init__(self):
         """Call the super method."""
         super().__init__()
+
+
 
 class GruvboxLightHard:
 

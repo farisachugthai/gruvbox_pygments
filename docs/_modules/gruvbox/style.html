@@ -41,8 +41,9 @@
 
 <span class="sd">.. [1]https://github.com/morhetz/gruvbox</span>
 
-<span class="sd">This pygments colorscheme can be used with any API that allows for Pygments</span>
-<span class="sd">syntax highlighting. It has; however, been primarily tested with IPython.</span>
+<span class="sd">This pygments colorscheme can be used with any API that allows for</span>
+<span class="sd">Pygments syntax highlighting. It has; however, been primarily tested</span>
+<span class="sd">with :mod:`IPython`.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">IPython</span> <span class="k">import</span> <span class="n">get_ipython</span>
@@ -53,7 +54,7 @@
 <span class="p">)</span>
 
 <span class="c1"># We&#39;re still exporting ALL these globals. Let&#39;s not.</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GruvboxStyle&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GruvboxDarkHard&#39;</span><span class="p">,</span> <span class="s1">&#39;GruvboxLightHard&#39;</span><span class="p">]</span>
 
 <span class="c1"># Palette: {{{1</span>
 <span class="n">BG0_HARD</span> <span class="o">=</span> <span class="s2">&quot;#1d2021&quot;</span>
@@ -85,173 +86,110 @@
 
 <span class="c1"># }}}</span>
 
-
-<div class="viewcode-block" id="GruvboxStyle"><a class="viewcode-back" href="../../gruvbox.html#gruvbox.style.GruvboxStyle">[docs]</a><span class="k">class</span> <span class="nc">GruvboxStyle</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Retro groove color scheme for Pygments.</span>
-
-<span class="sd">    Extends previous repositories that have ported Gruvbox to Pygments, and</span>
-<span class="sd">    adds in new definitions for different tokens.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
+<span class="k">class</span> <span class="nc">GruvboxBase</span><span class="p">(</span><span class="n">Style</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Do subclasses inherit class attributes?&quot;&quot;&quot;</span>
     <span class="n">default_style</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
     <span class="n">background_color</span> <span class="o">=</span> <span class="n">BG0_HARD</span>
     <span class="c1"># highlight_color = SELECTION</span>
 
     <span class="n">styles</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">Comment</span><span class="p">:</span>
-            <span class="n">GRAY_245</span><span class="p">,</span>  <span class="c1"># class:&#39;c&#39;</span>
-        <span class="n">Comment</span><span class="o">.</span><span class="n">Hashbang</span><span class="p">:</span>
-            <span class="n">GRAY_245</span><span class="p">,</span>  <span class="c1"># class: &#39;ch&#39;</span>
-        <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span> <span class="o">+</span> <span class="s1">&#39; italic&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;cm&#39;</span>
+        <span class="n">Comment</span><span class="p">:</span> <span class="n">GRAY_245</span><span class="p">,</span>  <span class="c1"># class:&#39;c&#39;</span>
+        <span class="n">Comment</span><span class="o">.</span><span class="n">Hashbang</span><span class="p">:</span> <span class="n">GRAY_245</span><span class="p">,</span>  <span class="c1"># class: &#39;ch&#39;</span>
+        <span class="n">Comment</span><span class="o">.</span><span class="n">Multiline</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span> <span class="o">+</span> <span class="s1">&#39; italic&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;cm&#39;</span>
         <span class="c1"># Comment.Preproc: BRIGHT_AQUA,  # class: &#39;cp&#39;</span>
         <span class="c1"># Comment.PreprocFile: &#39;cpf&#39;,</span>
-        <span class="n">Comment</span><span class="o">.</span><span class="n">Singleline</span><span class="p">:</span>
-            <span class="n">GRAY_245</span> <span class="o">+</span> <span class="s1">&#39; italic&#39;</span><span class="p">,</span>
-        <span class="n">Escape</span><span class="p">:</span>
-            <span class="n">DARK3</span><span class="p">,</span>  <span class="c1"># class: &#39;Esc&#39;</span>
-        <span class="n">Error</span><span class="p">:</span>
-            <span class="n">BRIGHT_RED</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;Err&#39;</span>
-        <span class="n">Generic</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">:</span>
-            <span class="n">LIGHT0_HARD</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">:</span>
-            <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">:</span>
-            <span class="n">LIGHT0_HARD</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Output</span><span class="p">:</span>
-            <span class="n">FG2</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span>
-            <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">:</span>
-            <span class="n">FG1</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
-        <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>
-        <span class="n">Keyword</span><span class="p">:</span>
-            <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;k&#39;</span>
-        <span class="n">Keyword</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>
-            <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;kc&#39;</span>
-        <span class="n">Keyword</span><span class="o">.</span><span class="n">Declaration</span><span class="p">:</span>
-            <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;kd&#39;</span>
-        <span class="n">Keyword</span><span class="o">.</span><span class="n">Type</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;kt&#39;</span>
+        <span class="n">Comment</span><span class="o">.</span><span class="n">Single</span><span class="p">:</span> <span class="n">GRAY_245</span> <span class="o">+</span> <span class="s1">&#39; italic&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;c1&#39;</span>
+        <span class="c1"># Comment.Special: ,  # class: &#39;cs&#39;</span>
+        <span class="n">Escape</span><span class="p">:</span> <span class="n">DARK3</span><span class="p">,</span>  <span class="c1"># class: &#39;Esc&#39;</span>
+        <span class="n">Error</span><span class="p">:</span> <span class="n">BRIGHT_RED</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;Err&#39;</span>
+        <span class="n">Generic</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;g&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Deleted</span><span class="p">:</span> <span class="n">LIGHT0_HARD</span><span class="p">,</span>  <span class="c1"># class: &#39;gd&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">:</span> <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;ge&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Heading</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;gh&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Inserted</span><span class="p">:</span> <span class="n">LIGHT0_HARD</span><span class="p">,</span>  <span class="c1"># class: &#39;gi&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Output</span><span class="p">:</span> <span class="n">FG2</span><span class="p">,</span>  <span class="c1"># class: &#39;go&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;gp&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">:</span> <span class="n">FG1</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;gs&#39;</span>
+        <span class="n">Generic</span><span class="o">.</span><span class="n">Subheading</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span> <span class="o">+</span> <span class="s1">&#39; bold&#39;</span><span class="p">,</span>  <span class="c1"># class: &#39;gu&#39;</span>
+        <span class="c1"># Generic.Traceback  # class: &#39;gt&#39;</span>
+        <span class="n">Keyword</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;k&#39;</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;kc&#39;</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Declaration</span><span class="p">:</span> <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;kd&#39;</span>
         <span class="c1"># Keyword.Namespace: &#39;kn&#39;,</span>
-
-        <span class="c1"># class: &#39;kp&#39;, the NumPy Lexer registers tokens as this class</span>
-        <span class="n">Keyword</span><span class="o">.</span><span class="n">Pseudo</span><span class="p">:</span>
-            <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="n">Keyword</span><span class="o">.</span>
+        <span class="n">Pseudo</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>  <span class="c1"># class: &#39;kp&#39;, the NumPy Lexer registers tokens as this class</span>
         <span class="c1"># Keyword.Reserved: &#39;kr&#39;,</span>
+        <span class="n">Keyword</span><span class="o">.</span><span class="n">Type</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;kt&#39;</span>
+
         <span class="c1"># Literal: BRIGHT_GREEN,  # class: &#39;l&#39;</span>
         <span class="c1"># Literal.Date: &#39;ld&#39;,</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">Number</span><span class="p">:</span>
-            <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>  <span class="c1"># class: &#39;m&#39;,</span>
-        <span class="c1"># Literal.Number.Bin: &#39;mb&#39;,</span>
-        <span class="c1"># Literal.Number.Float: &#39;mf&#39;,</span>
-        <span class="c1"># Literal.Number.Hex: &#39;mh&#39;,</span>
-        <span class="c1"># Literal.Number.Integer: &#39;mi&#39;,</span>
-        <span class="c1"># Literal.Number.Integer.Long: &#39;il&#39;,</span>
-        <span class="c1"># Literal.Number.Oct: &#39;mo&#39;,</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class: &#39;s&#39;</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Other</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class: &#39;sx&#39;</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Affix</span><span class="p">:</span>
-            <span class="n">BRIGHT_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;sa&#39;,</span>
-
+        <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="n">Number</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
+        <span class="c1"># Number: BRIGHT_PURPLE,  # class: &#39;m&#39;,</span>
+        <span class="c1"># Number.Bin: &#39;mb&#39;,</span>
+        <span class="c1"># Number.Float: &#39;mf&#39;,</span>
+        <span class="c1"># Number.Hex: &#39;mh&#39;,</span>
+        <span class="c1"># Number.Integer: &#39;mi&#39;,</span>
+        <span class="c1"># Number.Integer.Long: &#39;il&#39;,</span>
+        <span class="c1"># Number.Oct: &#39;mo&#39;,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
+        <span class="n">String</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
+        <span class="c1"># String: BRIGHT_GREEN,  # class: &#39;s&#39;</span>
+        <span class="c1"># String.Other: BRIGHT_GREEN,  # class: &#39;sx&#39;</span>
+        <span class="c1"># String.Affix: BRIGHT_ORANGE,  # class: &#39;sa&#39;,</span>
         <span class="c1"># Literally matches `.* lol</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Backtick</span><span class="p">:</span>
-            <span class="n">LIGHT4</span><span class="p">,</span>  <span class="c1"># class: &#39;sb&#39;,</span>
-        <span class="c1"># Literal.String.Char: &#39;sc&#39;,</span>
-        <span class="c1"># Literal.String.Delimiter: &#39;dl&#39;,</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Doc</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;sd&#39;,</span>
-        <span class="c1"># Literal.String.Double: &#39;s2&#39;,</span>
-        <span class="c1"># Literal.String.Escape: &#39;se&#39;,</span>
-        <span class="c1"># Literal.String.Heredoc: &#39;sh&#39;,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Backtick</span><span class="p">:</span> <span class="n">LIGHT4</span><span class="p">,</span>  <span class="c1"># class: &#39;sb&#39;,</span>
+        <span class="c1"># String.Char: &#39;sc&#39;,</span>
+        <span class="c1"># String.Delimiter: &#39;dl&#39;,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Doc</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;sd&#39;,</span>
+        <span class="c1"># String.Double: &#39;s2&#39;,</span>
+        <span class="c1"># String.Escape: &#39;se&#39;,</span>
+        <span class="c1"># String.Heredoc: &#39;sh&#39;,</span>
         <span class="c1"># Interpolated strings!</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class &#39;si&#39;,</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Regex</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;sr&#39;,</span>
-        <span class="c1"># Literal.String.Single: &#39;s1&#39;,</span>
-        <span class="n">Literal</span><span class="o">.</span><span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span>
-            <span class="n">FG2</span><span class="p">,</span>  <span class="c1"># class: &#39;ss&#39;,</span>
-        <span class="n">Name</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;n&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class: &#39;na&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nb&#39;</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Interpol</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class &#39;si&#39;,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Regex</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;sr&#39;,</span>
+        <span class="c1"># String.Single: &#39;s1&#39;,</span>
+        <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span> <span class="n">FG2</span><span class="p">,</span>  <span class="c1"># class: &#39;ss&#39;,</span>
+        <span class="n">Name</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;n&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Attribute</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>  <span class="c1"># class: &#39;na&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Builtin</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nb&#39;</span>
         <span class="c1"># Name.Builtin.Pseudo: &#39;bp&#39;,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>
-            <span class="n">NEUTRAL_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;nc&#39;,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span>
-            <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>  <span class="c1"># class: &#39;no&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nd&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">:</span>
-            <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;ni&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span>
-            <span class="s1">&#39;bold &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;ne&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nf&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span> <span class="n">NEUTRAL_ORANGE</span><span class="p">,</span>  <span class="c1"># class: &#39;nc&#39;,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Constant</span><span class="p">:</span> <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>  <span class="c1"># class: &#39;no&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Decorator</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nd&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Entity</span><span class="p">:</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;ni&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span> <span class="s1">&#39;bold &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;ne&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;nf&#39;</span>
         <span class="c1"># dunder methods</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_AQUA</span><span class="p">,</span>  <span class="c1"># class: &#39;fm&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span>
-            <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;nl&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_AQUA</span><span class="p">,</span>  <span class="c1"># class: &#39;fm&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;nl&#39;</span>
         <span class="c1"># import statements</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-            <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;nn&#39;,</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;nn&#39;,</span>
         <span class="c1"># Name.Other: &#39;nx&#39;,</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span>
-            <span class="n">BRIGHT_AQUA</span><span class="p">,</span>  <span class="c1"># class: &#39;py&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">:</span>
-            <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;nt&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;nv&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vc&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vg&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Instance</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class:&#39;vi&#39;</span>
-        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vm&#39;</span>
-        <span class="n">Number</span><span class="o">.</span><span class="n">Float</span><span class="p">:</span>
-            <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
-        <span class="n">Number</span><span class="p">:</span>
-            <span class="n">BRIGHT_PURPLE</span><span class="p">,</span>
-        <span class="n">Operator</span><span class="p">:</span>
-            <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;o&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span> <span class="n">BRIGHT_AQUA</span><span class="p">,</span>  <span class="c1"># class: &#39;py&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Tag</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;nt&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;nv&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Class</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vc&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vg&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Instance</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class:&#39;vi&#39;</span>
+        <span class="n">Name</span><span class="o">.</span><span class="n">Variable</span><span class="o">.</span><span class="n">Magic</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_BLUE</span><span class="p">,</span>  <span class="c1"># class: &#39;vm&#39;</span>
+        <span class="n">Operator</span><span class="p">:</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>  <span class="c1"># class: &#39;o&#39;</span>
         <span class="c1"># Operator.Word: NEUTRAL_RED,  # class: &#39;ow&#39;</span>
         <span class="c1"># really hard to read</span>
-        <span class="n">Operator</span><span class="o">.</span><span class="n">Word</span><span class="p">:</span>
-            <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
-        <span class="n">Punctuation</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;p&#39;</span>
-        <span class="n">String</span><span class="o">.</span><span class="n">Symbol</span><span class="p">:</span>
-            <span class="n">BRIGHT_BLUE</span><span class="p">,</span>
-        <span class="n">String</span><span class="p">:</span>
-            <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
-        <span class="n">Text</span><span class="p">:</span>
-            <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;t&#39;</span>
+        <span class="n">Operator</span><span class="o">.</span><span class="n">Word</span><span class="p">:</span> <span class="s1">&#39;noinherit &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_RED</span><span class="p">,</span>
+        <span class="n">Punctuation</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;p&#39;</span>
+        <span class="n">Text</span><span class="p">:</span> <span class="n">FG1</span><span class="p">,</span>  <span class="c1"># class: &#39;t&#39;</span>
         <span class="c1"># treating this key as Vim&#39;s Identifier token.</span>
-        <span class="n">Text</span><span class="o">.</span><span class="n">Whitespace</span><span class="p">:</span>
-            <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;w&#39;</span>
+        <span class="n">Text</span><span class="o">.</span><span class="n">Whitespace</span><span class="p">:</span> <span class="s1">&#39;underline &#39;</span> <span class="o">+</span> <span class="n">BRIGHT_YELLOW</span><span class="p">,</span>  <span class="c1"># class: &#39;w&#39;</span>
     <span class="p">}</span>
 
-    <span class="c1"># I think this is a reasonable way of checking if we&#39;re in IPython or not</span>
     <span class="k">if</span> <span class="n">get_ipython</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">styles</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="p">{</span>
                 <span class="n">Token</span><span class="o">.</span><span class="n">Prompt</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
                 <span class="n">Token</span><span class="o">.</span><span class="n">PromptNum</span><span class="p">:</span> <span class="s1">&#39;bold </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">BRIGHT_GREEN</span><span class="p">),</span>
+
                 <span class="n">Token</span><span class="o">.</span><span class="n">OutPrompt</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
                 <span class="n">Token</span><span class="o">.</span><span class="n">OutPromptNum</span><span class="p">:</span> <span class="n">BRIGHT_GREEN</span><span class="p">,</span>
                 <span class="c1"># TODO:</span>
@@ -261,15 +199,36 @@
             <span class="p">}</span>
         <span class="p">)</span>
 
+    <span class="c1"># I think this is a reasonable way of checking if we&#39;re in IPython or not</span>
+
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return repr representation.&quot;&quot;&quot;</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-        <span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">=</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">: (</span><span class="si">{!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+        <span class="k">return</span>  <span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">=</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check if style is the same as the other.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span>
+
+
+<div class="viewcode-block" id="GruvboxDarkHard"><a class="viewcode-back" href="../../gruvbox.html#gruvbox.style.GruvboxDarkHard">[docs]</a><span class="k">class</span> <span class="nc">GruvboxDarkHard</span><span class="p">(</span><span class="n">GruvboxBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retro groove color scheme for Pygments.</span>
+
+<span class="sd">    Extends previous repositories that have ported Gruvbox to Pygments, and</span>
+<span class="sd">    adds in new definitions for different tokens.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Call the super method.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="GruvboxLightHard"><a class="viewcode-back" href="../../gruvbox.html#gruvbox.style.GruvboxLightHard">[docs]</a><span class="k">class</span> <span class="nc">GruvboxLightHard</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;Docstring for GruvboxLightHard.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
 </pre></div>
 
           </div>
