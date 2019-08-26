@@ -67,8 +67,10 @@ class GruvboxBase(Style):
         # Comment.PreprocFile: 'cpf',
         Comment.Single: GRAY_245 + ' italic',  # class: 'c1'
         # Comment.Special: ,  # class: 'cs'
+
         Escape: DARK3,  # class: 'Esc'
         Error: BRIGHT_RED + ' bold',  # class: 'Err'
+
         Generic: FG1,  # class: 'g'
         Generic.Deleted: LIGHT0_HARD,  # class: 'gd'
         Generic.Emph: 'underline ' + BRIGHT_BLUE,  # class: 'ge'
@@ -79,31 +81,52 @@ class GruvboxBase(Style):
         Generic.Strong: FG1 + ' bold',  # class: 'gs'
         Generic.Subheading: BRIGHT_GREEN + ' bold',  # class: 'gu'
         # Generic.Traceback  # class: 'gt'
+
         Keyword: BRIGHT_ORANGE,  # class: 'k'
         Keyword.Constant: BRIGHT_ORANGE,  # class: 'kc'
         Keyword.Declaration: BRIGHT_ORANGE,  # class: 'kd'
         # Keyword.Namespace: 'kn',
-        Keyword.
-        Pseudo: BRIGHT_PURPLE,  # class: 'kp', the NumPy Lexer registers tokens as this class
+        # class: 'kp', the NumPy Lexer registers tokens as this class
+        Keyword.Pseudo: BRIGHT_PURPLE,
         # Keyword.Reserved: 'kr',
         Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
 
+        # The fully qualified name for these tokens is Token.Name.*
+        Name: FG1,  # class: 'n'
+        Name.Attribute: BRIGHT_GREEN,  # class: 'na'
+        Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
+
+        # Name.Builtin.Pseudo: 'bp',
+        Name.Class: NEUTRAL_ORANGE,  # class: 'nc',
+        Name.Constant: BRIGHT_PURPLE,  # class: 'no'
+        Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
+        Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
+        Name.Exception: 'bold ' + BRIGHT_RED,  # class: 'ne'
+        Name.Function: 'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
+
+        # dunder methods
+        Name.Function.Magic: 'noinherit ' + BRIGHT_AQUA,  # class: 'fm'
+        Name.Label: BRIGHT_RED,  # class: 'nl'
+
+        # import statements
+        Name.Namespace: BRIGHT_BLUE,  # class: 'nn',
+
+        # Name.Other: 'nx',
+        Name.Property: BRIGHT_AQUA,  # class: 'py'
+        Name.Tag: BRIGHT_RED,  # class: 'nt'
+        Name.Variable: FG1,  # class: 'nv'
+        Name.Variable.Class: 'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
+        Name.Variable.Global: 'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
+        Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
+        Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
+
         # Literal: BRIGHT_GREEN,  # class: 'l'
         # Literal.Date: 'ld',
-        Number.Float: BRIGHT_PURPLE,
-        Number: BRIGHT_PURPLE,
-        # Number: BRIGHT_PURPLE,  # class: 'm',
-        # Number.Bin: 'mb',
-        # Number.Float: 'mf',
-        # Number.Hex: 'mh',
-        # Number.Integer: 'mi',
-        # Number.Integer.Long: 'il',
-        # Number.Oct: 'mo',
-        String.Symbol: BRIGHT_BLUE,
-        String: BRIGHT_GREEN,
-        # String: BRIGHT_GREEN,  # class: 's'
-        # String.Other: BRIGHT_GREEN,  # class: 'sx'
+
+        # These tokens have the FQDN Token.Literal.String.*
+        String: BRIGHT_GREEN,  # class: 's'
         # String.Affix: BRIGHT_ORANGE,  # class: 'sa',
+
         # Literally matches `.* lol
         String.Backtick: LIGHT4,  # class: 'sb',
         # String.Char: 'sc',
@@ -114,42 +137,35 @@ class GruvboxBase(Style):
         # String.Heredoc: 'sh',
         # Interpolated strings!
         String.Interpol: BRIGHT_GREEN,  # class 'si',
+        # String.Other: BRIGHT_GREEN,  # class: 'sx'
         String.Regex: BRIGHT_YELLOW,  # class: 'sr',
         # String.Single: 's1',
-        String.Symbol: FG2,  # class: 'ss',
-        Name: FG1,  # class: 'n'
-        Name.Attribute: BRIGHT_GREEN,  # class: 'na'
-        Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
-        # Name.Builtin.Pseudo: 'bp',
-        Name.Class: NEUTRAL_ORANGE,  # class: 'nc',
-        Name.Constant: BRIGHT_PURPLE,  # class: 'no'
-        Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
-        Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
-        Name.Exception: 'bold ' + BRIGHT_RED,  # class: 'ne'
-        Name.Function: 'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
-        # dunder methods
-        Name.Function.Magic: 'noinherit ' + BRIGHT_AQUA,  # class: 'fm'
-        Name.Label: BRIGHT_RED,  # class: 'nl'
-        # import statements
-        Name.Namespace: BRIGHT_BLUE,  # class: 'nn',
-        # Name.Other: 'nx',
-        Name.Property: BRIGHT_AQUA,  # class: 'py'
-        Name.Tag: BRIGHT_RED,  # class: 'nt'
-        Name.Variable: FG1,  # class: 'nv'
-        Name.Variable.Class: 'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
-        Name.Variable.Global: 'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
-        Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
-        Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
+        # String.Symbol: FG2,  # class: 'ss',
+        String.Symbol: BRIGHT_BLUE,
+
+        # These fully qualified name for these tokens is Token.Literal.Number*
+        Number: BRIGHT_PURPLE,
+        # Number: BRIGHT_PURPLE,  # class: 'm',
+        # Number.Bin: 'mb',
+        Number.Float: BRIGHT_PURPLE,  # class: 'mf',
+        # Number.Hex: 'mh',
+        # Number.Integer: 'mi',
+        # Number.Integer.Long: 'il',
+        # Number.Oct: 'mo',
+
+        Punctuation: FG1,  # class: 'p'
+
         Operator: BRIGHT_RED,  # class: 'o'
         # Operator.Word: NEUTRAL_RED,  # class: 'ow'
         # really hard to read
         Operator.Word: 'noinherit ' + BRIGHT_RED,
-        Punctuation: FG1,  # class: 'p'
+
         Text: FG1,  # class: 't'
         # treating this key as Vim's Identifier token.
         Text.Whitespace: 'underline ' + BRIGHT_YELLOW,  # class: 'w'
     }
 
+    # TODO: This doesn't propagate back to the shell
     if get_ipython() is not None:
         styles.update(
             {
