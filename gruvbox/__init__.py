@@ -3,6 +3,7 @@ import logging
 import os
 import sys
 
-logging.getLogger(__name__).addHandler(logging.NullHandler())
+import gruvbox
+from gruvbox.style import GruvboxDarkHard
 
-sys.path.insert(0, os.path.dirname(os.path.abspath('.')))
+logging.getLogger(__name__).addHandler(logging.NullHandler())

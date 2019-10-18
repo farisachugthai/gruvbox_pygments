@@ -1,0 +1,8 @@
+*.py        diff=python
+
+*.js        diff=javascript
+*.html      diff=html
+
+# Line endings
+* eol=lf
+* text=auto

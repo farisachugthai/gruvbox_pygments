@@ -52,6 +52,7 @@ NEUTRAL_ORANGE = '#d65d0e'  # 214-93-14
 
 # }}}
 
+
 class GruvboxBase(Style):
     """Do subclasses inherit class attributes?"""
     default_style = ''
@@ -120,8 +121,8 @@ class GruvboxBase(Style):
         Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
         Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
 
-        # Literal: BRIGHT_GREEN,  # class: 'l'
-        # Literal.Date: 'ld',
+        Literal: BRIGHT_ORANGE,  # class: 'l'
+        Literal.Date: BRIGHT_GREEN,  # class: 'ld',
 
         # These tokens have the FQDN Token.Literal.String.*
         String: BRIGHT_GREEN,  # class: 's'
@@ -129,9 +130,9 @@ class GruvboxBase(Style):
 
         # Literally matches `.* lol
         String.Backtick: LIGHT4,  # class: 'sb',
-        # String.Char: 'sc',
+        String.Char: FG1,  # class: 'sc',
         # String.Delimiter: 'dl',
-        String.Doc: FG1,  # class: 'sd',
+        String.Doc: GRAY_245,  # class: 'sd',
         # String.Double: 's2',
         # String.Escape: 'se',
         # String.Heredoc: 'sh',
@@ -144,10 +145,9 @@ class GruvboxBase(Style):
         String.Symbol: BRIGHT_BLUE,
 
         # These fully qualified name for these tokens is Token.Literal.Number*
-        Number: BRIGHT_PURPLE,
-        # Number: BRIGHT_PURPLE,  # class: 'm',
+        Number: BRIGHT_ORANGE,  # class: 'm',
         # Number.Bin: 'mb',
-        Number.Float: BRIGHT_PURPLE,  # class: 'mf',
+        # Number.Float:  # class: 'mf',
         # Number.Hex: 'mh',
         # Number.Integer: 'mi',
         # Number.Integer.Long: 'il',
@@ -155,14 +155,14 @@ class GruvboxBase(Style):
 
         Punctuation: FG1,  # class: 'p'
 
-        Operator: BRIGHT_RED,  # class: 'o'
+        Operator: BRIGHT_AQUA,  # class: 'o'
         # Operator.Word: NEUTRAL_RED,  # class: 'ow'
         # really hard to read
-        Operator.Word: 'noinherit ' + BRIGHT_RED,
+        # Operator.Word: 'noinherit ' + BRIGHT_RED,
 
         Text: FG1,  # class: 't'
         # treating this key as Vim's Identifier token.
-        Text.Whitespace: 'underline ' + BRIGHT_YELLOW,  # class: 'w'
+        Text.Whitespace: '',  # class: 'w'
     }
 
     # TODO: This doesn't propagate back to the shell
@@ -186,7 +186,7 @@ class GruvboxBase(Style):
     def __repr__(self):
         """Return repr representation."""
         keys = sorted(self.__dict__)
-        return  ("{!r}={!r}".format(self.__class__.__name__, self.styles[k]) for k in keys)
+        return ("{!r}={!r}".format(self.__class__.__name__, self.styles[k]) for k in keys)
 
     def __eq__(self, other):
         """Check if style is the same as the other."""
@@ -200,10 +200,10 @@ class GruvboxDarkHard(GruvboxBase):
     adds in new definitions for different tokens.
 
     """
+
     def __init__(self):
         """Call the super method."""
         super().__init__()
-
 
 
 class GruvboxLightHard:
