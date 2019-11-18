@@ -1,6 +1,7 @@
 # Gitignore
 
 # Repo specific
+'*.venv/**'
 .todo-cache   # wth is this?
 .vscode
 .idea/workspace.xml

@@ -10,9 +10,6 @@ import unittest
 
 from gruvbox.style import GruvboxDarkHard
 
-import IPython
-from IPython import get_ipython, start_ipython
-
 
 class TestGruvboxDarkHard:
 
@@ -26,3 +23,14 @@ class TestGruvboxDarkHard:
     def test_background_color(self):
         """Practicing using the unittest module."""
         unittest.assertEqual(self.colorscheme.BACKGROUND_COLOR, '#edbdbb')
+
+
+if __name__ == "__main__":
+    try:
+        import IPython
+        from IPython import get_ipython, start_ipython
+    except ImportError:
+        IPython = None
+
+    unittest.Skipif(IPython is None)
+

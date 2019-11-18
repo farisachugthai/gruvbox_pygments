@@ -12,12 +12,18 @@ Pygments syntax highlighting. It has; however, been primarily tested
 with :mod:`IPython`.
 
 """
-from IPython import get_ipython
 from pygments.style import Style
 from pygments.token import (
     Comment, Name, Keyword, Generic, Number, Error, Punctuation, Operator,
     String, Literal, Escape, Text, Token
 )
+try:
+    from IPython import get_ipython
+except ImportError:
+    shell = None
+else:
+    shell = get_ipython()
+
 
 # We're still exporting ALL these globals. Let's not.
 __all__ = ['GruvboxDarkHard', 'GruvboxLightHard']
@@ -165,8 +171,7 @@ class GruvboxBase(Style):
         Text.Whitespace: '',  # class: 'w'
     }
 
-    # TODO: This doesn't propagate back to the shell
-    if get_ipython() is not None:
+    if shell is not None:
         styles.update(
             {
                 Token.Prompt: BRIGHT_GREEN,
@@ -190,7 +195,7 @@ class GruvboxBase(Style):
 
     def __eq__(self, other):
         """Check if style is the same as the other."""
-        return self.__dict__ == other.__dict__
+        return self.styles == other.styles
 
 
 class GruvboxDarkHard(GruvboxBase):
