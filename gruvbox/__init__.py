@@ -1,9 +1,6 @@
 """Initialize the Gruvbox package."""
-import logging
-import os
-import sys
+from .style import Gruvbox
+from .gruvboxdarkhard import GruvboxDarkHard
+from .ptgruvbox import PtGruvbox
 
-import gruvbox
-from gruvbox.style import GruvboxDarkHard
-
-logging.getLogger(__name__).addHandler(logging.NullHandler())
+from .__version__ import about
