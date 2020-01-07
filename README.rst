@@ -2,7 +2,7 @@
 Gruvbox IPython --- A Pygments Style Designed for IPython
 =========================================================
 
-.. highlight:: shell
+.. highlight:: ipython
 
 .. moduleauthor:: Faris Chugthai
 
@@ -33,24 +33,10 @@ Installation
 To install simply ``git clone`` this repository and run the following
 in your terminal of choice.
 
-
-.. code-block:: console
+.. code-block:: bash
 
     python setup.py build
     python -m pip install -U -e .
-
-If you prefer to use the Conda environment manager from Continuum Analytics,
-one can alternatively run::
-
-   python setup.py build
-   conda develop .
-
-While in the root of the repository. This assumes that ``conda`` has been
-properly installed and that the ``conda-build`` package has been added
-to your environment.
-
-This assumes one has ``conda`` properly installed and the ``conda-build``
-package added as well.
 
 
 Setup
@@ -59,7 +45,7 @@ Setup
 To use this colorscheme in :mod:`IPython`, navigate to ``$HOME/.ipython``
 and create/edit your ``ipython_config.py`` file like so:
 
-.. code-block:: console
+.. code-block:: bash
 
    ipython profile create default
 
@@ -68,11 +54,16 @@ file.
 
 At the top of the file add the following:
 
-.. code-block:: python3
+.. code-block:: ipython
 
     from traitlets.config import get_config
     c = get_config()
+    c.TerminalInteractiveShell.true_color = True
     c.TerminalInteractiveShell.highlighting_style = 'Gruvbox'
+
+
+Usage
+=====
 
 Pygments colorschemes can be used for a wide variety of applications;
 however, and limiting it's use to only IPython is not necessary.
@@ -81,6 +72,43 @@ For example, the Sphinx documentation project also uses Pygments when
 highlighting blocks of code, and the documentation for this project is
 highlighted with the `Gruvbox`_ colorscheme.
 
+Bundled Colorschemes
+--------------------
+
+One can use :class:`~gruvbox.style.Gruvbox`,
+:class:`~gruvbox.ptgruvbox.PtGruvbox`, and/or
+:class:`~gruvbox.gruvboxdarkhard.GruvboxDarkHard` in any project that utilizes
+pygments in addition to providing them as parameters for prompt_toolkit and the
+``PromptSession`` class.
+
+
+API
+====
+
+.. currentmodule:: gruvbox.style
+
+.. autoclass:: Gruvbox
+   :show-inheritance:
+
+The `Gruvbox` class in the style module represents the main class of the
+repository.
+
+.. currentmodule:: gruvbox.gruvboxdarkhard
+
+.. autoclass:: GruvboxDarkHard
+   :members:
+   :show-inheritance:
+
+GruvboxDarkHard is still experimental.
+
+.. currentmodule:: gruvbox.ptgruvbox
+
+.. autoclass:: PtGruvbox
+   :members:
+   :show-inheritance:
+
+This class is for use with prompt_toolkit applications, and as such,
+provides a few utility methods not found in the superclasses.
 
 Contributing
 ============

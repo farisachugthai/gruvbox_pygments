@@ -4,10 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Welcome to Gruvbox IPython’s documentation! &#8212; Gruvbox IPython 2019 documentation</title>
+    <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/gruvbox.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -15,7 +14,6 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gruvbox package" href="gruvbox.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,17 +30,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-gruvbox-ipython-s-documentation">
-<h1>Welcome to Gruvbox IPython’s documentation!<a class="headerlink" href="#welcome-to-gruvbox-ipython-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Table of Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="gruvbox.html">gruvbox package</a></li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
-<h2>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
+<h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal
 colorscheme for Vim, and gives a fantastic base for any terminal
 based application.</p>
@@ -59,51 +48,183 @@ achieves this.</p>
 <p>Despite it’s popularity as a Vim colorscheme, I have yet to find a
 faithful port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
 to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
-</div>
-</div>
 <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following
 in your terminal of choice.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py build</span>
-<span class="go">python -m pip install -U -e .</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build
+python -m pip install -U -e .
 </pre></div>
 </div>
-<p>If you prefer to use the Conda environment manager from Continuum Analytics,
-one can alternatively run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python setup.py build
-conda develop .
-</pre></div>
-</div>
-<p>while in the root of the repository. This assumes that <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been
-properly installed and that the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> package has been added
-to your environment.</p>
-<p>This assumes one has <code class="docutils literal notranslate"><span class="pre">conda</span></code> properly installed and the <code class="docutils literal notranslate"><span class="pre">conda-build</span></code>
-package added as well.</p>
 </div>
 <div class="section" id="setup">
-<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.7.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.11.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
 and create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ipython profile create default</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipython profile create default
 </pre></div>
 </div>
 <p>This command will pre-populate a well commented default configuration
 file.</p>
 <p>At the top of the file add the following:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="k">import</span> <span class="n">get_config</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="kn">import</span> <span class="n">get_config</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">true_color</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Pygments colorschemes can be used for a wide variety of applications;
 however, and limiting it’s use to only IPython is not necessary.</p>
 <p>For example, the Sphinx documentation project also uses Pygments when
 highlighting blocks of code, and the documentation for this project is
 highlighted with the <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> colorscheme.</p>
+<div class="section" id="bundled-colorschemes">
+<h3>Bundled Colorschemes<a class="headerlink" href="#bundled-colorschemes" title="Permalink to this headline">¶</a></h3>
+<p>One can use <a class="reference internal" href="#gruvbox.style.Gruvbox" title="gruvbox.style.Gruvbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gruvbox</span></code></a>,
+<a class="reference internal" href="#gruvbox.ptgruvbox.PtGruvbox" title="gruvbox.ptgruvbox.PtGruvbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">PtGruvbox</span></code></a>, and/or
+<a class="reference internal" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="gruvbox.gruvboxdarkhard.GruvboxDarkHard"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxDarkHard</span></code></a> in any project that utilizes
+pygments in addition to providing them as parameters for prompt_toolkit and the
+<code class="docutils literal notranslate"><span class="pre">PromptSession</span></code> class.</p>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="gruvbox.style.Gruvbox">
+<em class="property">class </em><code class="sig-prename descclassname">gruvbox.style.</code><code class="sig-name descname">Gruvbox</code><a class="headerlink" href="#gruvbox.style.Gruvbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.BACKGROUND">
+<code class="sig-name descname">BACKGROUND</code><em class="property"> = '#1d2021'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.BACKGROUND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.CURRENT_LINE">
+<code class="sig-name descname">CURRENT_LINE</code><em class="property"> = '#ebdbb2'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.CURRENT_LINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.SELECTION">
+<code class="sig-name descname">SELECTION</code><em class="property"> = '#7c6f54'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.SELECTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.FOREGROUND">
+<code class="sig-name descname">FOREGROUND</code><em class="property"> = '#ebdbb2'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.FOREGROUND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.COMMENT">
+<code class="sig-name descname">COMMENT</code><em class="property"> = '#928374'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.COMMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.BRIGHT_RED">
+<code class="sig-name descname">BRIGHT_RED</code><em class="property"> = '#fb4934'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.BRIGHT_RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.RED">
+<code class="sig-name descname">RED</code><em class="property"> = '#cc241d'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.RED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.ORANGE">
+<code class="sig-name descname">ORANGE</code><em class="property"> = '#fe8019'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.ORANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.YELLOW">
+<code class="sig-name descname">YELLOW</code><em class="property"> = '#fabd2f'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.YELLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.GREEN">
+<code class="sig-name descname">GREEN</code><em class="property"> = '#b8bb26'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.GREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.AQUA">
+<code class="sig-name descname">AQUA</code><em class="property"> = '#83a598'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.AQUA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.BLUE">
+<code class="sig-name descname">BLUE</code><em class="property"> = '#458588'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.BLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.PURPLE">
+<code class="sig-name descname">PURPLE</code><em class="property"> = '#d3869b'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.PURPLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.default_style">
+<code class="sig-name descname">default_style</code><em class="property"> = ''</em><a class="headerlink" href="#gruvbox.style.Gruvbox.default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.background_color">
+<code class="sig-name descname">background_color</code><em class="property"> = '#1d2021'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.background_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.highlight_color">
+<code class="sig-name descname">highlight_color</code><em class="property"> = '#7c6f54'</em><a class="headerlink" href="#gruvbox.style.Gruvbox.highlight_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gruvbox.style.Gruvbox.styles">
+<code class="sig-name descname">styles</code><em class="property"> = {Token: '', Token.Comment: '#928374', Token.Comment.Hashbang: '', Token.Comment.Multiline: '', Token.Comment.Preproc: '', Token.Comment.PreprocFile: '', Token.Comment.Single: '', Token.Comment.Special: '', Token.Error: '#cc241d', Token.Escape: '', Token.Generic: '#ebdbb2', Token.Generic.Deleted: '#fb4934', Token.Generic.Emph: 'italic', Token.Generic.Error: '', Token.Generic.Heading: 'bold #ebdbb2', Token.Generic.Inserted: '#b8bb26', Token.Generic.Output: '', Token.Generic.Prompt: 'bold #928374', Token.Generic.Strong: 'bold', Token.Generic.Subheading: 'bold #83a598', Token.Generic.Traceback: '#cc241d', Token.Keyword: '#cc241d', Token.Keyword.Constant: '', Token.Keyword.Declaration: '', Token.Keyword.Namespace: '#83a598', Token.Keyword.Pseudo: '', Token.Keyword.Reserved: '', Token.Keyword.Type: '#fabd2f', Token.Literal: '#fe8019', Token.Literal.Date: '#b8bb26', Token.Literal.Number: '#fe8019', Token.Literal.Number.Bin: '', Token.Literal.Number.Float: '', Token.Literal.Number.Hex: '', Token.Literal.Number.Integer: '', Token.Literal.Number.Integer.Long: '', Token.Literal.Number.Oct: '', Token.Literal.String: '#b8bb26', Token.Literal.String.Affix: '', Token.Literal.String.Backtick: '', Token.Literal.String.Char: '#ebdbb2', Token.Literal.String.Delimiter: '', Token.Literal.String.Doc: '#928374', Token.Literal.String.Double: '', Token.Literal.String.Escape: '#fe8019', Token.Literal.String.Heredoc: '', Token.Literal.String.Interpol: '#fe8019', Token.Literal.String.Other: '', Token.Literal.String.Regex: '', Token.Literal.String.Single: '', Token.Literal.String.Symbol: '', Token.Name: '#ebdbb2', Token.Name.Attribute: '#458588', Token.Name.Builtin: '', Token.Name.Builtin.Pseudo: '', Token.Name.Class: '#cc241d', Token.Name.Constant: '#cc241d', Token.Name.Decorator: '#b8bb26', Token.Name.Entity: '', Token.Name.Exception: '#cc241d', Token.Name.Function: 'bold #b8bb26', Token.Name.Function.Magic: '', Token.Name.Label: '', Token.Name.Namespace: '#ebdbb2', Token.Name.Other: '#458588', Token.Name.Property: '', Token.Name.Tag: '#83a598', Token.Name.Variable: '#cc241d', Token.Name.Variable.Class: '', Token.Name.Variable.Global: '', Token.Name.Variable.Instance: '', Token.Name.Variable.Magic: '', Token.Operator: '#fe8019', Token.Operator.Word: '', Token.Other: '', Token.Punctuation: '#ebdbb2', Token.Text: '#ebdbb2', Token.Text.Whitespace: ''}</em><a class="headerlink" href="#gruvbox.style.Gruvbox.styles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>The <a class="reference internal" href="#gruvbox.style.Gruvbox" title="gruvbox.style.Gruvbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gruvbox</span></code></a> class in the style module represents the main class of the
+repository.</p>
+<dl class="class">
+<dt id="gruvbox.gruvboxdarkhard.GruvboxDarkHard">
+<em class="property">class </em><code class="sig-prename descclassname">gruvbox.gruvboxdarkhard.</code><code class="sig-name descname">GruvboxDarkHard</code><span class="sig-paren">(</span><em class="sig-param">style_overrides=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvboxdarkhard.GruvboxHard</span></code></p>
+<dl class="method">
+<dt id="gruvbox.gruvboxdarkhard.GruvboxDarkHard.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">style_overrides=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the super method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gruvbox.gruvboxdarkhard.GruvboxDarkHard.style_rules">
+<code class="sig-name descname">style_rules</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard.style_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>GruvboxDarkHard is still experimental.</p>
+<dl class="class">
+<dt id="gruvbox.ptgruvbox.PtGruvbox">
+<em class="property">class </em><code class="sig-prename descclassname">gruvbox.ptgruvbox.</code><code class="sig-name descname">PtGruvbox</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.ptgruvbox.PtGruvbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="gruvbox.gruvboxdarkhard.GruvboxDarkHard"><code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvboxdarkhard.GruvboxDarkHard</span></code></a></p>
+<dl class="method">
+<dt id="gruvbox.ptgruvbox.PtGruvbox.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.ptgruvbox.PtGruvbox.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the super method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gruvbox.ptgruvbox.PtGruvbox.create_prompt_toolkit_style">
+<em class="property">classmethod </em><code class="sig-name descname">create_prompt_toolkit_style</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.ptgruvbox.PtGruvbox.create_prompt_toolkit_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>This class is for use with prompt_toolkit applications, and as such,
+provides a few utility methods not found in the superclasses.</p>
 </div>
 <div class="section" id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>The official source code for this library exists at
 <a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation
 that details how this Pygments plugin was made can be found at
@@ -112,16 +233,17 @@ that details how this Pygments plugin was made can be found at
 changes you’d recommend to the source code!</p>
 </div>
 <div class="section" id="license">
-<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>MIT</p>
 </div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</div>
 </div>
 
 
@@ -151,21 +273,24 @@ changes you’d recommend to the source code!</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="gruvbox.html" title="next chapter">gruvbox package</a></li>
   </ul></li>
 </ul>
 </div>
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Gruvbox IPython’s documentation!</a><ul>
-<li><a class="reference internal" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython">Gruvbox IPython — A Pygments Style Designed for IPython</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#bundled-colorschemes">Bundled Colorschemes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api">API</a></li>
 <li><a class="reference internal" href="#contributing">Contributing</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -193,7 +318,7 @@ changes you’d recommend to the source code!</p>
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

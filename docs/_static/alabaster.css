@@ -4,7 +4,6 @@
 
 body {
     /*! font-family: Georgia, serif; */
-    font-size: 17px;
     background-color: #fff;
     /*! color: #000; */
     margin: 0;
@@ -27,8 +26,6 @@ div.bodywrapper {
 }
 
 div.sphinxsidebar {
-    width: 220px;
-    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -222,19 +219,15 @@ div.body p, div.body dd, div.body li {
 div.admonition {
     margin: 20px 0px;
     padding: 10px 30px;
-    background-color: #282828;
     border: 1px solid #CCC;
 }
 
 div.admonition tt.xref, div.admonition code.xref, div.admonition a tt {
-    background-color: #282828;
     border-bottom: 1px solid #fafafa;
 }
 
 div.admonition p.admonition-title {
-    font-family: Georgia, serif;
-    font-weight: normal;
-    font-size: 24px;
+    font-weight: bold;
     margin: 0 0 10px 0;
     padding: 0;
     line-height: 1;
@@ -242,15 +235,6 @@ div.admonition p.admonition-title {
 
 div.admonition p.last {
     margin-bottom: 0;
-}
-
-div.highlight {
-    background-color: #282828;
-    color: #ebdbb2;
-}
-
-dt:target, .highlight {
-    background: #282828;
 }
 
 div.warning {
@@ -324,12 +308,10 @@ p.admonition-title:after {
 pre, tt, code {
     font-family: 'Fira Mono', 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
     /*! font-size: 0.9em; */
-    background-color: #282828
 }
 
 .hll {
     /* background-color: #FFC; */
-    background-color: #282828
     margin: 0 -12px;
     padding: 0 12px;
     display: block;
@@ -435,36 +417,14 @@ ul, ol {
     padding: 0;
 }
 
-pre {
-    background: #282828;
-    padding: 7px 30px;
-    margin: 15px 0px;
-    line-height: 1.3em;
-}
-
-div.viewcode-block:target {
-    background: #282828;
-}
-
 dl pre, blockquote pre, li pre {
     margin-left: 0;
     padding-left: 30px;
 }
 
-tt, code {
-    background-color: #282828;
-    color: #ebdbb2;
-    /* padding: 1px 2px; */
-}
-
-tt.xref, code.xref, a tt {
-    background-color: #282828;
-    border-bottom: 1px solid #fff;
-}
-
 a.reference {
     text-decoration: none;
-    border-bottom: 1px dotted #004B6B;
+    /* border-bottom: 1px dotted #004B6B; */
 }
 
 /* Don't put an underline on images */
