@@ -18,9 +18,11 @@ import sys
 
 from IPython.lib.lexers import IPyLexer
 from pygments.lexers.shell import BashLexer
-
-# Apr 21, 2019: This is neat
-# Apr 22, 2019. Holy hell. I don't know enough about logging to utilize this.
+from pygments.lexers.textedit import VimLexer
+from pygments.lexers.python import (
+    PythonLexer,
+    PythonTracebackLexer,
+)
 from sphinx.util import logging
 
 from gruvbox.style import Gruvbox

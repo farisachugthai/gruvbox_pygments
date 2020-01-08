@@ -1,3 +1,4 @@
+import reprlib
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -23,8 +24,6 @@ except ImportError:
     shell = None
 else:
     shell = get_ipython()
-
-
 
 __all__ = ['GruvboxDarkHard']
 
@@ -67,7 +66,7 @@ class GruvboxHard(Style):
 
     RED = "#cc241d"
     ORANGE = "#d65d0e"  # 214-93-14
-    GREEN = "#a9b665"
+    GREEN = "#8ec07c"
     BLUE = "#458588"
     PURPLE = "#d3869b"  # 211-134-155
     # }}}
@@ -105,38 +104,37 @@ class GruvboxHard(Style):
         Keyword.Type: BRIGHT_YELLOW,  # class: 'kt'
         # The fully qualified name for these tokens is Token.Name.*
         Name: FG1,  # class: 'n'
-        Name.Attribute: BRIGHT_GREEN,  # class: 'na'
-        Name.Builtin: BRIGHT_YELLOW,  # class: 'nb'
+        Name.Attribute: "noinherit " + BRIGHT_GREEN,  # class: 'na'
+        Name.Builtin: "noinherit " + BRIGHT_YELLOW,  # class: 'nb'
         # Name.Builtin.Pseudo: 'bp',
-        Name.Class: BRIGHT_ORANGE,  # class: 'nc',
-        Name.Constant: BRIGHT_PURPLE,  # class: 'no'
-        Name.Decorator: BRIGHT_YELLOW,  # class: 'nd'
-        Name.Entity: BRIGHT_YELLOW,  # class: 'ni'
+        Name.Class: "noinherit " + BRIGHT_ORANGE,  # class: 'nc',
+        Name.Constant: "noinherit " + BRIGHT_PURPLE,  # class: 'no'
+        Name.Decorator: "noinherit " + BRIGHT_YELLOW,  # class: 'nd'
+        Name.Entity: "noinherit " + BRIGHT_YELLOW,  # class: 'ni'
         Name.Exception: "bold " + BRIGHT_RED,  # class: 'ne'
         # Consider this the same as `:hi Function`
-        # Name.Function: 'noinherit ' + BRIGHT_YELLOW,  # class: 'nf'
-        Name.Function: "noinherit " + BRIGHT_GREEN,
+        Name.Function: "noinherit " + GREEN,
         # dunder methods
         Name.Function.Magic: "noinherit " + BRIGHT_AQUA,  # class: 'fm'
-        Name.Label: BRIGHT_RED,  # class: 'nl'
+        Name.Label: "noinherit " + BRIGHT_RED,  # class: 'nl'
         # import statements
-        Name.Namespace: BRIGHT_BLUE,  # class: 'nn',
+        Name.Namespace: "noinherit " + BRIGHT_AQUA,  # class: 'nn',
         # Name.Other: 'nx',
         Name.Property: BRIGHT_AQUA,  # class: 'py'
-        Name.Tag: BRIGHT_RED,  # class: 'nt'
+        Name.Tag: "noinherit " + BRIGHT_RED,  # class: 'nt'
         Name.Variable: FG1,  # class: 'nv'
         # Name.Variable.Class: 'noinherit ' + BRIGHT_BLUE,  # class: 'vc'
         # Name.Variable.Global: 'noinherit ' + BRIGHT_BLUE,  # class: 'vg'
         # Name.Variable.Instance: 'noinherit ' + BRIGHT_BLUE,  # class:'vi'
         # Name.Variable.Magic: 'noinherit ' + BRIGHT_BLUE,  # class: 'vm'
-        Literal: BRIGHT_ORANGE,  # class: 'l'
-        Literal.Date: BRIGHT_GREEN,  # class: 'ld',
+        Literal: "noinherit " + BRIGHT_ORANGE,  # class: 'l'
+        Literal.Date: "noinherit " + BRIGHT_GREEN,  # class: 'ld',
         # These tokens have the FQDN Token.Literal.String.*
         String: BRIGHT_GREEN,  # class: 's'
         # String.Affix: BRIGHT_ORANGE,  # class: 'sa',
         # Literally matches `.* lol
         String.Backtick: LIGHT4,  # class: 'sb',
-        String.Char: PURPLE,  # class: 'sc',
+        String.Char: "noinherit " + PURPLE,  # class: 'sc',
         # String.Delimiter: 'dl',
         String.Doc: GRAY_245,  # class: 'sd',
         # String.Double: 's2',
@@ -207,6 +205,3 @@ class GruvboxDarkHard(GruvboxHard):
 
     def style_rules(self):
         return super().style_rules
-
-
-

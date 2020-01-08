@@ -8,10 +8,10 @@ remiders in the future.
 import sys
 import unittest
 
-from gruvbox.style import GruvboxDarkHard
+from gruvbox.gruvboxdarkhard import GruvboxDarkHard
 
 
-class TestGruvboxDarkHard:
+class TestGruvboxDarkHard(unittest.TestCase):
 
     def setUp(self):
         start_ipython()
@@ -33,4 +33,3 @@ if __name__ == "__main__":
         IPython = None
 
     unittest.Skipif(IPython is None)
-
