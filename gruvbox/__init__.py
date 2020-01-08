@@ -1,6 +1,5 @@
 """Initialize the Gruvbox package."""
-from .style import Gruvbox
-from .gruvboxdarkhard import GruvboxDarkHard
-from .ptgruvbox import PtGruvbox
-
-from .__version__ import about
+from .__version__ import about  # noqa
+from .gruvboxdarkhard import GruvboxDarkHard  # noqa
+from .ptgruvbox import PtGruvbox  # noqa
+from .style import Gruvbox  # noqa

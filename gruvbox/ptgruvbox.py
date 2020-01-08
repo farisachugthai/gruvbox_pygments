@@ -1,8 +1,20 @@
-
+"""For use with shells constructed using prompt_toolkit."""
 from prompt_toolkit.styles.pygments import style_from_pygments_cls
+
 from .gruvboxdarkhard import GruvboxDarkHard
 
+
 class PtGruvbox(GruvboxDarkHard):
+    """Extends the previous GruvboxDarkHard classes.
+
+    Adds in the prompt_toolkit token groups 'pygments.prompt',
+    'pygments.promptnum', 'pygments.outprompt', and
+    'pygments.outpromptnum'.
+
+    IPython uses these token groups as well, as can be observed
+    in the methods for the class :class:`IPython.terminal.prompts.Prompts`.
+    """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.styles = super().styles
