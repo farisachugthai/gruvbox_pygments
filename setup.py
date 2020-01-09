@@ -50,6 +50,7 @@ setup(
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     entry_points="""
         [pygments.styles]
+        gruvbox = gruvbox.gruvbox:Gruvbox
         Gruvbox = gruvbox.style:Gruvbox
         GruvboxDarkHard = gruvbox.gruvboxdarkhard:GruvboxDarkHard
         PtGruvbox = gruvbox.ptgruvbox:PtGruvbox
