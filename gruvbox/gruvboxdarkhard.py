@@ -1,3 +1,4 @@
+import copy
 import reprlib
 from pygments.style import Style
 from pygments.token import (
@@ -49,7 +50,7 @@ class GruvboxHard(Style):
     GRAY_245 = "#928374"  # 146-131-116
 
     LIGHT0_HARD = "#f9f5d7"  # 249-245-215
-    # light0 = '#fbf1c7'  # 253-244-193
+    LIGHT0 = '#fbf1c7'  # 253-244-193
     # light0_soft = '#f2e5bc'  # 242-229-188
     FG1 = "#ebdbb2"  # 235-219-178
     FG2 = "#d5c4a1"  # 213-196-161
@@ -84,9 +85,9 @@ class GruvboxHard(Style):
         # Comment.Special: ,  # class: 'cs'
         Escape: DARK3,  # class: 'Esc'
         Error: BRIGHT_RED + " bold",  # class: 'Err'
-        Generic: FG1,  # class: 'g'
-        Generic.Deleted: LIGHT0_HARD,  # class: 'gd'
-        Generic.Emph: "underline " + FG1,  # class: 'ge'
+        Generic: LIGHT0,  # class: 'g'
+        Generic.Deleted: BRIGHT_RED,  # class: 'gd'
+        Generic.Emph: "italic ",  # class: 'ge'
         Generic.Heading: BRIGHT_GREEN + " bold",  # class: 'gh'
         Generic.Inserted: LIGHT0_HARD,  # class: 'gi'
         Generic.Output: FG2,  # class: 'go'
@@ -195,6 +196,8 @@ class GruvboxHard(Style):
         """Check if style is the same as the other."""
         return self.styles == other.styles
 
+    def __copy__(self):
+        return(copy(self.styles))
 
 class GruvboxDarkHard(GruvboxHard):
     def __init__(self, style_overrides=None, *args, **kwargs):

@@ -2,6 +2,7 @@ from IPython import get_ipython
 
 # note: this is still teh good one
 
+@fq
 _ip = get_ipython()
 # Dude dont forget this one!
 _ip.true_color = True
@@ -343,14 +344,6 @@ _ip.style.style_rules = [
     ("pygments.literal.string.escape", "#fe8019"),
     ("pygments.literal.string.heredoc", ""),
     ("pygments.literal.string.interpol", "#fe8019"),
-    ("pygments.literal.string.other", ""),
-    ("pygments.literal.string.regex", ""),
-    ("pygments.literal.string.single", ""),
-    ("pygments.literal.string.symbol", ""),
-    ("pygments.generic", "#fbf1c7"),
-    ("pygments.generic.deleted", "#fb4934"),
-    ("pygments.generic.emph", "italic"),
-    ("pygments.generic.error", ""),
     ("pygments.generic.heading", "bold #fbf1c7"),
     ("pygments.generic.inserted", "#98971a"),
     ("pygments.generic.output", ""),
@@ -358,17 +351,4 @@ _ip.style.style_rules = [
     ("pygments.generic.strong", "bold"),
     ("pygments.generic.subheading", "bold #83a598"),
     ("pygments.generic.traceback", "#fb4934"),
-    ("pygments", ""),
-    ("pygments.escape", ""),
-    ("pygments.name.function.magic", ""),
-    ("pygments.name.variable.magic", ""),
-    ("pygments.literal.string.affix", ""),
-    ("pygments.literal.string.delimiter", ""),
-    ("pygments.literal.number.bin", ""),
-    ("pygments.comment.hashbang", ""),
-    ("pygments.comment.preprocfile", ""),
-    ("pygments.prompt", "#009900"),
-    ("pygments.promptnum", "#ansibrightgreen bold"),
-    ("pygments.outprompt", "#990000"),
-    ("pygments.outpromptnum", "#ansibrightred bold"),
 ]

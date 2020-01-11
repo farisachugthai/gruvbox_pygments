@@ -15,9 +15,23 @@ with :mod:`IPython`.
 import reprlib
 
 from pygments.style import Style
-from pygments.token import (Comment, Error, Escape, Generic, Keyword, Literal,
-                            Name, Number, Operator, Other, Punctuation, String,
-                            Text, Token, Whitespace)
+from pygments.token import (
+    Comment,
+    Error,
+    Escape,
+    Generic,
+    Keyword,
+    Literal,
+    Name,
+    Number,
+    Operator,
+    Other,
+    Punctuation,
+    String,
+    Text,
+    Token,
+    Whitespace,
+)
 
 try:
     from IPython.core.getipython import get_ipython
@@ -76,11 +90,11 @@ class Gruvbox(Style):
         Punctuation: FOREGROUND,  # class: 'p'
         Name: "noinherit " + FOREGROUND,  # class: 'n'
         Name.Attribute: "noinherit " + BLUE,  # class: 'na'
-        Name.Builtin: "",  # class: 'nb'
+        Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
         Name.Builtin.Pseudo: "",  # class: 'bp'
         Name.Class: "noinherit " + RED,  # class: 'nc'
         Name.Constant: "noinherit " + RED,  # class: 'no'
-        Name.Decorator: "noinherit " + ORANGE,  # class: 'nd'
+        Name.Decorator: "noinherit " + RED,  # class: 'nd'
         Name.Entity: "",  # class: 'ni'
         Name.Exception: "noinherit " + RED,  # class: 'ne'
         Name.Function: "noinherit " + GREEN,  # class: 'nf'
@@ -93,30 +107,30 @@ class Gruvbox(Style):
         Name.Variable.Class: "",  # class: 'vc'
         Name.Variable.Global: "",  # class: 'vg'
         Name.Variable.Instance: "",  # class: 'vi'
-        Number:"noinherit " +  ORANGE,  # class: 'm'
+        Number: "noinherit " + ORANGE,  # class: 'm'
         Number.Float: "",  # class: 'mf'
         Number.Hex: "",  # class: 'mh'
         Number.Integer: "",  # class: 'mi'
         Number.Integer.Long: "",  # class: 'il'
         Number.Oct: "",  # class: 'mo'
-        Literal: ORANGE,  # class: 'l'
-        Literal.Date:"noinherit " +  GREEN,  # class: 'ld'
+        Literal: BLUE,  # class: 'l'
+        Literal.Date: "noinherit " + GREEN,  # class: 'ld'
         String: GREEN,  # class: 's'
         String.Backtick: "",  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
         String.Doc: COMMENT,  # class: 'sd'
         String.Double: "",  # class: 's2'
-        String.Escape:"noinherit " +  ORANGE,  # class: 'se'
+        String.Escape: "noinherit " + ORANGE,  # class: 'se'
         String.Heredoc: "",  # class: 'sh'
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
         String.Other: "",  # class: 'sx'
         String.Regex: "",  # class: 'sr'
-        String.Single: "",  # class: 's1'
+        String.Single: GREEN,  # class: 's1'
         String.Symbol: "",  # class: 'ss'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
         Generic.Emph: "italic",  # class: 'ge'
-        Generic.Error: "",  # class: 'gr'
+        Generic.Error: BRIGHT_RED,  # class: 'gr'
         Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
         Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
         Generic.Output: "",  # class: 'go'

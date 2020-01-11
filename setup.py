@@ -6,7 +6,9 @@ import os
 import runpy
 from setuptools import setup, find_packages
 
+
 NAME = "gruvbox_pygments"
+
 AUTHOR = ("Faris Chugthai",)
 EMAIL = ("farischugthai@gmail.com",)
 DESCRIPTION = "A Pygments style using the Gruvbox color scheme."
@@ -51,10 +53,10 @@ setup(
     entry_points="""
         [pygments.styles]
         gruvbox = gruvbox.gruvbox:Gruvbox
-        Gruvbox = gruvbox.style:Gruvbox
+        Gruvbox = gruvbox.gruvbox:Gruvbox
         GruvboxDarkHard = gruvbox.gruvboxdarkhard:GruvboxDarkHard
         PtGruvbox = gruvbox.ptgruvbox:PtGruvbox
-    """,
+        """,
     install_requires=REQUIRED,
     include_package_data=True,
     package_data={"": ["*.txt", "*.rst"],},
