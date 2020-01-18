@@ -10,7 +10,6 @@ As originally introduced as a Vim colorscheme. [1]
 This pygments colorscheme can be used with any API that allows for
 Pygments syntax highlighting. It has; however, been primarily tested
 with :mod:`IPython`.
-
 """
 import reprlib
 
@@ -71,27 +70,29 @@ class Gruvbox(Style):
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
         Text.Whitespace: "",  # class: 'w'
+        # Escape: "",
         Error: RED,  # class: 'err'
-        Other: "",  # class 'x'
+        # Other: "",  # class 'x'
         Comment: COMMENT,  # class: 'c'
-        Comment.Multiline: "",  # class: 'cm'
-        Comment.Preproc: "",  # class: 'cp'
-        Comment.Single: "",  # class: 'c1'
-        Comment.Special: "",  # class: 'cs'
-        Keyword: RED,  # class: 'k'
-        Keyword.Constant: "",  # class: 'kc'
-        Keyword.Declaration: "",  # class: 'kd'
+        # Comment.Multiline: "",  # class: 'cm'
+        # Comment.Preproc: "",  # class: 'cp'
+        # Comment.Single: "",  # class: 'c1'
+        # Comment.Special: "",  # class: 'cs'
+        # Keyword: RED,  # class: 'k'
+        # Keyword.Constant: "",  # class: 'kc'
+        # Keyword.Declaration: "",  # class: 'kd'
         Keyword.Namespace: "noinherit " + AQUA,  # class: 'kn'
-        Keyword.Pseudo: "",  # class: 'kp'
-        Keyword.Reserved: "",  # class: 'kr'
+        Keyword.Pseudo: ORANGE,  # class: 'kp'
+        # Keyword.Reserved: "",  # class: 'kr'
         Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
         Operator: ORANGE,  # class: 'o'
-        Operator.Word: "",  # class: 'ow'
+        # Operator.Word: "",  # class: 'ow'
         Punctuation: FOREGROUND,  # class: 'p'
         Name: "noinherit " + FOREGROUND,  # class: 'n'
         Name.Attribute: "noinherit " + BLUE,  # class: 'na'
         Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
-        Name.Builtin.Pseudo: "",  # class: 'bp'
+        # raise None <---
+        Name.Builtin.Pseudo: ORANGE,  # class: 'bp'
         Name.Class: "noinherit " + RED,  # class: 'nc'
         Name.Constant: "noinherit " + RED,  # class: 'no'
         Name.Decorator: "noinherit " + RED,  # class: 'nd'
@@ -100,7 +101,8 @@ class Gruvbox(Style):
         Name.Function: "noinherit " + GREEN,  # class: 'nf'
         Name.Property: "",  # class: 'py'
         Name.Label: "",  # class: 'nl'
-        Name.Namespace: FOREGROUND,  # class: 'nn'
+        # I think might be imports. check pygments.lexers.python
+        Name.Namespace: BLUE,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
         Name.Tag: AQUA,  # class: 'nt'
         Name.Variable: RED,  # class: 'nv'
@@ -116,16 +118,20 @@ class Gruvbox(Style):
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
         String: GREEN,  # class: 's'
+        String.Affix: GREEN + " underline",
         String.Backtick: "",  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
         String.Doc: COMMENT,  # class: 'sd'
-        String.Double: "",  # class: 's2'
+        String.Double: GREEN,  # class: 's2'
         String.Escape: "noinherit " + ORANGE,  # class: 'se'
         String.Heredoc: "",  # class: 'sh'
+
+        # the old style '%s' % (...) string formatting
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
         String.Other: "",  # class: 'sx'
         String.Regex: "",  # class: 'sr'
         String.Single: GREEN,  # class: 's1'
+        String.String: GREEN,
         String.Symbol: "",  # class: 'ss'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',

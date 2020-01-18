@@ -52,10 +52,11 @@ setup(
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     entry_points="""
         [pygments.styles]
-        gruvbox = gruvbox.gruvbox:Gruvbox
-        Gruvbox = gruvbox.gruvbox:Gruvbox
+        gruvbox = gruvbox.gruvbox
         GruvboxDarkHard = gruvbox.gruvboxdarkhard:GruvboxDarkHard
+        gruvboxdarkhard = gruvbox.gruvboxdarkhard
         PtGruvbox = gruvbox.ptgruvbox:PtGruvbox
+        ptgruvbox = gruvbox.ptgruvbox
         """,
     install_requires=REQUIRED,
     include_package_data=True,

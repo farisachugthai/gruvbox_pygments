@@ -26,7 +26,7 @@ except ImportError:
 else:
     shell = get_ipython()
 
-__all__ = ['GruvboxDarkHard']
+__all__ = ["GruvboxDarkHard"]
 
 
 class GruvboxHard(Style):
@@ -50,7 +50,7 @@ class GruvboxHard(Style):
     GRAY_245 = "#928374"  # 146-131-116
 
     LIGHT0_HARD = "#f9f5d7"  # 249-245-215
-    LIGHT0 = '#fbf1c7'  # 253-244-193
+    LIGHT0 = "#fbf1c7"  # 253-244-193
     # light0_soft = '#f2e5bc'  # 242-229-188
     FG1 = "#ebdbb2"  # 235-219-178
     FG2 = "#d5c4a1"  # 213-196-161
@@ -197,7 +197,8 @@ class GruvboxHard(Style):
         return self.styles == other.styles
 
     def __copy__(self):
-        return(copy(self.styles))
+        return copy(self.styles)
+
 
 class GruvboxDarkHard(GruvboxHard):
     def __init__(self, style_overrides=None, *args, **kwargs):
