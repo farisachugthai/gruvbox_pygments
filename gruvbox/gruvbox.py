@@ -69,8 +69,9 @@ class Gruvbox(Style):
     styles = {
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
-        Text.Whitespace: "",  # class: 'w'
-        # Escape: "",
+        Text.Whitespace: RED,  # class: 'w'
+        # `:hi pythonEscape`
+        Escape: ORANGE,
         Error: RED,  # class: 'err'
         # Other: "",  # class 'x'
         Comment: COMMENT,  # class: 'c'
@@ -109,14 +110,24 @@ class Gruvbox(Style):
         Name.Variable.Class: "",  # class: 'vc'
         Name.Variable.Global: "",  # class: 'vg'
         Name.Variable.Instance: "",  # class: 'vi'
-        Number: "noinherit " + ORANGE,  # class: 'm'
-        Number.Float: "",  # class: 'mf'
-        Number.Hex: "",  # class: 'mh'
-        Number.Integer: "",  # class: 'mi'
-        Number.Integer.Long: "",  # class: 'il'
-        Number.Oct: "",  # class: 'mo'
+
+        Number              : PURPLE,  # class : 'm'
+        Number.Float        : PURPLE,  # class : 'mf'
+        Number.Hex          : PURPLE,  # class : 'mh'
+        Number.Integer      : PURPLE,  # class : 'mi'
+        Number.Integer.Long : PURPLE,  # class : 'il'
+        Number.Oct          : PURPLE,  # class : 'mo'
+
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
+
+        Literal.Number               : PURPLE,  # class      : 'm'
+        Literal.Number.Float         : PURPLE,  # class      : 'mf'
+        Literal.Number.Hex           : PURPLE,  # class      : 'mh'
+        Literal.Number.Integer       : PURPLE,  # class      : 'mi'
+        Literal.Number.Integer.Long  : PURPLE,  # class      : 'il'
+        Literal.Number.Oct           : PURPLE,  # class      : 'mo'
+        Literal.String.Affix : GREEN + " underline",
         String: GREEN,  # class: 's'
         String.Affix: GREEN + " underline",
         String.Backtick: "",  # class: 'sb'
@@ -125,13 +136,11 @@ class Gruvbox(Style):
         String.Double: GREEN,  # class: 's2'
         String.Escape: "noinherit " + ORANGE,  # class: 'se'
         String.Heredoc: "",  # class: 'sh'
-
         # the old style '%s' % (...) string formatting
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
         String.Other: "",  # class: 'sx'
         String.Regex: "",  # class: 'sr'
         String.Single: GREEN,  # class: 's1'
-        String.String: GREEN,
         String.Symbol: "",  # class: 'ss'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',

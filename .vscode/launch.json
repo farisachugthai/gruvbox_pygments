@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Current File Internal Console",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "internalConsole"
+        },
+        {
             "name": "Python: Remote Attach",
             "type": "python",
             "request": "attach",
@@ -18,7 +25,7 @@
             ]
         },
         {
-            "name": "Python: Current File",
+            "name": "Python: Current File Integrated Terminal",
             "type": "python",
             "request": "launch",
             "program": "${file}",

@@ -13,8 +13,8 @@ def setup_module():
     if _ip is not None:
         raise unittest.SkipTest()
 
-class TestGruvboxDarkHard(unittest.TestCase):
 
+class TestGruvboxDarkHard(unittest.TestCase):
     def setUp(self):
         self._ip = get_ipython()
         self.style = self._ip.highlighting_style
@@ -28,16 +28,15 @@ class TestGruvboxDarkHard(unittest.TestCase):
         # TODO
         pass
 
-
     def test_background_color(self):
-         """Practicing using the unittest module."""
-         self.assertEqual(self.colorscheme.BACKGROUND_COLOR, '#edbdbb')
+        """Practicing using the unittest module."""
+        self.assertEqual(self.colorscheme.BACKGROUND_COLOR, "#edbdbb")
 
 
 if __name__ == "__main__":
     # Believe it or not this is in fact necessary
     old_sys_argv = sys.argv[:]
     # DONT FORGET SPACES
-    sys.argv = [sys.executable, ' -m', ' unittest', ' -v']
+    sys.argv = [sys.executable, " -m", " unittest", " -v"]
     # todo: add options
     unittest.main()
