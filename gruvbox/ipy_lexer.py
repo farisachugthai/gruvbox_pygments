@@ -15,7 +15,21 @@ FYI.
 
 """
 from pygments.lexers.python import PythonLexer
-from pygments.token import Name, Keyword
+from pygments.token import Keyword, Name
+
+
+class MyPythonLexer(PythonLexer):
+    # EXTRA_KEYWORDS = set(('foo', 'bar', 'foobar', 'barfoo', 'spam', 'eggs'))
+    EXTRA_KEYWORDS = set("!")
+
+    def get_tokens_unprocessed(self, text):
+        for index, token, value in PythonLexer.get_tokens_unprocessed(self, text):
+            # How silly is it that I just realized that class attributes
+            # still bind to the instance object?
+            if token is Name and value in self.EXTRA_KEYWORDS:
+                yield index, Keyword.Pseudo, value
+            else:
+                yield index, token, value
 
 
 class MyPythonLexer(PythonLexer):
