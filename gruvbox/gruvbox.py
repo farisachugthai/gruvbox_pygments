@@ -10,6 +10,17 @@ As originally introduced as a Vim colorscheme. [1]
 This pygments colorscheme can be used with any API that allows for
 Pygments syntax highlighting. It has; however, been primarily tested
 with :mod:`IPython`.
+
+{Token.Menu.Completions: 'bg:ansigray ansiblack',
+        Token.Menu.Completions.Completion: '',
+
+Token.Menu.Completions.Completion.Current: 'bg:ansibrightblack ansiwhite',
+Token.Scrollbar: 'bg:ansibrightblack',
+Token.Scrollbar.Button: 'bg:ansiblack',
+Token.Scrollbar.Arrow: 'bg:ansiblack ansiwhite bold',
+Token.AutoSuggestion: 'ansibrightblack',
+Token.Aborted: 'ansibrightblack'},
+
 """
 import reprlib
 
@@ -79,7 +90,7 @@ class Gruvbox(Style):
         # Comment.Preproc: "",  # class: 'cp'
         # Comment.Single: "",  # class: 'c1'
         # Comment.Special: "",  # class: 'cs'
-        # Keyword: RED,  # class: 'k'
+        Keyword: RED,  # class: 'k'
         # Keyword.Constant: "",  # class: 'kc'
         # Keyword.Declaration: "",  # class: 'kd'
         Keyword.Namespace: "noinherit " + AQUA,  # class: 'kn'
@@ -122,15 +133,18 @@ class Gruvbox(Style):
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
 
         Literal.Number               : PURPLE,  # class      : 'm'
+        Literal.Number.Bin: PURPLE,
         Literal.Number.Float         : PURPLE,  # class      : 'mf'
         Literal.Number.Hex           : PURPLE,  # class      : 'mh'
         Literal.Number.Integer       : PURPLE,  # class      : 'mi'
         Literal.Number.Integer.Long  : PURPLE,  # class      : 'il'
         Literal.Number.Oct           : PURPLE,  # class      : 'mo'
+
         Literal.String.Affix : GREEN + " underline",
+        Literal.String.Backtick: GREEN,
         String: GREEN,  # class: 's'
         String.Affix: GREEN + " underline",
-        String.Backtick: "",  # class: 'sb'
+        String.Backtick: GREEN,  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
         String.Doc: COMMENT,  # class: 'sd'
         String.Double: GREEN,  # class: 's2'
