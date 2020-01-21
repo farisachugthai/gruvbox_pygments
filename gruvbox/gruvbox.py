@@ -11,16 +11,6 @@ This pygments colorscheme can be used with any API that allows for
 Pygments syntax highlighting. It has; however, been primarily tested
 with :mod:`IPython`.
 
-{Token.Menu.Completions: 'bg:ansigray ansiblack',
-        Token.Menu.Completions.Completion: '',
-
-Token.Menu.Completions.Completion.Current: 'bg:ansibrightblack ansiwhite',
-Token.Scrollbar: 'bg:ansibrightblack',
-Token.Scrollbar.Button: 'bg:ansiblack',
-Token.Scrollbar.Arrow: 'bg:ansiblack ansiwhite bold',
-Token.AutoSuggestion: 'ansibrightblack',
-Token.Aborted: 'ansibrightblack'},
-
 """
 import reprlib
 
@@ -83,7 +73,7 @@ class Gruvbox(Style):
         Text.Whitespace: RED,  # class: 'w'
         # `:hi pythonEscape`
         Escape: ORANGE,
-        Error: RED,  # class: 'err'
+        Error: "border:" + RED,  # class: 'err'
         # Other: "",  # class 'x'
         Comment: COMMENT,  # class: 'c'
         # Comment.Multiline: "",  # class: 'cm'
@@ -158,13 +148,15 @@ class Gruvbox(Style):
         String.Symbol: "",  # class: 'ss'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
-        Generic.Emph: "italic",  # class: 'ge'
+        Generic.Emph: "italic ",  # class: 'ge'
         Generic.Error: BRIGHT_RED,  # class: 'gr'
         Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
         Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
-        Generic.Output: "",  # class: 'go'
+        Generic.Output: "italic ",  # class: 'go'
         Generic.Prompt: "bold " + COMMENT,  # class: 'gp'
-        Generic.Strong: "bold",  # class: 'gs'
+        Generic.Strong: "bold ",  # class: 'gs'
         Generic.Subheading: "bold " + AQUA,  # class: 'gu'
         Generic.Traceback: RED,  # class: 'gt'
     }
+
+    style_rules = styles

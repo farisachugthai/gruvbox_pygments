@@ -1,6 +1,6 @@
 import copy
 import reprlib
-from pygments.style import Style
+# from pygments.style import Style
 from pygments.token import (
     Comment,
     Error,
@@ -18,6 +18,9 @@ from pygments.token import (
     Token,
     Whitespace,
 )
+
+from pygments.style import Style
+# from prompt_toolkit.styles import Style
 
 try:
     from IPython.core.getipython import get_ipython
@@ -204,8 +207,8 @@ class GruvboxDarkHard(GruvboxHard):
     def __init__(self, style_overrides=None, *args, **kwargs):
         """Call the super method."""
         super().__init__()
-        self.styles = super().styles
-        self.styles.update(style_overrides)
+        if style_overrides is not None:
+            self.styles.update(style_overrides)
 
     def style_rules(self):
-        return super().style_rules
+        return self.styles
