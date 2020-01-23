@@ -62,7 +62,7 @@ class Gruvbox(Style):
     BLUE = "#458588"
     PURPLE = "#d3869b"
 
-    default_style = ""
+    default_style = FOREGROUND
 
     background_color = BACKGROUND
     highlight_color = SELECTION
@@ -83,12 +83,13 @@ class Gruvbox(Style):
         Keyword: RED,  # class: 'k'
         # Keyword.Constant: "",  # class: 'kc'
         # Keyword.Declaration: "",  # class: 'kd'
-        Keyword.Namespace: "noinherit " + AQUA,  # class: 'kn'
+        # from <---- x import y
+        Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
         Keyword.Pseudo: ORANGE,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
         Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
         Operator: ORANGE,  # class: 'o'
-        # Operator.Word: "",  # class: 'ow'
+        Operator.Word: ORANGE,  # class: 'ow'
         Punctuation: FOREGROUND,  # class: 'p'
         Name: "noinherit " + FOREGROUND,  # class: 'n'
         Name.Attribute: "noinherit " + BLUE,  # class: 'na'
@@ -104,7 +105,7 @@ class Gruvbox(Style):
         Name.Property: "",  # class: 'py'
         Name.Label: "",  # class: 'nl'
         # I think might be imports. check pygments.lexers.python
-        Name.Namespace: BLUE,  # class: 'nn'
+        Name.Namespace: FOREGROUND,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
         Name.Tag: AQUA,  # class: 'nt'
         Name.Variable: RED,  # class: 'nv'
@@ -136,7 +137,7 @@ class Gruvbox(Style):
         String.Affix: GREEN + " underline",
         String.Backtick: GREEN,  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
-        String.Doc: COMMENT,  # class: 'sd'
+        String.Doc: GREEN,  # class: 'sd'
         String.Double: GREEN,  # class: 's2'
         String.Escape: "noinherit " + ORANGE,  # class: 'se'
         String.Heredoc: "",  # class: 'sh'
@@ -160,3 +161,6 @@ class Gruvbox(Style):
     }
 
     style_rules = styles
+
+    def __repr__(self):
+        return reprlib.Repr().repr_dict(self.styles, 30)
