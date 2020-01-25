@@ -40,6 +40,7 @@ except ImportError:
 else:
     shell = get_ipython()
 
+from pygments.lexers.python import PythonLexer   # noqa
 
 __all__ = ["Gruvbox"]
 
@@ -70,25 +71,26 @@ class Gruvbox(Style):
     styles = {
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
-        Text.Whitespace: RED,  # class: 'w'
+        Text.Whitespace: BRIGHT_RED,  # class: 'w'
         # `:hi pythonEscape`
         Escape: ORANGE,
-        Error: "border:" + RED,  # class: 'err'
-        # Other: "",  # class 'x'
+        Error: "border:" + BRIGHT_RED,  # class: 'err'
+        # Can be the text in a traceback
+        Other: FOREGROUND,  # class 'x'
         Comment: COMMENT,  # class: 'c'
-        # Comment.Multiline: "",  # class: 'cm'
+        Comment.Multiline: "noinherit " + GREEN,  # class: 'cm'
         # Comment.Preproc: "",  # class: 'cp'
-        # Comment.Single: "",  # class: 'c1'
+        Comment.Single: "noinherit " + GREEN,  # class: 'c1'
         # Comment.Special: "",  # class: 'cs'
-        Keyword: RED,  # class: 'k'
-        # Keyword.Constant: "",  # class: 'kc'
+        Keyword: ORANGE,  # class: 'k'
+        Keyword.Constant: ORANGE,  # class: 'kc'
         # Keyword.Declaration: "",  # class: 'kd'
         # from <---- x import y
         Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
         Keyword.Pseudo: ORANGE,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
         Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
-        Operator: ORANGE,  # class: 'o'
+        Operator: GREEN,  # class: 'o'
         Operator.Word: ORANGE,  # class: 'ow'
         Punctuation: FOREGROUND,  # class: 'p'
         Name: "noinherit " + FOREGROUND,  # class: 'n'
@@ -96,21 +98,25 @@ class Gruvbox(Style):
         Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
         # raise None <---
         Name.Builtin.Pseudo: ORANGE,  # class: 'bp'
-        Name.Class: "noinherit " + RED,  # class: 'nc'
-        Name.Constant: "noinherit " + RED,  # class: 'no'
-        Name.Decorator: "noinherit " + RED,  # class: 'nd'
+        # Matches Name.Function
+        Name.Class: "noinherit " + GREEN,  # class: 'nc'
+        Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
+        # Only the @ in a decorator
+        Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
         Name.Entity: "",  # class: 'ni'
-        Name.Exception: "noinherit " + RED,  # class: 'ne'
+        Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
         Name.Function: "noinherit " + GREEN,  # class: 'nf'
+        Name.Function.Magic: "noinherit " + AQUA,
         Name.Property: "",  # class: 'py'
         Name.Label: "",  # class: 'nl'
-        # I think might be imports. check pygments.lexers.python
+        # import mod <----
         Name.Namespace: FOREGROUND,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
         Name.Tag: AQUA,  # class: 'nt'
-        Name.Variable: RED,  # class: 'nv'
+        Name.Variable: BRIGHT_RED,  # class: 'nv'
         Name.Variable.Class: "",  # class: 'vc'
         Name.Variable.Global: "",  # class: 'vg'
+        Name.Variable.Magic: "noinherit " + AQUA,
         Name.Variable.Instance: "",  # class: 'vi'
 
         Number              : PURPLE,  # class : 'm'
@@ -157,7 +163,8 @@ class Gruvbox(Style):
         Generic.Prompt: "bold " + COMMENT,  # class: 'gp'
         Generic.Strong: "bold ",  # class: 'gs'
         Generic.Subheading: "bold " + AQUA,  # class: 'gu'
-        Generic.Traceback: RED,  # class: 'gt'
+        # This is the text before the traceback
+        Generic.Traceback: FOREGROUND,  # class: 'gt'
     }
 
     style_rules = styles

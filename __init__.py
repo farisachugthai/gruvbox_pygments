@@ -1,4 +1,6 @@
 """Initialize the Gruvbox package."""
-import gruvbox  # noqa
-from gruvbox.gruvbox import GruvboxStyle  # noqa
-from gruvbox.ptgruvbox import PtGruvbox
+import pygments
+
+from .gruvbox.gruvbox import Gruvbox  # noqa
+from .gruvbox.gruvboxdarkhard import GruvboxDarkHard
+from .gruvbox.ptgruvbox import PtGruvbox
