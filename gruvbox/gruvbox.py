@@ -69,62 +69,29 @@ class Gruvbox(Style):
     highlight_color = SELECTION
 
     styles = {
-        # No corresponding class for the following:
-        Text: FOREGROUND,  # class:  ''
-        Text.Whitespace: BRIGHT_RED,  # class: 'w'
+        Comment: COMMENT,  # class: 'c'
+        Comment.Hashbang: COMMENT,
+        Comment.Multiline: "noinherit " + GREEN,  # class: 'cm'
+        # cython's IF DEF etc
+        Comment.Preproc: "noinherit " + AQUA,  # class: 'cp'
+        Comment.Single: "noinherit " + GREEN,  # class: 'c1'
+        # Comment.Special: "",  # class: 'cs'
+
         # `:hi pythonEscape`
         Escape: ORANGE,
         Error: "border:" + BRIGHT_RED,  # class: 'err'
-        # Can be the text in a traceback
-        Other: FOREGROUND,  # class 'x'
-        Comment: COMMENT,  # class: 'c'
-        Comment.Multiline: "noinherit " + GREEN,  # class: 'cm'
-        # Comment.Preproc: "",  # class: 'cp'
-        Comment.Single: "noinherit " + GREEN,  # class: 'c1'
-        # Comment.Special: "",  # class: 'cs'
-        Keyword: ORANGE,  # class: 'k'
-        Keyword.Constant: ORANGE,  # class: 'kc'
-        # Keyword.Declaration: "",  # class: 'kd'
-        # from <---- x import y
-        Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
-        Keyword.Pseudo: ORANGE,  # class: 'kp'
-        # Keyword.Reserved: "",  # class: 'kr'
-        Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
-        Operator: GREEN,  # class: 'o'
-        Operator.Word: ORANGE,  # class: 'ow'
-        Punctuation: FOREGROUND,  # class: 'p'
-        Name: "noinherit " + FOREGROUND,  # class: 'n'
-        Name.Attribute: "noinherit " + BLUE,  # class: 'na'
-        Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
-        # raise None <---
-        Name.Builtin.Pseudo: ORANGE,  # class: 'bp'
-        # Matches Name.Function
-        Name.Class: "noinherit " + GREEN,  # class: 'nc'
-        Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
-        # Only the @ in a decorator
-        Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
-        Name.Entity: "",  # class: 'ni'
-        Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
-        Name.Function: "noinherit " + GREEN,  # class: 'nf'
-        Name.Function.Magic: "noinherit " + AQUA,
-        Name.Property: "",  # class: 'py'
-        Name.Label: "",  # class: 'nl'
-        # import mod <----
-        Name.Namespace: FOREGROUND,  # class: 'nn'
-        Name.Other: BLUE,  # class: 'nx'
-        Name.Tag: AQUA,  # class: 'nt'
-        Name.Variable: BRIGHT_RED,  # class: 'nv'
-        Name.Variable.Class: "",  # class: 'vc'
-        Name.Variable.Global: "",  # class: 'vg'
-        Name.Variable.Magic: "noinherit " + AQUA,
-        Name.Variable.Instance: "",  # class: 'vi'
-
-        Number              : PURPLE,  # class : 'm'
-        Number.Float        : PURPLE,  # class : 'mf'
-        Number.Hex          : PURPLE,  # class : 'mh'
-        Number.Integer      : PURPLE,  # class : 'mi'
-        Number.Integer.Long : PURPLE,  # class : 'il'
-        Number.Oct          : PURPLE,  # class : 'mo'
+        Generic: FOREGROUND,  # class: 'g'
+        Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
+        Generic.Emphasis: "italic ",  # class: 'ge'
+        Generic.Error: BRIGHT_RED,  # class: 'gr'
+        Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
+        Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
+        Generic.Output: "italic ",  # class: 'go'
+        Generic.Prompt: "bold " + COMMENT,  # class: 'gp'
+        Generic.Strong: "bold ",  # class: 'gs'
+        Generic.Subheading: "bold " + AQUA,  # class: 'gu'
+        # This is the text before the traceback
+        Generic.Traceback: FOREGROUND,  # class: 'gt'
 
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
@@ -139,6 +106,65 @@ class Gruvbox(Style):
 
         Literal.String.Affix : GREEN + " underline",
         Literal.String.Backtick: GREEN,
+
+        # basically the foundation of everything
+        Keyword: ORANGE,  # class: 'k'
+
+        # True, False, None. `:hi pythonBoolean` is Purple
+        Keyword.Constant: "noinherit " + PURPLE,  # class: 'kc'
+        # Keyword.Declaration: "",  # class: 'kd'
+        # from <---- x import y
+        Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
+
+        Keyword.Pseudo: "italic " + ORANGE,  # class: 'kp'
+        # Keyword.Reserved: "",  # class: 'kr'
+        Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
+
+        Name: "noinherit " + FOREGROUND,  # class: 'n'
+        Name.Attribute: "noinherit " + BLUE,  # class: 'na'
+
+        # Builtin functions like max, zip, min
+        Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
+        # raise None <---
+        Name.Builtin.Pseudo: "noinherit " + ORANGE,  # class: 'bp'
+        # Matches Name.Function. Unfortunately not
+        # ---> class FooBar:
+        Name.Class: "noinherit " + GREEN,  # class: 'nc'
+        Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
+        # Only the @ in a decorator
+        Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
+        Name.Entity: "",  # class: 'ni'
+        Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
+        Name.Function: "noinherit " + GREEN,  # class: 'nf'
+        # Dunders
+        Name.Function.Magic: "noinherit " + AQUA,
+        Name.Label: "",  # class: 'nl'
+        # import mod <----
+        Name.Namespace: FOREGROUND,  # class: 'nn'
+        Name.Other: BLUE,  # class: 'nx'
+        Name.Property: "",  # class: 'py'
+        Name.Tag: AQUA,  # class: 'nt'
+        Name.Variable: BRIGHT_RED,  # class: 'nv'
+        Name.Variable.Class: "noinherit bold " + BLUE,  # class: 'vc'
+        Name.Variable.Global: "",  # class: 'vg'
+        # Instance dunders
+        Name.Variable.Magic: "noinherit " + AQUA,
+        Name.Variable.Instance: "",  # class: 'vi'
+
+        Number              : PURPLE,  # class : 'm'
+        Number.Float        : PURPLE,  # class : 'mf'
+        Number.Hex          : PURPLE,  # class : 'mh'
+        Number.Integer      : PURPLE,  # class : 'mi'
+        Number.Integer.Long : PURPLE,  # class : 'il'
+        Number.Oct          : PURPLE,  # class : 'mo'
+
+        Operator: GREEN,  # class: 'o'
+        Operator.Word: ORANGE,  # class: 'ow'
+        # Can be the text in a traceback
+        Other: FOREGROUND,  # class 'x'
+
+        Punctuation: FOREGROUND,  # class: 'p'
+
         String: GREEN,  # class: 's'
         String.Affix: GREEN + " underline",
         String.Backtick: GREEN,  # class: 'sb'
@@ -153,18 +179,11 @@ class Gruvbox(Style):
         String.Regex: "",  # class: 'sr'
         String.Single: GREEN,  # class: 's1'
         String.Symbol: "",  # class: 'ss'
-        Generic: FOREGROUND,  # class: 'g'
-        Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
-        Generic.Emph: "italic ",  # class: 'ge'
-        Generic.Error: BRIGHT_RED,  # class: 'gr'
-        Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
-        Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
-        Generic.Output: "italic ",  # class: 'go'
-        Generic.Prompt: "bold " + COMMENT,  # class: 'gp'
-        Generic.Strong: "bold ",  # class: 'gs'
-        Generic.Subheading: "bold " + AQUA,  # class: 'gu'
-        # This is the text before the traceback
-        Generic.Traceback: FOREGROUND,  # class: 'gt'
+
+        # No corresponding class for the following:
+        Text: FOREGROUND,  # class:  ''
+        Text.Whitespace: BRIGHT_RED,  # class: 'w'
+
     }
 
     style_rules = styles
