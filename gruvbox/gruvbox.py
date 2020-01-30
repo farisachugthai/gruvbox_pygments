@@ -93,6 +93,8 @@ class Gruvbox(Style):
         # This is the text before the traceback
         Generic.Traceback: FOREGROUND,  # class: 'gt'
 
+        # Note: In Pygments, Token.String is an alias for Token.Literal.String,
+        #       and Token.Number as an alias for Token.Literal.Number.
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
 
@@ -103,9 +105,6 @@ class Gruvbox(Style):
         Literal.Number.Integer       : PURPLE,  # class      : 'mi'
         Literal.Number.Integer.Long  : PURPLE,  # class      : 'il'
         Literal.Number.Oct           : PURPLE,  # class      : 'mo'
-
-        Literal.String.Affix : GREEN + " underline",
-        Literal.String.Backtick: GREEN,
 
         # basically the foundation of everything
         Keyword: ORANGE,  # class: 'k'
@@ -151,13 +150,6 @@ class Gruvbox(Style):
         Name.Variable.Magic: "noinherit " + AQUA,
         Name.Variable.Instance: "",  # class: 'vi'
 
-        Number              : PURPLE,  # class : 'm'
-        Number.Float        : PURPLE,  # class : 'mf'
-        Number.Hex          : PURPLE,  # class : 'mh'
-        Number.Integer      : PURPLE,  # class : 'mi'
-        Number.Integer.Long : PURPLE,  # class : 'il'
-        Number.Oct          : PURPLE,  # class : 'mo'
-
         Operator: GREEN,  # class: 'o'
         Operator.Word: ORANGE,  # class: 'ow'
         # Can be the text in a traceback
@@ -179,11 +171,10 @@ class Gruvbox(Style):
         String.Regex: "",  # class: 'sr'
         String.Single: GREEN,  # class: 's1'
         String.Symbol: "",  # class: 'ss'
-
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
         Text.Whitespace: BRIGHT_RED,  # class: 'w'
-
+        Token: FOREGROUND,
     }
 
     style_rules = styles

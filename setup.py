@@ -53,9 +53,7 @@ setup(
     entry_points="""
         [pygments.styles]
         gruvbox = gruvbox.gruvbox
-        GruvboxDarkHard = gruvbox.gruvboxdarkhard:GruvboxDarkHard
         gruvboxdarkhard = gruvbox.gruvboxdarkhard
-        PtGruvbox = gruvbox.ptgruvbox:PtGruvbox
         ptgruvbox = gruvbox.ptgruvbox
         """,
     install_requires=REQUIRED,
