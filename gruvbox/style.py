@@ -31,7 +31,7 @@ from pygments.token import (
     Whitespace,
 )
 
-from .gruvbox import Gruvbox
+from gruvbox.gruvbox import GruvboxStyle as Gruvbox
 
 try:
     from IPython.core.getipython import get_ipython

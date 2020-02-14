@@ -1,7 +1,15 @@
 {
 	"folders": [
 		{
-			"path": "C:\\Users\\faris\\projects\\gruvbox_pygments"
+			"path": "$HOME/projects/gruvbox_pygments"
 		}
-	]
+	],
+	"settings": {
+		"telemetry.enableCrashReporter": false,
+		"telemetry.enableTelemetry": false,
+		"emmet.triggerExpansionOnTab": true,
+		"emmet.showSuggestionsAsSnippets": true,
+		"merge-conflict.autoNavigateNextConflict.enabled": true,
+		"python.autoComplete.addBrackets": true
+	}
 }

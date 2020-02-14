@@ -1,50 +1,10 @@
 """For use with shells constructed using prompt_toolkit.
 
-Here's some info.::
+Still not 100% sure what's wrong with this class but if you enter
+the recursive shell, (*AKA* IPython --> pdb, run interact --> IPython
 
-    In [15]: from prompt_toolkit.styles import default_pygments_style
-
-    In [16]: default_pygments_style().style_rules
-    Out[16]:
-    [('pygments.whitespace', '#bbbbbb'),
-    ('pygments.comment', 'italic #408080'),
-    ('pygments.comment.preproc', 'noitalic #bc7a00'),
-    ('pygments.keyword', 'bold #008000'),
-    ('pygments.keyword.pseudo', 'nobold'),
-    ('pygments.keyword.type', 'nobold #b00040'),
-    ('pygments.operator', '#666666'),
-    ('pygments.operator.word', 'bold #aa22ff'),
-    ('pygments.name.builtin', '#008000'),
-    ('pygments.name.function', '#0000ff'),
-    ('pygments.name.class', 'bold #0000ff'),
-    ('pygments.name.namespace', 'bold #0000ff'),
-    ('pygments.name.exception', 'bold #d2413a'),
-    ('pygments.name.variable', '#19177c'),
-    ('pygments.name.constant', '#880000'),
-    ('pygments.name.label', '#a0a000'),
-    ('pygments.name.entity', 'bold #999999'),
-    ('pygments.name.attribute', '#7d9029'),
-    ('pygments.name.tag', 'bold #008000'),
-    ('pygments.name.decorator', '#aa22ff'),
-    ('pygments.literal.string', '#ba2121'),
-    ('pygments.literal.string.doc', 'italic'),
-    ('pygments.literal.string.interpol', 'bold #bb6688'),
-    ('pygments.literal.string.escape', 'bold #bb6622'),
-    ('pygments.literal.string.regex', '#bb6688'),
-    ('pygments.literal.string.symbol', '#19177c'),
-    ('pygments.literal.string.other', '#008000'),
-    ('pygments.literal.number', '#666666'),
-    ('pygments.generic.heading', 'bold #000080'),
-    ('pygments.generic.subheading', 'bold #800080'),
-    ('pygments.generic.deleted', '#a00000'),
-    ('pygments.generic.inserted', '#00a000'),
-    ('pygments.generic.error', '#ff0000'),
-    ('pygments.generic.emph', 'italic'),
-    ('pygments.generic.strong', 'bold'),
-    ('pygments.generic.prompt', 'bold #000080'),
-    ('pygments.generic.output', '#888'),
-    ('pygments.generic.traceback', '#04d'),
-    ('pygments.error', 'border:#ff0000')]
+The coloring on the prompt goes away with the highlighting style set to
+`PtGruvbox`. Hrm.
 
 """
 from prompt_toolkit.styles.pygments import style_from_pygments_cls
@@ -61,15 +21,23 @@ class PtGruvbox(GruvboxDarkHard):
 
     IPython uses these token groups as well, as can be observed
     in the methods for the class :class:`IPython.terminal.prompts.Prompts`.
+
+    In [15]: get_ipython().prompts.in_prompt_tokens()
+    Out[15]:
+    [(Token.Prompt, ''),
+    (Token.Prompt, 'In ['),
+    (Token.PromptNum, '15'),
+    (Token.Prompt, ']: ')]
+
     """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.styles.update(
             [
-                ("pygments.prompt", "#009900"),
+                ("pygments.prompt", "#a9b665"),
                 ("pygments.promptnum", "#ansibrightgreen bold"),
-                ("pygments.outprompt", "#990000"),
+                ("pygments.outprompt", "#ea6962"),
                 ("pygments.outpromptnum", "#ansibrightred bold"),
             ]
         )

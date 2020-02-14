@@ -42,10 +42,10 @@ else:
 
 from pygments.lexers.python import PythonLexer   # noqa
 
-__all__ = ["Gruvbox"]
+__all__ = ["GruvboxStyle"]
 
 
-class Gruvbox(Style):
+class GruvboxStyle(Style):
     """Creates a Gruvbox pygments class with a few amenities builtin."""
 
     BACKGROUND = "#1d2021"
@@ -82,7 +82,7 @@ class Gruvbox(Style):
         Error: "border:" + BRIGHT_RED,  # class: 'err'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
-        Generic.Emphasis: "italic ",  # class: 'ge'
+        Generic.Emphasis: "italic " + FOREGROUND,  # class: 'ge'
         Generic.Error: BRIGHT_RED,  # class: 'gr'
         Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
         Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
@@ -132,16 +132,22 @@ class Gruvbox(Style):
         Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
         # Only the @ in a decorator
         Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
-        Name.Entity: "",  # class: 'ni'
+        # What is this?
+        # Name.Entity: "",  # class: 'ni'
         Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
         Name.Function: "noinherit " + GREEN,  # class: 'nf'
         # Dunders
         Name.Function.Magic: "noinherit " + AQUA,
-        Name.Label: "",  # class: 'nl'
+
+        # What is this?
+        # Name.Label: "",  # class: 'nl'
+
         # import mod <----
         Name.Namespace: FOREGROUND,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
-        Name.Property: "",  # class: 'py'
+
+        # Name.Property: "",  # class: 'py'
+
         Name.Tag: AQUA,  # class: 'nt'
         Name.Variable: BRIGHT_RED,  # class: 'nv'
         Name.Variable.Class: "noinherit bold " + BLUE,  # class: 'vc'
@@ -164,13 +170,13 @@ class Gruvbox(Style):
         String.Doc: GREEN,  # class: 'sd'
         String.Double: GREEN,  # class: 's2'
         String.Escape: "noinherit " + ORANGE,  # class: 'se'
-        String.Heredoc: "",  # class: 'sh'
+        # String.Heredoc: "",  # class: 'sh'
         # the old style '%s' % (...) string formatting
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
-        String.Other: "",  # class: 'sx'
-        String.Regex: "",  # class: 'sr'
+        # String.Other: "",  # class: 'sx'
+        # String.Regex: "",  # class: 'sr'
         String.Single: GREEN,  # class: 's1'
-        String.Symbol: "",  # class: 'ss'
+        # String.Symbol: "",  # class: 'ss'
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
         Text.Whitespace: BRIGHT_RED,  # class: 'w'
