@@ -9,10 +9,10 @@ The coloring on the prompt goes away with the highlighting style set to
 """
 from prompt_toolkit.styles.pygments import style_from_pygments_cls
 
-from gruvbox.gruvboxdarkhard import GruvboxDarkHard
+from .gruvbox import GruvboxStyle
 
 
-class PtGruvbox(GruvboxDarkHard):
+class PtGruvboxStyle(GruvboxStyle):
     """Extends the previous GruvboxDarkHard classes.
 
     Adds in the prompt_toolkit token groups 'pygments.prompt',

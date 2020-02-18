@@ -59,7 +59,7 @@ class GruvboxStyle(Style):
     ORANGE = "#fe8019"
     YELLOW = "#fabd2f"
     GREEN = "#b8bb26"
-    AQUA = "#83a598"
+    AQUA = "#8ec07c"
     BLUE = "#458588"
     PURPLE = "#d3869b"
 
@@ -98,13 +98,13 @@ class GruvboxStyle(Style):
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
 
-        Literal.Number               : PURPLE,  # class      : 'm'
+        Literal.Number: PURPLE,  # class      : 'm'
         Literal.Number.Bin: PURPLE,
-        Literal.Number.Float         : PURPLE,  # class      : 'mf'
-        Literal.Number.Hex           : PURPLE,  # class      : 'mh'
-        Literal.Number.Integer       : PURPLE,  # class      : 'mi'
-        Literal.Number.Integer.Long  : PURPLE,  # class      : 'il'
-        Literal.Number.Oct           : PURPLE,  # class      : 'mo'
+        Literal.Number.Float: PURPLE,  # class      : 'mf'
+        Literal.Number.Hex: PURPLE,  # class      : 'mh'
+        Literal.Number.Integer: PURPLE,  # class      : 'mi'
+        Literal.Number.Integer.Long: PURPLE,  # class      : 'il'
+        Literal.Number.Oct: PURPLE,  # class      : 'mo'
 
         # basically the foundation of everything
         Keyword: ORANGE,  # class: 'k'
@@ -115,7 +115,7 @@ class GruvboxStyle(Style):
         # from <---- x import y
         Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
 
-        Keyword.Pseudo: "italic " + ORANGE,  # class: 'kp'
+        Keyword.Pseudo: "italic " + GREEN,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
         Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
 
@@ -124,17 +124,25 @@ class GruvboxStyle(Style):
 
         # Builtin functions like max, zip, min
         Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
+
         # raise None <---
         Name.Builtin.Pseudo: "noinherit " + ORANGE,  # class: 'bp'
-        # Matches Name.Function. Unfortunately not
-        # ---> class FooBar:
-        Name.Class: "noinherit " + GREEN,  # class: 'nc'
+
+        # So these should be coming up aqua. Why are they orange...?
+        # Note it's only the clas name not the word class
+        # class FooBar <-----
+        Name.Class: AQUA,  # class: 'nc'
+
         Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
+
         # Only the @ in a decorator
         Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
+
         # What is this?
         # Name.Entity: "",  # class: 'ni'
         Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
+
+        # You guessed it
         Name.Function: "noinherit " + GREEN,  # class: 'nf'
         # Dunders
         Name.Function.Magic: "noinherit " + AQUA,
@@ -161,6 +169,7 @@ class GruvboxStyle(Style):
         # Can be the text in a traceback
         Other: FOREGROUND,  # class 'x'
 
+        # Might be better suited as Delimiter. *Blue. Or Aqua?* nah
         Punctuation: FOREGROUND,  # class: 'p'
 
         String: GREEN,  # class: 's'
@@ -171,6 +180,7 @@ class GruvboxStyle(Style):
         String.Double: GREEN,  # class: 's2'
         String.Escape: "noinherit " + ORANGE,  # class: 'se'
         # String.Heredoc: "",  # class: 'sh'
+
         # the old style '%s' % (...) string formatting
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
         # String.Other: "",  # class: 'sx'

@@ -1,8 +1,7 @@
 """Initialize the Gruvbox package."""
-import pygments
+from pkg_resources import declare_namespace
 
-from .__version__ import about  # noqa
-from .gruvboxdarkhard import GruvboxDarkHard  # noqa
-from .ptgruvbox import PtGruvbox  # noqa
-from .style import Gruvbox  # noqa
+declare_namespace('gruvbox')
+
+from .ptgruvbox import PtGruvboxStyle
 from .gruvbox import GruvboxStyle

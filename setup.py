@@ -6,6 +6,10 @@ import os
 import runpy
 from setuptools import setup, find_packages
 
+try:
+    import gruvbox
+except ImportError:
+    pass
 
 NAME = "gruvbox_pygments"
 
@@ -52,13 +56,13 @@ setup(
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     entry_points="""
         [pygments.styles]
-        gruvbox = gruvbox.gruvbox
-        gruvboxdarkhard = gruvbox.gruvboxdarkhard
-        ptgruvbox = gruvbox.ptgruvbox
+        GruvboxStyle = gruvbox:GruvboxStyle
+        PtGruvboxStyle = gruvbox:PtGruvboxStyle
         """,
     install_requires=REQUIRED,
+    platforms='any',
     include_package_data=True,
-    package_data={"": ["*.txt", "*.rst"],},
+    package_data={"": ["*.txt", "*.rst"], },
     keywords=KEYWORDS,
     license=LICENSE,
     classifiers=[
