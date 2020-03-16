@@ -75,11 +75,17 @@ highlighted with the `Gruvbox`_ colorscheme.
 Bundled Colorschemes
 --------------------
 
-One can use :class:`~gruvbox.style.Gruvbox`,
-:class:`~gruvbox.ptgruvbox.PtGruvbox`, and/or
-:class:`~gruvbox.gruvboxdarkhard.GruvboxDarkHard` in any project that utilizes
-pygments in addition to providing them as parameters for prompt_toolkit and the
-``PromptSession`` class.
+One can use :class:`~gruvbox.style.Gruvbox` or
+:class:`~gruvbox.ptgruvbox.PtGruvbox` in any project that utilizes
+pygments.
+
+Additional tokens have been provided in the `PtGruvbox` class for users to style
+a non-IPython prompt-toolkit application.
+
+Specifically, the `PtGruvbox` class exists to providing them as parameters for
+prompt_toolkit and the ``PromptSession`` class.
+
+.. As an example.::
 
 
 API
@@ -93,14 +99,6 @@ API
 The `Gruvbox` class in the style module represents the main class of the
 repository.
 
-.. currentmodule:: gruvbox.gruvboxdarkhard
-
-.. autoclass:: GruvboxDarkHard
-   :members:
-   :show-inheritance:
-
-GruvboxDarkHard is still experimental.
-
 .. currentmodule:: gruvbox.ptgruvbox
 
 .. autoclass:: PtGruvbox
@@ -108,7 +106,7 @@ GruvboxDarkHard is still experimental.
    :show-inheritance:
 
 This class is for use with prompt_toolkit applications, and as such,
-provides a few utility methods not found in the superclasses.
+provides a few utility methods not found in the superclass.
 
 Contributing
 ============

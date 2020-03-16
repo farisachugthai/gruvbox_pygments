@@ -5,12 +5,12 @@ from IPython.core.getipython import get_ipython
 from traitlets.config import Configurable
 from pygments.plugin import find_plugin_styles
 
-from gruvbox.gruvboxdarkhard import GruvboxDarkHard
+import gruvbox
 
 
 def setup_module():
     _ip = get_ipython()
-    if _ip is not None:
+    if _ip is None:
         raise unittest.SkipTest()
 
 
@@ -22,7 +22,7 @@ class TestGruvboxDarkHard(unittest.TestCase):
 
     def test_installation(self):
         # Probably the first one I should use actually
-        self.assertExists(find_plugins_styles)
+        self.assertExists(find_plugin_styles)
 
     def test_installation_contains_gruvbox(self):
         # TODO
@@ -32,6 +32,21 @@ class TestGruvboxDarkHard(unittest.TestCase):
         """Practicing using the unittest module."""
         self.assertEqual(self.colorscheme.BACKGROUND_COLOR, "#edbdbb")
 
+    def test_class(self):
+        self._ip.highlighting_style = Gruvbox
+        self.assertExists(self._ip.highlighting_style)
+
+    def test_instance(self):
+        self._ip.highlighting_style = Gruvbox()
+        self.assertExists(self._ip.highlighting_style)
+
+    def test_str(self):
+        self._ip.highlighting_style = "Gruvbox"
+        self.assertExists(self._ip.highlighting_style)
+ 
+    def test_str_mod(self):
+        self._ip.highlighting_style = "gruvbox"
+        self.assertExists(self._ip.highlighting_style)
 
 if __name__ == "__main__":
     # Believe it or not this is in fact necessary

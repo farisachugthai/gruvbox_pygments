@@ -6,11 +6,24 @@ the recursive shell, (*AKA* IPython --> pdb, run interact --> IPython
 The coloring on the prompt goes away with the highlighting style set to
 `PtGruvbox`. Hrm.
 
+.. todo::
+    We need our class to pass an isinstance test against BaseStyle
+    so that it can be used in simple functions like `print_formatted_text`.
+
+Poop. We could also do somethin like.::
+
+    from prompt_toolkit.styles.style import Style
+    pt_gruvbox_instance = Style(PtGruvboxStyle.style_rules)
+
+And that'd be easy but there's a type check to make sure that it's received
+as a list. Oh my god.
+
 """
 from prompt_toolkit.styles.pygments import style_from_pygments_cls
 
 from .gruvbox import GruvboxStyle
 
+__all__ = ["PtGruvboxStyle"]
 
 class PtGruvboxStyle(GruvboxStyle):
     """Extends the previous GruvboxDarkHard classes.

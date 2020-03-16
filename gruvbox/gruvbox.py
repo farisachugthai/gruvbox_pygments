@@ -33,15 +33,6 @@ from pygments.token import (
     Whitespace,
 )
 
-try:
-    from IPython.core.getipython import get_ipython
-except ImportError:
-    shell = None
-else:
-    shell = get_ipython()
-
-from pygments.lexers.python import PythonLexer   # noqa
-
 __all__ = ["GruvboxStyle"]
 
 
@@ -71,17 +62,18 @@ class GruvboxStyle(Style):
     styles = {
         Comment: COMMENT,  # class: 'c'
         Comment.Hashbang: COMMENT,
-        Comment.Multiline: "noinherit " + GREEN,  # class: 'cm'
+        Comment.Multiline: COMMENT,  # class: 'cm'
         # cython's IF DEF etc
         Comment.Preproc: "noinherit " + AQUA,  # class: 'cp'
-        Comment.Single: "noinherit " + GREEN,  # class: 'c1'
+        Comment.Single: COMMENT,  # class: 'c1'
         # Comment.Special: "",  # class: 'cs'
 
         # `:hi pythonEscape`
         Escape: ORANGE,
-        Error: "border:" + BRIGHT_RED,  # class: 'err'
+        Error: BRIGHT_RED,  # class: 'err'
         Generic: FOREGROUND,  # class: 'g'
         Generic.Deleted: "noinherit " + BRIGHT_RED,  # class: 'gd',
+        Generic.Emph: "italic " + FOREGROUND,  # class: 'ge'
         Generic.Emphasis: "italic " + FOREGROUND,  # class: 'ge'
         Generic.Error: BRIGHT_RED,  # class: 'gr'
         Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
@@ -106,18 +98,26 @@ class GruvboxStyle(Style):
         Literal.Number.Integer.Long: PURPLE,  # class      : 'il'
         Literal.Number.Oct: PURPLE,  # class      : 'mo'
 
+        Literal.String.Heredoc: GREEN,  # class: 'sh'
+        Literal.String.Other: GREEN,  # class: 'sx'
+        Literal.String.Regex: GREEN,  # class: 'sr'
+        Literal.String.Single: GREEN,  # class: 's1'
+        Literal.String.Symbol: GREEN,  # class: 'ss'
+
         # basically the foundation of everything
-        Keyword: ORANGE,  # class: 'k'
+        Keyword: "bold " + ORANGE,  # class: 'k'
 
         # True, False, None. `:hi pythonBoolean` is Purple
         Keyword.Constant: "noinherit " + PURPLE,  # class: 'kc'
-        # Keyword.Declaration: "",  # class: 'kd'
+
+        Keyword.Declaration: "nobold " + AQUA,  # class: 'kd'
+
         # from <---- x import y
         Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
 
-        Keyword.Pseudo: "italic " + GREEN,  # class: 'kp'
+        Keyword.Pseudo: "nobold",  # + GREEN,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
-        Keyword.Type: "noinherit " + YELLOW,  # class: 'kt'
+        Keyword.Type: "nobold " + YELLOW,  # class: 'kt'
 
         Name: "noinherit " + FOREGROUND,  # class: 'n'
         Name.Attribute: "noinherit " + BLUE,  # class: 'na'
@@ -136,14 +136,13 @@ class GruvboxStyle(Style):
         Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
 
         # Only the @ in a decorator
-        Name.Decorator: "noinherit " + BRIGHT_RED,  # class: 'nd'
+        Name.Decorator: "bold " + BRIGHT_RED,  # class: 'nd'
 
-        # What is this?
-        # Name.Entity: "",  # class: 'ni'
-        Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
+        Name.Entity: AQUA,  # class: 'ni'
+        Name.Exception: PURPLE,  # class: 'ne'
 
         # You guessed it
-        Name.Function: "noinherit " + GREEN,  # class: 'nf'
+        Name.Function: "noinherit " + AQUA,  # class: 'nf'
         # Dunders
         Name.Function.Magic: "noinherit " + AQUA,
 
@@ -156,13 +155,13 @@ class GruvboxStyle(Style):
 
         # Name.Property: "",  # class: 'py'
 
-        Name.Tag: AQUA,  # class: 'nt'
+        Name.Tag: "bold " + AQUA,  # class: 'nt'
         Name.Variable: BRIGHT_RED,  # class: 'nv'
         Name.Variable.Class: "noinherit bold " + BLUE,  # class: 'vc'
-        Name.Variable.Global: "",  # class: 'vg'
+        Name.Variable.Global: "italic",  # class: 'vg'
         # Instance dunders
         Name.Variable.Magic: "noinherit " + AQUA,
-        Name.Variable.Instance: "",  # class: 'vi'
+        Name.Variable.Instance: "italic",  # class: 'vi'
 
         Operator: GREEN,  # class: 'o'
         Operator.Word: ORANGE,  # class: 'ow'
@@ -176,24 +175,30 @@ class GruvboxStyle(Style):
         String.Affix: GREEN + " underline",
         String.Backtick: GREEN,  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
-        String.Doc: GREEN,  # class: 'sd'
+        String.Doc: "italic " + GREEN,  # class: 'sd'
         String.Double: GREEN,  # class: 's2'
-        String.Escape: "noinherit " + ORANGE,  # class: 'se'
-        # String.Heredoc: "",  # class: 'sh'
-
+        String.Escape: "bold " + ORANGE,  # class: 'se'
         # the old style '%s' % (...) string formatting
         String.Interpol: "noinherit " + ORANGE,  # class: 'si'
-        # String.Other: "",  # class: 'sx'
-        # String.Regex: "",  # class: 'sr'
-        String.Single: GREEN,  # class: 's1'
-        # String.Symbol: "",  # class: 'ss'
         # No corresponding class for the following:
         Text: FOREGROUND,  # class:  ''
         Text.Whitespace: BRIGHT_RED,  # class: 'w'
-        Token: FOREGROUND,
+        Token: ORANGE,
     }
 
     style_rules = styles
 
     def __repr__(self):
-        return reprlib.Repr().repr_dict(self.styles, 30)
+        return f"{self.__class__.__name__}"
+
+    def __iter__(self):
+        return iter(self.style_rules)
+
+    def dict_to_list_of_tuples(self, dictionary):
+        tmp = []
+        for i, j in dictionary.items():
+            tmp.append((i, j))
+        return tmp
+
+    def _styles(self):
+        return self.dict_to_list_of_tuples(self.style_rules)

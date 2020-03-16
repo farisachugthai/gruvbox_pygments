@@ -9,10 +9,6 @@ from IPython.core.interactiveshell import InteractiveShell
 import pytest
 from pytest import set_trace
 
-# from pytest.nose import *
-from _pytest import nose
-from _pytest import unittest
-
 try:
     import default_profile
 except:
@@ -29,7 +25,9 @@ def pytest_load_initial_conftests(args):
 
 @pytest.fixture(scope="session", autouse=True)
 def _ip():
-    return InteractiveShell()
+    shell = InteractiveShell()
+    shell.highlighting_style = "Gruvbox"
+    return shell
 
 
 def pytest_addoption(parser):

@@ -8,7 +8,7 @@
     "emmet.triggerExpansionOnTab": true,
     "emmet.showSuggestionsAsSnippets": true,
     "merge-conflict.autoNavigateNextConflict.enabled": true,
-    "python.pythonPath": "C:\\tools\\vs\\2019\\Community\\Common7\\IDE\\Extensions\\Microsoft\\Python\\Miniconda\\Miniconda3-x64\\envs\\ipython\\python.exe",
+    "python.pythonPath": "/usr/sbin/python3.8",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
@@ -23,4 +23,5 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.formatting.provider": "black",
+    "restructuredtext.confPath": "${workspaceFolder}/source",
 }
