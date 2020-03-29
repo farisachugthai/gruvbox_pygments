@@ -25,7 +25,7 @@ from pygments.lexers.python import (
 )
 from sphinx.util import logging
 
-from gruvbox.style import Gruvbox
+from gruvbox import GruvboxStyle
 
 logger = logging.getLogger(__name__)
 
@@ -110,7 +110,7 @@ master_doc = "index"
 exclude_patterns = [".*ipynb_checkpoints**"]
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = "GruvboxDarkHard"  # emits error if you pass class not str
+pygments_style = "GruvboxStyle"  # emits error if you pass class not str
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -281,3 +281,12 @@ def setup(app):
     # app.add_css_file(os.path.join('_static', '', 'flask.css_t'))
     app.add_lexer("ipython", IPyLexer)
     app.add_lexer("bash", BashLexer)
+    app.add_lexer("vim", VimLexer)
+    app.add_lexer("python", PythonLexer)
+    app.add_lexer("python3", PythonLexer)
+    app.add_lexer("py3tb", PythonTracebackLexer)
+    return {
+        "version": "builtin",
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+    }

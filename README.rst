@@ -72,12 +72,14 @@ For example, the Sphinx documentation project also uses Pygments when
 highlighting blocks of code, and the documentation for this project is
 highlighted with the `Gruvbox`_ colorscheme.
 
+
 Bundled Colorschemes
 --------------------
 
-One can use :class:`~gruvbox.style.Gruvbox` or
-:class:`~gruvbox.ptgruvbox.PtGruvbox` in any project that utilizes
-pygments.
+One can use :class:`~gruvbox.GruvboxStyle`,
+:class:`~gruvbox.ptgruvbox.PtGruvbox`, and/or in any project that utilizes
+pygments in addition to providing them as parameters for prompt_toolkit and the
+``PromptSession`` class.
 
 Additional tokens have been provided in the `PtGruvbox` class for users to style
 a non-IPython prompt-toolkit application.
@@ -85,13 +87,11 @@ a non-IPython prompt-toolkit application.
 Specifically, the `PtGruvbox` class exists to providing them as parameters for
 prompt_toolkit and the ``PromptSession`` class.
 
-.. As an example.::
-
 
 API
 ====
 
-.. currentmodule:: gruvbox.style
+.. currentmodule:: gruvbox
 
 .. autoclass:: Gruvbox
    :show-inheritance:
@@ -106,7 +106,8 @@ repository.
    :show-inheritance:
 
 This class is for use with prompt_toolkit applications, and as such,
-provides a few utility methods not found in the superclass.
+provides a few utility methods not found in the super-classes.
+
 
 Contributing
 ============

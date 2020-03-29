@@ -21,7 +21,7 @@ as a list. Oh my god.
 """
 from prompt_toolkit.styles.pygments import style_from_pygments_cls
 
-from .gruvbox import GruvboxStyle
+from gruvbox.gruvbox import GruvboxStyle
 
 __all__ = ["PtGruvboxStyle"]
 
@@ -58,6 +58,7 @@ class PtGruvboxStyle(GruvboxStyle):
     @classmethod
     def create_prompt_toolkit_style(self):
         return style_from_pygments_cls(self)
+
 
 #     def styles(self):
 #         return

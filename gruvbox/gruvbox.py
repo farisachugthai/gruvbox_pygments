@@ -33,6 +33,15 @@ from pygments.token import (
     Whitespace,
 )
 
+try:
+    from IPython.core.getipython import get_ipython
+except ImportError:
+    shell = None
+else:
+    shell = get_ipython()
+
+from pygments.lexers.python import PythonLexer   # noqa
+
 __all__ = ["GruvboxStyle"]
 
 
@@ -67,7 +76,6 @@ class GruvboxStyle(Style):
         Comment.Preproc: "noinherit " + AQUA,  # class: 'cp'
         Comment.Single: COMMENT,  # class: 'c1'
         # Comment.Special: "",  # class: 'cs'
-
         # `:hi pythonEscape`
         Escape: ORANGE,
         Error: BRIGHT_RED,  # class: 'err'
@@ -76,20 +84,18 @@ class GruvboxStyle(Style):
         Generic.Emph: "italic " + FOREGROUND,  # class: 'ge'
         Generic.Emphasis: "italic " + FOREGROUND,  # class: 'ge'
         Generic.Error: BRIGHT_RED,  # class: 'gr'
-        Generic.Heading: "bold " + FOREGROUND,  # class: 'gh'
+        Generic.Heading: "bold " + RED,  # class: 'gh'
         Generic.Inserted: "noinherit " + GREEN,  # class: 'gi'
         Generic.Output: "italic ",  # class: 'go'
         Generic.Prompt: "bold " + COMMENT,  # class: 'gp'
         Generic.Strong: "bold ",  # class: 'gs'
-        Generic.Subheading: "bold " + AQUA,  # class: 'gu'
+        Generic.Subheading: "bold " + GREEN,  # class: 'gu'
         # This is the text before the traceback
         Generic.Traceback: FOREGROUND,  # class: 'gt'
-
         # Note: In Pygments, Token.String is an alias for Token.Literal.String,
         #       and Token.Number as an alias for Token.Literal.Number.
         Literal: BLUE,  # class: 'l'
         Literal.Date: "noinherit " + GREEN,  # class: 'ld'
-
         Literal.Number: PURPLE,  # class      : 'm'
         Literal.Number.Bin: PURPLE,
         Literal.Number.Float: PURPLE,  # class      : 'mf'
@@ -97,16 +103,14 @@ class GruvboxStyle(Style):
         Literal.Number.Integer: PURPLE,  # class      : 'mi'
         Literal.Number.Integer.Long: PURPLE,  # class      : 'il'
         Literal.Number.Oct: PURPLE,  # class      : 'mo'
-
         Literal.String.Heredoc: GREEN,  # class: 'sh'
         Literal.String.Other: GREEN,  # class: 'sx'
         Literal.String.Regex: GREEN,  # class: 'sr'
         Literal.String.Single: GREEN,  # class: 's1'
         Literal.String.Symbol: GREEN,  # class: 'ss'
-
         # basically the foundation of everything
         Keyword: "bold " + ORANGE,  # class: 'k'
-
+        Keyword: ORANGE,  # class: 'k'
         # True, False, None. `:hi pythonBoolean` is Purple
         Keyword.Constant: "noinherit " + PURPLE,  # class: 'kc'
 
@@ -115,44 +119,33 @@ class GruvboxStyle(Style):
         # from <---- x import y
         Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
 
-        Keyword.Pseudo: "nobold",  # + GREEN,  # class: 'kp'
+        # Keyword.Pseudo: "nobold",  # + GREEN,  # class: 'kp'
+        Keyword.Pseudo: "italic " + GREEN,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
         Keyword.Type: "nobold " + YELLOW,  # class: 'kt'
-
         Name: "noinherit " + FOREGROUND,  # class: 'n'
         Name.Attribute: "noinherit " + BLUE,  # class: 'na'
-
         # Builtin functions like max, zip, min
         Name.Builtin: "noinherit " + YELLOW,  # class: 'nb'
-
         # raise None <---
         Name.Builtin.Pseudo: "noinherit " + ORANGE,  # class: 'bp'
-
         # So these should be coming up aqua. Why are they orange...?
         # Note it's only the clas name not the word class
         # class FooBar <-----
         Name.Class: AQUA,  # class: 'nc'
-
         Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
-
         # Only the @ in a decorator
         Name.Decorator: "bold " + BRIGHT_RED,  # class: 'nd'
 
         Name.Entity: AQUA,  # class: 'ni'
-        Name.Exception: PURPLE,  # class: 'ne'
-
+        Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
         # You guessed it
         Name.Function: "noinherit " + AQUA,  # class: 'nf'
         # Dunders
         Name.Function.Magic: "noinherit " + AQUA,
-
-        # What is this?
-        # Name.Label: "",  # class: 'nl'
-
         # import mod <----
         Name.Namespace: FOREGROUND,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
-
         # Name.Property: "",  # class: 'py'
 
         Name.Tag: "bold " + AQUA,  # class: 'nt'
@@ -162,15 +155,12 @@ class GruvboxStyle(Style):
         # Instance dunders
         Name.Variable.Magic: "noinherit " + AQUA,
         Name.Variable.Instance: "italic",  # class: 'vi'
-
         Operator: GREEN,  # class: 'o'
         Operator.Word: ORANGE,  # class: 'ow'
         # Can be the text in a traceback
         Other: FOREGROUND,  # class 'x'
-
         # Might be better suited as Delimiter. *Blue. Or Aqua?* nah
         Punctuation: FOREGROUND,  # class: 'p'
-
         String: GREEN,  # class: 's'
         String.Affix: GREEN + " underline",
         String.Backtick: GREEN,  # class: 'sb'
@@ -192,6 +182,7 @@ class GruvboxStyle(Style):
         return f"{self.__class__.__name__}"
 
     def __iter__(self):
+        """Iter needs to be defined for use with pygments formatters."""
         return iter(self.style_rules)
 
     def dict_to_list_of_tuples(self, dictionary):
@@ -202,3 +193,6 @@ class GruvboxStyle(Style):
 
     def _styles(self):
         return self.dict_to_list_of_tuples(self.style_rules)
+
+    def __str__(self):
+        return f"{self.__class__.__name__}"

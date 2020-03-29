@@ -4,7 +4,10 @@
 import codecs
 import os
 import runpy
+import setuptools
 from setuptools import setup, find_packages
+
+import pkg_resources
 
 try:
     import gruvbox
@@ -59,10 +62,11 @@ setup(
         GruvboxStyle = gruvbox:GruvboxStyle
         PtGruvboxStyle = gruvbox:PtGruvboxStyle
         """,
+    # namespace_packages=setuptools.find_namespace_packages(),
     install_requires=REQUIRED,
-    platforms='any',
+    platforms="any",
     include_package_data=True,
-    package_data={"": ["*.txt", "*.rst"], },
+    package_data={"": ["*.txt", "*.rst"],},
     keywords=KEYWORDS,
     license=LICENSE,
     classifiers=[

@@ -7,11 +7,11 @@
     <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -59,7 +59,7 @@ python -m pip install -U -e .
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.11.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.13.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
 and create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipython profile create default
 </pre></div>
@@ -83,45 +83,18 @@ highlighting blocks of code, and the documentation for this project is
 highlighted with the <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> colorscheme.</p>
 <div class="section" id="bundled-colorschemes">
 <h3>Bundled Colorschemes<a class="headerlink" href="#bundled-colorschemes" title="Permalink to this headline">¶</a></h3>
-<p>One can use <a class="reference internal" href="#gruvbox.style.Gruvbox" title="gruvbox.style.Gruvbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gruvbox</span></code></a>,
-<a class="reference internal" href="#gruvbox.ptgruvbox.PtGruvbox" title="gruvbox.ptgruvbox.PtGruvbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">PtGruvbox</span></code></a>, and/or
-<a class="reference internal" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="gruvbox.gruvboxdarkhard.GruvboxDarkHard"><code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxDarkHard</span></code></a> in any project that utilizes
+<p>One can use <code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PtGruvbox</span></code>, and/or in any project that utilizes
 pygments in addition to providing them as parameters for prompt_toolkit and the
 <code class="docutils literal notranslate"><span class="pre">PromptSession</span></code> class.</p>
 </div>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="gruvbox.style.Gruvbox">
-<em class="property">class </em><code class="sig-prename descclassname">gruvbox.style.</code><code class="sig-name descname">Gruvbox</code><a class="headerlink" href="#gruvbox.style.Gruvbox" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
-<p>Creates a Gruvbox pygments class with a few amenities builtin.</p>
-</dd></dl>
-
-<p>The <a class="reference internal" href="#gruvbox.style.Gruvbox" title="gruvbox.style.Gruvbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gruvbox</span></code></a> class in the style module represents the main class of the
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Gruvbox</span></code> class in the style module represents the main class of the
 repository.</p>
-<dl class="class">
-<dt id="gruvbox.gruvboxdarkhard.GruvboxDarkHard">
-<em class="property">class </em><code class="sig-prename descclassname">gruvbox.gruvboxdarkhard.</code><code class="sig-name descname">GruvboxDarkHard</code><span class="sig-paren">(</span><em class="sig-param">style_overrides=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvboxdarkhard.GruvboxHard</span></code></p>
-</dd></dl>
-
-<p>GruvboxDarkHard is still experimental.</p>
-<dl class="class">
-<dt id="gruvbox.ptgruvbox.PtGruvbox">
-<em class="property">class </em><code class="sig-prename descclassname">gruvbox.ptgruvbox.</code><code class="sig-name descname">PtGruvbox</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.ptgruvbox.PtGruvbox" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#gruvbox.gruvboxdarkhard.GruvboxDarkHard" title="gruvbox.gruvboxdarkhard.GruvboxDarkHard"><code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvboxdarkhard.GruvboxDarkHard</span></code></a></p>
-<p>Extends the previous GruvboxDarkHard classes.</p>
-<p>Adds in the prompt_toolkit token groups ‘pygments.prompt’,
-‘pygments.promptnum’, ‘pygments.outprompt’, and
-‘pygments.outpromptnum’.</p>
-<p>IPython uses these token groups as well, as can be observed
-in the methods for the class <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.terminal.prompts.html#IPython.terminal.prompts.Prompts" title="(in IPython v7.11.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.terminal.prompts.Prompts</span></code></a>.</p>
-</dd></dl>
-
 <p>This class is for use with prompt_toolkit applications, and as such,
-provides a few utility methods not found in the superclasses.</p>
+provides a few utility methods not found in the super-classes.</p>
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
@@ -216,7 +189,7 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -232,7 +205,7 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
