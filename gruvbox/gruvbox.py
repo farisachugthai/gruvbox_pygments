@@ -12,8 +12,6 @@ Pygments syntax highlighting. It has; however, been primarily tested
 with :mod:`IPython`.
 
 """
-import reprlib
-
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -40,12 +38,11 @@ except ImportError:
 else:
     shell = get_ipython()
 
-from pygments.lexers.python import PythonLexer   # noqa
-
 __all__ = ["GruvboxStyle"]
 
 
 class GruvboxStyle(Style):
+
     """Creates a Gruvbox pygments class with a few amenities builtin."""
 
     BACKGROUND = "#1d2021"
