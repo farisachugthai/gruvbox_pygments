@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
@@ -32,6 +32,11 @@
             
   <div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
 <h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>June 21, 2020</p>
+</dd>
+</dl>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal
 colorscheme for Vim, and gives a fantastic base for any terminal
 based application.</p>
@@ -47,19 +52,29 @@ achieves this.</p>
 <p>So why this repository?</p>
 <p>Despite it’s popularity as a Vim colorscheme, I have yet to find a
 faithful port of <a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a>
-to <code class="xref py py-mod docutils literal notranslate"><span class="pre">Pygments</span></code>.</p>
+to pygments.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>To install simply <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> this repository and run the following
 in your terminal of choice.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build
-python -m pip install -U -e .
+python3 -m pip install -U -e .
 </pre></div>
 </div>
+<p>Adjust the version of python as needed, as pygments as well as this library
+have been intentionally written to be compatible across versions of python
+2.7 and up.</p>
+<dl class="py exception">
+<dt id="PermissionError">
+<em class="property">exception </em><code class="sig-name descname">PermissionError</code><a class="headerlink" href="#PermissionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>If raised during installation, add the <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag to the end of the
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span></code> command.</p>
+</dd></dl>
+
 </div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.13.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
+<div class="section" id="ipython-setup">
+<h2>IPython Setup<a class="headerlink" href="#ipython-setup" title="Permalink to this headline">¶</a></h2>
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.15.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
 and create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipython profile create default
 </pre></div>
@@ -84,17 +99,55 @@ highlighted with the <a class="reference external" href="https://github.com/morh
 <div class="section" id="bundled-colorschemes">
 <h3>Bundled Colorschemes<a class="headerlink" href="#bundled-colorschemes" title="Permalink to this headline">¶</a></h3>
 <p>One can use <code class="xref py py-class docutils literal notranslate"><span class="pre">GruvboxStyle</span></code>,
-<code class="xref py py-class docutils literal notranslate"><span class="pre">PtGruvbox</span></code>, and/or in any project that utilizes
+<a class="reference internal" href="#gruvbox.ptgruvbox.PtGruvboxStyle" title="gruvbox.ptgruvbox.PtGruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">PtGruvboxStyle</span></code></a>, and/or in any project that utilizes
 pygments in addition to providing them as parameters for prompt_toolkit and the
 <code class="docutils literal notranslate"><span class="pre">PromptSession</span></code> class.</p>
+<p>Additional tokens have been provided in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">PtGruvboxStyle</span></code> class for users to style
+a non-IPython prompt-toolkit application.</p>
+<p>Specifically, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">PtGruvboxStyle</span></code> class exists to providing them as parameters for
+prompt_toolkit and the <code class="docutils literal notranslate"><span class="pre">PromptSession</span></code> class.</p>
 </div>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="gruvbox.gruvbox.GruvboxStyle">
+<em class="property">class </em><code class="sig-prename descclassname">gruvbox.gruvbox.</code><code class="sig-name descname">GruvboxStyle</code><a class="headerlink" href="#gruvbox.gruvbox.GruvboxStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pygments.style.Style</span></code></p>
+<p>Creates a Gruvbox pygments class with a few amenities builtin.</p>
+</dd></dl>
+
 <p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Gruvbox</span></code> class in the style module represents the main class of the
 repository.</p>
+<dl class="py class">
+<dt id="gruvbox.ptgruvbox.PtGruvboxStyle">
+<em class="property">class </em><code class="sig-prename descclassname">gruvbox.ptgruvbox.</code><code class="sig-name descname">PtGruvboxStyle</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gruvbox.ptgruvbox.PtGruvboxStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gruvbox.gruvbox.GruvboxStyle" title="gruvbox.gruvbox.GruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvbox.GruvboxStyle</span></code></a></p>
+<p>Extends the previous GruvboxDarkHard classes.</p>
+<p>Adds in the prompt_toolkit token groups ‘pygments.prompt’,
+‘pygments.promptnum’, ‘pygments.outprompt’, and
+‘pygments.outpromptnum’.</p>
+<p>IPython uses these token groups as well, as can be observed
+in the methods for the class <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.terminal.prompts.html#IPython.terminal.prompts.Prompts" title="(in IPython v7.15.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.terminal.prompts.Prompts</span></code></a>.</p>
+<p>In [15]: get_ipython().prompts.in_prompt_tokens()
+Out[15]:
+[(Token.Prompt, ‘’),
+(Token.Prompt, ‘In [‘),
+(Token.PromptNum, ‘15’),
+(Token.Prompt, ‘]: ‘)]</p>
+</dd></dl>
+
 <p>This class is for use with prompt_toolkit applications, and as such,
 provides a few utility methods not found in the super-classes.</p>
+<div class="section" id="deprecated">
+<h3>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h3>
+<dl class="py attribute">
+<dt id="gruvbox.style.Gruvbox">
+<code class="sig-prename descclassname">gruvbox.style.</code><code class="sig-name descname">Gruvbox</code><a class="headerlink" href="#gruvbox.style.Gruvbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#gruvbox.gruvbox.GruvboxStyle" title="gruvbox.gruvbox.GruvboxStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">gruvbox.gruvbox.GruvboxStyle</span></code></a></p>
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
@@ -114,6 +167,27 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
 λ ipython --TerminalInteractiveShell.highlighting_style<span class="o">=</span>gruvbox
 </pre></div>
 </div>
+<div class="highlight-py3tb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;c:\python38\lib\runpy.py&quot;</span>, line <span class="m">193</span>, in <span class="n">_run_module_as_main</span>
+    <span class="k">return</span> <span class="n">_run_code</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">main_globals</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+  File <span class="nb">&quot;c:\python38\lib\runpy.py&quot;</span>, line <span class="m">86</span>, in <span class="n">_run_code</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">run_globals</span><span class="p">)</span>
+  File <span class="nb">&quot;C:\Python38\Scripts\ipython.exe\__main__.py&quot;</span>, line <span class="m">7</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">start_ipython</span><span class="p">())</span>
+
+<span class="x">  ...</span>
+
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">184</span>, in <span class="n">_highlighting_style_changed</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_style</span><span class="p">()</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">187</span>, in <span class="n">refresh_style</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_style_from_name_or_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">highlighting_style</span><span class="p">)</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">387</span>, in <span class="n">_make_style_from_name_or_cls</span>
+    <span class="n">style_from_pygments_cls</span><span class="p">(</span><span class="n">style_cls</span><span class="p">),</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\prompt_toolkit\styles\pygments.py&quot;</span>, line <span class="m">41</span>, in <span class="n">style_from_pygments_cls</span>
+    <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">pygments_style_cls</span><span class="p">,</span> <span class="n">PygmentsStyle</span><span class="p">)</span>
+<span class="gr">TypeError</span>: <span class="n">issubclass() arg 1 must be a class</span>
+</pre></div>
+</div>
 <p>So you can see right there that prompt_toolkit raises an error because the style
 that we provided to it was the class we wanted.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\f</span>aris<span class="se">\p</span>rojects<span class="se">\g</span>ruvbox_pygments Microsoft Windows <span class="o">[</span>Version <span class="m">10</span>.0.18362.207<span class="o">]</span>
@@ -122,6 +196,44 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
 </pre></div>
 </div>
 <p>Problematically, that’s not how pygments wants it!</p>
+<div class="highlight-py3tb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\pygments\styles\__init__.py&quot;</span>, line <span class="m">71</span>, in <span class="n">get_style_by_name</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;pygments.styles.&#39;</span> <span class="o">+</span> <span class="n">mod</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="bp">cls</span><span class="p">])</span>
+<span class="gr">ModuleNotFoundError</span>: <span class="n">No module named &#39;pygments.styles.gruvbox&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;c:\python38\lib\runpy.py&quot;</span>, line <span class="m">193</span>, in <span class="n">_run_module_as_main</span>
+    <span class="k">return</span> <span class="n">_run_code</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">main_globals</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+  File <span class="nb">&quot;c:\python38\lib\runpy.py&quot;</span>, line <span class="m">86</span>, in <span class="n">_run_code</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">run_globals</span><span class="p">)</span>
+  File <span class="nb">&quot;C:\Python38\Scripts\ipython.exe\__main__.py&quot;</span>, line <span class="m">7</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">start_ipython</span><span class="p">())</span>
+
+<span class="x"> ...</span>
+
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">184</span>, in <span class="n">_highlighting_style_changed</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_style</span><span class="p">()</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">187</span>, in <span class="n">refresh_style</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_style_from_name_or_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">highlighting_style</span><span class="p">)</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\IPython\terminal\interactiveshell.py&quot;</span>, line <span class="m">376</span>, in <span class="n">_make_style_from_name_or_cls</span>
+    <span class="n">style_cls</span> <span class="o">=</span> <span class="n">get_style_by_name</span><span class="p">(</span><span class="n">name_or_cls</span><span class="p">)</span>
+  File <span class="nb">&quot;c:\python38\lib\site-packages\pygments\styles\__init__.py&quot;</span>, line <span class="m">73</span>, in <span class="n">get_style_by_name</span>
+    <span class="k">raise</span> <span class="n">ClassNotFound</span><span class="p">(</span><span class="s2">&quot;Could not find style module </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mod</span> <span class="o">+</span>
+<span class="gr">pygments.util.ClassNotFound</span>: <span class="n">Could not find style module &#39;gruvbox.Gruvbox&#39;.</span>
+
+<span class="x">If you suspect this is an IPython 7.11.1 bug, please report it at:</span>
+<span class="x">    https://github.com/ipython/ipython/issues</span>
+<span class="x">or send an email to the mailing list at ipython-dev@python.org</span>
+
+<span class="x">You can print a more detailed traceback right now with &quot;%tb&quot;, or use &quot;%debug&quot;</span>
+<span class="x">to interactively debug it.</span>
+
+<span class="x">Extra-detailed tracebacks for bug-reporting purposes can be enabled via:</span>
+<span class="x">    c.Application.verbose_crash=True</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
@@ -167,12 +279,15 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
   <ul>
 <li><a class="reference internal" href="#">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#ipython-setup">IPython Setup</a></li>
 <li><a class="reference internal" href="#usage">Usage</a><ul>
 <li><a class="reference internal" href="#bundled-colorschemes">Bundled Colorschemes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#deprecated">Deprecated</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#contributing">Contributing</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -205,7 +320,7 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

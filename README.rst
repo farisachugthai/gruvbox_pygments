@@ -2,9 +2,9 @@
 Gruvbox IPython --- A Pygments Style Designed for IPython
 =========================================================
 
-.. highlight:: ipython
-
 .. moduleauthor:: Faris Chugthai
+
+:date: |today|
 
 `Gruvbox <https://github.com/morhetz/gruvbox>`_ is a phenomenal
 colorscheme for Vim, and gives a fantastic base for any terminal
@@ -24,24 +24,31 @@ So why this repository?
 
 Despite it's popularity as a Vim colorscheme, I have yet to find a
 faithful port of `Gruvbox <https://github.com/morhetz/gruvbox>`_
-to :mod:`Pygments`.
+to pygments.
 
 
 Installation
 ============
-
 To install simply ``git clone`` this repository and run the following
 in your terminal of choice.
 
 .. code-block:: bash
 
     python setup.py build
-    python -m pip install -U -e .
+    python3 -m pip install -U -e .
+
+Adjust the version of python as needed, as pygments as well as this library
+have been intentionally written to be compatible across versions of python
+2.7 and up.
+
+.. exception:: PermissionError
+
+   If raised during installation, add the ``--user`` flag to the end of the
+   ``python -m pip`` command.
 
 
-Setup
-=====
-
+IPython Setup
+=============
 To use this colorscheme in :mod:`IPython`, navigate to ``$HOME/.ipython``
 and create/edit your ``ipython_config.py`` file like so:
 
@@ -64,7 +71,6 @@ At the top of the file add the following:
 
 Usage
 =====
-
 Pygments colorschemes can be used for a wide variety of applications;
 however, and limiting it's use to only IPython is not necessary.
 
@@ -75,25 +81,24 @@ highlighted with the `Gruvbox`_ colorscheme.
 
 Bundled Colorschemes
 --------------------
-
 One can use :class:`~gruvbox.GruvboxStyle`,
-:class:`~gruvbox.ptgruvbox.PtGruvbox`, and/or in any project that utilizes
+:class:`~gruvbox.ptgruvbox.PtGruvboxStyle`, and/or in any project that utilizes
 pygments in addition to providing them as parameters for prompt_toolkit and the
 ``PromptSession`` class.
 
-Additional tokens have been provided in the `PtGruvbox` class for users to style
+Additional tokens have been provided in the `PtGruvboxStyle` class for users to style
 a non-IPython prompt-toolkit application.
 
-Specifically, the `PtGruvbox` class exists to providing them as parameters for
+Specifically, the `PtGruvboxStyle` class exists to providing them as parameters for
 prompt_toolkit and the ``PromptSession`` class.
 
 
 API
 ====
 
-.. currentmodule:: gruvbox
+.. currentmodule:: gruvbox.gruvbox
 
-.. autoclass:: Gruvbox
+.. autoclass:: GruvboxStyle
    :show-inheritance:
 
 The `Gruvbox` class in the style module represents the main class of the
@@ -101,12 +106,21 @@ repository.
 
 .. currentmodule:: gruvbox.ptgruvbox
 
-.. autoclass:: PtGruvbox
+.. autoclass:: PtGruvboxStyle
    :members:
    :show-inheritance:
 
 This class is for use with prompt_toolkit applications, and as such,
 provides a few utility methods not found in the super-classes.
+
+Deprecated
+-----------
+
+.. currentmodule:: gruvbox.style
+
+.. autoclass:: Gruvbox
+   :no-show-inheritance:
+   :no-members:
 
 
 Contributing

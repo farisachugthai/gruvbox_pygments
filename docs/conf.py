@@ -16,7 +16,6 @@ documentation root, use os.path.abspath to make it absolute, like shown here.
 import os
 import sys
 
-from IPython.lib.lexers import IPyLexer
 from pygments.lexers.shell import BashLexer
 from pygments.lexers.textedit import VimLexer
 from pygments.lexers.python import (
@@ -71,8 +70,6 @@ extensions = [
     "sphinx.ext.ifconfig",
     "sphinx.ext.napoleon",
     "sphinx.ext.githubpages",
-    "IPython.sphinxext.ipython_console_highlighting",
-    "IPython.sphinxext.ipython_directive",
 ]
 
 
@@ -265,9 +262,6 @@ intersphinx_mapping = {
 numpydoc_show_class_members = False  # Otherwise Sphinx emits thousands of warnings
 numpydoc_class_members_toctree = False
 
-# Ergh this fucking setting!
-ipython_warning_is_error = False
-
 
 def setup(app):
     """Add flask css.
@@ -279,7 +273,7 @@ def setup(app):
      as a pathname relative to this file.
      """
     # app.add_css_file(os.path.join('_static', '', 'flask.css_t'))
-    app.add_lexer("ipython", IPyLexer)
+    # app.add_lexer("ipython", IPyLexer)
     app.add_lexer("bash", BashLexer)
     app.add_lexer("vim", VimLexer)
     app.add_lexer("python", PythonLexer)

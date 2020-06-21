@@ -13,8 +13,7 @@ Couldn't think of where else to put this. Is this gonna warrant a bug report?
    Sat 01/18/2020  (hotfix -> origin)
    λ ipython --TerminalInteractiveShell.highlighting_style=gruvbox
 
-.. ipython::
-   :verbatim:
+.. code-block:: py3tb
 
    Traceback (most recent call last):
      File "c:\python38\lib\runpy.py", line 193, in _run_module_as_main
@@ -48,8 +47,7 @@ that we provided to it was the class we wanted.
 
 Problematically, that's not how pygments wants it!
 
-.. ipython::
-   :verbatim:
+.. code-block:: py3tb
 
    Traceback (most recent call last):
      File "c:\python38\lib\site-packages\pygments\styles\__init__.py", line 71, in get_style_by_name
