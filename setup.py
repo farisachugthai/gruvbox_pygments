@@ -27,7 +27,7 @@ KEYWORDS = [
     "colorschemes",
     "syntax highlighting",
 ]
-REQUIRED = ["pygments>=2.4"]
+REQUIRED = ["pygments>=2.4", "IPython"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = os.path.join(here, "README.rst")
@@ -64,6 +64,8 @@ setup(
         """,
     # namespace_packages=setuptools.find_namespace_packages(),
     install_requires=REQUIRED,
+    tests_require="pytest",
+    extras_require={"docs": "sphinx"},
     platforms="any",
     include_package_data=True,
     package_data={"": ["*.txt", "*.rst"],},

@@ -1,8 +1,4 @@
-from __future__ import unicode_literals
-
 from prompt_toolkit.styles import Attrs, Style, SwapLightAndDarkStyleTransformation
-
-import pytest
 
 
 def test_style_from_dict():
@@ -245,4 +241,9 @@ def test_swap_light_and_dark_style_transformation():
 
 
 if __name__ == "__main__":
-    pytest.main()
+    try:
+        import pytest
+    except ImportError:
+        unittest.main()
+    else:
+        pytest.main()
