@@ -66,7 +66,7 @@ At the top of the file add the following:
     from traitlets.config import get_config
     c = get_config()
     c.TerminalInteractiveShell.true_color = True
-    c.TerminalInteractiveShell.highlighting_style = 'Gruvbox'
+    c.TerminalInteractiveShell.highlighting_style = 'GruvboxStyle'
 
 
 Usage
