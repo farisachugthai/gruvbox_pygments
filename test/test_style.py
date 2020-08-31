@@ -4,11 +4,11 @@ import sys
 import unittest
 
 from IPython.testing.globalipapp import get_ipython
-from traitlets.config import Configurable
-from traitlets.traitlets import TraitError
 from pygments.plugin import find_plugin_styles
 from pygments.token import Token
 from pygments.util import ClassNotFound
+from traitlets.config import Configurable
+from traitlets.traitlets import TraitError
 
 from gruvbox.gruvbox import GruvboxStyle
 from gruvbox.ptgruvbox import PtGruvboxStyle

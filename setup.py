@@ -3,8 +3,9 @@
 """Setup Gruvbox colorscheme as a python package."""
 import codecs
 import os
+
 import setuptools
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 try:
     import gruvbox
@@ -25,7 +26,8 @@ KEYWORDS = [
     "syntax highlighting",
 ]
 REQUIRED = ["pygments>=2.4"]
-TESTS=["pytest", "IPython"]
+TESTS = ["pytest", "IPython", "flake8", "flake8-rst",
+         "pydocstyle", "flake8-docstrings", "flake8-rst-docstrings"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = os.path.join(here, "README.rst")
@@ -58,7 +60,7 @@ setup(
     extras_require={"docs": "sphinx", "IPython": "ipython", "test": TESTS},
     platforms="any",
     include_package_data=True,
-    package_data={"": ["*.txt", "*.rst"],},
+    package_data={"": ["*.txt", "*.rst"], },
     keywords=KEYWORDS,
     license=LICENSE,
     classifiers=[

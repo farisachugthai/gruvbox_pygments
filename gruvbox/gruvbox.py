@@ -13,23 +13,9 @@ with :mod:`IPython`.
 
 """
 from pygments.style import Style
-from pygments.token import (
-    Comment,
-    Error,
-    Escape,
-    Generic,
-    Keyword,
-    Literal,
-    Name,
-    Number,
-    Operator,
-    Other,
-    Punctuation,
-    String,
-    Text,
-    Token,
-    Whitespace,
-)
+from pygments.token import (Comment, Error, Escape, Generic, Keyword, Literal,
+                            Name, Number, Operator, Other, Punctuation, String,
+                            Text, Token, Whitespace)
 
 try:
     from IPython.core.getipython import get_ipython

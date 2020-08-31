@@ -35,12 +35,12 @@ jobs:
       - name: Install dependencies
         run: |
           cd "$(git rev-parse --show-toplevel)"
+          pip install -U pygments pip
           python setup.py build
           # pip install -r tools/requirements.txt
           pip install -e .[test]
       - name: Lint with flake8
         run: |
-          pip install flake8 flake8-rst pydocstyle flake8-docstrings flake8-rst-docstrings -e .[develop]
           flake8 --install-hook=git
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --exit-zero --select=E9,F63,F7,F82 --statistics
@@ -48,7 +48,6 @@ jobs:
           flake8 . --exit-zero --count --max-complexity=20 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          pip install pytest
           pytest
 
 ...

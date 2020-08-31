@@ -25,6 +25,7 @@ from gruvbox.gruvbox import GruvboxStyle
 
 __all__ = ["PtGruvboxStyle"]
 
+
 class PtGruvboxStyle(GruvboxStyle):
     """Extends the previous GruvboxDarkHard classes.
 
@@ -56,8 +57,8 @@ class PtGruvboxStyle(GruvboxStyle):
         )
 
     @classmethod
-    def create_prompt_toolkit_style(self):
-        return style_from_pygments_cls(self)
+    def create_prompt_toolkit_style(cls):
+        return style_from_pygments_cls(cls)
 
 
 #     def styles(self):

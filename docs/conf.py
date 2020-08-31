@@ -16,12 +16,9 @@ documentation root, use os.path.abspath to make it absolute, like shown here.
 import os
 import sys
 
+from pygments.lexers.python import PythonLexer, PythonTracebackLexer
 from pygments.lexers.shell import BashLexer
 from pygments.lexers.textedit import VimLexer
-from pygments.lexers.python import (
-    PythonLexer,
-    PythonTracebackLexer,
-)
 from sphinx.util import logging
 
 from gruvbox import GruvboxStyle
