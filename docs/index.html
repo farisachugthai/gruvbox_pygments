@@ -4,8 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gruvbox IPython — A Pygments Style Designed for IPython &#8212; Gruvbox IPython 2019 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gruvbox Pygments &#8212; Gruvbox IPython 2019 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,11 +31,11 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="gruvbox-ipython-a-pygments-style-designed-for-ipython">
-<h1>Gruvbox IPython — A Pygments Style Designed for IPython<a class="headerlink" href="#gruvbox-ipython-a-pygments-style-designed-for-ipython" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gruvbox-pygments">
+<h1>Gruvbox Pygments<a class="headerlink" href="#gruvbox-pygments" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
-<dd class="field-odd"><p>July 15, 2020</p>
+<dd class="field-odd"><p>August 31, 2020</p>
 </dd>
 </dl>
 <p><a class="reference external" href="https://github.com/morhetz/gruvbox">Gruvbox</a> is a phenomenal
@@ -75,7 +75,7 @@ have been intentionally written to be compatible across versions of python
 </div>
 <div class="section" id="ipython-setup">
 <h2>IPython Setup<a class="headerlink" href="#ipython-setup" title="Permalink to this headline">¶</a></h2>
-<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.16.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
+<p>To use this colorscheme in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.html#module-IPython" title="(in IPython v7.18.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IPython</span></code></a>, navigate to <code class="docutils literal notranslate"><span class="pre">$HOME/.ipython</span></code>
 and create/edit your <code class="docutils literal notranslate"><span class="pre">ipython_config.py</span></code> file like so:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipython profile create default
 </pre></div>
@@ -86,7 +86,7 @@ file.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="kn">import</span> <span class="n">get_config</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
 <span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">true_color</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;Gruvbox&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">TerminalInteractiveShell</span><span class="o">.</span><span class="n">highlighting_style</span> <span class="o">=</span> <span class="s1">&#39;GruvboxStyle&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -129,7 +129,7 @@ repository.</p>
 ‘pygments.promptnum’, ‘pygments.outprompt’, and
 ‘pygments.outpromptnum’.</p>
 <p>IPython uses these token groups as well, as can be observed
-in the methods for the class <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.terminal.prompts.html#IPython.terminal.prompts.Prompts" title="(in IPython v7.16.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.terminal.prompts.Prompts</span></code></a>.</p>
+in the methods for the class <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.terminal.prompts.html#IPython.terminal.prompts.Prompts" title="(in IPython v7.18.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.terminal.prompts.Prompts</span></code></a>.</p>
 <p>In [15]: get_ipython().prompts.in_prompt_tokens()
 Out[15]:
 [(Token.Prompt, ‘’),
@@ -153,9 +153,9 @@ provides a few utility methods not found in the super-classes.</p>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>The official source code for this library exists at
-<a class="reference external" href="https://github.com/farisachugthai/Gruvbox-IPython">https://github.com/farisachugthai/Gruvbox-IPython</a> and documentation
+<a class="reference external" href="https://github.com/farisachugthai/gruvbox_pygments">https://github.com/farisachugthai/gruvbox_pygments</a> and documentation
 that details how this Pygments plugin was made can be found at
-<a class="reference external" href="https://farisachugthai.github.io/Gruvbox-IPython/">https://farisachugthai.github.io/Gruvbox-IPython/</a>.</p>
+<a class="reference external" href="https://farisachugthai.github.io/gruvbox_pygments/">https://farisachugthai.github.io/gruvbox_pygments/</a>.</p>
 <p>Please open a pull request or an issue with any problems you see or any
 changes you’d recommend to the source code!</p>
 </div>
@@ -278,7 +278,7 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
 </div>
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Gruvbox IPython — A Pygments Style Designed for IPython</a><ul>
+<li><a class="reference internal" href="#">Gruvbox Pygments</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#ipython-setup">IPython Setup</a></li>
 <li><a class="reference internal" href="#usage">Usage</a><ul>
@@ -321,7 +321,7 @@ Sat <span class="m">01</span>/18/2020  <span class="o">(</span>hotfix -&gt; orig
       &copy;2019, Faris A Chugthai.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,6 +1,6 @@
-=========================================================
-Gruvbox IPython --- A Pygments Style Designed for IPython
-=========================================================
+================
+Gruvbox Pygments
+================
 
 .. moduleauthor:: Faris Chugthai
 
@@ -127,9 +127,9 @@ Contributing
 ============
 
 The official source code for this library exists at
-`<https://github.com/farisachugthai/Gruvbox-IPython>`_ and documentation
+`<https://github.com/farisachugthai/gruvbox_pygments>`_ and documentation
 that details how this Pygments plugin was made can be found at
-`<https://farisachugthai.github.io/Gruvbox-IPython/>`_.
+`<https://farisachugthai.github.io/gruvbox_pygments/>`_.
 
 Please open a pull request or an issue with any problems you see or any
 changes you'd recommend to the source code!
