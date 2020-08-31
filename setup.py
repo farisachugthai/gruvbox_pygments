@@ -27,7 +27,8 @@ KEYWORDS = [
     "colorschemes",
     "syntax highlighting",
 ]
-REQUIRED = ["pygments>=2.4", "IPython"]
+REQUIRED = ["pygments>=2.4"]
+TESTS=["pytest", "IPython"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = os.path.join(here, "README.rst")
@@ -56,7 +57,8 @@ setup(
     author=AUTHOR,
     author_email=EMAIL,
     url="https://github.com/farisachugthai/gruvbox_pygments",
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    # packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    packages=find_packages(),
     entry_points="""
         [pygments.styles]
         GruvboxStyle = gruvbox:GruvboxStyle
@@ -64,8 +66,8 @@ setup(
         """,
     # namespace_packages=setuptools.find_namespace_packages(),
     install_requires=REQUIRED,
-    tests_require="pytest",
-    extras_require={"docs": "sphinx"},
+    tests_require=TESTS,
+    extras_require={"docs": "sphinx", "IPython": "ipython", "test": TESTS},
     platforms="any",
     include_package_data=True,
     package_data={"": ["*.txt", "*.rst"],},
