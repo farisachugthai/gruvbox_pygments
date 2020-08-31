@@ -105,17 +105,14 @@ class GruvboxStyle(Style):
         Literal.String.Regex: GREEN,  # class: 'sr'
         Literal.String.Single: GREEN,  # class: 's1'
         Literal.String.Symbol: GREEN,  # class: 'ss'
+
         # basically the foundation of everything
         Keyword: "bold " + ORANGE,  # class: 'k'
-        Keyword: ORANGE,  # class: 'k'
         # True, False, None. `:hi pythonBoolean` is Purple
         Keyword.Constant: "noinherit " + PURPLE,  # class: 'kc'
-
         Keyword.Declaration: "nobold " + AQUA,  # class: 'kd'
-
         # from <---- x import y
         Keyword.Namespace: "noinherit " + BLUE,  # class: 'kn'
-
         # Keyword.Pseudo: "nobold",  # + GREEN,  # class: 'kp'
         Keyword.Pseudo: "italic " + GREEN,  # class: 'kp'
         # Keyword.Reserved: "",  # class: 'kr'
@@ -133,7 +130,6 @@ class GruvboxStyle(Style):
         Name.Constant: "noinherit " + BRIGHT_RED,  # class: 'no'
         # Only the @ in a decorator
         Name.Decorator: "bold " + BRIGHT_RED,  # class: 'nd'
-
         Name.Entity: AQUA,  # class: 'ni'
         Name.Exception: "noinherit " + PURPLE,  # class: 'ne'
         # You guessed it
@@ -144,7 +140,6 @@ class GruvboxStyle(Style):
         Name.Namespace: FOREGROUND,  # class: 'nn'
         Name.Other: BLUE,  # class: 'nx'
         # Name.Property: "",  # class: 'py'
-
         Name.Tag: "bold " + AQUA,  # class: 'nt'
         Name.Variable: BRIGHT_RED,  # class: 'nv'
         Name.Variable.Class: "noinherit bold " + BLUE,  # class: 'vc'
@@ -180,7 +175,7 @@ class GruvboxStyle(Style):
 
     def __iter__(self):
         """Iter needs to be defined for use with pygments formatters."""
-        return iter(self.style_rules)
+        return iter(self.style_rules.items())
 
     def dict_to_list_of_tuples(self, dictionary):
         tmp = []

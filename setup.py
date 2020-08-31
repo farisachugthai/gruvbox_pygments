@@ -3,11 +3,8 @@
 """Setup Gruvbox colorscheme as a python package."""
 import codecs
 import os
-import runpy
 import setuptools
 from setuptools import setup, find_packages
-
-import pkg_resources
 
 try:
     import gruvbox
@@ -39,18 +36,9 @@ try:
 except FileNotFoundError:
     long_description = DESCRIPTION
 
-about = {}
-
-try:
-    f = os.path.join(here, "gruvbox", "__version__.py")
-    ret = runpy.run_path(f)
-    about = ret["about"]
-except OSError:  # the file doesn't exist so hard code it
-    about = {"__version__": "0.0.2"}
-
 setup(
     name=NAME,
-    version=about["__version__"],
+    # version=about["__version__"],
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/restructuredtext",

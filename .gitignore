@@ -1,6 +1,7 @@
 # Gitignore
 
 # Repo specific
+.eggs
 '*.venv/**'
 .todo-cache   # wth is this?
 .idea/workspace.xml
@@ -30,7 +31,6 @@ dist/
 *.swp
 *.swo
 *~
-.vim/coc-settings.json
 
 # Flask
 venv/
