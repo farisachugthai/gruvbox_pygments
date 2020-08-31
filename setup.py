@@ -41,6 +41,7 @@ except FileNotFoundError:
 setup(
     name=NAME,
     # version=about["__version__"],
+    version="0.0.2",
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/restructuredtext",
