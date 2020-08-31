@@ -171,7 +171,7 @@ class GruvboxStyle(Style):
     style_rules = styles
 
     def __repr__(self):
-        return "%s" % (self.__class__.__name__)
+        return "%r" % (self.__class__.__name__)
 
     def __iter__(self):
         """Iter needs to be defined for use with pygments formatters."""
@@ -187,4 +187,4 @@ class GruvboxStyle(Style):
         return self.dict_to_list_of_tuples(self.style_rules)
 
     def __str__(self):
-        return f"{self.__class__.__name__}"
+        return "%s" % (self.__class__.__name__)
