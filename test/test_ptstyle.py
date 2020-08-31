@@ -1,3 +1,5 @@
+import unittest
+
 from prompt_toolkit.styles import Attrs, Style, SwapLightAndDarkStyleTransformation
 
 
@@ -239,11 +241,22 @@ def test_swap_light_and_dark_style_transformation():
 
     assert transformation.transform_attrs(before) == after
 
+def suite():
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.FunctionTestCase(test_style_from_dict))
+    suite.addTest(unittest.FunctionTestCase(test_class_combinations_1))
+    suite.addTest(unittest.FunctionTestCase(test_class_combinations_2))
+    suite.addTest(unittest.FunctionTestCase(test_substyles))
+    suite.addTest(unittest.FunctionTestCase(test_swap_light_and_dark_style_transformation))
+    return suite
+
 
 if __name__ == "__main__":
     try:
         import pytest
     except ImportError:
+        runner = unittest.TextTestRunner()
+        runner.run(suite())
         unittest.main()
     else:
         pytest.main()

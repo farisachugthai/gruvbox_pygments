@@ -11,6 +11,7 @@ from pygments.token import Token
 from pygments.util import ClassNotFound
 
 from gruvbox.gruvbox import GruvboxStyle
+from gruvbox.ptgruvbox import PtGruvboxStyle
 
 
 # def setup_module():
@@ -34,14 +35,14 @@ class TestGruvboxStyleAndIPython(unittest.TestCase):
         self.style = GruvboxStyle()
         # self.colorscheme = self._ip.highlighting_style.style_rules
         self.colorscheme = self.style.style_rules
+        self.expected_styles = {'GruvboxStyle': GruvboxStyle, 'PtGruvboxStyle': PtGruvboxStyle}
 
     def test_installation_smoketest(self):
-        # Probably the first one I should use actually
-        find_plugin_styles()
-
-    def test_installation_contains_gruvbox(self):
-        # TODO
-        pass
+        # Fairly simple test to ensure that we show up when querying styles
+        # using Pygments API
+        all_styles = {i: j for i, j in find_plugin_styles()}
+        # now test_installation_contains_gruvbox
+        self.assertDictEqual(all_styles, self.expected_styles)
 
     def test_background_color(self):
         self.assertEqual(self.colorscheme[Token.Generic], "#ebdbb2")
@@ -67,6 +68,14 @@ class TestGruvboxStyleAndIPython(unittest.TestCase):
     def test_case_sensitivity(self):
         with self.assertRaises(ClassNotFound):
             self._ip.highlighting_style = "gruvboxstyle"
+
+    def test_assignment_to_str_of_module(self):
+        with self.assertRaises(ClassNotFound):
+            self._ip.highlighting_style = "gruvbox.gruvbox"
+
+    def test_assignment_to_str_of_class(self):
+        with self.assertRaises(ClassNotFound):
+            self._ip.highlighting_style = "gruvbox.gruvbox.GruvboxStyle"
 
 
 if __name__ == "__main__":
